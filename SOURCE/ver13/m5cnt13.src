@@ -1,0 +1,1704 @@
+;********************************************************
+;*		$$$CNT.SRC	( SOUND CONTROL MAIN )	*
+;*  			ORG. M5CNT13.SRC               	*
+;*		'SOUND-SORCE'                           *
+;*		 for Mega Drive (Z80)			*
+;*			VER  1.31/1989.12.10		*
+;*				BY        T.Uwabo       *
+;********************************************************
+
+	.XLIST
+	include m5eq13.lib
+	include m5mcr13.lib
+	.LIST
+
+
+	public point_no,DT24BG,FOUTFL,pause_fl
+
+	
+
+	public	gate	
+	public	gate_str
+	public	fvr_str	
+	public	fvr_frq	
+	public	fvr_dely
+	public	fvr_lcnt
+	public	fvr_add	
+	public	fvr_lmt	
+	public	panstr	
+        public	pan_no	
+        public	pan_tbno
+        public	pan_ct0	
+        public	pan_ct1	
+        public	pan_ct2	
+        public	pan_ct3	
+	public	ECONT
+
+;---------------------------------------------------------------;
+;		ÇlÇ`ÇhÇm					;
+;---------------------------------------------------------------;
+
+SOUND::
+	CALL	pse_chk			; PAUSE CHECK*********
+	CALL	DLCNT				; 6/29
+	CALL	F_CHECK
+	CALL	KYSCAN
+	ld	a,(timer_use_flg)	; if timer A not using
+	or	a
+	call	p,se_scan		; then call
+;=======================================
+;	SOUND WORK ÇrÇbÇ`Çm
+;=====================================
+SOUND_SCAN::
+	xor	a
+	ld	(seflag),a
+	ld	ix,flags
+	bit	7,(ix+flag)
+	call	nz,rythm##
+	;----------< SONG SCAN >-----------
+song_scan::
+	ld	b,fm_tone_no+psg_no		
+	ld	ix,SNG_FM_CH0
+	jr	next_chian
+
+	;----------< S.E SCAN >-----------
+se_scan::
+	ld	a,1
+	ld	(seflag),a
+	LD	IX,SE_FM_CH0			; IX = S.E RAM TOP.
+	ld	b,se_no				; B = use s.e ram chiannel no.
+
+	if	back_se
+	call	next_chian
+	;----------< BACK S.E SCAN >-----------
+	ld	a,80H
+	ld	(seflag),a
+ 	ld	b,back_no			;  B = BACKs.e ram chiannel no.
+	ld	ix,BACK_CH
+	endif
+
+
+next_chian:
+	push	bc
+	BIT	7,(IX+FLAG)			;
+	CALL	NZ,chian_chk			;
+	LD	DE,FLGVOL			;
+	ADD	IX,DE				;
+	POP	BC				;
+	djnz	next_chian
+	ret
+
+
+;=======================================
+;     excut
+;======================================
+chian_chk::
+	bit	7,(ix+CHIAN)
+	jp	nz,psg_cnt##			; srcPSG.SRC
+
+
+	;---------< FM EXCUT >---------
+fm_cnt::
+	CALL	COUNTCHK
+	JR	NZ,NOPRIMAL
+	CALL	NEXTD
+	bit	4,(ix+flag)			; 
+	ret	nz
+
+	call	fvr_chk
+	CALL	PORTADD			; out: hl = freq
+	CALL	VIBR_CHK
+	CALL	FMSET
+	JP	KEYON
+NOPRIMAL::
+	call	autopan_2
+	bit	4,(ix+flag)		; null check
+	ret	nz
+	call	wow_chk
+	;-----<<< GATE TIME CHECK >>>-----
+	ld	a,(ix+gate)
+	or	a
+	jr	z,non_gate
+	dec	(ix+gate)
+	jp	z,KEYOFF_CHK
+non_gate:
+	CALL	PORTADD			; out: hl = freq
+	bit	6,(ix+flag)		; tbstay check
+	ret	nz
+	CALL	VIBR_CHK
+
+;===========================================
+;	ÇeÇqÇpÅ@ÇbÇgÇhÇoÅ@ÇrÇdÇs
+;==========================================
+; 	IN HL : freq data
+FMSET::					; HL = freq data
+	BIT	2,(IX+FLAG)
+	ret	nz
+	BIT	0,(IX+FLAG)
+	JP	NZ,FM_DTSET		; if detune mode then jump
+FMSET1:
+
+	;-------------------- write ---------------
+	LD	A,BFNO			; A = FM REG FREQ HIGH
+	LD	C,H			; C = FM FREQ DATA HIGH
+	rst	fm_wrt
+	LD	A,FNO			; A = FM REG FREQ LOW
+	LD	C,L			; C = FM FREQ DATA LOW
+	rst	fm_wrt
+	ret
+;=========================================
+;******* dtune mode freq set     ****
+;=========================================
+; 	in HL : FM freq data
+
+FM_DTSET::
+	LD	A,(IX+CHIAN)		; if chiann nel no. not 2
+	CP	02H
+	jr	NZ,FMSET1
+	;--------------< DETUNE SET >--------------
+	CALL	dt_adr_get
+
+fset1:
+	exx
+	LD	HL,BFSLTB		; DETUNE freq set FM REG table
+	ld	b,4
+fset1_loop:
+	ld	a,(hl)			; a = FM REG. /hl = fmreg table addr
+	push	af
+	inc	hl
+	exx				; de = dt freq store ram
+	ex	de,hl
+	ld	c,(hl)			; dt freq low
+	inc	hl
+	ld	b,(hl)			; dt freq hi
+	inc	hl
+	ex	de,hl
+	LD	L,(IX+FREQB)
+	LD	H,(IX+FREQB+1)		; HL=freq data
+	add	hl,bc
+	;----------< FM frequency data set >------------
+	;   IN  HL : freq high , low
+	;	A  : FM REG DATA
+FMDTN::
+	pop	af
+	PUSH 	AF
+	LD	C,H			; C = H : FM FREQ DATA
+	rst	fm_dwr
+	POP	AF			; REG DATA GET
+	SUB	4			; FREQ LOW REG. making
+	LD	C,L			
+	rst	fm_dwr
+	exx
+	djnz	fset1_loop
+	exx
+	ret
+
+BFSLTB:		; DETUNE freq set FM REG table
+	DB	BFSL1,BFSL2,BFSL3,BFSL4
+
+	;-------------------------------
+	;	detune addr get		
+	;-------------------------------
+	; in : none
+	; out : de = store addr point
+dt_adr_get::
+	ld	de,DT21bg
+	LD	A,(SEFLAG)
+	OR	A			; if SEFLAG= Z
+	ret	Z
+	ld	de,DT21SE
+	ret	p
+	ld	de,DT21BK
+	ret
+
+;===============================;
+;	TABLE DATA GET		;
+;===============================;
+NEXTD::
+	LD	E,(IX+TBPON)
+	LD	D,(IX+TBPON+1)		; DE=table pointer addr
+	RES	1,(IX+FLAG)
+	RES	4,(IX+FLAG)
+NEXTD1::
+	LD	A,(DE)			; A=sound table data
+	INC	DE			; DE=table pointer+1
+	CP	0E0H			; if data>0DFH (command)
+	JP	NC,NEXCOM##		; then jump.
+
+	ex	AF,AF'
+	CALL	KEYOFF_CHK
+	CALL	autopan_1
+	ex	AF,AF'
+
+	BIT	3,(IX+FLAG)		; if nz then direct freq (jump)
+	JP	NZ,drct_nextd
+nomal_nextd:
+	or	a
+	jp	p,leng_set0		; leng & flag set
+	SUB	081H
+	jp	p,getfrq0
+	call	clear##			; when NL
+	jr	null_jmp
+
+getfrq0::
+	ADD	A,(IX+BIAS)
+	LD	HL,SCALE		; psg scale
+	push	af
+	rst	gettbl_sub		; HL = pag freq data
+	pop	af
+	bit	7,(ix+chian)		; bit 7 : 1 = psg
+	jr	nz,getfrq1		; then jump
+
+	;--------<< FM FREQ GET >>>------------
+	push	de
+	ld	d,8H		; block data
+	ld	e,12		; scale = 12 note
+	ex	af,af'
+	xor	a		; a = block data
+fmfrq_loop::
+	ex	af,af'		; a = note data
+	sub	e
+	jr	c,fmfrq_0
+	ex	af,af'
+	add	a,d		; a = block data
+	jr	fmfrq_loop
+	ex	af,af'
+fmfrq_0::
+	add	a,e			; a = scale pointer 0 - 11
+	LD	HL,SCALE1		; fm scale
+	rst	gettbl_sub		; HL = freq
+	ex	af,af'			; a = bloc data
+	or	h
+	ld	h,a			; h = block freq data
+
+	pop	de
+getfrq1:
+	LD	(IX+FREQB),L		; freq low set
+	LD	(IX+FREQB+1),H		; freq high set
+null_jmp:
+	BIT	5,(IX+FLAG)		; if portment mode
+	jr	nz,n_port_nextd
+n_nomal_nextd::
+	ld	a,(de)
+	or	a
+	jp	p,leng_set00		; if table data = leng then jump
+	ld	a,(ix+ecstr)		; get last leng data
+	ld	(ix+lcont),a		;   & set leng data
+	jr	flg_set
+
+
+	;-----< nomal portment mode nextd >---------
+n_port_nextd:
+	ld	a,(de)
+	inc	de
+	ld	(ix+port_frq),a
+	jr	leng_set
+
+
+;=========================================
+;	direct freq mode nextd
+;=========================================
+drct_nextd:
+	LD	H,A			; A=freq high
+	LD	A,(DE)			; 
+
+	INC	DE			; DE=next table pointer
+	LD	L,A			; HL= FREQ DATA
+	OR	H			; if HL=0 (null)
+	JR	Z,FBSET			; then jump
+	LD	A,(IX+BIAS)
+	LD	B,0
+	OR	A
+	JP	P,FBPLUS
+FBMINUS::	;<<<<<< BIAS data= minus >>>>>>		
+	DEC	B			; B = 0FFH
+FBPLUS::		; <<<< BIAS data = plus >>>>>
+	LD	C,A
+	ADD	HL,BC
+FBSET:
+	LD	(IX+FREQB),L		; store freq low
+	LD	(IX+FREQB+1),H		; store freq high
+	;
+	BIT	5,(IX+FLAG)		; if portment then jump
+	jr	z,leng_set
+
+	;-----< direct portment mode nextd >---------
+d_port_nextd::
+	ld	a,(de)
+	inc	de
+	ld	(ix+port_frq),a
+
+;==================================
+;	length set
+;==================================
+leng_set::
+	ld	a,(de)
+leng_set00::
+	inc	de
+leng_set0::
+	call	leng_calc
+NLNGSET::
+	LD	(IX+ECSTR),A
+
+;=======================;
+; COUNTER CLEAR		;
+;=======================;
+flg_set::
+	LD	(IX+TBPON),E
+	LD	(IX+TBPON+1),D
+
+	LD	A,(IX+ECSTR)
+	LD	(IX+LCONT),A
+	bit	1,(ix+flag)		; cmtab command ?
+	ret	nz
+	XOR	A
+	LD	(IX+VCONT),A
+	LD	(IX+vib_add),A
+	LD	(IX+ECONT),A
+
+	ld	a,(ix+gate_str)
+	ld	(ix+gate),a
+	ret
+
+;------------------------
+;	length * base
+;------------------------
+;	in    A = DATA
+;	break  B,C
+;	OUT   A = calc data
+leng_calc::
+	LD	B,(IX+CBASE)	; B=base addr.
+	DEC	B		; if base data=1
+	ret	Z		; then ret
+	LD	C,A		; a=length data
+leng_loop:
+	ADD	A,C		; length data * base
+	DJNZ	leng_loop
+	ret
+;------------------------
+;	auto pan 1
+;------------------------
+autopan_1::			; mode 1 only
+	ld	a,(ix+pan_no)		; pan_no = 0
+	dec	a			; then no auto pan pan.
+	ret	m
+	jr	nz,pan_2		; mode 1 only
+	;  new data read and set pan data
+pan_1::			; ct0 = pan table point start no
+			; ct1 = pan point upper limit
+			; ct2 = pan length count data
+			; ct3 = pan length counter
+			; tbno = pan table no.        
+	bit	1,(ix+flag)		; tie flag check
+	ret	nz			; 1 = tie then ret
+pan_set::
+	dec	(ix+pan_ct3)
+	ret	nz
+	EXX
+	ld	a,(ix+pan_ct2)
+	ld	(ix+pan_ct3),a		; counter reset
+
+	ld	a,(ix+pan_tbno)		;table no. get
+	ld	hl,pan_addr_tb
+	rst	gettbl_sub
+
+
+	ld	e,(ix+pan_ct0)		; get table point no.
+	inc	(ix+pan_ct0)		; get table point no.
+	ld	a,(ix+pan_ct1)		; limit check
+	dec	a
+	cp	e
+	jr	nz,pan_10
+	;
+	dec	(ix+pan_ct0)		; if pan mode = 2
+	ld	a,(ix+pan_no)		; then not reset counter
+	cp	2
+	jr	z,pan_10
+	ld	(ix+pan_ct0),0		; raset counter
+pan_10::
+	ld	d,0
+	add	hl,de
+	ex	de,hl		; DE = table addr.
+	call	jpan##		; cmd.src
+	exx
+	ret
+
+
+;------------------------
+;	auto pan 2  (nextd)
+;------------------------
+;	length data reset
+pan_2::
+	xor	a
+	ld	(ix+pan_ct0),a
+;------------------------
+;	auto pan 2  
+;------------------------
+autopan_2::
+	ld	a,(ix+pan_no)		; pan_no = 0,1
+	sub	2			; then ret
+	ret	m
+	jr	pan_set
+
+
+pan_addr_tb::
+	dw	pan_0_data,pan_1_data,pan_2_data,pan_3_data
+pan_0_data::
+	db	0c0h
+pan_1_data::
+	db	080h
+pan_2_data::
+	db	0c0h
+pan_3_data::
+	db	040h
+	db	080h
+	db	0c0h
+
+;================================
+;
+;================================
+COUNTCHK::
+	LD	A,(IX+LCONT)
+	DEC	A
+	LD	(IX+LCONT),A
+	RET
+
+;-------------------------------------
+;	wow check
+;-------------------------------------
+wow_chk::
+	ld	a,(ix+fm_eno)		; a = fm enve no.
+	or	a
+	ret	z
+	ret	m			; 80h = ssg using
+
+	dec	a
+	ld	c,evadr_offset
+	rst	adr_get_sub
+	rst	gettbl_sub		; HL = enve table top
+	call	ENVS##			; a = enve data
+
+	ld	h,(ix+TLADR+1)
+	ld	l,(ix+TLADR)		; hl = total level data addr.
+	ld	de,fmreg_tl_tb
+	ld	b,4			; reg count
+	ld	c,(ix+fm_eflg)		;   bit 3  2  1  0  -- SL1
+					;       |  |  |
+					;     SL4 SL3 SL2
+					;
+wow_chk_loop::
+	push	af
+	sra	c			; c = slot bit data
+	push	bc
+	jr	nc,wow_next
+	add	a,(hl)			; hl = tl data point
+	and	7fh			; bit 7 = off
+	ld	c,a			; c = data
+	ld	a,(de)			; a = fmreg
+	rst	fm_wrt
+wow_next::
+	pop	bc
+	inc	de
+	inc	hl
+	pop	af
+	djnz	wow_chk_loop
+
+	ret
+;-------------------------------------
+;	FVR check    (after NEXTD)
+;-------------------------------------
+fvr_chk::
+	bit	7,(ix+vibr)
+	ret	z
+	bit	1,(ix+flag)		; if tie command then ret
+	ret	nz
+	ld	e,(ix+fvr_str)
+	ld	d,(ix+fvr_str+1)
+	push	ix
+	pop	hl
+	ld	b,0
+	ld	c,fvr_dely
+	add	hl,bc		; 
+	ex	de,hl		; HL = FVR data point
+				; DE = chinnel ram
+	ldi
+	ldi
+	ldi
+	ld	a,(hl)		; HL = limit data point
+	srl	a
+	ld	(de),a
+	xor	a
+	ld	(ix+fvr_frq),a
+	ld	(ix+fvr_frq+1),a
+	ret
+
+;-------------------------------------
+;ÇuÇhÇaÇqÅ@ÇbÇgÇdÇbÇj  
+;------------------------------------
+	;   hl = freq data
+VIBR_CHK::
+;	LD	L,(IX+FREQB)
+;	LD	H,(IX+FREQB+1)		; HL = freq data
+	LD	A,(IX+VIBR)		; A= vibr no.
+	or	a
+	ret	z
+
+	cp	80h
+	jr	nz,tbl_vibr
+	;-----------<<< calc mode >>>----------
+	;		HL : freq data
+	dec	(ix+fvr_dely)
+	ret	nz
+cvibr_cunt::
+	inc	(ix+fvr_dely)
+	push	hl			; hl = freq data
+	ld	l,(ix+fvr_frq)
+	ld	h,(ix+fvr_frq+1)
+	dec	(ix+fvr_lcnt)
+	jr	nz,cvibr_add
+
+	;--------- counter renew -------
+	ld	e,(ix+fvr_str)
+	ld	d,(ix+fvr_str+1)
+	push	de			; hl = FVR data top point
+	pop	iy
+	ld	a,(iy+1)		; a = counter data
+	ld	(ix+fvr_lcnt),a
+
+	;---------<<< add freq renew >>>-------
+	ld	a,(ix+fvr_add)
+	ld	c,a
+	and	80h
+	rlca
+	neg
+	ld	b,a			; +/- data
+	add	hl,bc
+	ld	(ix+fvr_frq),l
+	ld	(ix+fvr_frq+1),h
+cvibr_add:
+	pop	bc			; bc = freq data
+	add	hl,bc			; hl = vibr freq
+
+	dec	(ix+fvr_lmt)
+	ret	nz
+	
+	ld	a,(iy+3)
+	ld	(ix+fvr_lmt),a
+	ld	a,(ix+fvr_add)
+	neg
+	ld	(ix+fvr_add),a
+	ret			; HL = freq data
+
+
+ 
+
+	;-----------<<< table vibr mode >>>----------
+
+tbl_vibr:
+FVIBR2::				
+	DEC	A
+	EX	DE,HL			;DE = freq
+	ld	c,vbadr_offset
+;	ld	b,80h
+;	call	rr_adr_get
+	rst	adr_get_sub
+	rst	gettbl_sub
+	jr	VIBRS			; HL = freq data after vibr.
+
+;==============================
+;	VIBRAT SET
+;==============================
+		; input: HL=vibr table addr
+		;	 DE= freq data
+		; out :  HL = freq data
+VIBRS1::
+	LD	(IX+VCONT),A
+VIBRS::					; HL = vibr table addr.
+	PUSH	HL			; HL store
+ 	LD	C,(IX+VCONT)		; C= vibrate table counter
+	call	get_byte
+	POP	HL			; HL= vibr tabl addr
+	BIT	7,A			; if bit 7 on then command
+	JP	Z,VIBRS2
+	CP	TBBAK			; if data=TBBAK then jump
+	JR	Z,VTBBAK
+	CP	TBREPT			; if data=TBREPT then jump
+	JR	Z,VTBREPT
+	CP	TBADD			; if data=TBADD then jump
+	JR	Z,VTBADD
+	LD	H,0FFH			; minus 
+	JR	NC,vibr_add
+VTBSTY::					; if data=TBSTAY or TBEND 
+	set	6,(ix+flag)
+	POP	HL			; stack get
+	RET				; RETURN TO MAIN
+VTBBAK::
+	INC	BC			; when TBBAK
+	LD	A,(BC)
+	JR	VIBRS1			; then vibr counter set
+VTBREPT::
+	XOR	A			; when data=TBREPT then
+	JR	VIBRS1			; (vibr counter)=0
+
+VTBADD:	;---------- TBADD,<add data> ------- 
+	; after this command,vibrdata= ( [table data]-0 )*[ add data]
+	INC	BC
+	LD	A,(BC)
+	ADD	A,(IX+VIB_ADD)
+	LD	(IX+VIB_ADD),A
+	INC	(IX+VCONT)
+	INC	(IX+VCONT)
+	JR	VIBRS
+
+
+
+;--------------------- freq data + vibr data -------------
+VIBRS2::		; <<<<<< when vibr normal data >>>>>
+  	LD	H,0			; plus 
+vibr_add:	;--------- vib_add check -----
+ 	LD	L,A			; A=vibr data
+	LD	b,(IX+VIB_ADD)
+	inc	b
+vib_ad:
+	EX	DE,HL			; DE = vibr data/ HL = freq data
+vib_ad_loop:
+ 	ADD	HL,DE
+	djnz	vib_ad_loop
+	INC	(IX+VCONT)
+	RET
+
+;====================================
+;ÇjÇdÇxÇnÇm
+;====================================
+KEYON::
+	LD	A,(IX+FREQB)
+	OR	(IX+FREQB+1)
+	RET	Z			; freq = 0 (nl) then ret
+	ld	a,(ix+flag)
+	and	006h			; bit 1(no key on),2(disable) check
+	RET	NZ			; 
+	LD	A,(IX+CHIAN)		; GET CHANNEL NUMBER
+	OR	0F0H			; GET KEY ON DATA
+	LD	C,A			; C = FM DATA
+	LD	A,KEYCON		; A = FM REG
+;	JP	OPN_DIRECT_WR			; key on data set
+	rst	fm_dwr
+	ret
+;==============================================
+;ÇjÇdÇxÅQÇnÇeÇeÅ@ÇbÇgÇdÇbÇj
+;==============================================
+KEYOFF_CHK::
+	ld	a,(ix+flag)
+	and	06h			; bit 1(no key on),2(disable) check
+	ret	nz
+keyoff_ch::
+	LD	C,(IX+CHIAN)		;
+	bit	7,c
+	ret	nz
+	;=======================;
+	;	KEY OFF		;
+	;=======================;
+KEYOFF::
+	LD	A,KEYCON		;
+	rst	fm_dwr
+	ret
+
+;=========================================================
+;ÇoÇnÇqÇsÅ@Ç`ÇcÇcÅ@ÇeÇqÇdÇpÇdÇmÇbÇxÅ@ÇfÇdÇs
+;=========================================================
+PORTADD::		;--------<<< detune portment add >>>--------
+	LD	b,0
+	LD	A,(IX+port_frq)		; A= FM portment data 
+	OR	A
+	JP	P,port_pls
+	dec	b			; b = 0ffh
+port_pls::
+	ld	h,(ix+freqb+1)
+	ld	l,(ix+freqB)
+	ld	c,a
+	add	hl,bc
+	bit	7,(ix+chian)		; if psg
+	jr	nz,dt_chk               ;   then jump
+	;<<<<< fm FREQ CHECK >>>>>>
+	ex	de,hl			; de = freq
+	ld	a,7
+	and	d
+	ld	b,a
+	ld	c,e			; bc = freq ( 0-11 bit)
+lower_chk::				; 
+	or	a
+	ld	hl,frq_c-1		; hl = lower limit data
+	sbc	hl,bc
+	jr	c,upper_chk
+	ld	hl,frq_c1-(frq_c-1)-800h	; oct set
+	add	hl,de			; hl = oct add. freq, de = data
+	jr	dt_chk
+
+upper_chk::
+	or	a
+	ld	hl,frq_c1		; hl = upper limit data
+	sbc	hl,bc
+	jr	nc,up_chk_end
+	ld	hl,800h-frq_c1+frq_c	; oct set
+	add	hl,de
+	ex	de,hl
+up_chk_end::
+	ex	de,hl
+dt_chk::				; hl = freq
+	BIT	5,(IX+FLAG)		; if bit 5 = 1 then portment mode
+	ret	z
+
+	ld	(ix+freqb+1),H
+	ld	(ix+freqb),L
+	ret
+
+
+;==================================================
+; <<<<<<<  table addr get from (tb_adr_str) >>>>>>>
+;           AND get table data 1 byte
+;==================================================
+		; in : (tb_adr_str) = addrtb adrr.
+		;      c = table offset
+		; out : HL = table point addr
+		; break BC
+adr_get1::
+		add	hl,bc
+		ex	af,af'
+		rst	get_tb_addr_sub
+		ex	af,af'
+		ret
+
+
+;===================================
+; <<<<<<<  table addr get  >>>>>>>
+;===================================
+		; TABLE ADDR GET FOR VIBR,ENVE
+		; INPUT : C=NO. (0~)
+		;   	  HL = TABLE ADDR
+		;   OUT   A = DATA
+		;  BREAK A,HL,BC
+get_byte::
+	LD	B,0
+	ADD	HL,BC			; HL= vibr data addr
+	LD	C,L
+	LD	B,H			; BC = vibr data addr	
+	LD	A,(BC)			; A=vibr data
+	ret
+
+;--------------------------------
+;	voice data addr get
+;---------------------------------
+;	in : B = fm voice no
+;	out : HL = VOICE TABLE TOP
+;       distroy  A,B,HL,DE
+TIMADS::
+	LD	HL,(SONG_VOICE)
+	LD	A,(seflag)
+	OR	A
+	JR	Z,TIM_AD0
+SE_TIM:				;-------- S.E voice top addr get >---------
+	ld	l,(ix+se_voice_addr)
+	ld	h,(ix+se_voice_addr+1)
+TIM_AD0::
+	XOR	A
+	OR	B
+	JR	Z,TIM_LOOP_END
+	ld	de,voice_vol
+TIM_LOOP:
+	ADD	HL,DE
+	DJNZ	TIM_LOOP
+TIM_LOOP_END:
+	RET
+
+
+;==============================================
+;	OPN WRITE SUB ROUTIN
+;	A.reg	= REGISTER DATA
+;	C	= DATA
+OPNWR::
+	BIT	2,(IX+CHIAN)
+	JR	NZ,OPN2WR
+
+	;---------------< OPN 1 write >--------------
+	; IN A : FM REG
+	;    C : FM DATA
+OPN1WR::
+	BIT	2,(IX+FLAG)
+	RET	NZ
+	ADD	A,(IX+CHIAN)		; A = FMREG
+OPN_DIRECT_WR::
+	LD	(OPNADDRESS),A
+	RST	bsy_chk
+	LD	A,C			; C = FM DATA
+	LD	(OPNDATA),A
+	RET
+
+	;---------------< OPN 2 write >--------------
+	; IN A : FM REG
+	;    C : FM DATA
+OPN2WR::
+	BIT	2,(IX+FLAG)
+	RET	NZ
+	ADD	A,(IX+CHIAN)
+	SUB	4			; A = FM REG DATA
+OPN2_DIRECT_WR:
+	LD	(OPN2ADDRESS),A		
+OPN2WR3:
+	RST	bsy_chk
+	LD	A,C
+	LD	(OPN2DATA),A
+	RET
+
+
+;************************************************************************
+;	LOAD DATA TO OPN
+;		IN	DE = TABLE ADDRESS
+;		DESTROY BC.reg
+;			HL = TABLE POINTER
+FMREG_TB::
+	db	FBC	; ,RL
+	db	MU1,MU2,MU3,MU4
+	db	AR1,AR2,AR3,AR4
+	db	DR1,DR2,DR3,DR4
+	db	SR1,SR2,SR3,SR4
+FMREG_RR_TB::
+	db	RR1,RR2,RR3,RR4
+fmreg_tl_tb::
+	db	TL1,TL2,TL3,TL4
+
+fmreg_ssg_tb::		; but not use LOADFMDATA routin ( SSG COMMAND USE)
+	db	SSG1,SSG2,SSG3,SSG4
+
+
+LOADFMDATA::
+	LD	DE,FMREG_TB
+	;----------- L/R SET ------------
+	LD	c,(ix+panstr)
+	ld	a,RL
+	rst	fm_wrt
+LOADFMDATA1::
+	;------------- ALGO SET --------
+	CALL	FMDATA_SET			; A = VOICE DATA
+	LD	(IX+ALGCK),A
+	;---------- OTHER DATA SET --------
+	LD	B,26-6
+LOAD_LOOP:
+	CALL	FMDATA_SET
+	DJNZ	LOAD_LOOP
+	LD	(IX+TLADR),L		; DE = fmreg_tl_tb
+	LD	(IX+TLADR+1),H		; HL = TL data point
+	JP	JTIMV##			; VOLM DATA SET
+
+;-----------------------------------------
+;	FM VOICE DATA 1 BYTE SET TO CHIP
+;	IN   DE : FM REG. TABLE OPINTER
+;	     HL : FM VOICE TABLE POINTER
+;	OUT   A : VOICE TABLE DATA
+
+FMDATA_SET::
+	LD	A,(DE)			; A =FM REG DATA
+	INC	DE
+	LD	C,(HL)			; C = VOICE DATA
+	INC	HL
+	rst	fm_wrt
+	ret
+
+;==============================================================
+	; <<<<<<< KYSCAN >>>>>>>
+KYSCAN::
+	LD	A,(KYFLAG0)	; A=key no.
+kyscan0::
+	BIT	7,A		; if key no<80h then
+	JP	Z,CHAMUS	; jump CHAMUS (sunnd off)
+	CP	SESTRT		; if no<sestrt then SONG.
+	JP	C,SONG
+	CP	SEEND+1
+	JP	C,SETSE0
+	CP	UTLST		; NO<UTLST then BACK S.E
+		IF back_se
+		JP	C,SETSE1
+		ELSE
+		JP	C,CHAMUS
+		ENDIF
+	CP	LSTNO+1
+	JP	NC,CHAMUS
+;=======================
+; UTLTY & VOICE SEND
+;======================
+UTLTY::
+	SUB	UTLST
+	LD	HL,UTLTB
+	rst	gettbl_sub
+	xor	a
+	ld	(sdfl),a	; pliolty clear
+	JP	(HL)
+
+UTLTB::
+	DEFW	FOUT,CHAMUS,CLRPSG,back_se_clr
+
+;----------------------------------
+;
+;-----------------------------------
+back_se_clr:
+	ld	ix,BACK_CH
+	ld	b,2
+	ld	a,80h
+	ld	(seflag),a
+back_se_loop:
+	push	bc
+	bit	7,(ix+flag)
+	call	nz,jend_call
+back_se_ret:
+	ld	de,flgvol
+	add	ix,de
+	pop	bc
+	djnz	back_se_loop
+	ret
+
+jend_call:
+	push	hl
+	push	hl
+	jp	jend##
+
+;=======================================
+;	SONG SET			;
+;=======================================
+SONG::
+	SUB	081H
+	RET	M
+
+	PUSH	AF
+	CALL	CHAMUS
+	POP	AF
+	;
+	;---------< headder top addr get >-------
+	ld	c,bgadr_offset
+;	ld	b,8			;  b = compere data
+					; a < b  ram else rom
+;	call	rr_adr_get
+	rst	adr_get_sub
+	rst	gettbl_sub
+
+	;---------< SONG voice table top addr get >-------
+	PUSH	HL
+	PUSH	HL
+	rst	get_tb_addr_sub
+;	CALL	GET_TB_ADDR
+	LD	(SONG_VOICE),HL
+	POP	HL				; HL = SONG headder addr.
+	POP	IY				; IY = song headder top
+	;
+	LD	A,(IY+HD_DLCNT)
+	LD	(RCUNT),A
+	LD	(CUNTST),A
+	;
+	LD	DE,6
+	ADD	HL,DE				; HL = headder chiannel top
+	LD	(HD_CHIAN_ADR),HL
+	;---------<  FM HEADDER SET TO RAM  >-------------
+SONG_HD::
+	LD	HL,FLAG_FMTB
+	LD	(FLG_TBPON),HL
+	LD	DE,FLAGS+TB20CH
+	LD	B,(IY+HD_FMCH)
+	LD	A,(IY+HD_BASE)
+SONG_HD_LOOP::
+	PUSH	BC
+	;------< flag set to ram >------------
+	LD	HL,(FLG_TBPON)
+	LDI					; flag set
+	LDI                                     ; chiannel set
+	LD	(DE),A                          ; base set    
+	INC	DE
+	LD	(FLG_TBPON),HL
+	;------< headder set to ram >-------
+	LD	HL,(HD_CHIAN_ADR)
+	LDI					; tbpon low set
+	LDI                                     ; tbpon high set
+	LDI                                     ; bias set
+	LDI                                     ; volm set       
+	LD	(HD_CHIAN_ADR),HL
+
+	CALL	STACK_SET_FM
+
+	POP	BC
+	DJNZ	SONG_HD_LOOP
+
+	;---------<  PSG HEADDER SET TO RAM  >-------------
+SONG_HDP::
+	LD	A,(IY+HD_PSGCH)
+	OR	A
+	JP	Z,SSS
+	;
+	LD	B,A			; B = counter
+	LD	HL,FLAG_PGTB
+	LD	(FLG_TBPON),HL
+	LD	DE,SNG_PSG_CH0
+	LD	A,(IY+HD_BASE)
+SONG_HDP_LOOP::
+	PUSH	BC
+	;------< flag set to ram >------------
+	LD	HL,(FLG_TBPON)
+	LDI					; flag set
+	LDI					; chiannel set
+	LD	(DE),A			  	; base set    
+	INC	DE
+	LD	(FLG_TBPON),HL
+	;------< headder set to ram >-------
+	LD	HL,(HD_CHIAN_ADR)
+	LD	BC,6
+	LDIR
+	LD	(HD_CHIAN_ADR),HL		; DE = chiannel stac point
+	;
+	CALL	STACK_SET
+	;
+	POP	BC
+	DJNZ	SONG_HDP_LOOP
+SSS::
+	LD	A,80H
+	LD	(KYFLAG0),A
+	RET
+
+	if	0
+;-------------------------
+;	rom/ram addr. get
+;------------------------
+;	IN c = table offset
+;	   b = dividing no.
+;       OUT hl = data top addr point.	
+rr_adr_get::
+	cp	b
+	jr	c,ram_song
+	sub	b
+adr_get_rom::
+	ld	hl,rom_adrtb
+	call	adr_get0
+	jr	song_0
+ram_song:
+	rst	adr_get_sub
+song_0:
+	rst	sendtb_sub
+	ret
+	endif
+DAMMY_RAM::		; dammy rum
+FLAG_FMTB::
+	DB	80H,2,80H,0,80H,1,80H,4,80H,5,80H,6,80H,2
+FLAG_PGTB::
+	DB	80H,80H,80H,0A0H,80H,0C0H
+
+
+;===============================================
+;	BACK S.E				;
+;===============================================
+SETSE1:
+	IF	back_se
+
+	SUB	BKSTRT
+	ex	af,af'
+	LD	A,80H
+	ld	c,bkseadr_offset
+
+	jr	jp_from_backse		; 
+
+
+;=======================================
+;	S.E SELECT			
+;=======================================
+SETSE0::	
+	SUB	SESTRT
+	ex	af,af'
+	xor	a
+	ld	c,seadr_offset
+jp_from_backse:
+	ld	(seflag),a			; back s.e = 80h / s.e = 0
+	ex	af,af'
+;	ld	hl,rom_seno_str
+;	ld	b,(hl)
+	rst	adr_get_sub
+	rst	gettbl_sub
+	;---------< S.E voice table top addr get >-------
+	PUSH	HL				
+	rst	get_tb_addr_sub
+	LD	(SE_VOICE),HL
+	XOR	A
+	ld	(endfl),a
+	POP	HL				; HL = headder addr.
+	PUSH	HL
+	POP	IY				; IY = headder top point
+	ld	A,(IY+sehd_base)
+	ld	(sehd_base_str),a
+	;
+	LD	DE,4
+	ADD	HL,DE				; HL = headder chiannel top
+
+	LD	B,(IY+SEHD_CH_NO)
+SETSE_LOOP::
+	PUSH	BC			; counter push
+	PUSH	HL			; hl = chiannel headder point
+	INC	HL
+	LD	C,(HL)			; C = chiannel no.(koff data)
+
+	CALL	get_wk_addr	     ; HL =song/ix=s.e/iy=back s.e work addr.
+	SET	2,(HL)			; song work disable bit on.
+	;
+	push	ix			; push s.e ram addr
+	ld	a,(seflag)
+	or	a
+	jr	z,setse_ram_addr
+	pop	hl			; dammy get
+	push	iy			; push	back s.e ram addr.
+setse_ram_addr:
+	pop	de			; DE = use chiannel ram addr.
+	pop	hl			; hl = chiannel headder point
+	LDI				; flag set
+	;---------<<< nomal mode set >>>----
+	ld	a,(de)			; if chiannel = 2
+	cp	2
+	call	z,OPNINITIAL		; then s.e mode clear
+	LDI				; use chian set
+	LD	A,(sehd_base_str)
+	LD	(DE),A			; base set
+	INC	DE
+	LDI				; tbpon low
+	LDI				; tbpon high
+	LDI				; bias set
+	LDI				; volm set
+	CALL	STACK_SET_FM		; de = next chiannel ram
+					; hl = next chian. headder point.
+	;------------< back s.e disable >------
+	bit	7,(ix)			; IX = ram top / if s.e chiannel using
+	jr	z,set_non		;   then back s.e disable.
+	ld	a,(ix+chian)
+	cp	(iy+chian)		; if back_se chiannel not =
+	jr	nz,set_non		;   s.e chiannel then jump.
+	set	2,(iy)			; IY = back s.e ram top
+set_non::
+	push	hl
+	ld	hl,(SE_VOICE)
+	ld	a,(seflag)
+	or	a
+	jr	z,set_non_se
+set_non_backse:
+	push	iy
+	pop	ix
+set_non_se::				; ix = chiannel work top point
+	ld	(ix+se_voice_addr),l
+	ld	(ix+se_voice_addr+1),h
+
+	CALL	KEYOFF_CHK
+
+	call	ssg_clear
+	pop	hl
+	pop	bc			; counter get
+	DJNZ	SETSE_LOOP
+	JP	SSS
+
+
+	;<<<<<<<<<<<  >>>>>>>>>>>>>>
+	;--------------------------------------------
+	;	disable or enable work addr get
+	;--------------------------------------------
+get_wk_addr::
+	;     clear chip & 
+	;	in :  C = chiannel no.
+	;	out: HL = song  chiannel ram top
+	;	     iy = back s.e chiannel ram top 
+	;            ix = s.e chiannel ram top
+		if	psg_se
+	bit	7,c
+	jr	nz,se_psg_hd
+		endif
+se_fm_hd::
+	ld	a,c
+;	ex	af,af'
+;	CALL	KEYOFF_CHK
+;	ex	af,af'
+set_se_non:
+	sub	2	; FM CH 2=>0 3=>1 4=>2 5=>3  6=>4h
+	jr	dis_chian
+
+		if	psg_se
+se_psg_hd::
+	ld	a,1fh		; a= chiannel no.
+	call	clear1##
+	ld	a,0ffh
+	ld	(psg),a
+	LD	A,C
+	srl	a
+	srl	a
+	srl	a
+	srl	a
+	srl	a		; 80h =>4h  0a0h => 05h  0c0h => 06h
+	INC	A		; 80h =>5h  0a0h => 06h  0c0h => 07h
+		endif
+	;----------<<< song  chiannel disable >>>------
+dis_chian::			
+	ld	(point_no),a
+	push	af
+	LD	HL,SECHTB
+	rst	gettbl_sub
+	push	hl
+	pop	ix		; ix = s.e chiannel ram top
+	pop	af
+	push	af
+	LD	HL,BACKSECHTB
+	rst	gettbl_sub
+	push	hl
+	pop	iy		; iy = back s.e chiannel ram top
+	pop	af		; a = point no.
+	LD	HL,DISCHTB
+	rst	gettbl_sub	;  hl = song  chiannel ram top
+	ret
+
+	;----------------------------------------------------------
+	;--------< chiannel ram stack,econt,lcont data set >-------
+	;----------------------------------------------------------
+	;	in :	de = work addr
+	;		hl = headder data point
+STACK_SET_FM::
+	ex	af,af'
+	xor	a
+	ld	(de),a		; enve
+	inc	de
+	ld	(de),a		; vibr
+	inc	de
+	ex	af,af'
+STACK_SET::
+	EX	DE,HL			; hl = ram addr
+	LD	(HL),FLGVOL		; stack set
+	INC	HL
+	LD	(HL),0c0h		; panstr set
+	INC	HL
+	LD	(HL),1			; lcont set
+	ld	b,FLGVOL-12
+stack_set_loop::
+	inc	hl
+	ld	(hl),0
+	djnz	stack_set_loop
+	inc	hl
+	EX	DE,HL			; DE = next channel ram addr.
+					; hl = next channel data point.
+	RET
+
+
+
+	;-----------------------------------------
+BACKSECHTB:			; S.E SEND RAM ADDR. TABLE
+	DW	BACK_CH		;FM REG 2
+	DW	BACK_CH		;	DAMMY
+	DW	BACK_CH		;FM REG 4
+	DW	BACK_CH		;FM REG 5
+	DW	BACK_CH+FLGVOL	;FM REG 6
+	DW	BACK_CH		;PSG CH 0
+	DW	BACK_CH		;PSG CH 1
+	DW	BACK_CH+FLGVOL	;PSG CH 2
+
+	ENDIF
+
+SECHTB:			; S.E SEND RAM ADDR. TABLE
+	DW	SE_FM_CH0		;FM REG 2	TB2CCH
+	DW	SE_FM_CH0+FLGVOL*1	;	DAMMY
+	DW	SE_FM_CH0+FLGVOL*1	;FM REG 4
+	DW	SE_FM_CH0+FLGVOL*1	;FM REG 5	TB2DCH
+	DW	SE_FM_CH0+FLGVOL*2	;FM REG 6	TB2ECH
+	DW	SE_PSG_CH0		;PSG CH 0
+	DW	SE_PSG_CH0+FLGVOL	;PSG CH 1
+	DW	SE_PSG_CH0+FLGVOL*2	;PSG CH 2
+
+
+DISCHTB::		; DISABLE CHIANNEL ADDR TABLE
+	DW	RYTHM_WK	;FM REG 2
+	DW	SNG_FM_CH0+FLGVOL*3	;	DAMMY
+	DW	SNG_FM_CH0+FLGVOL*3	;FM REG 4
+	DW	SNG_FM_CH0+FLGVOL*3	;FM REG 5
+	DW	SNG_FM_CH0+FLGVOL*4	;FM REG 6     
+	DW	SNG_PSG_CH0		;PSG CH 0
+	DW	SNG_PSG_CH0+FLGVOL*1	;PSG CH 1     
+	DW	SNG_PSG_CH0+FLGVOL*2	;PSG CH 2     
+
+
+;***********************************************
+BANKSET::
+	LD	A,(BANKLOW)
+	RLCA
+	LD	(BANKCHG),A
+	LD	B,8
+	LD	A,(BANKHI)
+B_LOOP:
+	LD	(BANKCHG),A	
+	RRCA
+	DJNZ	B_LOOP
+	RET
+
+;************************************
+; <<<<< PAUSE CHECK PROGRAM >>>>>		1988.8.4
+;************************************
+pse_chk::
+	ld	hl,pause_fl
+	ld	a,(hl)
+	or	a
+	ret	z
+	jp	m,pause_off		; if pause flag=80h,then pause off
+	pop	de			; stack get for going out sound loop 
+	dec	a
+	ret	nz			; pause_fl = 1 then clear chip
+	ld	(hl),2			; pause fl = 2 set (clear mark)
+	jp	CLRSD			;  so FM L/R off,PSG VOLM OFF
+	;--------------------------------------
+	;	PAUSE off
+	;--------------------------------------
+pause_off:				; WHEN pause_fl = 0
+	xor	a
+	LD	(hl),a
+	;
+	LD	A,(FOUTFL)
+	OR	A
+	JP	NZ,CHAMUS
+
+	;----------< song L/R RECOVER >-------------
+
+	LD	IX,SNG_FM_CH0
+	LD	B,6			;chian_no-1
+lr_song_loop:
+	ld	a,(s_pause_fl)		; if S_PSE,ON
+	or	a
+	jr	nz,lr_song_set
+	bit	7,(IX+FLAG)
+	jr	z,lr_song_next
+lr_song_set:
+	LD	C,(IX+panstr)
+	LD	A,LRMOD
+	rst	fm_wrt
+lr_song_next:
+	LD	DE,FLGVOL
+	ADD	IX,DE
+	DJNZ	lr_song_loop
+
+	;----------< S.E,back S.E L/R RECOVER >-------------
+	LD	IX,BACK_CH
+	LD	B,back_no+se_no		;chian_no-1
+lr_se_loop:
+	bit	7,(IX+FLAG)
+	jr	z,lr_se_next
+	bit	7,(ix+chian)
+	jr	nz,lr_se_next
+lr_se_set:
+	LD	C,(IX+panstr)
+	LD	A,LRMOD
+	rst	fm_wrt
+lr_se_next:
+	LD	DE,FLGVOL
+	ADD	IX,DE
+	DJNZ	lr_se_loop
+	RET
+
+;====================================
+;==== FAID OUT FLG SET =======
+FOUT::
+	LD	A,FOUT_CT0
+	LD	(FOUTFL),A
+	LD	A,FOUT_CT1
+	LD	(FOUTTM),A		; timer set
+	LD	(FOUTTM_STR),A		; timer set
+FOUT_0:
+	XOR	A
+	LD	(RYTHM_CH),A		; rethm chiannel(PSG 3) flag off
+	LD	(RYTHM_WK),A		; rethm chiannel flag off
+	LD	(PSG_RYTHM_WK),A	; rethm chiannel flag off
+	LD	(SNG_PSG_CH0),A		
+	LD	(SNG_PSG_CH0+FLGVOL),A
+	CALL	CLRPSG
+	JP	SSS
+
+;====================================
+; <<<<< FAID OUT CHECK PROGRAM >>>>>
+;====================================
+F_CHECK::
+	
+	LD	HL,FOUTFL
+	LD	A,(HL)
+	OR	A		; if (foutfl)=0 then ret 
+				; 80h => fout data from programmer 
+	RET	Z
+	CALL	M,FOUT_0	; CLEAR RYTHM & psg
+	RES	7,(HL)		; FOUT_FL BIT 7 CLEAR
+	LD	A,(FOUTTM)	; A=counter data
+	DEC	A		; A=(FOUTTM)-1
+	JR	Z,CHECK0	; if (FOUTTM)-1=0,jump
+	LD	(FOUTTM),A	; (FOUTTM)=(FOUTTM)-1
+	RET
+CHECK0::
+	LD	A,(FOUTTM_STR)
+	LD	(FOUTTM),A	;  counter data set
+	LD	A,(FOUTFL)
+	DEC	A		
+	LD	(FOUTFL),A	; (FOUTFL)=(FOUTFL)-1
+	jr	Z,CHAMUS
+;<<<<<<<<< FAID OUT VOLM DATA SET TO RAM & CHIP>>>>>>>>>>
+FOUT_VOL::
+	LD	IX,FLAGS+TB20CH
+	LD	B,6		; B= COUNT C= REG
+FOUT_VOL0::
+	inc	(IX+VOLM)
+	jp	p,fout_vol1
+	dec	(ix+volm)
+	jr	fout_vol_next		; if vol data = 80h then jump
+					; max = 7fh
+fout_vol1:
+	BIT	7,(IX+FLAG)		; chiannel use flag check
+	JR	Z,FOUT_VOL_NEXT
+	BIT	2,(IX+FLAG)		; disable flag check
+	JR	NZ,FOUT_VOL_NEXT
+	CALL	JTIMV##			; FM volm data set
+FOUT_VOL_NEXT::	
+	LD	DE,FLGVOL
+	ADD	IX,DE
+	DJNZ	FOUT_VOL0
+	RET
+
+;=======================;
+; CLEAR	RAM & TONE	;
+;=======================;
+CHAMUS::
+	LD	HL,KYFLAG0			; sound work ram clear
+	LD	DE,KYFLAG0+1			;
+	LD	BC,FLAGS+FLGVOL*chian_no-KYFLAG0-1
+	LD	(HL),0				;
+	LDIR					;
+;=======================;
+;	CLEAR FM TONE	;
+;=======================;
+FMSDOFF::					; OPN SOUND OFF
+CLRSDRT:
+	LD	IX,DAMMY_RAM
+	LD	B,6
+FMOFF_LOOP::
+	PUSH	BC
+	CALL	TL_RR_KOFF		; tl rr key off
+	call	ssg_clear
+	INC	IX
+	INC	IX
+	POP	BC
+	DJNZ	FMOFF_LOOP
+FMCHAM:
+	LD	B,7		; B=counter
+	XOR	A		; A=0
+	LD	(FOUTFL),A
+	;*---------<<<	psg clear >>>----------
+	call	CLRPSG
+
+	;*---------<<<	OPN NOMAL MODE SET >>>----------
+OPNINITIAL::
+	LD	a,00001111B		; nomal mode set
+	ld	(se_mode),a
+	ld	c,a
+						; timer enable,start
+	LD	A,MODETIM		;
+;	CALL	OPN_DIRECT_WR			;
+	rst	fm_dwr
+	JP	SSS
+
+;-----------------------------------------------------
+;	ssg type clear 
+;-----------------------------------------------------
+ssg_clear::
+	LD	A,90H			; SSG reg
+	LD	C,0h			; clear data
+	jp	SAME_WRT		; same data write
+
+;-----------------------------------------------------
+;	sound off   for pause
+;-----------------------------------------------------
+CLRSD::
+	CALL	CLRPSG
+	PUSH	BC
+	PUSH	AF
+
+	;---------------< L/R OFF >-----------
+	LD	B,3		; B=counter
+	LD	A,0B4H		;
+	LD	C,0
+CLRDA1:
+	PUSH	AF
+	rst	fm_dwr
+	POP	AF
+	INC	A		;
+	DJNZ	CLRDA1		; 3CH repeat
+	;
+	LD	B,3		; B=counter
+	LD	A,0B4H		;
+CLRDA2:
+	PUSH	AF
+	CALL	OPN2_DIRECT_WR
+	POP	AF
+	INC	A		;
+	DJNZ	CLRDA2		; 3CH repeat
+
+	;==============================
+	;	KEY OFF DATA WRITE
+	;=============================
+	LD	C,0			; C = key off data
+	LD	B,7			; B=counter
+	LD	A,KEYCON		;
+CLRFM0:
+	push	af
+	rst	fm_dwr
+	INC	C		;
+	pop	af
+	DJNZ	CLRFM0		; 6CH repeat
+
+	POP	AF
+	POP	BC
+
+CLRPSG::
+	PUSH	HL
+	PUSH	BC
+	LD	HL,CLRTB
+	LD	B,04H
+CLRPSG1::
+	LD	A,(HL)
+	LD	(PSG),A
+	INC	HL
+	DJNZ	CLRPSG1
+	POP	BC
+	POP	HL
+	JP	SSS
+
+;==========================
+CLRTB:	
+	DEFB	9FH
+CLRTB0:
+	DB	0BFH,0DFH,0FFH
+
+;======================
+; COUNT			;
+;========================
+DLCNT::
+	LD	HL,RCUNT			; counter addr
+	LD	A,(HL)
+	OR	A
+	RET	Z				; if dley counter z,ret
+	DEC	(HL)				; (RCUNT)-1
+	RET	NZ
+	;
+	LD	A,(CUNTST)			; delay counter store
+	LD	(HL),A				; (RCUNT)<=(CUNTST)
+	;
+	LD	HL,FLAGS+TB20CH+LCONT		;
+	LD	DE,FLGVOL
+	LD	B,fm_tone_no+psg_no+rythm_no
+DLCNT0:						; (endct)+1
+	INC	(HL)
+	ADD	HL,DE
+	DJNZ	DLCNT0
+	RET
+
+;************************
+;	BAFFER SCAN	*
+;************************
+BAFSCAN::		; BAFFER CHECK
+	;--------<<< r reg data set >>--------
+	ld	a,r
+	ld	(r_data),a
+
+	;---------<<< baffer check >>--------
+		LD	DE,BAF1
+		call	kybuf
+		call	kybuf
+kybuf:
+		LD	A,(DE)		; DE= baffer addr( BAF1,2,3)/A=key no.
+		BIT	7,A		; key no.<80H then
+		RET	Z		; ret
+		sub	81h
+
+		LD	HL,(tb_adr_str)	; hl = pliolty table addr
+		LD	C,0
+		rst	adr_get_sub
+		LD	C,A
+		LD	B,0
+		ADD	HL,BC		; hl = data point
+
+		ld	a,(SDFL)	; A=now plyolty.
+		cp	(hl)		; HL=new pliolty data addr.
+		jr	nc,buf_clear	; if new pliolty<now pliolty then jump.
+
+		ld	a,(de)		; A=key no.
+		ld	(KYFLAG0),a	; (KYFLAG0)=key no.
+		ld	a,(hl)		; A=new priolty
+		and	7fh		; 1990.3.15
+		ld	(SDFL),a	; store new pliolty to (SDFL).
+		; ----------<<< buffer clear >>>------
+	buf_clear:
+		xor	a
+		ld	(de),a		; DE=baffer addr./ baffer clear
+		inc	de		; next buffer point
+		ret
+
+	;-------< CHIANNEL TL RR off >-----------------
+	;   break a,bc
+TL_RR_KOFF::
+	CALL	rr_off			; rerease off
+	LD	A,40H			; TL off
+	LD	C,07Fh
+	CALL	SAME_WRT		; same data write
+	LD	C,(IX+CHIAN)
+	JP	KEYOFF
+
+	;-------------<<< rerease off >>>-------------
+rr_off::
+	LD	A,80H			; rerease off
+	LD	C,0FFh
+
+	;----------------------------
+	;	in A = reg
+	;	   C = DATA
+SAME_WRT::
+	LD	B,4			; 
+SAME_WR_LOOP:
+	PUSH	AF
+	rst	fm_wrt
+	POP	AF
+	ADD	A,4			; next fm reg maaking
+	DJNZ	SAME_WR_LOOP
+	RET
+
+
+;=======================;
+;	PSG SCALE	;
+;=======================;
+SCALE::	
+;	DEFW	00
+;	DEFW	1015,958,904
+	DEFW	854,806,761,718,677,640,604,570,538
+	DEFW	507,479,452,427,403,381,359,339,320,302,285,269
+	DEFW	254,239,226,214,201,190,180,169,160,151,143,135
+	DEFW	127,120,113,107,101,95,90,85,80,75,71,67
+	DEFW	64,60,57,54,51,48,45,43,40,38,36,34
+	DEFW	32,31,29,27,26,24,23,22,21,19,18,17
+
+;=======================;
+;	FM SCALE	;
+;=======================;
+frq_c		equ	644	; 284h	
+frq_cs		equ	683	; 2abh	
+frq_d		equ	723	; 2d3h	
+frq_ds		equ	766	; 2feh	
+frq_e		equ	813	; 32dh	
+frq_f		equ	860	; 35ch	
+frq_fs		equ	911	; 38fh	
+frq_g		equ	965	; 3c5h	
+frq_gs		equ	1023	; 3ffh
+frq_a		equ	1084	; 43ch   /542
+frq_as		equ	1148	; 47ch   /574
+frq_b		equ	1216	; 4c0h   /606
+frq_c1		equ	1288	; 508h   /644
+
+
+
+SCALE1::
+	dw	frq_c,frq_cs,frq_d,frq_ds,frq_e,frq_f
+	dw	frq_fs,frq_g,frq_gs,frq_a,frq_as,frq_b
+
+	END
+;===========================================================================
+

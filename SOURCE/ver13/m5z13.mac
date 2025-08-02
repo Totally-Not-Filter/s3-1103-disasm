@@ -1,0 +1,82 @@
+macro chk1
+l chkse1.hex
+l chksng82.hex
+e 1c03=16
+e 1c02=0
+
+macro tp
+shell
+tp %1
+exit
+
+MACRO SETUP
+INIT
+CNT
+SNG
+SE
+
+MACRO INIT
+I 1
+MA 0,7FFf=us
+MA 0,FFf=ro
+MA 8000,FFFF=RO
+F 1C00,1.31F=0
+
+MACRO CNT
+l m5CNT13.hex
+
+MACRO SNG
+l m5SNG13.hex
+e 1c02=0
+e 1c03=14
+g 0
+
+macro se
+l m5se13.hex
+g 0
+
+MACRO bnk
+l m5bnk13.hex
+e 1c02=0
+e 1c03=80
+g 0
+
+MACRO SYMCNT
+l m5CNT13Z.sym
+
+MACRO SYMSNG
+l m5SNG13Z.sym
+
+MACRO SYMSE
+l m5SE13Z.sym
+
+MACRO SP
+INIT
+L m5SP.HEX
+
+
+MACRO S
+E 1C09=%1
+G
+
+macro tmb
+e 1c04=0
+e 1c05=0
+e 1c06=0cb
+e 1c07=40
+
+macro tmab
+e 1c04=0b4
+e 1c05=0
+e 1c06=0cb
+e 1c07=40
+
+macro tm0
+e 1c04=0
+e 1c05=0
+e 1c06=0
+e 1c07=0
+
+macro ps
+e 1c0e=%1
+

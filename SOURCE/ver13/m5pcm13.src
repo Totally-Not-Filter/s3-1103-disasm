@@ -1,0 +1,292 @@
+;********************************************************
+;*		$$$pcm.SRC	(  D/A  CONTROL  )      *
+;*  			ORG. M5PCM13.SRC               	*
+;*		'SOUND-SORCE'                           *
+;*		 for Mega Drive (Z80)			*
+;*			VER  1.31/1989.6.20		*
+;*				BY        T.Uwabo       *
+;********************************************************
+
+OPNADDRESS	EQU	4000H		; FM regster no. set addr.
+OPN2ADDRESS	EQU	4000H		; FM regster no. set addr.
+OPNDATA		EQU	4001H		; FM data set addr.       
+PSG		EQU	7F11H		; PSG PORT
+
+DREG		EQU	2AH		; FM REG (PCM OUT)
+DSEL		EQU	2BH		; FM REG (MODE SET)
+
+HEAD_BYTE::	EQU	0100H
+LOOP_BYTE::	EQU	0102H
+END_BYTE::	EQU	0104H
+DELAY::		EQU	0106H
+LP_BASE_BYTE	EQU	0107H
+DATA_TOP::	EQU	0108H
+
+STACP::		EQU	01FF0H		; STAC BOTTOM
+DR_REQ::	EQU	01FFFH		; REQUEST FLAG
+REPEAT_FLG::	EQU	01FFEH		; REPEAT FLAG 1 := REPEAT / 
+					; 80H = REPEAT END / 0 = NO REPEAT
+LOOP_DATA_STR	EQU	01FFDH		; LOOP START PCM DATA STORE
+;****************************************
+	ORG	0000H
+	DI
+	DI
+	LD	SP,STACP
+
+	;------------------------------
+	; FM OFF			;
+	;------------------------------
+	;---------------< L/R OFF >-----------
+	LD	B,3		; B=counter
+	LD	A,0B4H		;
+	LD	C,0
+CLRDA1:
+	push	af
+	CALL	OPN_DIRECT_WR	; key off data set.
+	pop	af
+	INC	A		;
+	DJNZ	CLRDA1		; 6CH repeat
+;
+	LD	B,3		; B=counter
+	LD	A,0B4H		;
+CLRDA2:
+	push	af
+	ld	hl,opn2address
+	CALL	OPN2_DIRECT_WR
+	pop	af
+	INC	A		;
+	DJNZ	CLRDA2		; 6CH repeat
+
+	;------------------------------
+	; PSG OFF			;
+	;------------------------------
+CLRPSG::
+	LD	A,0FFH
+	LD	HL,PSG
+	LD	B,4
+CLRPSG_LOOP:
+	LD	(HL),A
+	SUB	20H
+	DJNZ	CLRPSG_LOOP
+	;--------------------------
+	;	SPEECH MAIN
+	;--------------------------
+START:
+	LD	IX,LOOP_DATA_STR
+
+	LD	A,DSEL
+	LD	C,80H			; C = D/A mode set data
+					;    & start pcm data
+	CALL	opn_direct_wr
+	DEC	HL			; HL=OPNADDRESS
+	LD	D,0
+	EXX
+	LD	de,DATA_TOP			; de = TABLE TOP
+	LD	bc,(HEAD_BYTE)			; bc = DATA BYTES
+	LD	HL,DR_REQ
+;======================================================
+
+SPEECH::
+	;-------------------------------;
+	;  データ  転  送  loop		;
+	;-------------------------------;
+	LD	A,(DE)			; get original 4 bit ADPCM data
+	AND	$F0			; get 4 bit data ( H )
+	RRCA
+	RRCA
+	RRCA
+	RRCA				; HIGH NIBLE >> LOW NIBLE
+	add	a,LOW TO_PCM_TB
+	EXX
+	ld	e,a			; de = TO_PCM_TB
+	ld	A,(de)			; get 8bit pcm data NO SA
+	add	A,C
+;---------------------------------------
+;	WRITE HIGH NIBLE DATA STO D/A	;
+;----------------------------------------
+	LD	(HL),DREG
+	INC	HL
+	LD	C,A			; STORE DATA
+	LD	A,(DELAY)		; A = DELY
+	LD	(HL),c
+	DEC	HL
+	;--------<<< DELAY >>>-------
+	LD	B,A
+	DJNZ	$
+	EXX
+;---------------------------------------
+;	LOW NIBLE DATA SET		;
+;----------------------------------------
+	LD	A,(DE)			; get original 4 bit ADPCM data
+	AND	$0F			; get 4 bit data ( H )
+	add	a,TO_PCM_TB
+	EXX
+	ld	e,a			; de = TO_PCM_TB
+	ld	A,(de)			; get 8bit pcm data NO SA
+	add	A,C
+
+;---------------------------------------
+;	WRITE LOW NIBLE DATA STO D/A	;
+;----------------------------------------
+	LD	(HL),DREG		; HL = OPNADDRESS
+	INC	HL
+	LD	C,A			; STORE DATA
+	LD	A,(DELAY)		; A = DELY
+	LD	(HL),c
+	DEC	HL
+	;------------<<< DELAY >>>----------
+	LD	B,A
+	DJNZ	$
+
+	EXX
+	INC	DE			; inc table pointer
+	DEC	BC
+	LD	A,C
+	or	B			; if DE = Z then 
+	JP	NZ,SPEECH
+	LD	A,(REPEAT_FLG)
+	OR	A
+	JP	Z,PCM_END
+	exx
+	JP	P,PCM_LOOP_GO
+	;--------------<< REPEAT INIT >>------
+PCM_LOOP_SET::	
+	RES	7,A
+	LD	(REPEAT_FLG),A
+	LD	(IX),C		; IX = LOOP_DATA_STR
+	;---------<<< >>>-------------
+PCM_LOOP_GO::
+	DEC	A
+	JR	Z,LOOP_END
+	LD	(REPEAT_FLG),a		; counter store
+	LD	C,(IX)			; IX = LOOP_DATA_STR
+
+	EXX
+
+	LD	hl,0
+	ld	a,r
+	and	0fh
+	inc	a
+	ld	b,a			; b = counter
+	ld	a,(LP_BASE_BYTE)
+	LD	e,a
+	ld	d,0
+	LD	hl,(LOOP_BYTE)
+add_loop::
+	ADD	hl,de
+	djnz	add_loop
+	ld	b,h
+	ld	c,l				; bc = loop byte
+
+		IF	0
+		and	7
+		ld	b,a
+		ld	c,0			; max 700h
+		sbc	hl,bc			; loop byte - random data
+		ld	b,h
+		ld	c,l				; bc = loop byte
+		ENDIF
+
+	LD	HL,(HEAD_BYTE)			; 
+	LD	DE,DATA_TOP
+	ADD	HL,DE
+	EX	DE,HL				; DE = loop start addr
+
+	LD	HL,DR_REQ
+	JP	SPEECH
+
+	;---------<<< >>>-------------
+LOOP_END::
+	LD	C,(IX)			; IX = LOOP_DATA_STR
+	exx
+	LD	(REPEAT_FLG),a		; counter clear
+	LD	BC,(END_BYTE)
+
+	LD	HL,(HEAD_BYTE)			; 
+	LD	DE,DATA_TOP
+	ADD	HL,DE
+	EX	DE,HL				; DE = start addr
+	JP	SPEECH
+PCM_END::
+	JR 	$
+
+;-------------------
+;
+;-------------------
+;	in a = fm reg
+;	   c = data
+opn_direct_wr::
+	ld	hl,OPNADDRESS
+opn2_direct_wr::
+	ld	(hl),a
+	nop
+	nop
+	INC	HL
+	ld	a,c
+	LD	(HL),a
+	ret
+
+TO_PCM_TB::
+	DB	000H,001H,002H,004H,008H,010H,020H,040H,080H
+	DB	0FFH,0FDH,0FCH,0F8H,0F0H,0E0H,0C0H
+
+
+;=======================================================
+	if	0
+	
+ＶＯＩＣＥのデータテーブルについて
+	つぎのフォーマットになっています。
+
+
+		ORG 100H
+HEAD_BYTE	EQU	200H
+LOOP_BYTE	EQU	1000H
+END_BYTE	EQU	DATA_END-(DATA_STRT+HEAD_BYTE)
+
+	DW	HEAD_BYTE		; HEAD
+	DW	LOOP_BYTE/2		; LOOP BYTE
+	DW	END_BYTE		; END BYTE
+	DB	4			; DELAY
+	DB	LOOP_BYTE/32		; RANDAM BASIC DATA
+DATA_STRT:
+	include	KANSEI1.HHH
+DATA_END:
+
+
+	　ＨＥＡＤ＿ＢＹＴＥ、ＬＯＯＰ＿ＢＹＴＥ、ＥＮＤ＿ＢＹＴＥとは
+	つぎのとおりです。
+	
+			
+		      ｜---------------- END_BYTE ------------  ｜
+	｜- HEAD_BYTE-｜--- LOOP_BYTE	--      ｜		｜
+	：－－－－－－：－－－－－－－－－－－－：－－－－－－－：
+	｜----	ＴＯＴＡＬ　ＤＡＴＡ　ＢＹＴＥ　　　　------　　｜
+
+	　プログラムは　０Ａ０１ＦＦＥＨ　に与えられたデータにより
+	１ショットか、ループかを判断します。
+	　ＢＩＴ７がたっているときループをします。ループ回数は、
+	ＢＩＴ０－６のデータとなります。
+	　０Ａ０１ＦＦＥＨ　に与えられたデータが０のときは、１ショット
+	です。このときの発音バイト数は　ＨＥＡＤ＿ＢＹＴＥで与えられた
+	ものになります。
+	　ＤＥＬＡＹとは、音程を決めるパラメータです。１以上の値をとり、
+	小さいほど高い音になります。
+
+	　ループは、乱数により、そのループの長さを計算しています。
+	乱数は、１から１６です。計算は次のようにしています。
+	
+	(loop_byte)/2+(loop_byte)/32 * randam
+
+	　よって、ループの長さは、ｌｏｏｐ＿ｂｙｔｅ／２から
+	ｌｏｏｐ＿ｂｙｔｅ　までとなります。
+
+	　プログラムは、（ループ回数－１）回ループをし、最後に
+	ループのスタート位置からＥＮＤバイト分発音します。
+
+
+
+	
+	endif
+
+
+;

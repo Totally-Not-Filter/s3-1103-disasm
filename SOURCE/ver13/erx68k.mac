@@ -1,0 +1,72 @@
+MACRO DIR
+echo off
+exec dir %1
+
+MACRO TYPE
+echo off
+exec type %1
+
+macro	dr %1
+e/n 0a11100=100
+e/b 0a01fff=%1
+e/n 0a11200=000
+e/n 0a11200=100
+e/n 0a11100=000
+
+macro z80
+e/n 0a11100=100
+e/n 0a11200=100
+e/n 0a11100=100
+e/n/b 0a00000=0f3
+e/n/b 0a00001=0c3
+e/n/b 0a00002=000
+e/n/b 0a00003=000
+d/b 0a00000
+
+macro bnk
+l obj\glfsndbnk.s28
+l glfsndbnk.evt
+
+macro set
+cnt
+tb
+hd
+fm
+se
+
+macro tb
+l obj\glftb.s28
+l glftb.evt
+
+macro hd
+l obj\glfhd.s28
+l glfhd.evt
+
+macro ed
+l \M5\dataed10\edz80lb.s28
+l \M5\dataed10\edz80lb.evt
+
+MACRO ON
+kof
+frq
+kon
+
+macro kof
+e/n/b 0a04000=28
+e/n/b 0a04001=00
+
+macro frq
+e/n/b 0a04000=0A4
+e/n/b 0a04001=0A
+e/n/b 0a04000=0A0
+e/n/b 0a04001=80
+
+macro kon
+e/n/b 0a04000=28
+e/n/b 0a04001=0f0
+
+macro k %1
+stop
+e/b 0ffd004=%1
+g
+

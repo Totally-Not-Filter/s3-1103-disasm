@@ -1,0 +1,285 @@
+;********************************************************
+;*		$$$MCR.LIB	( SOUND MACRO FILE )	*
+;*  			ORG. M5MCR13.LIB               	*
+;*		'SOUND-SORCE'                           *
+;*		 for Mega Drive (Z80)			*
+;*			VER  1.31/1989.12.10		*
+;*				BY        T.Uwabo       *
+;********************************************************
+;	
+;
+DB2	MACRO	X1,X2,X3,X4
+	DB	X2,X4
+	ENDM
+
+DB4	MACRO	X1,X2,X3,X4,X5,X6,X7,X8
+	DB	X2,X4,X6,X8
+	ENDM
+
+
+;-------------------------------------------------------
+;	FM LIBRALY => M5 FM TABLE
+;-------------------------------------------------------
+;	CNF	MACRO	X1
+;	MD	MACRO	M1,D1,M2,D2,M3,D3,M4,D4
+;	TL	MACRO	T1,T2,T3,T4
+;	RSAR	MACRO	X1,X2,X3,X4
+;	D1R	MACRO	X1,X2,X3,X4
+;	D2R	MACRO	X1,X2,X3,X4
+;	RRL	MACRO	R1,DL1,R2,DL2,R3,DL3,R4,DL4
+
+
+
+
+CNF	MACRO	ALG,FBK
+cnect	set	ALG
+	DB	ALG+FBK*8		; ,0C0H
+	ENDM
+MD	MACRO	M1,D1,M2,D2,M3,D3,M4,D4
+	DB	D1*10H+M1,D2*10H+M2
+	DB	D3*10H+M3,D4*10H+M4
+	ENDM
+TL	MACRO	T1,T2,T3,T4
+	ife	cnect
+	db	T1,T2,T3,T4.or.80h
+	endif
+	ife	cnect-1
+	db	T1,T2,T3,T4.or.80h
+	endif
+	ife	cnect-2
+	db	T1,T2,T3,T4.or.80h
+	endif
+	ife	cnect-3
+	db	T1,T2,T3,T4.or.80h
+	endif
+	ife	cnect-4
+	db	T1,T2.or.80h,T3,T4.or.80h
+	endif
+	ife	cnect-5
+	db	T1,T2.or.80h,T3.or.80h,T4.or.80h
+	endif
+	ife	cnect-6
+	db	T1,T2.or.80h,T3.or.80h,T4.or.80h
+	endif
+	ife	cnect-7
+	db	T1.or.80h,T2.or.80h,T3.or.80h,T4.or.80h
+	endif
+	ENDM
+RSAR	MACRO	K1,A1,K2,A2,K3,A3,K4,A4
+	DB	K1*40H+A1,K2*40H+A2,K3*40H+A3,K4*40H+A4
+	ENDM
+D1R	MACRO	X1,X2,X3,X4
+	DB	X1,X2,X3,X4
+	ENDM
+D2R	MACRO	X1,X2,X3,X4
+	DB	X1,X2,X3,X4
+	ENDM
+RRL	MACRO	R1,DL1,R2,DL2,R3,DL3,R4,DL4
+	DB	R1+DL1*10H,R2+DL2*10H
+	DB	R3+DL3*10H,R4+DL4*10H
+	ENDM
+
+CNF2	MACRO	X1,FBCALGO,X2,LR_DT
+cnect set FBCALGO.and.07h
+	DB	FBCALGO
+	ENDM
+
+TL4	MACRO	X1,T1,X2,T2,X3,T3,X4,T4
+	ife	cnect
+	db	T1,T2,T3,T4.or.80h
+	endif
+	ife	cnect-1
+	db	T1,T2,T3,T4.or.80h
+	endif
+	ife	cnect-2
+	db	T1,T2,T3,T4.or.80h
+	endif
+	ife	cnect-3
+	db	T1,T2,T3,T4.or.80h
+	endif
+	ife	cnect-4
+	db	T1,T2.or.80h,T3,T4.or.80h
+	endif
+	ife	cnect-5
+	db	T1,T2.or.80h,T3.or.80h,T4.or.80h
+	endif
+	ife	cnect-6
+	db	T1,T2.or.80h,T3.or.80h,T4.or.80h
+	endif
+	ife	cnect-7
+	db	T1.or.80h,T2.or.80h,T3.or.80h,T4.or.80h
+	endif
+	ENDM
+;---------------------------
+;	S.E headder macro
+;-------------------------
+HD	MACRO	FLG,CH,TABLE,BASE,VOLM
+	DB	FLG,CH
+	DW	TABLE
+	DB	BASE,VOLM
+	ENDM
+
+;******************************************************************
+;;	* FL&CON						
+;;	DB	020H,DATA -> M0	-- --
+;;	* DT1&MUL
+;;	DB	040H,DATA -> M1	-- --
+;;	* TL
+;;	DB	060H,DATA -> M2	-- --
+;;	* KS & AR
+;;	DB	080H,DATA -> M3	-- --
+;;	* AMS_EN &D1R
+;;	DB	0A0H,DATA -> M4	-- --
+;;	* DT2 &D2R
+;;	DB	0C0H,DATA -> M5	-- --
+;;	* D1L &RR
+;;	DB	0E0H,DATA -> M6	-- --
+;;
+;******************************************************************
+M0	MACRO	R20H,FBCN
+cnect	set   FBCN.and.07h
+	DB	FBCN-0C0H		; AND 00111111B
+	DB	0C0H
+	ENDM
+M1	MACRO	R40H,DTML1,R50H,DTML2,R48H,DTML3,R58H,DTML4
+	DB	DTML1,DTML2,DTML3,DTML4
+	ENDM
+M2	MACRO	R60H,T1,R70H,T2,R68H,T3,R78H,T4
+	ife	cnect
+	db	T1,T2,T3,T4.or.80h
+	endif
+	ife	cnect-1
+	db	T1,T2,T3,T4.or.80h
+	endif
+	ife	cnect-2
+	db	T1,T2,T3,T4.or.80h
+	endif
+	ife	cnect-3
+	db	T1,T2,T3,T4.or.80h
+	endif
+	ife	cnect-4
+	db	T1,T2.or.80h,T3,T4.or.80h
+	endif
+	ife	cnect-5
+	db	T1,T2.or.80h,T3.or.80h,T4.or.80h
+	endif
+	ife	cnect-6
+	db	T1,T2.or.80h,T3.or.80h,T4.or.80h
+	endif
+	ife	cnect-7
+	db	T1.or.80h,T2.or.80h,T3.or.80h,T4.or.80h
+	endif
+	ENDM
+M3	MACRO	R80H,KSAR1,R90H,KSAR2,R88H,KSAR3,R98H,KSAR4
+	DB	KSAR1,KSAR2,KSAR3,KSAR4
+	ENDM
+M4	MACRO	RA0H,DCR1,RB0H,DCR2,RA8H,DCR3,RB8H,DCR4
+	DB	DCR1
+	DB	DCR2
+	DB	DCR3
+	DB	DCR4
+	ENDM
+M5	MACRO	RC0H,DTSR1,RE0H,DTSR2,RC8H,DTSR3,RD8H,DTSR4
+	DB	DTSR1	AND	00111111B
+	DB	DTSR2   AND	00111111B
+	DB	DTSR3	AND	00111111B
+	DB	DTSR4	AND	00111111B
+	ENDM
+M6	MACRO	RE0H,SLRR1,RF0H,SLRR2,RE8H,SLRR3,RF8H,SLRR4
+	DB	SLRR1,SLRR2,SLRR3,SLRR4
+	ENDM
+;	
+;	CHANGE	(KAWAKAMI)DX TYPE EDITER -> YM2612
+;
+;
+DTML	MACRO	D11,D12,D13,D14,ML1,ML2,ML3,ML4
+
+
+	IFE	D11 
+		DB	030H,ML1
+	ELSE
+		DB	030H,(4+D11)*10H+ML1
+	ENDIF
+
+	IFE	D12
+		DB	038H,ML2
+	ELSE
+		DB	038H,(4+D12)*10H+ML2
+	ENDIF
+
+	IFE	D13
+		DB	034H,ML3
+	ELSE
+		DB	034H,(4+D13)*10H+ML3
+	ENDIF
+
+	IFE	D14
+		DB	03CH,ML4
+	ELSE
+		DB	03CH,(4+D14)*10H+ML4
+	ENDIF
+
+	ENDM
+
+;TL	MACRO	TLL1,TLL2,TLL3,TLL4
+;	DB	127-TLL1,127-TLL2,127-TLL3,127-TLL4
+;	ENDM
+
+KSAR	MACRO	KSS1,KSS2,KSS3,KSS4,ARR1,ARR2,ARR3,ARR4
+	DB	KSS1*40H+ARR1,KSS2*40H+ARR2
+	DB	KSS3*40H+ARR3,KSS4*40H+ARR4
+	ENDM
+DCR	MACRO	DCR1,DCR2,DCR3,DCR4
+	DB	DCR1,DCR2,DCR3,DCR4
+	ENDM
+DTSR	MACRO	D21,D22,D23,D24,SRR1,SRR2,SRR3,SRR4
+	DB	SRR1,SRR2
+	DB	SRR3,SRR4
+	ENDM
+SLRR	MACRO	SLL1,SLL2,SLL3,SLL4,RRR1,RRR2,RRR3,RRR4
+	DB	(15-SLL1)*10H+RRR1,(15-SLL2)*10H+RRR2
+	DB	(15-SLL3)*10H+RRR3,(15-SLL4)*10H+RRR4
+	ENDM
+FBCN	MACRO	FB,CN
+	DB	FB*8+CN-1,0C0H
+	ENDM
+;
+;
+;	CHANGE	NAKABAYASHI DATA -> YM2612
+;
+;
+;
+;
+M20	MACRO	X0
+	DB	0B0H
+	DB	X0	AND	00111111B
+	DB	0B4H,0C0H
+	ENDM
+M40	MACRO	X0,X1,X2,X3
+	DB	030H,X0,038H,X1,034H,X2,03CH,X3
+	ENDM
+M60	MACRO	X0,X1,X2,X3
+	DB	040H,X0,048H,X1,044H,X2,04CH,X3
+	ENDM
+M80	MACRO	X0,X1,X2,X3
+	DB	050H,X0,058H,X1,054H,X2,05CH,X3
+	ENDM
+MA0	MACRO	X0,X1,X2,X3
+	DB	060H,X0,068H,X1,064H,X2,06CH,X3
+	ENDM
+MC0	MACRO	X0,X1,X2,X3
+	DB	070H
+	DB	X0	AND	00111111B
+	DB	078H
+	DB	X1	AND	00111111B
+	DB	074H
+	DB	X2	AND	00111111B
+	DB	07CH
+	DB	X3	AND	00111111B
+	ENDM
+ME0	MACRO	X0,X1,X2,X3
+	DB	080H,X0,088H,X1,084H,X2,08CH,X3
+	ENDM
+
+;==============================================================
+

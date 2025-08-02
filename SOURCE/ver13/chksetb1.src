@@ -1,0 +1,57 @@
+;********************************************************
+;*		mdmSETB.SRC	( SOUND S.E ADDR TABLE )*
+;*  			ORG. M5CNT13.SRC               	*
+;*		'MODEM_BOOT_ROM'                           *
+;*		 for Mega Drive (Z80)			*
+;*			VER  1.3/1989.7.2		*
+;*				BY        T.Uwabo       *
+;********************************************************
+;===========================================
+;<<<<<<<< S.E ADDRESS TABLE         >>>>>>>>
+;===========================================
+SETB::	
+SETBF::	
+	DEFW	S90
+	DEFW	S91
+	DEFW	S92
+	DEFW	S93
+	DEFW	S94
+	DEFW	S95
+	DEFW	S96
+	DEFW	S97
+	DEFW	S98
+	DEFW	S99
+	DEFW	S9A
+	DEFW	S9B
+	DEFW	S9C
+	DEFW	S9D
+	dw	S9E
+	dw	S9F
+
+	dw	SA0		; 0		; 
+	dw	SA1		; 1
+	dw	SA2		; 2
+	dw	SA3		; 3
+	dw	SA4		; 4
+	dw	SA5		; 5
+	dw	SA6		; 6
+	dw	SA7		; 7
+	dw	SA8		; 8
+	dw	SA9		; 9
+	dw	SAA		; A
+	dw	SAB		; B
+	dw	SAC		; C
+
+	dw	SAD		; D
+	dw	SAE		; E
+	dw	SAF		; F
+	
+
+;===========================================
+;<<<<<< BACK S.E  ADDRESS TABLE         >>>>
+;===========================================
+BAKTB::
+	DEFW	SAB
+	DEFW	SAC
+	DEFW	SAF
+

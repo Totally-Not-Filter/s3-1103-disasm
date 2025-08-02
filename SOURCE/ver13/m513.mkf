@@ -1,0 +1,119 @@
+
+song : m5CNT13.hex m5SNG13.hex m5SE13.hex
+bank : m5CNT13.hex m5BNK13.hex m5SE13.hex
+
+
+SONGRELS1 = m5SNG113.rel m5SNG213.rel m5SNG313.rel m5SNG413.rel m5SNG513.rel
+SONGRELS2 = m5SNG613.rel m5SNG713.rel m5SNG813.rel m5SNG913.rel m5SNGA13.rel
+SONGRELS3 = m5SNGB13.rel m5SNGC13.rel m5SNGD13.rel m5SNGE13.rel m5SNGF13.rel
+
+CONTRELS = m5INT13.rel m5CNT13.rel m5FMDR13.rel m5CMD13.rel m5PSG13.rel
+
+
+m5CNT13.hex : $(CONTRELS)
+	@ECHO/
+	@ECHO/
+	@ECHO ---------------  Link Å® Control Hex File Making  --------------
+	LNK m5INT13,m5CNT13,m5FMDR13,m5CMD13,m5PSG13,m5CNT13/N,/P:0,/H,/S
+	@ECHO/
+	@ECHO -----------------  Control File send  ---------------
+	icd_ldr m5cnt13.hex
+#	@ECHO -----------------  Control Symbolic File Making  ---------------
+#	ZSYM m5CNT13.sym > m5CNT13z.sym
+
+m5INT13.rel : m5INT13.src m5EQ13.lib
+	@ECHO/
+	@ECHO ---------  Interrupt Control Routine Program Assemble  ---------
+	IR80 m5INT13
+
+m5CNT13.rel : m5CNT13.src m5EQ13.lib
+	@ECHO/
+	@ECHO/
+	@ECHO ----------------  Main Control Program Assemble  ---------------
+	IR80 m5CNT13
+
+m5FMDR13.rel : m5FMDR13.src m5EQ13.lib
+	@ECHO/
+	@ECHO/
+	@ECHO ---------------  Rhythm Control Program Assemble  --------------
+	IR80 m5FMDR13
+
+m5CMD13.rel : m5CMD13.src m5EQ13.lib
+	@ECHO/
+	@ECHO/
+	@ECHO --------------  Command Control Program Assemble  --------------
+	IR80 m5CMD13
+
+m5PSG13.rel : m5PSG13.src m5EQ13.lib
+	@ECHO/
+	@ECHO/
+	@ECHO ----------------  PSG Control Program Assemble  ----------------
+	IR80 m5PSG13
+
+m5SNG13.hex : m5TB13.rel m513.lnk $(SONGRELS1) $(SONGRELS2) $(SONGRELS3)
+	@ECHO/
+	@ECHO/
+	@ECHO ----------------  Link Å® Song Hex File Making  ----------------
+	LNK < m513.lnk
+	@ECHO/
+	@ECHO ------------------  Song  File send  -----------------
+	icd_ldr m5sng13.hex
+#	@ECHO ------------------  Song Symbolic File Making  -----------------
+#	ZSYM m5SNG13.sym > m5SNG13z.sym
+	@ECHO/
+
+m5BNK13.hex : m5TB13.rel all.lnk $(SONGRELS1) $(SONGRELS2) $(SONGRELS3)
+	@ECHO/
+	@ECHO/
+	@ECHO ----------------  Link Å® Bank Hex File Making  ----------------
+	LNK < all.lnk
+	@ECHO/
+	@ECHO ------------------  Bank File send  -----------------
+	icd_ldr m5bnk13.hex
+#	@ECHO ------------------  Bank Symbolic File Making  -----------------
+#	ZSYM m5BNK13.sym > m5BNK13z.sym
+	@ECHO/
+
+
+m5TB13.rel : m5TB13.src m5EQ13.lib
+	@ECHO/
+	@ECHO ----------  Envelope,Vibrate,Priority Table Assemble  ----------
+	IR80 m5TB13
+
+.s.rel :
+	@ECHO/
+	@ECHO/
+	@ECHO ---------------------  Song Data Assemble  ---------------------
+	IR80 $<
+
+
+m5SE13.hex : m5SE13.s m5SETB13.src
+	@ECHO/
+	@ECHO ---------------------  S.E. Table Assemble  --------------------
+	IR80 m5SE13.s
+	@ECHO/
+	@ECHO/
+	@ECHO ----------------  Link Å® S.E. Hex File Making  ----------------
+	LNK m5SE13,m5SE13/N,/P:1000,/H,/S
+	@ECHO/
+	@ECHO ------------------  S.E. File send  -----------------
+	icd_ldr m5SE13.hex
+#	@ECHO ------------------  S.E. Symbolic File Making  -----------------
+#	ZSYM m5SE13.sym > m5SE13z.sym
+#	@ECHO/
+
+
+m5PCM13.hex : m5PCM13.src
+	@ECHO/
+	@ECHO ---------------------  PCM Table Assemble  ---------------------
+	IR80 m5PCM13
+	@ECHO/
+	@ECHO/
+	@ECHO ----------------  Link Å® PCM Hex File Making  -----------------
+	LNK m5PCM13,m5PCM13/N,/P:0,/H,/S
+	@ECHO/
+	@ECHO ------------------  PCM Symbolic File Making  ------------------
+	ZSYM m5PCM13.sym > m5PCM13z.sym
+	@ECHO/
+
+

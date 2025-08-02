@@ -1,0 +1,169 @@
+	1990.3.15
+		GETTBL1:
+			and	7fh   ;----------- add ------
+
+	1989.12.29
+	BEFORE
+		FLAG_SET:
+			ld	a,(ix+gate_str)
+			ld	(ix+gate),a
+			LD	(IX+ECONT),A
+			ret
+
+	AFTER
+			LD	(IX+ECONT),A
+			ld	a,(ix+gate_str)
+			ld	(ix+gate),a
+			ret
+
+	1989.9.28
+		<cnt>wow_chk:
+	1989.9.26
+		<cmd>JTAB
+		<cmd> JSSG
+		<cmd>jend_ram
+	1989.9.21
+		<cmd> sngbias => sngbase
+		<eq>  sng_bias => sng_base
+
+	1989.9.19
+		<cmd>JPVADD
+		<psg> psg_enve
+	1989.9.17
+		<psg> p_noprimel
+		<psg> psgset
+		<cnt> VTBSTY
+		<cnt> non_gate
+
+	1989.9.13
+		<cnt> get_wk_addr    se_fm_hd:
+		<cnt> set_non_se
+		<cmd> JEND_SE
+
+	1989.9.7
+		<eq><cmd>   cmmand no. chenge
+		<eq>panstr
+		<cnt>lower_chk
+		<cnt>fmfrq_0
+		<cnt>fvr_chk
+		<cnt>LOADFMDATA
+		<cnt> STACK_SET_FM
+		<cmd>jtab
+		<cmd>JLFO,JLRMOD
+
+	1989.9.5
+		<eq> ssg,wow,lfo chenge   ams pms cut 		o.k
+		<eq> dt_frq   (add)				o.k
+		<eq> point_no  assign adr chenge		o.k
+		<cmd>EXTTB  JFDT JPORT,JLFO   JEND(ssg recover)	o.k
+ 		<cnt>  fm_cnt sceaquence   PORTADD chenge	o.k
+		<psg>  psg_cnt sceaquence  , gate check add  o.k
+	1989.8.28     --- for  NUL 
+		<psg>clear: clear1:       		o.k
+		<psg>psg_cnt				o.k
+		<cnt>nomal_nextd:  (nul check)		o.k
+		<cnt>VIBR_CHK::    			o.k
+		<cnt>fm_cnt				o.k
+		<cnt>NOPRIMAL				o.k
+		<cnt>FBSET				o.k
+
+
+
+	1989.8.5
+		;============= ssg support ======
+		<eq>ECONT---REPTR		o.k
+		<cmd>jend_ssg  jend_ssg_set	o.k
+		<cnt>set_non_se   (ssg_clear)   o.k
+		<cnt>ssg_clear			o.k
+		<cnt>FMOFF_LOOP::		o.k
+		<cmd>JSSG			o.k
+		<eq>SSG   SSG1,2,3,4		o.k
+	1989.8.4	;========== MDM PROJ. CHENGE THESE =======
+		FLAG bit 4  enve flag (NULL,TBEND,TBSTAY SUPORT)
+		<cmd>jend_rom jfenv_rom        none
+		<psg>psgset:		; null freq check  o.k
+		<psg>ETBSTAY			o.k
+		<psg>ETBEND			o.k
+		<psg>psg_enve			o.k
+		<psg>PENV2			o.k
+		<psg>clear			o.k
+		<cnt>flg_set			o.k
+
+
+	1989.8.3
+		<cnt>STACK_SET_FM			mdm o.k
+		<cmd>JEND:	BACK_SE_VOICE		mdm o.k
+		<cmd>js_on_loop: call keyoff_ch		mdm o.k
+				jp	CLRPSG		mdm o.k
+		<cnt>CLRSD: FMSDOFF: (CLRPSG)		mdm o.k
+		<cmd>NXJTB:				mdm o.k
+		<cmd>JVADD: JPFVADD:			mdm o.k
+		<cnt>SETSE1:				mdm o.k
+		<cnt>SETSE0:				mdm o.k
+		<cnt>jp_from_backse:			mdm o.k
+		<cnt>TIMADS::				mdm o.k
+				---> S.E VOICE ADDR STORE CHENGE
+		<cnt>set_on:				mdm o.k
+	1989.8.2
+		<psg>PENV2				mdm o.k
+		<cnt>FLG_SET				mdm o.k
+		<cmd>JS_PSE				mdm o.k
+		<cnt>pause_off				mdm o.k
+		<eq.lib>s_pause_flg
+		<cnt>CLRSD	push af/pop af		mdm o.k
+		<cmd>JAMS,JJPMS,JPAN			mdm o.k
+		<cnt>STACK_SET
+		<cmd>JVADD::				mdm o.k
+
+	
+	1989.7.31
+		<cmd>JTREND				mdm o.k
+
+		<cmd>JEND				mdm o.k
+			ld	a,(seflag)
+			or	a
+			jr	z,jend_ret
+			XOR	A
+			LD	(SDFL),A	; pliolty clear. (s.e only)
+
+		KYBAF0:					mdm o.k
+		;	AND	7FH		; bit 7 off /A=1~
+			SUB	81H
+		
+
+	;-----------------------
+	wow
+		<cnt>NOPRIMAL::				mdm o.k
+			call	autopan_2
+			call	wow_chk
+		<cnt>wow_chk					mdm o.k
+
+	;--------------------
+	1989.7.30
+		ram assign chenge   ; 
+					; VFLG CUT
+
+		<psg>TBEND  (IX+EFLG) WRITE CUT 		mdm o.k
+		<psg>ETBSTAY					mdm o.k
+		<cnt>VTBSTY			; VFLG CUT
+		<psg>		clear		; VFLG CUT	mdm o.k
+
+		psg_cnt:
+				jp  ---> jr  psgset		mdm o.k
+				VFLG cut			mdm o.k
+				jp  ---> jr	z,penv2		mdm o.k
+				EFLG CUT			mdm o.k
+		<cnt>fvr_chk:	vibr 	bit 7 check		mdm o.k
+		<psg>clear1		ld a,1fh		mdm o.k
+		<cmd>JPFVR					mdm o.k
+		<cmd>JVADD					mdm o.k
+		<int>org	10h	---> chian bit 7  check add. mdm o.k
+
+
+	;-------------------
+	jfenv_othersing
+
+	next
+			jend
+	
+

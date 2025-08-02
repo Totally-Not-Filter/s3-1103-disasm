@@ -1,0 +1,245 @@
+;********************************************************
+;*		$$$INT.SRC	( SOUND CONTROL )	*
+;*  			ORG. M5INT13.SRC               	*
+;*		'SOUND-SORCE'                           *
+;*		 for Mega Drive (Z80)			*
+;*			VER  1.31/1989.12.10		*
+;*				BY        T.Uwabo       *
+;********************************************************
+
+	.xlist
+	include m5eq13.lib
+	.list
+
+
+	public		timer_a_dt
+	public		timer_b_dt
+
+
+	ORG	0000H
+        DI
+	DI
+        IM	1
+ 	JR	START
+;---------------------------
+;	OPN BUSY CHECK
+;
+	 	ORG	08H
+
+OPN_BSY_CHK:
+		LD	A,(OPNSTATUS)
+		BIT	7,A
+		JR	NZ,OPN_BSY_CHK
+		RET
+
+ 		ORG	10H
+
+		bit	7,(ix+chian)
+		ret	nz
+ 		JP	OPNWR##
+
+		ORG	18H
+ 		JP	OPN_DIRECT_WR##
+
+
+		org	20h
+	;-----------------------------
+	;	GET addr TABLE ADDR (BGMTB,VIBRTB etc..)
+	;	  in C= off set 
+	
+adr_get::
+		ld	hl,(tb_adr_str)	; HL = ADDRTB addr
+	;--------------------------------
+	;	IN HL = table addr
+	;	   C = table offset
+	;       OUT HL = (HL+BC)
+adr_get0::
+		ld	b,0
+		jp	adr_get1##		;
+
+		org	28h
+	;-------------------------------
+	; 	word table serch
+	;	in A = serch no
+	;	  HL = serch table addr
+	; 	OUT HL = addr
+GETTBL::
+	 	LD	C,A			; A =VIBR or ENVE NO.
+GETTBL10::
+	 	LD	B,0			;
+ 		ADD	HL,BC
+	 	ADD	HL,BC			; table point addr get
+;		jp	GET_TB_ADDR##
+		nop
+		nop
+		nop
+		org	30h
+;GET_TB_ADDR::
+ 		LD	A,(HL)
+	 	INC	HL
+ 		LD	H,(HL)			; 
+	 	LD	L,A			; HL=table addr
+		RET
+START1:
+		ORG	38H
+	;--------- < fm chip access wait >--------
+STACHK::
+		push	af
+		push	bc
+		push	de
+		push	hl
+		ld	hl,INTCNT
+		LD	a,(hl)
+		OR	A
+		JR	Z,START12
+		dec	(hl)
+		jr	int_ret
+	;----------- < sound call >--------------
+START12:
+		ld	a,(timer_use_flg)
+		or	a
+		call	z,SOUND##
+int_ret::
+		pop	hl
+		pop	de
+		pop	bc
+		pop	af
+		ei
+		RET
+
+
+
+	;---------------------------
+	;---------------------------
+	;---------------------------
+	;---------------------------
+
+
+START::
+	LD	SP,RAM+RAMVOL-2
+	LD	A,03H
+	LD	(INTCNT),A
+
+	;---------------- INIT CHECK LOOP --------------
+INITCHK::
+	EI
+	LD	A,(INTCNT)
+	OR	A
+	JP	NZ,INITCHK
+
+	;-------------< initialize >-------------
+INIT:
+	CALL	CHAMUS##		; fm,psg
+	CALL	BANKSET##		; bank addr set
+	;-------------< WAIT INTRUPPED >---------
+	call	timer_a_set
+	call	timer_b_set
+main_loop::
+	ei
+	CALL	BAFSCAN##
+	ld	a,(timer_use_flg)	; if timer flg = 0
+	or	a			; then sound tempo = intrupped
+	jr	z,main_loop
+	di
+	jp	p,only_b_using
+timer_ab_use::
+	CALL	BAFSCAN##
+;---------------------------------
+;	timer A/B using
+;		A : song
+;		B : s.e
+;---------------------------------
+	LD	A,(OPNSTATUS)
+	and	3		
+	JR	Z,main_loop
+	bit	1,a		; TIMER B CHECK
+	jr	z,song_set
+	call	timer_b_set
+	ld	hl,song_set
+	push	hl
+	call	pse_chk##		; if pause on then jp song_set
+	call	kyscan##
+	jp	se_scan##		; ret --> song_set / song_on
+song_set::
+	LD	A,(OPNSTATUS)
+	bit	0,a		; TIMER AB CHECK
+	jr	z,main_loop
+	call	timer_a_set
+song_on:
+	call	sound##
+	jr	main_loop
+
+
+;---------------------------------
+;
+;---------------------------------
+only_b_using:				; timer B using
+	LD	A,(OPNSTATUS)
+	bit	1,a		; TIMER B CHECK
+	jr	z,main_loop
+only_b_0:
+	call	timer_b_set
+;	ld	hl,timer_b_dt
+;	ld	a,(hl)
+;	push	af
+;	push	hl
+;	xor	a
+;	ld	(hl),a		; only timer b using flag ( sound using)
+	call	sound##
+;	pop	hl		; hl = timer_b_dt
+;	pop	af		; befor timer data get
+;	cp	(hl)		; if sound routin chenge timer data
+;	jr	nz,main_loop	;  then not set befor data
+;	ld	(timer_b_dt),a
+	jr	main_loop
+
+
+
+
+
+	;-----------<<< timer a set >>>-------------
+timer_a_set::
+		LD	HL,(timer_a_dt)
+		LD	A,L
+		AND	03H
+		LD	C,A
+		LD	A,025H		; TIMER A
+		rst	fm_dwr
+		;
+		srl	h
+		rr	l
+		srl	h
+		rr	l
+		LD	c,l
+		LD	A,024H		; TIMER A
+		rst	fm_dwr
+timer_a_on::
+		ld	a,00011111b
+		jr	timer_on
+
+	;-----------<<< timer b set >>>-------------
+timer_b_set::
+		LD	a,(timer_b_dt)
+		ld	c,a
+		LD	A,026H		; TIMER B
+		rst	fm_dwr
+timer_b_on::
+		ld	a,00101111b
+timer_on::
+		ld	hl,se_mode
+		or	(hl)
+		ld	c,a
+		ld	a,27h
+		rst	fm_dwr
+		ret
+
+
+
+
+
+START2::
+	;NMI
+;	ORG	66H
+;	RST	0
+
+
