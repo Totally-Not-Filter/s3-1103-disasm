@@ -1,0 +1,544 @@
+;********************************************************
+;*		$$$eq.lib	( SOUND equ FILE )	*
+;*  			ORG. M5EQ13.LIB               	*
+;*		'SOUND-SORCE'                           *
+;*		 for Mega Drive (Z80)			*
+;*			VER  1.31/1989.12.10		*
+;*				BY        T.Uwabo       *
+;********************************************************
+
+
+
+tst	equ	0
+adrtb_bnk_adr	equ	8000h
+
+bsy_chk		equ	08h
+fm_wrt		equ	10h
+fm_dwr		equ	18h
+adr_get_sub	equ	20h
+gettbl_sub	equ	28h
+;sendtb_sub	equ	30h
+get_tb_addr_sub	equ	30h
+
+rom_adrtb	equ	8000h
+
+ON	EQU	01H		; NO CARE
+OFF	EQU	00H		; NOCARE
+;=======================================
+;	BACK S.E USE SEND
+;=======================================
+back_se		equ	1		;  BACK S.E USING NO.
+back_no		equ	2
+;=======================================
+;	PSG S.E USE SEND
+;=======================================
+psg_se		equ	1		; 1 : psg S.E USING
+
+;======================================
+;	KEY NO
+;======================================
+songend	equ	08Fh
+sestrt	equ	090h			; S.E START NO
+seend	equ	09bH	
+bkstrt	equ	0d0H			; BACK S.E START NO
+utlst	equ	0e0H			; UTLTY START NO.(FOUT)
+lstno	equ	0f8h			; MAX NO
+
+;======================================
+;	FAID OUT COUNTER
+;======================================
+FOUT_CT0	EQU	028H		; faid out counter 0
+FOUT_CT1	EQU	6		; faid out counter 1
+
+;=============================
+;	USE CHIANNEL NO.
+;=============================
+fm_tone_no	equ	6
+rythm_no	equ	1
+psg_no		equ	3
+se_no		equ	6
+sng_ch_no	equ	fm_tone_no+rythm_no+psg_no
+chian_no	equ	fm_tone_no+rythm_no+se_no+back_no+psg_no
+
+flgvol	equ	32+16			; NO CARE
+tablno	equ	9			; NO CARE
+;voice_vol	equ	26		; fm voice table volm
+voice_vol	equ	25		; fm voice table volm
+
+;========================================
+;	RAM ASS
+RAMVOL	EQU	03FFH
+;========================================
+; ASSIGNMENT
+RAM		EQU	01C00H		;* SOUND TABLE ADDRESS 
+bank_adr_top	equ	RAM
+tb_adr_str	EQU	ram+2		; table data top addr store
+timer_a_dt	equ	tb_adr_str+2	; 2 bytes
+timer_b_dt	equ	timer_a_dt+2
+timer_use_flg	equ	timer_b_dt+1	; bit 7 = a/b use  : a = song / b= s.e
+					;  bit 6 only b use :
+rom_seno_str	equ	ram+8		; rom se no. offset
+
+
+KYFLAG0		EQU	RAM+9		;* SOUND CODE (UNDISCRIMINATE PRIORITY)
+KYFLAG		EQU	KYFLAG0+1	;      //     (DISCRIMINATE PRIORITY)
+BAF1		EQU	KYFLAG		;* CHOSE HIGHEST PRIORITY AMANG
+BAF2		EQU	BAF1+1		;                BAF1,BAF2,&BAF3
+BAF3		EQU	BAF2+1		;	AND SET IT KYFLAG
+;------------ 13 ---------------
+FOUTFL		EQU	BAF3+1		; FAID OUT FLAG
+FOUTTM_STR	EQU	FOUTFL+1
+FOUTTM		EQU	FOUTTM_STR+1	; FAID OUT TIMER
+pause_fl	EQU	FOUTTM+1	; pause flg (nz: pause on)(RAM+8)
+s_pause_fl	equ	pause_fl+1	; if S_PSE,ON = 1 /OFF = 0
+se_mode		equ	s_pause_fl+1
+RCUNT		EQU	se_mode+1		; For DLEAY COUNT NOTE LENGTH
+;----------- 20 ----------------------
+CUNTST		EQU	RCUNT+1		;
+ENDFL		EQU	CUNTST+1	; 
+t_flg		equ	ENDFL+1		; timming flag
+r_data		equ	t_flg+1		; R REG DATA
+SDFL		EQU	r_data+1	; PRIORITY FLAG.
+seflag		EQU	SDFL+1		; song = 0/ s.e = 1 / back_se = 80h
+
+DT21SE		EQU	seflag+1	;DT STORE For SE
+DT22SE		EQU	DT21SE+2		;
+DT23SE		EQU	DT22SE+2		;
+DT24SE		EQU	DT23SE+2		;
+
+;----------- 34 -----------
+DT21BK		EQU	DT24SE+2	;DT STORE For BACK SE
+DT22BK		EQU	DT21BK+2	;
+DT23BK		EQU	DT22BK+2	;
+DT24BK		EQU	DT23BK+2	;
+;---------- 42 ---------
+DT21BG		EQU	DT24BK+2	;DT STORE For BGM
+DT22BG		EQU	DT21BG+2	;
+DT23BG		EQU	DT22BG+2	;
+DT24BG		EQU	DT23BG+2	;
+
+;------------ 50 -------------
+point_no	equ	RAM+50
+HD_CHIAN_ADR	EQU	point_no+1	; headder chiannel addr store (2)
+;------------ 52 ----------
+FLG_TBPON	equ	HD_CHIAN_ADR+2  ; FLAG_TB pointer store       (2)
+SONG_VOICE	EQU	FLG_TBPON+2	; song voice table top addr. store
+SE_VOICE	EQU	SONG_VOICE+2	; s.e voice table top addr. store
+;BACK_SE_VOICE	EQU	SE_VOICE+2	; back s.e voice table top addr. store
+sehd_base_str	equ	SE_VOICE+2
+
+FLAGS	EQU	RAM+40H			; SOUND RAM TABLE
+
+INTCNT		equ	1FFFH		; initial counter
+
+;------------- BANK ADDRES DATA GET FROM 68K MAIN ---------
+BANKHI		EQU	1C00H		; HI BYTE
+BANKLOW		EQU	1C01H		; LOW BYTE
+
+; =======<<<<< CONSTANT >>>>>=======
+;Å@ÇeÇlÅ@ÇUÇbÇg
+TB20CH	EQU	0	     	; RYTHM FMCH 2	01C40H
+TB21CH	EQU	TB20CH+FLGVOL	; SONG  FMCH 0	01C70H
+TB22CH	EQU	TB21CH+FLGVOL	; SONG  FMCH 1	01CA0H
+TB23CH	EQU	TB22CH+FLGVOL	; SONG  FMCH 4	01CD0H
+TB24CH	EQU	TB23CH+FLGVOL	; SONG  FMCH 5	01D00H
+TB25CH	EQU	TB24CH+FLGVOL	; SONG  FMCH 6	01.310H
+TB26CH	EQU	TB25CH+FLGVOL	; RYTHM WORK	01D60H
+TB27CH	EQU	TB26CH+FLGVOL	; PSG CH 0	01D90H
+TB28CH	EQU	TB27CH+FLGVOL	; PSG CH 1	01DC0H
+TB29CH	EQU	TB28CH+FLGVOL	; PSG CH 2	01DF0H
+TB2ACH	EQU	TB29CH+FLGVOL	; BACK S.E FCH5	01E20H
+TB2BCH	EQU	TB2ACH+FLGVOL	; BACK S.E FCH6	01E50H
+TB2CCH	EQU	TB2BCH+FLGVOL	; S.E CH 2	01E80H
+TB2DCH	EQU	TB2CCH+FLGVOL	; S.E CH 5	01EB0H
+TB2ECH	EQU	TB2DCH+FLGVOL	; S.E CH 6	01EE0H
+TB2FCH	EQU	TB2ECH+FLGVOL	; S.E PSG CH 0	01F10H
+TB30CH	EQU	TB2FCH+FLGVOL	; S.E PSG CH 1	01F40H
+TB31CH	EQU	TB30CH+FLGVOL	; S.E PSG CH 2	01F70H
+                                 
+
+RYTHM_CH	EQU	FLAGS+TB20CH
+SNG_FM_CH0	EQU	FLAGS+TB21CH
+SE_FM_CH0	EQU	FLAGS+TB2CCH
+RYTHM_WK	EQU	FLAGS+TB26CH
+SNG_PSG_CH0	EQU	FLAGS+TB27CH		; SONG PSG 0CH
+PSG_RYTHM_WK	EQU	FLAGS+TB29CH
+BACK_CH		EQU	FLAGS+TB2ACH
+SE_PSG_CH0	EQU	FLAGS+TB2FCH
+;=========================================================
+;	HEADDER POINTER CONSTANT
+;=========================================================
+HD_FMCH		EQU	2
+HD_PSGCH	EQU	3
+HD_BASE		EQU	4
+HD_DLCNT	EQU	5
+
+SEHD_BASE	EQU	2
+SEHD_CH_NO	EQU	3
+
+;==========================================================
+; ===== flag assignment =====
+;==========================================================
+FLAG	EQU	0		;BIT 7: enable
+				;    6: don't set frequency data
+				;    5: portament on								;    4: ENVE flag (1=tbend,stay)
+				;    3: set up frequency data directly
+				;    2: data write enable flag 1= disable
+				;    1:	NOT KEY ON
+				;    0: EFFCT MODE(FM)/ NOIS MODE (PSG)
+				
+CHIAN		EQU	1       	; HI 4 PSG CH#/ LOW 4:FM CH#
+CBASE		EQU	2       	; constant base counter
+TBPON		EQU	3		; music table pointer  2 byts
+BIAS		EQU	5       	; scale data bias
+VOLM		EQU	6		; VOLM STR
+VIBR		EQU	7	      	; VIBRATO FLAG
+ENVE		EQU	8		; ENVELOPE FLAG
+FTIMB		EQU	ENVE		; FM TIMBRE PALAMETER FLAG	
+STAC		EQU	9	      	; stack pointer
+panstr		equ	10		; pan data store
+LCONT		EQU	11       	; LENGTH COUNTER       
+ECSTR		EQU	12		; LENGTH STORE 1 BYTE
+FREQB		EQU	13		; BASE FREQUENCY          2 BYTS
+env_s		EQU	15      	; song no. store other song enve use.
+port_frq	equ	16
+dt_frq		equ	16		; fdt command detune data
+pan_no		equ	17		; PAN table no. store( when auto pan)
+pan_tbno	equ	18		; PAN table no.
+pan_ct0		equ	19		; pan control data store
+pan_ct1		equ	20		; pan counter
+pan_ct2		equ	21		; pan counter 1
+pan_ct3		equ	22
+
+ECONT		EQU	23		; ENVELOPE COUNTER
+fm_eno		EQU	24		; ENVELOPE no(fm only)(wow command)
+
+fm_eflg		equ	25		; slot bit map store( wow commannd)
+ntype		equ	26		; noise type store
+
+
+ssg_adr		equ	25		; 2 byte (ssg data addr store)
+
+ALGCK		EQU	27		;	ALG STORE
+TLADR		EQU	28		; 2 bytes
+
+gate		equ	30		; gate command
+gate_str	equ	31		;
+
+fvr_str		equ	32		; FVR data addr store 2 bytes
+fvr_frq		EQU	34		; 2 bytes
+fvr_dely	equ	36		; 
+fvr_lcnt	EQU	37		; 
+fvr_add		equ	38
+fvr_lmt		equ	39
+VCONT		EQU	fvr_lcnt		; VIBRATO COUNTER
+vib_add		equ	fvr_frq
+
+REPTR		EQU	40		; 	REPEAT COUNTER	; 4 BYTES
+					;    (s.e 2 bytes)
+se_voice_addr	equ	42		; 2 bytes
+
+;==========================================
+;; ÇeÇlÅ@reg. assign
+;==========================================
+
+FMTEST	EQU	21H		; lsi test data
+LFOFQ	EQU	22H
+TIMERA	EQU	24H		; timer A msb 8 bit data  25H = lsb 2 bit data
+TIMERB	EQU	26H		; timer B data
+MODETIM	EQU	27H		; TIMER & FM MODE CONTROL
+KEYCON	EQU	28H		; KEY ON OFF CONTROL
+DTMULT	EQU	30H		; detune/multiple data
+TLEVEL	EQU	40H		; total level data
+KSATTR	EQU	50H		; key scale/attack rate data
+DECAYR	EQU	60H		; decay rate data
+SUSTAR	EQU	70H		; sustain rate data
+SULRER	EQU	80H		; sustain level/release rate data
+SSGTEC	EQU	90H		; ssg type envelope control
+FNO	EQU	0A0H		; frequency number 1
+BFNO	EQU	0A4H		; frequency number 2 & block data
+FNO3	EQU	0A8H		; 3ch 3slot frequency number 1
+BFSL1	EQU	0ADH		; 3ch 3slot frequency number 2 & block data
+BFSL2	EQU	0AEH		; 3ch 3slot frequency number 2 & block data
+BFSL3	EQU	0ACH		; 3ch 3slot frequency number 2 & block data
+BFSL4	EQU	0A6H
+SFBCON	EQU	0B0H		; self feedback/connection
+LRMOD	EQU	0B4H
+
+;*********** fm set DATA ASSIGN**********
+LSET	EQU	080H
+RSET	EQU	040H
+LRSET	EQU	0C0H
+
+AMS1	equ	10h
+AMS2	equ	20h
+AMS3	equ	30h
+
+
+semode_dt	equ	04fh	; semode set data
+
+;********************************
+;TABLE ADDRESS------CONST--------
+;********************************
+bgadr_offset	equ	4
+seadr_offset	equ	6
+bkseadr_offset	equ	2
+vbadr_offset	equ	8
+evadr_offset	equ	10
+
+;----------------- I/O  -----------------
+;-----------< FM CHIP >--------------
+OPNADDRESS	EQU	4000H		; FM regster no. set addr.
+OPNDATA		EQU	4001H		; FM data set addr.       
+OPNSTATUS	EQU	4000H		; status read
+
+OPN2ADDRESS	EQU	4002H		;  FM regster no. set addr.
+OPN2DATA	EQU	4003H		;  FM data set addr.       
+
+PSG		EQU	7F11H
+BANKCHG		EQU	6000H		; BANK CHENGE DATA WRITE I/O
+;= =============================
+; ===== channel data =======
+;===============================
+CH0	EQU	080H
+CH1	EQU	0A0H
+CH2	EQU	0C0H
+CH3	EQU	0E0H
+CH4	EQU	000H
+CH5	EQU	000H
+CH6	EQU	000H
+
+FCH0	EQU	00H
+FCH1	EQU	01H
+FCH2	EQU	02H
+FCH3	EQU	04H
+FCH4	EQU	05H
+FCH5	EQU	06H
+
+;=======================
+;	NOIS MODE
+;========================
+NOIS0	EQU	0E0H
+NOIS1	EQU	0E1H
+NOIS2	EQU	0E2H
+NOIS3	EQU	0E3H
+NOIS4	EQU	0E4H
+NOIS5	EQU	0E5H
+NOIS6	EQU	0E6H
+NOIS7	EQU	0E7H
+;============================
+;	command assign
+;===========================
+CMNOP	EQU	0E0H
+LRPAN		EQU	0E0H	; FM L/R set
+FDT		EQU	0E1H	; FM FREQ DETUNE ( NOT SE MODE)
+SET_TFLG	EQU	0E2H	; SET_TFLG,<DATA> ******
+CMTREND		EQU	0E3H	; 
+				;    total rereease off end  *****
+AUTOPAN		EQU	0E4H	; autopan set 
+				;    <pan no>,<pan tb no>,<point strt no>
+				;    < point limit>,<length data>
+PFVADD	EQU	0E5H	; psg,fm volm add
+CMVADD	EQU	0E6H	; fm volmadd
+CMTAB	EQU	0E7H
+TIE	EQU	0E7H
+SRE	EQU	0E7H
+CMGATE 	EQU	0E8H	; CMGATE,<DATA>   Agate time set
+LFO	EQU	0E9H	; LFO,<LFO DATA>,<PMS,AMS DATA>
+TIMER	EQU	0EAH	; EXCOM,TIMER,<DATA A(DW)>,<DATA B(DB)>   *****
+TIMER_ADD EQU	0EBH	; EXCOM,TIMER_ADD,<A DATA(DW)>,<B DATA(DB)>
+PVADD	EQU	0ECH	; PVADD,<DATA>   
+			;		psg volm add  *****
+REGSET  EQU	0EDH	; REGSET,<regno.>,<DATA>  (chinnel looking) **
+FMWRITE	EQU	0EEH	; FMWRITE,<regno>,<DATA> (chinnel no look) **
+FEV	EQU	0EFH	; FM VOICE SET	
+			; FEV,<NO.(0-7fh)>         ---- ram table
+			; FEV,<NO.(80-ffh)>,<SONG>  ---- rom   ***
+FVR	EQU     0F0H 	; FVR,<DELAY>,<COUNTER>,<ADD DATA>,<LIMIT>
+			; 		vibrate command
+PFVR	EQU	0F1H	; PFVR,<PSG DATA>,<FM DATA> 
+		 	;		psg fm VIBR no. set
+CMEND	EQU	0F2H	; CMEND
+		 	;		music table end
+CMNOIS	EQU	0F3H	; CMNOIS,<DATA>    ( 0E0H - 0E7H )
+		 	;		psg noise mode set
+VR	EQU	0F4H	; VR,<DATA>
+		 	; 		vibrate no. set
+EV	EQU	0F5H	; EV,<DATA>
+		 	;		envelope no. set
+CMJUMP	EQU	0F6H	; CMJUMP,<ADDRES (DW)>
+		 	;		jump to music table
+CMREPT	EQU	0F7H	; CMREPT,<REG>,<REPEAT NO>,<ADDRESS(DW)>
+		 	;        	repeat set
+CMCALL	EQU	0F8H	; CMCALL,<ADDRESS (DW)>
+		 	; 		subroutin call
+CMRET	EQU	0F9H	; CMRET
+		 	;		subroutin ret
+CMBASE	EQU	0FAH	; base set
+CMBIAS	EQU	0FBH	; bias set
+CMPORT	EQU	0FCH	; portament on/off
+CMFREQ	EQU	0FDH	; direct frequency data on/off
+DT	EQU	0FEH	; 
+DTDR	EQU	DT
+EXCOM	EQU	0FFH	; EXTEND COMMAND
+
+CMINT	EQU	0	; EXCOM,INT,<DATA>
+			; 		0: int use / 80H : timer A/B use
+			; 			/   40H   timer B use
+TEMPO_CHG EQU	1	; TEMPO_CHG,<DELCOUNT(ADD DATA)>	****
+				;  
+KEYSET	EQU	2	; EXCOM,KEYSET,<NO.>   (keyflag set)
+S_PSE	EQU	3	; EXCOM,S_PSE,<ON/OFF>
+			;		song pause  
+WRITE_DATA EQU	4	; EXCOM,WRTTE_DATA,<addr >,<byte no>,<data1>,.... 
+SNG_BASE  EQU	5	; EXCOM,SNG_BASE,<DATA>
+SSG	EQU	6	; EXCOM,SSG,<SL1 data>,<SL2 data>,<SL3 data>,<SL4 data>
+WOW	EQU	7	; EXCOM,WOW <FMREG BIT MAP>
+			;  	 bit 3  2  1  0  -- SL1
+			;            |  |  |
+			;            SL4 SL3 SL2
+
+;============== VIBR/ENVE TABLE COMMAND ===========
+TBREPT	EQU	80H		; table repeat sign
+TBSTAY	EQU	81H		; table staying sign
+TBBAK	EQU	82H		; table pointer set next data
+TBEND	EQU	83H		; table end sign
+TBADD	EQU	84H
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;	DRUM.ASS
+;=====================================================
+;		7 6 5 4 3 2 1 0
+;		| |     |--------- FM RYTHM NO.
+;		| |
+;		| |--------------PSG RYTHM NO. 
+;		|------------RYTHM FLAG
+;
+
+
+
+S	EQU	81H		; SNAER
+HT	EQU	82H		; HI TOM
+MT	EQU	83H		; MID TOM
+LT	EQU	84H		; LOW TOM
+B	EQU	85H		; BASS DR
+H	EQU	86H		; HI HAT
+LT2	EQU	87H		; LOW TOM 2
+S2	EQU	88H		; SNAER 2
+SDS	EQU	89H
+HIHT	EQU	8AH
+
+
+PH	EQU	090H		; PSG HIHAT
+PO	EQU	0A0H		; PSG OPEN HIHAT
+OS	EQU	S OR PO
+HS	EQU	S OR PH
+SH	EQU	HS
+HB	EQU	B OR PH
+BH	EQU	HB
+OB	EQU	B OR PO
+POH	EQU	PO OR H
+
+
+;----------- RYTHM FREQ ---------
+FHT	EQU	0B6H
+FMT	EQU	0B3H
+FLT	EQU	0B0H
+FLT2	EQU	0B2H
+FSNR	EQU	0B9H
+FSNR2	EQU	0B4H
+FBDR	EQU	089H
+FHHT	EQU	0B0H
+FKSDS	EQU	095H
+FHTH	EQU	0D1H
+
+;----------- RYTHM VOLM ---------
+AHT	EQU	0CH
+AMT	EQU	0CH
+ALT	EQU	0CH
+ALT2	EQU	0CH
+ASNR	EQU	0EH
+ASNR2	EQU	0EH
+ABDR	EQU	03H
+AHHT	EQU	06H
+APHHT	EQU	04H
+APOHT	EQU	04H
+AKSDS	EQU	0AH
+AHTH	EQU	07H
+
+
+
+
+	IF	0
+
+AHT	EQU	10H
+AMT	EQU	10H
+ALT	EQU	10H
+ALT2	EQU	10H
+ASNR	EQU	13H
+ABDR	EQU	08H
+
+;----------- RYTHM FREQ ---------
+FHT	EQU	0B7H
+FMT	EQU	0B6H
+FLT	EQU	0B5H
+FLT2	EQU	0B2H
+FSNR	EQU	0B4H
+FBDR	EQU	081H
+
+;----------- RYTHM VOLM ---------
+AHT	EQU	08H
+AMT	EQU	08H
+ALT	EQU	08H
+ALT2	EQU	08H
+ASNR	EQU	08H
+ABDR	EQU	04H
+
+	endif
+
+;==============================
+;	FM REG ASSIGN
+;==============================
+
+FBC	equ	0B0H
+RL	equ	0B4H
+
+MU1	EQU	030H
+MU2	EQU	038H
+MU3	EQU	034H
+MU4	EQU	03CH
+
+DM1	EQU	030H
+DM2	EQU	038H
+DM3	EQU	034H
+DM4	EQU	03CH
+
+TL1	EQU	040H
+TL2	EQU	048H
+TL3	EQU	044H
+TL4	EQU	04CH
+
+AR1	EQU	050H
+AR2	EQU	058H
+AR3	EQU	054H
+AR4	EQU	05CH
+
+DR1	EQU	060H
+DR2	EQU	068H
+DR3	EQU	064H
+DR4	EQU	06CH
+
+SR1	EQU	070H
+SR2	EQU	078H
+SR3	EQU	074H
+SR4	EQU	07CH
+
+RR1	EQU	080H
+RR2	EQU	088H
+RR3	EQU	084H
+RR4	EQU	08CH	
+
+SSG1	EQU	90H
+SSG2	EQU	98H
+SSG3	EQU	94H
+SSG4	EQU	9CH
+;===========================================================================

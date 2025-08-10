@@ -1,0 +1,137 @@
+	.XLIST
+;	include	M5EQ13.LIB
+	include	\m5\z80\mdmEQ.LIB
+	.LIST
+
+	public	RAM		
+	public	bank_adr_top	
+	public	tb_adr_str	
+	public	timer_a_dt	
+	public	timer_b_dt	
+	public	timer_use_flg	
+	public	rom_seno_str	
+
+
+	public	KYFLAG0		
+	public	KYFLAG		
+	public	BAF1		
+	public	BAF2		
+	public	BAF3		
+	;------------ 13
+	public	FOUTFL		
+	public	FOUTTM_STR	
+	public	FOUTTM		
+	public	pause_fl	
+	public	se_mode		
+	public	RCUNT		
+	public	CUNTST		
+	;----------- 20 
+	public	ENDFL		
+	public	t_flg		
+	public	r_data		
+	public	SDFL		
+	public	seflag		
+
+	public	DT21SE		
+	public	DT22SE		
+	public	DT23SE		
+	public	DT24SE		
+
+	;----------- 32 
+	public	DT21BK		
+	public	DT22BK		
+	public	DT23BK		
+	public	DT24BK		
+	;---------- 40 -
+	public	DT21BG		
+	public	DT22BG		
+	public	DT23BG		
+	public	DT24BG		
+
+	;------------ 48
+	public	point_no	
+	public	HD_CHIAN_ADR	
+	;------------ 50
+	public	FLG_TBPON	
+	public	SONG_VOICE	
+	public	SE_VOICE	
+	public	BACK_SE_VOICE	
+	public	sehd_base_str	
+
+	public	FLAGS		
+
+	dw	RAM		
+	dw	bank_adr_top	
+	dw	tb_adr_str	
+	dw	timer_a_dt	
+	dw	timer_b_dt	
+	dw	timer_use_flg	
+	dw	rom_seno_str	
+
+
+	dw	KYFLAG0		
+	dw	KYFLAG		
+	dw	BAF1		
+	dw	BAF2		
+	dw	BAF3		
+	;------------ 13
+	dw	FOUTFL		
+	dw	FOUTTM_STR	
+	dw	FOUTTM		
+	dw	pause_fl	
+	dw	se_mode		
+	dw	RCUNT		
+	dw	CUNTST		
+	;----------- 20 
+	dw	ENDFL		
+	dw	t_flg		
+	dw	r_data		
+	dw	SDFL		
+	dw	seflag		
+
+	dw	DT21SE		
+	dw	DT22SE		
+	dw	DT23SE		
+	dw	DT24SE		
+
+	;----------- 33 
+	dw	DT21BK		
+	dw	DT22BK		
+	dw	DT23BK		
+	dw	DT24BK		
+	;---------- 41 -
+	dw	DT21BG		
+	dw	DT22BG		
+	dw	DT23BG		
+	dw	DT24BG		
+
+	;------------ 49
+	dw	point_no	
+	dw	HD_CHIAN_ADR	
+	;------------ 51
+	dw	FLG_TBPON	
+	dw	SONG_VOICE	
+	dw	SE_VOICE	
+	dw	BACK_SE_VOICE	
+	dw	sehd_base_str	
+
+	dw	FLAGS		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

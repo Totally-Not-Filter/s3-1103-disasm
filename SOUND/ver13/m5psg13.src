@@ -1,0 +1,170 @@
+********************************************************
+;*		$$$PSG.SRC	( SOUND CONTROL )	*
+;*  			ORG. M5PSG13.SRC               	*
+;*		'SOUND-SORCE'                           *
+;*		 for Mega Drive (Z80)			*
+;*			VER  1.31/1989.12.10		*
+;*				BY        T.Uwabo       *
+;********************************************************
+
+	.XLIST
+	include	m5eq13.lib
+	.LIST
+
+;=======================;
+;  TONE DATA SET	;
+;    JUMP FROM MAIN LOOP;
+;=======================;
+psg_cnt::
+	;<<<< COUNTER CHECK >>>>
+	call	countchk##
+	jr	nz,p_noprimel
+	call	nextd##
+	bit	4,(ix+flag)
+	ret	nz
+	call	fvr_chk##
+	jr	pnon_gate
+p_noprimel:
+;	bit	4,(ix+flag)
+;	ret	nz
+	;-----<<< GATE TIME CHECK >>>-----
+	ld	a,(ix+gate)
+	or	a
+	jr	z,pnon_gate
+	dec	(ix+gate)
+	jp	z,clear
+pnon_gate:
+	call	portadd##
+	call	vibr_chk##
+
+;====================================
+;	psg set
+;===================================
+;	in	hl = freq data
+psgset::
+	bit	2,(ix+flag)
+	ret	nz
+;	LD	b,(IX+FREQB)
+;	LD	A,(IX+FREQB+1)
+;	OR	b
+;	BIT	4,(IX+VFLG)
+;	jr	z,psg_enve
+	;<<<<<<<<<<<<< psg freq set >>>>>>>>>
+	LD	C,(IX+CHIAN)
+	LD	A,L			; L=freq low
+	AND	0FH			; low 4 bit get
+	OR	C		     ; high 4 bit=reg no./low 4 bit=freq data. 
+	LD	(PSG),A
+	; <<<<<<< 2nd byte >>>>>>>
+	LD	A,L			;(IX+FREQ); CHENGE TO PSG DATA FORMAT.
+	AND	0F0H			; freq low,high 4 bit get. 
+	OR	H			; high 4 bit=freq low/low 4 bit=
+	RRCA				;		 	freq high
+	RRCA				;
+	RRCA				;
+	RRCA				; high 4 bit=freq high ,low 4 bit.
+	LD	(PSG),A
+
+	;----------<<< envelope set >>>------------
+psg_enve::
+	;
+;	BIT	4,(IX+FLAG)		; enve flag / 1: TBEND,TBSTAY
+;	ret	nz
+	LD	A,(IX+ENVE)		; A=enve no.
+	or	A
+	ld	c,0			; volm dammy
+	jr	z,penv2			; if enve no.=0 then jump & 
+PENV1:
+	dec	a
+	ld	c,evadr_offset
+;	ld	b,80h
+;	call	rr_adr_get##
+	rst	adr_get_sub
+	rst	gettbl_sub		; HL = enve table top
+	CALL	ENVS			; out A = enve data
+	ld	c,a
+PENV2:
+	BIT	4,(IX+FLAG)		; enve flag / 1: TBEND,TBSTAY
+	RET	NZ
+	ld	A,(IX+VOLM)		
+	add	a,c
+	BIT	4,A			; if volm+enve data dont make over flow
+	jr	z,p_env_set			; then ret
+	LD	A,0FH			; if over flow then atten 0FH
+p_env_set:
+	OR	(IX+CHIAN)		;A = enve data
+	ADD	A,10H			; A=psg attenation data
+	BIT	0,(ix+flag)		; 1 = noise mode
+	jr	nz,p_env_nois
+	LD	(PSG),A
+	RET
+
+p_env_nois::
+	add	a,20h			; noise atten data making
+	LD	(PSG),A
+	ret
+;========================
+;   ENVELOPE SET
+;========================
+ENVS1::
+	LD	(IX+ECONT),A
+ENVS::					;
+	PUSH	HL			; HL=enve table top.
+ 	LD	C,(IX+ECONT)		;ENVE TB COUNTING USE
+	CALL	get_byte##		; cnt.src  A = DATA 
+	POP	HL
+	BIT	7,A			; if data>7FH then command
+	JR	Z,ENVS2			; if data<80h then jump
+	CP	TBEND			; if data=TBEND 
+	JR	Z,ETBEND		; then jump.
+	;
+	CP	TBSTAY			; if data=TBSTAY then jump
+	JR	Z,ETBSTAY
+	CP	TBREPT			; if data=TBREPT then jump
+	JR	Z,ETBREPT			
+ETBBAK::					;<<<< TBBAK >>>>>
+	INC	BC			; when TBBAK
+	LD	A,(BC)			; A=table counter data
+	JR	ENVS1
+ETBEND::
+;	LD	(IX+EFLG),0FFH
+	set	4,(ix+FLAG)		; ence flag set
+	POP	HL			; stack get
+	JP	CLEAR			; jump to psg attenation off.
+ETBREPT::
+	XOR	A			; A=table counter data
+	JR	ENVS1
+ETBSTAY::		;<<<<<< when tbstay >>>>>
+	POP	HL
+	set	4,(ix+FLAG)		; enve flag set
+;	LD	(IX+EFLG),0FFH
+	RET
+	;<<<<<<<<<<<<<<<< ENVE DATA SET >>>>>>>>> 
+ENVS2::					; A= envelope data
+	INC	(IX+ECONT)
+	ret
+
+
+;============================
+;	CLEAR CHIANNEL ATTEN.
+;===========================
+clear::
+	set	4,(ix+FLAG)		; enve flag set
+	bit	2,(ix+flag)
+	ret	nz
+clear1::
+	LD	A,01FH
+	ADD	A,(IX+CHIAN)		; 
+	or	a
+	ret	p			; if bit7 = 0 then FM
+	LD	(PSG),A
+	bit	0,(ix+flag)		; 0 = not noise using
+	ret	z			;  then ret
+	;				; nois clear
+;	ADD	A,20H
+	ld	a,0ffh
+	LD	(PSG),A
+	RET
+
+CONT_END::
+

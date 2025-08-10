@@ -1,0 +1,107 @@
+;------------------------------------------
+;
+;		KEYSET.SRC
+;
+;	‚±‚ÌƒvƒƒOƒ‰ƒ€‚ÍA‚j‚d‚x@‚m‚nD‚ğ©“®“I‚ÉƒZƒbƒg‚·‚é‚½‚ß‚Ì‚à‚Ì‚Å‚·B
+;	‚R‚Â‚Ì‚j‚d‚x@‚m‚nD‚ğw’è‚·‚é‚Æ”CˆÓ‚ÌƒCƒ“ƒ^[ƒoƒ‹‚ğ‚¨‚¢‚ÄAi‚j‚x
+;	‚e‚k‚`‚fj‚ÉŠeX‚ªƒZƒbƒg‚³‚ê‚Ü‚·B
+;	w’è•û–@‚ÍAi‚j‚x‚r‚s‚q‚PjAi‚j‚x‚r‚s‚q‚QjAi‚j‚x‚r‚s‚q‚Rj‚É
+;	‚j‚d‚x@‚m‚nD‚ğAi‚j‚x‚P‚k‚d‚m‚fjCi‚j‚x‚Q‚k‚d‚m‚fjCi‚j‚x‚R
+;	‚k‚d‚m‚fj‚É‚»‚ê‚¼‚ê‚É‘Î‰‚·‚éƒCƒ“ƒ^[ƒoƒ‹ƒJƒEƒ“ƒg’l‚ğƒZƒbƒg‚µ‚Ü‚·B
+;	‚È‚¨Ai‚‚†‚Œ‚‡j‚É‚W‚O‚ˆ‚ğƒZƒbƒg‚·‚é‚Æ‹N“®‚µ‚Í‚¶‚ßA‚O‚ˆ‚Å‚·‚Æ‚Á‚Õ
+;	‚µ‚Ü‚·B
+;
+kystr1	equ	0ff00h
+ky1leng	equ	kystr1+1
+kystr2	equ	0ff02h
+ky2leng	equ	kystr2+1
+kystr3	equ	0ff04h
+ky3leng	equ	kystr3+1
+
+ky1cunt	equ	0ff10h
+ky2cunt	equ	0ff10h+1
+ky3cunt	equ	0ff10h+2
+
+pflg	equ	0ff20h
+pointno	equ	0ff20h+1
+getflg	equ	0ff20h+2		; if 0 then new key get
+point	equ	0ff20h+3
+;-------- constant -----
+bafno	equ	3			; baffer no.
+keyin:
+	ld	a,(pflg)
+	or	a
+	ret	p
+	and	07Fh
+	or	a
+	jr	nz,getchk
+	;     INIT
+	xor	a
+	ld	(pointno),a
+	ld	a,0ffh
+	ld	(pflg),a
+	ld	b,bafno
+	ld	hl,ky1leng
+	ld	de,ky1cunt
+ll1:				; counter set
+	ldi
+	inc	hl
+	djnz	ll1
+	
+getchk:			; if counter = 0 then set key
+	ld	a,(pointno)
+	ld	hl,cnttb
+	call	get_tbl
+	ld	a,(hl)
+	dec	(hl)
+	or	a
+	ret	nz
+getky:
+	push	hl		; hl = count str addr
+	ld	a,(pointno)
+	ld	hl,baftb
+	call	get_tbl
+	ld	a,(hl)
+	ld	(kyflag),a
+setbaf:
+	pop	de		; hl = count str addr
+	inc	hl		; de = key leng addr
+	ld	a,(hl)
+	ld	(de),a		; set interval counter
+	;
+	ld	a,(pointno)
+	inc	a
+	cp	bafno		; (pointno) = 0,1,2
+	jr	c,setpno
+	xor	a
+
+setpno:
+	ld	(pointno),a
+
+	ret
+
+;---------------------------------------
+baftb:
+	dw	kystr1,kystr2,kystr3
+cnttb:
+	dw	ky1cunt,ky2cunt,ky3cunt
+	
+;---------------------------------------
+;------------------
+;	GETTBL
+;-----------------
+
+GET_TBL:
+ 	LD	C,A			; A =VIBR or ENVE NO.
+ 	LD	B,0			;
+ 	ADD	HL,BC
+ 	ADD	HL,BC			; table point addr get
+ 	LD	A,(HL)
+ 	INC	HL
+ 	LD	H,(HL)			; 
+ 	LD	L,A			; HL=table addr
+	RET
+;------------------------------------------------
+;	END OF FILE				;
+;------------------------------------------------
+

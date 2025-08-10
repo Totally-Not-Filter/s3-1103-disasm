@@ -1,0 +1,353 @@
+;********************************************************
+;*		$$$SETB.SRC	( SOUND S.E ADDR TABLE )*
+;*  			ORG. M5CNT13.SRC               	*
+;*		'SOUND-SORCE'                           *
+;*		 for Mega Drive (Z80)			*
+;*			VER  1.31/1989.12.10		*
+;*				BY        T.Uwabo       *
+;********************************************************
+;===========================================
+;<<<<<<<< S.E ADDRESS TABLE         >>>>>>>>
+;===========================================
+SETB::	
+SETBF::	
+
+	ifge SEEND-90H
+		ifle 	sestrt-90H
+	DEFW	S90
+		endif
+	endif
+
+	ifge SEEND-91H
+		ifle 	sestrt-91H
+	DEFW	S91
+		endif
+	endif
+
+
+	ifge SEEND-92H
+		ifle 	sestrt-92H
+	DEFW	S92
+		endif
+	endif
+
+
+	ifge SEEND-93H
+		ifle 	sestrt-93H
+	DEFW	S93
+		endif
+	endif
+
+
+	ifge SEEND-94H
+		ifle 	sestrt-94H
+	DEFW	S94
+		endif
+	endif
+
+
+	ifge SEEND-95H
+		ifle 	sestrt-95H
+	DEFW	S95
+		endif
+	endif
+
+
+	ifge SEEND-96H
+		ifle 	sestrt-96H
+	DEFW	S96
+		endif
+	endif
+
+
+	ifge SEEND-97H
+		ifle 	sestrt-97H
+	DEFW	S97
+		endif
+	endif
+
+
+	ifge SEEND-98H
+		ifle 	sestrt-98H
+	DEFW	S98
+		endif
+	endif
+
+
+	ifge SEEND-99H
+		ifle 	sestrt-99H
+	DEFW	S99
+		endif
+	endif
+
+
+	ifge SEEND-9AH
+		ifle 	sestrt-9AH
+	DEFW	S9A
+		endif
+	endif
+
+
+	ifge SEEND-9BH
+		ifle 	sestrt-9BH
+	DEFW	S9B
+		endif
+	endif
+
+
+	ifge SEEND-9CH
+		ifle 	sestrt-9CH
+	DEFW	S9C
+		endif
+	endif
+
+
+	ifge SEEND-9DH
+		ifle 	sestrt-9DH
+	DEFW	S9D
+		endif
+	endif
+
+
+	ifge SEEND-9EH
+		ifle 	sestrt-9EH
+	DEFW	S9E
+		endif
+	endif
+
+
+	ifge SEEND-9FH
+		ifle 	sestrt-9FH
+	DEFW	S9F
+		endif
+	endif
+
+
+	ifge SEEND-0A0H
+		ifle 	sestrt-0A0H
+	DEFW	SA0
+		endif
+	endif
+
+
+	ifge SEEND-0A1H
+		ifle 	sestrt-0A1H
+	DEFW	SA1
+		endif
+	endif
+
+
+	ifge SEEND-0A2H
+		ifle 	sestrt-0A2H
+	DEFW	SA2
+		endif
+	endif
+
+
+	ifge SEEND-0A3H
+		ifle 	sestrt-0A3H
+	DEFW	SA3
+		endif
+	endif
+
+
+	ifge SEEND-0A4H
+		ifle 	sestrt-0A4H
+	DEFW	SA4
+		endif
+	endif
+
+
+	ifge SEEND-0A5H
+		ifle 	sestrt-0A5H
+	DEFW	SA5
+		endif
+	endif
+
+
+	ifge SEEND-0A6H
+		ifle 	sestrt-0A6H
+	DEFW	SA6
+		endif
+	endif
+
+
+	ifge SEEND-0A7H
+		ifle 	sestrt-0A7H
+	DEFW	SA7
+		endif
+	endif
+
+
+	ifge SEEND-0A8H
+		ifle 	sestrt-0A8H
+	DEFW	SA8
+		endif
+	endif
+
+
+	ifge SEEND-0A9H
+		ifle 	sestrt-0A9H
+	DEFW	SA9
+		endif
+	endif
+
+
+	ifge SEEND-0AAH
+		ifle 	sestrt-0AAH
+	DEFW	SAA
+		endif
+	endif
+
+
+	ifge SEEND-0ABH
+		ifle 	sestrt-0ABH
+	DEFW	SAB
+		endif
+	endif
+
+
+	ifge SEEND-0ACH
+		ifle 	sestrt-0ACH
+	DEFW	SAC
+		endif
+	endif
+
+
+	ifge SEEND-0ADH
+		ifle 	sestrt-0ADH
+	DEFW	SAD
+		endif
+	endif
+
+
+	ifge SEEND-0AEH
+		ifle 	sestrt-0AEH
+	DEFW	SAE
+		endif
+	endif
+
+
+	ifge SEEND-0AFH
+		ifle 	sestrt-0AFH
+	DEFW	SAF
+		endif
+	endif
+
+	ifge SEEND-0B0H
+		ifle 	sestrt-0B0H
+	DEFW	SB0
+		endif
+	endif
+
+
+	ifge SEEND-0B1H
+		ifle 	sestrt-0B1H
+	DEFW	SB1
+		endif
+	endif
+
+
+	ifge SEEND-0B2H
+		ifle 	sestrt-0B2H
+	DEFW	SB2
+		endif
+	endif
+
+
+	ifge SEEND-0B3H
+		ifle 	sestrt-0B3H
+	DEFW	SB3
+		endif
+	endif
+
+
+	ifge SEEND-0B4H
+		ifle 	sestrt-0B4H
+	DEFW	SB4
+		endif
+	endif
+
+
+	ifge SEEND-0B5H
+		ifle 	sestrt-0B5H
+	DEFW	SB5
+		endif
+	endif
+
+
+	ifge SEEND-0B6H
+		ifle 	sestrt-0B6H
+	DEFW	SB6
+		endif
+	endif
+
+
+	ifge SEEND-0B7H
+		ifle 	sestrt-0B7H
+	DEFW	SB7
+		endif
+	endif
+
+
+	ifge SEEND-0B8H
+		ifle 	sestrt-0B8H
+	DEFW	SB8
+		endif
+	endif
+
+
+	ifge SEEND-0B9H
+		ifle 	sestrt-0B9H
+	DEFW	SB9
+		endif
+	endif
+
+
+	ifge SEEND-0BAH
+		ifle 	sestrt-0BAH
+	DEFW	SBA
+		endif
+	endif
+
+
+	ifge SEEND-0BBH
+		ifle 	sestrt-0BBH
+	DEFW	SBB
+		endif
+	endif
+
+
+	ifge SEEND-0BCH
+		ifle 	sestrt-0BCH
+	DEFW	SBC
+		endif
+	endif
+
+
+	ifge SEEND-0BDH
+		ifle 	sestrt-0BDH
+	DEFW	SBD
+		endif
+	endif
+
+
+	ifge SEEND-0BEH
+		ifle 	sestrt-0BEH
+	DEFW	SBE
+		endif
+	endif
+
+
+	ifge SEEND-0BFH
+		ifle 	sestrt-0BFH
+	DEFW	SBF
+		endif
+	endif
+
+
+;===========================================
+;<<<<<< BACK S.E  ADDRESS TABLE         >>>>
+;===========================================
+BAKTB::
+	DEFW	S90
