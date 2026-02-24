@@ -112,4 +112,3 @@ s3p43_Voices:
 	smpsVcDecayLevel    $00, $01, $00, $01
 	smpsVcReleaseRate   $07, $00, $07, $00
 	smpsVcTotalLevel    $80, $16, $80, $1A
-

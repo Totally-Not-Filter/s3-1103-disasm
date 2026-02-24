@@ -526,6 +526,9 @@ s3p35_Jump06:
 	dc.b	nF4, $04, nRst, $02, nF5, $04, nRst, $02, nE4, $04, nRst, $08
 	dc.b	nE5, $04, nRst, $02, nE4, $04, nRst, $08, nE5, $04, nRst, $02
 	dc.b	nE5, $04, nRst, $02, nE4, $04, nRst, $32
+	if FixMusicAndSFXDataBugs
+	smpsPSGvoice        sTone_04
+	endif
 	smpsJump            s3p35_Jump06
 
 ; Unreachable
@@ -596,6 +599,9 @@ s3p35_Jump05:
 	dc.b	$02, nC3, $04, nRst, $02, nD3, $04, nRst, $02, nE3, $04, nRst
 	dc.b	$02, nG3, $04, nRst, $02, nD3, $04, nRst, $02, nE3, $04, nRst
 	dc.b	$02, nG3, $04, nRst, $02, nC4, $04, nRst, $32
+	if FixMusicAndSFXDataBugs
+	smpsPSGvoice        sTone_04
+	endif
 	smpsJump            s3p35_Jump05
 
 ; Unreachable
