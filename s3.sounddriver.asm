@@ -319,7 +319,7 @@ zReadPointer:	rsttarget
 		ret
 ; ----------------------------------------------------------------------------
 ; Possible to fit two more rsttargets into here
-	align 38h
+	org 38h
 ; ===========================================================================
 ; ---------------------------------------------------------------------------
 ; This subroutine is called every V-Int. After it is processed, the z80
