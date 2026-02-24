@@ -33,7 +33,7 @@ Offset_0x0275B6:
 Offset_0x0275C4:
 				lea		(Balloon_Animate_Data).l, A1			 ; Offset_0x0276A6
 				jsr		(AnimateSprite).l						   ; Offset_0x01115E
-				tst.b	(Prog_Start_Vector+$01).w			   ; Offset_0x000005
+				tst.b	5
 				beq.s	Offset_0x0275DC
 				move.w	#$7F00, Obj_X(A0)								 ; $0010
 Offset_0x0275DC:

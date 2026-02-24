@@ -80,7 +80,7 @@ zROMWindow:		= $8000
 zDataStart:		= $1C00
 
 		phase zDataStart
-	if ~~fix_sndbugs
+	if fix_sndbugs=0
 			ds.b	2	; unused
 	endif
 zPointerTable:		ds.w	1	; the 68000 SoundDriverLoad routine sets this to 1200h in Z80 memory
@@ -383,7 +383,7 @@ zInitAudioDriver:
 		call	zStopAllSound			; stop all music
 		ld	a,5				; set PAL double-update timer to 5
 		ld	(zPalDblUpdCounter),a		; (that is, do not double-update for 5 frames)
-	if ~~fix_sndbugs
+	if fix_sndbugs=0
 		; duplicate DAC bankswitch
 		bankswitch2 DACBank
 	endif
@@ -417,7 +417,7 @@ zWriteFMIorII:
 
 zWriteFMI:
 		ld	(zYM2612_A0),a			; select YM2612 register
-	if ~~fix_sndbugs
+	if fix_sndbugs=0
 		nop							; delay
 	endif
 		ld	a,c						; load data from c into a
@@ -439,7 +439,7 @@ zWriteFMII_reduced:
 
 zWriteFMII:
 		ld	(zYM2612_A1),a			; select YM2612 register
-	if ~~fix_sndbugs
+	if fix_sndbugs=0
 		nop							; delay
 	endif
 		ld	a,c						; load data from c into a
@@ -661,7 +661,7 @@ zGetNextNote_cont:
 		add	a,d
 		jr	.loop
 ; ---------------------------------------------------------------------------
-	if ~~fix_sndbugs
+	if fix_sndbugs=0
 		; unused
 		ex	af,af'
 	endif
@@ -683,11 +683,14 @@ zGetNoteDuration:
 		ld	a,(de)
 		or	a
 		jp	p,zGotNoteDuration
+	if fix_sndbugs=0
+		; zFinishTrackUpdate already does this
 		ld	a,(ix+zTrack.SavedDuration)
 		ld	(ix+zTrack.DurationTimeout),a
+	endif
 		jr	zFinishTrackUpdate
 
-	if ~~fix_sndbugs
+	if fix_sndbugs=0
 		; unused
 		ld	a,(de)
 		inc	de
@@ -761,7 +764,7 @@ zComputeNoteDuration:
 ; Input:   ix   Track data
 ; Output:  a    New duration
 ;sub_33A
-	if ~~fix_sndbugs
+	if fix_sndbugs=0
 zTrackRunTimer:
 		; This is absurdly inefficient, since 'dec' can be ran directly on memory.
 		ld	a, (ix+zTrack.DurationTimeout)	; Get track duration timeout
@@ -835,7 +838,7 @@ zDoFMVolEnv:
 		push	bc
 		jr	nc,.skipReg
 		add	a,(hl)
-	if ~~fix_sndbugs
+	if fix_sndbugs=0
 		; This isn't actually needed
 		and	7Fh				; Strip sign bit
 	endif
@@ -1193,7 +1196,7 @@ zloc_48B:
 		bankswitchToMusic Snd_Bank1_Start
 		ld	a,0B6h
 		ld	(zYM2612_A1),a
-	if ~~fix_sndbugs
+	if fix_sndbugs=0
 		nop
 	endif
 		ld	a,0C0h
@@ -1305,7 +1308,7 @@ zPlaySound:
 		push	hl
 		rst	zReadPointer
 		ld	(zSFXVoiceTblPtr),hl
-	if ~~fix_sndbugs
+	if fix_sndbugs=0
 		xor	a
 		ld	(unk_1C15),a
 	endif
@@ -1326,7 +1329,7 @@ zSFXTrackInitLoop:
 		call	zGetSFXChannelPointers
 		set	2,(hl)
 		push	ix
-	if ~~fix_sndbugs
+	if fix_sndbugs=0
 		ld	a,(zUpdatingSFX)		; Get flag
 		or	a				; Are we updating SFX?
 		jr	z,.normalsfx1			; Branch if not (hint: it was cleared just below the bank switch above so... always)
@@ -1361,7 +1364,7 @@ zSFXTrackInitLoop:
 		ldi
 		ldi
 		call	zInitFMDACTrack
-	if ~~fix_sndbugs
+	if fix_sndbugs=0
 		; Analysis of the Battletoads sound driver confirms previous speculation:
 		; this code was meant for GHZ-like waterfall effects which were subsequently
 		; scrapped in favor of the continuous SFX system.
@@ -1387,7 +1390,7 @@ zSFXTrackInitLoop:
 	endif
 		push	hl
 		ld	hl,(zSFXVoiceTblPtr)
-	if ~~fix_sndbugs
+	if fix_sndbugs=0
 		ld	a,(zUpdatingSFX)		; Get flag
 		or	a				; Are we updating SFX?
 		jr	z,.normalsfx2			; Branch if not (hint: it was cleared just below the bank switch above so... always)
@@ -1425,7 +1428,7 @@ zGetSFXChannelPointers:
 		bit	7,c
 		jr	nz,.isPSG
 		ld	a,c
-	if ~~fix_sndbugs
+	if fix_sndbugs=0
 		bit	2,a
 		jr	z,.getPtrs
 		dec	a
@@ -1693,7 +1696,7 @@ zStopAllSound:
 		inc	ix
 		pop	bc
 		djnz	.loop
-	if ~~fix_sndbugs
+	if fix_sndbugs=0
 		ld	b,7
 		xor	a
 		ld	(zFadeOutTimeout),a
@@ -1721,7 +1724,7 @@ zFMClearSSGEGOps:
 		jp	zFMOperatorWriteLoop
 
 zPauseAudio:
-	if ~~fix_sndbugs
+	if fix_sndbugs=0
 		call	zPSGSilenceAll			; Redundant, as function falls-through to it anyway
 	endif
 		push	bc
@@ -1787,7 +1790,7 @@ zTempoWait:
 		ret
 
 zDoUpdate:
-	if ~~fix_sndbugs
+	if fix_sndbugs=0
 		ld	a,r
 		ld	(unk_1C17),a
 	endif
@@ -2062,8 +2065,11 @@ zUpdateDACTrack_GetDuration:
 		or	a
 		jp	p,zStoreDuration
 		dec	de
+	if fix_sndbugs=0
+		; zFinishTrackUpdate already does this
 		ld	a,(ix+zTrack.SavedDuration)
 		ld	(ix+zTrack.DurationTimeout),a
+	endif
 		jp	zFinishTrackUpdate
 
 zHandleDACCoordFlag:
@@ -2338,7 +2344,7 @@ zSetVoicePSG:
 		jp	p,cfStoreNewVoice
 		inc	de
 		jp	cfStoreNewVoice
-	if ~~fix_sndbugs
+	if fix_sndbugs=0
 		; unused
 		ret
 	endif
@@ -2365,7 +2371,7 @@ cfSetModulation:
 
 cfStopTrack:
 		res	7,(ix+zTrack.PlaybackControl)
-	if ~~fix_sndbugs
+	if fix_sndbugs=0
 		ld	a,1Fh
 		ld	(unk_1C15),a
 	endif
@@ -2609,7 +2615,7 @@ cfFM3SpecialMode:
 		ld	a,4Fh
 
 zWriteFM3Settings:
-	if ~~fix_sndbugs
+	if fix_sndbugs=0
 		ld	(zFM3Settings),a
 	endif
 		ld	c,a
@@ -2876,7 +2882,8 @@ zDoVolEnv:
 		jr	zDoVolEnvSetValue
 
 zDoVolEnvFullRest:
-	if ~~fix_sndbugs
+	if fix_sndbugs=0
+		; zRestTrack already does this.
 		set	4,(ix+zTrack.PlaybackControl)
 	endif
 		pop	hl
@@ -3037,7 +3044,7 @@ zPlaySEGAPCM:
 		di
 		ld	a,2Bh
 		ld	(zYM2612_A0),a
-	if ~~fix_sndbugs
+	if fix_sndbugs=0
 		nop
 	endif
 		ld	a,80h
@@ -3063,7 +3070,7 @@ zPlaySEGAPCM:
 								; 68 cycles in total
 		xor	a
 		ld	(zPlaySegaPCMFlag),a
-	if ~~fix_sndbugs
+	if fix_sndbugs=0
 		call	zStopAllSound
 	endif
 		jp	zPlayDigitalAudio

@@ -856,9 +856,15 @@ Offset_0x00B2E0:
 		move.w	#-$80,d0
 Offset_0x00B2E8:
 		move.w	D0,Obj_Inertia(A0)					  ; $001C
+	if FixBugs
+		move.b	Obj_Angle(A0),d1				; $0026
+		addi.b	#$20,d1
+		andi.b	#$C0,d1
+	else
 		move.b	Obj_Angle(A0),d0				; $0026
 		addi.b	#$20,d0
 		andi.b	#$C0,d0
+	endif
 		bne.s	Offset_0x00B32A
 		cmpi.w	#$400,d0
 		blt.s	Offset_0x00B32A
@@ -897,9 +903,15 @@ Offset_0x00B360:
 		move.w	#$80,d0
 Offset_0x00B368:
 		move.w	D0,Obj_Inertia(A0)					  ; $001C
+	if FixBugs
+		move.b	Obj_Angle(A0),d1				; $0026
+		addi.b	#$20,d1
+		andi.b	#$C0,d1
+	else
 		move.b	Obj_Angle(A0),d0				; $0026
 		addi.b	#$20,d0
 		andi.b	#$C0,d0
+	endif
 		bne.s	Offset_0x00B3AA
 		cmpi.w	#-$400,d0
 		bgt.s	Offset_0x00B3AA
@@ -1550,24 +1562,32 @@ ThrownRing_Init:
 ; ---------------------------------------------------------------------------
 ; Offset_0x00B9F6:
 ThrownRing_Main:
-		move.l	a0,a2
+		movea.l	a0,a2
 		jsr	(Touch_Response).l
 		cmpi.b	#2,Obj_Routine(a0)
 		beq.s	Offset_0x00BA10
+	if 0
+		; unknown removed code
+	else
 		nop
 		nop
 		nop
 		nop
 		nop
+	endif
 
 Offset_0x00BA10:
 		cmpi.b	#2,Obj_Ani_Number(a0)
 		beq.s	Offset_0x00BA22
+	if 0
+		; unknown removed code
+	else
 		nop
 		nop
 		nop
 		nop
 		nop
+	endif
 
 Offset_0x00BA22:
 		move.b	(Vint_runcount+3).w,d0
@@ -2199,7 +2219,7 @@ KillSonic:
 Sonic_Death:
 		tst.w	(Debug_Mode_Active).w
 		beq.s	Offset_0x00C10E
-		btst	#4,(Control_Ports_Buffer_Data+$0001).w
+		btst	#4,(Control_Ports_Buffer_Data+1).w
 		beq.s	Offset_0x00C10E
 		move.w	#1,(Debug_placement_mode).w
 		clr.b	(Control_Locked_Flag_P1).w

@@ -20,7 +20,6 @@ Size_of_SndBank = $4000
 
 StartOfRom:
 		dc.l	0				; Initial stack pointer value
-Prog_Start_Vector:
 		dc.l	EntryPoint			; Start of our program in ROM
 		dc.l	(2<<$18)|Check_Interrupt	; Bus error
 		dc.l	(3<<$18)|Check_Interrupt	; Address error
@@ -349,21 +348,17 @@ GameModeArray:
 		bra.w	TitleScreen
 		bra.w	Level
 		bra.w	Level
-		bra.w	S2_Special_Stage
-		bra.w	S2_Continue
-		bra.w	S2_Two_Player_Results
+		bra.w	Run_SEGA_Screen
+		bra.w	Run_SEGA_Screen
+		bra.w	Run_SEGA_Screen
 		bra.w	S2_Versus_Mode_Menu
-		bra.w	S2_Ending_Sequence
+		bra.w	Run_SEGA_Screen
 		bra.w	S2_Options_Menu
 		bra.w	S2_Level_Select_Menu
 		bra.w	Special_Stage_Test_1
 		bra.w	Special_Stage_Test_2
 ; ===========================================================================
 
-S2_Special_Stage:
-S2_Continue:
-S2_Two_Player_Results:
-S2_Ending_Sequence:
 Run_SEGA_Screen:
 		move.b	#gm_SEGALogo,(Game_Mode).w
 		rts
@@ -472,11 +467,11 @@ VBlank_List:	dc.w VBlank_00-VBlank_List
 		dc.w VBlank_SEGA-VBlank_List
 		dc.w VBlank_Title-VBlank_List
 		dc.w VBlank_06-VBlank_List
-		dc.w VBlank_08-VBlank_List
-		dc.w VBlank_0A-VBlank_List
-		dc.w VBlank_0C-VBlank_List
+		dc.w VBlank_08_10-VBlank_List
+		dc.w VBlank_0A_0C-VBlank_List
+		dc.w VBlank_0A_0C-VBlank_List
 		dc.w VBlank_0E-VBlank_List
-		dc.w VBlank_10-VBlank_List
+		dc.w VBlank_08_10-VBlank_List
 		dc.w VBlank_12-VBlank_List
 		dc.w VBlank_14-VBlank_List
 		dc.w VBlank_16-VBlank_List
@@ -624,8 +619,7 @@ VBlank_06:
 		bsr.w	Offset_0x000B80
 		rts
 ; ---------------------------------------------------------------------------
-VBlank_08:
-VBlank_10:
+VBlank_08_10:
 		stopZ80
 		bsr.w	Control_Ports_Read
 		tst.b	(S2_Teleport_Timer).w
@@ -723,8 +717,7 @@ Offset_0x000896:
 		rts
 ; ===========================================================================
 
-VBlank_0A:
-VBlank_0C:
+VBlank_0A_0C:
 		stopZ80
 		bsr.w	Control_Ports_Read
 		tst.b	(Underwater_Flag).w
@@ -1212,7 +1205,14 @@ SoundDriverLoad:
 Offset_0x001128:
 		move.b	(a0)+,(a1)+
 		dbf	d0,Offset_0x001128
-	if ~~FixBugs
+	if FixBugs
+		; Detect PAL region consoles
+		btst	#6,(Hardware_Id).w
+		beq.s	.notpal
+		move.b	#1,(Z80_RAM+zPalFlag).l
+
+.notpal:
+	else
 		; load default variables
 		lea	(Z80_DefaultVariables).l,a0
 		lea	(Z80_RAM+zDataStart).l,a1
@@ -1222,31 +1222,17 @@ Offset_0x00113E:
 		move.b	(a0)+,(a1)+
 		dbf	d0,Offset_0x00113E
 	endif
-	if FixBugs
-		; Detect PAL region consoles
-		btst	#6,(Hardware_Id).w
-		beq.s	.notpal
-		move.b	#1,(Z80_RAM+zPalFlag).l
-
-.notpal:
-	endif
 		move.w	#0,(Z80_Reset).l		; reset Z80
-	if FixBugs
-		; ensures that the YM2612 is ready to be written to
-		moveq	#200/10-1,d0	; set to wait for 200 cycles
-		dbf	d0,*	; wait for YM2612
-	else
 		nop
 		nop
 		nop
 		nop
-	endif
 		move.w	#$100,(Z80_Reset).l		; release reset
 		startZ80
 		rts
 ; End of function SoundDriverLoad
 
-	if ~~FixBugs
+	if FixBugs=0
 ; ---------------------------------------------------------------------------
 ; Default Z80 variables; only the third/fourth value is set to anything
 ; meaningful (which is more than can be said for the final)
@@ -1829,7 +1815,7 @@ RunPLC_RAM:
 
 Offset_0x00157A:
 		andi.w	#$7FFF,d2
-	if ~~FixBugs
+	if FixBugs=0
 		move.w	d2,(PLC_Data_Count).w
 	endif
 		bsr.w	NemesisDec_4
@@ -14791,7 +14777,7 @@ RunDynamicLevelEvents:
 		move.w	(Current_ZoneAndAct).w,d0
 		ror.b	#1,d0
 		lsr.w	#6,d0
-	if ~~FixBugs
+	if FixBugs=0
 		; This clamps the level index to prevent levels from accessing random data, but does it
 		; way too hard, meaning stages beyond Balloon Park are able to execute early-stage events.
 		andi.w	#$3E,d0
@@ -36274,7 +36260,7 @@ Fireworm_Init2:
 		jsr	(SetupSlottedObjectAttributes).l
 ; Offset_0x04A03C:
 Fireworm_TrackSonic:
-	if ~~FixBugs
+	if FixBugs=0
 		jmp	(Run_Object_Wait_Timer_A0).l	; this was seemingly added to crash the game if it loads...
 	endif
 		move.b	#4,routine(a0)
@@ -47282,25 +47268,24 @@ Left_Over_Pal_Level_Select_Menu:							   ; Offset_0x1F270E
 		binclude	"data\menus\menu.pal"
 Left_Over_Pal_Knuckles:										   ; Offset_0x1F278E
 		binclude	"data\all\knuckles.pal"
-
 ; Offset_0x1F27AE:
-Left_Over_Pal_Angel_Island_Act_1:		binclude	"Levels\AIZ\Palettes/Act 1 - Knuckles (Earliest).bin"
-
+Left_Over_Pal_Angel_Island_Act_1:
+		binclude	"Levels\AIZ\Palettes/Act 1 - Knuckles (Earliest).bin"
 ; Offset_0x1F280E:
-LO_Pal_Angel_Island_Act_1_After_Knuckles:	binclude	"Levels\AIZ\Palettes/Act 1 - Normal (Earliest).bin"
-
+LO_Pal_Angel_Island_Act_1_After_Knuckles:
+		binclude	"Levels\AIZ\Palettes/Act 1 - Normal (Earliest).bin"
 ; Offset_0x1F286E:
-Left_Over_Pal_Angel_Island_Act_2:		binclude	"Levels\AIZ\Palettes/Act 2 - Normal (Earliest).bin"
-
+Left_Over_Pal_Angel_Island_Act_2:
+		binclude	"Levels\AIZ\Palettes/Act 2 - Normal (Earliest).bin"
 ; Offset_0x1F28CE:
-Left_Over_Pal_Angel_Island_Act_2_2:		binclude	"Levels\AIZ\Palettes/Act 2 - Airship (Earliest).bin"
-
+Left_Over_Pal_Angel_Island_Act_2_2:
+		binclude	"Levels\AIZ\Palettes/Act 2 - Airship (Earliest).bin"
 ; Offset_0x1F292E:
-LO_Pal_Angel_Island_Act_1_Underwater:		binclude	"Levels\AIZ\Palettes/Act 1 - Underwater (Earliest).bin"
-
+LO_Pal_Angel_Island_Act_1_Underwater:
+		binclude	"Levels\AIZ\Palettes/Act 1 - Underwater (Earliest).bin"
 ; Offset_0x1F29AE:
-LO_Pal_Angel_Island_Act_2_Underwater:		binclude	"Levels\AIZ\Palettes/Act 2 - Underwater (Earliest).bin"
-
+LO_Pal_Angel_Island_Act_2_Underwater:
+		binclude	"Levels\AIZ\Palettes/Act 2 - Underwater (Earliest).bin"
 Left_Over_Pal_Hydrocity_Act_1:								   ; Offset_0x1F2A2E
 		binclude	"data\hz\hz_1_lo.pal"
 Left_Over_Pal_Hydrocity_Act_2:								   ; Offset_0x1F2A8E
@@ -47354,10 +47339,9 @@ Left_Over_Pal_Ending_2:										   ; Offset_0x1F31AE
 
 Left_Over_Pal_Azure_Lake:									   ; Offset_0x1F31AE
 		binclude	"data\alz\alz_lo.pal"
-
 ; Offset_0x1F320E:
-Left_Over_Pal_Angel_Island_Act_1_2:		binclude	"Levels\AIZ\Palettes/Act 1 - Unused Introduction (Earliest).bin"
-
+Left_Over_Pal_Angel_Island_Act_1_2:
+		binclude	"Levels\AIZ\Palettes/Act 1 - Unused Introduction (Earliest).bin"
 Left_Over_Pal_Bonus_Stage_Gumball_Machine:					   ; Offset_0x1F326E
 		binclude	"data\bs_gm\bs_gm.pal"
 Offset_0x1F32CE:
@@ -47585,25 +47569,24 @@ Left_Over_Pal_Level_Select_Menu_2:							   ; Offset_0x1F4FCA
 		binclude	"data\menus\menu.pal"
 Left_Over_Pal_Knuckles_2:									   ; Offset_0x1F504A
 		binclude	"data\all\knuckles.pal"
-
 ; Offset_0x1F50CA:
-Left_Over_Pal_Angel_Island_Act_1_2a:		binclude	"Levels\AIZ\Palettes/Act 1 - Knuckles (Earlier).bin"
-
+Left_Over_Pal_Angel_Island_Act_1_2a:
+		binclude	"Levels\AIZ\Palettes/Act 1 - Knuckles (Earlier).bin"
 ; Offset_0x1E9934:
-LO_Pal_Angel_Island_Act_1_After_Knuckles_2:	binclude	"Levels\AIZ\Palettes/Act 1 - Normal (Earlier).bin"
-
+LO_Pal_Angel_Island_Act_1_After_Knuckles_2:
+		binclude	"Levels\AIZ\Palettes/Act 1 - Normal (Earlier).bin"
 ; Offset_0x1F512A:
-Left_Over_Pal_Angel_Island_Act_2_2a:		binclude	"Levels\AIZ\Palettes/Act 2 - Normal (Earlier).bin"
-
+Left_Over_Pal_Angel_Island_Act_2_2a:
+		binclude	"Levels\AIZ\Palettes/Act 2 - Normal (Earlier).bin"
 ; Offset_0x1F518A:
-Left_Over_Pal_Angel_Island_Act_2_2_2:		binclude	"Levels\AIZ\Palettes/Act 2 - Airship (Earlier).bin"
-
+Left_Over_Pal_Angel_Island_Act_2_2_2:
+		binclude	"Levels\AIZ\Palettes/Act 2 - Airship (Earlier).bin"
 ; Offset_0x1F51EA:
-LO_Pal_Angel_Island_Act_1_Underwater_2:		binclude	"Levels\AIZ\Palettes/Act 1 - Underwater (Earlier).bin"
-
+LO_Pal_Angel_Island_Act_1_Underwater_2:
+		binclude	"Levels\AIZ\Palettes/Act 1 - Underwater (Earlier).bin"
 ; Offset_0x1F526A:
-LO_Pal_Angel_Island_Act_2_Underwater_2:		binclude	"Levels\AIZ\Palettes/Act 2 - Underwater (Earlier).bin"
-
+LO_Pal_Angel_Island_Act_2_Underwater_2:
+		binclude	"Levels\AIZ\Palettes/Act 2 - Underwater (Earlier).bin"
 Left_Over_Pal_Hydrocity_Act_1_2:							   ; Offset_0x1F52EA
 		binclude	"data\hz\hz_1_lo2.pal"
 Left_Over_Pal_Hydrocity_Act_2_2:							   ; Offset_0x1F534A
