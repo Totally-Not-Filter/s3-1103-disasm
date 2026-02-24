@@ -23004,7 +23004,7 @@ LevelResults_AddTotalBonus:
 ; ===========================================================================
 ; Offset_0x024954:
 LevelResults_SetTimer:
-		move.w	#$3C,Obj_Timer(a0)
+		move.w	#60,Obj_Timer(a0)
 		addq.b	#2,routine(a0)
 ; Offset_0x02495E:
 LevelResults_Wait2:
@@ -46772,41 +46772,51 @@ Pal_Level_Select_Menu:										   ; Offset_0x1E9834
 		binclude	"data\menus\menu.pal"
 Pal_Knuckles:												   ; Offset_0x1E98B4
 		binclude	"data\all\knuckles.pal"
-
 ; Offset_0x1E98D4:
-Palette_AIZ1Intro:	binclude	"Levels\AIZ\Palettes/Act 1 - Knuckles.bin"
+Palette_AIZ1Intro:
+		binclude	"Levels\AIZ\Palettes/Act 1 - Knuckles.bin"
 ; Offset_0x1E9934:
-Palette_AIZ1:		binclude	"Levels\AIZ\Palettes/Act 1 - Normal.bin"
+Palette_AIZ1:
+		binclude	"Levels\AIZ\Palettes/Act 1 - Normal.bin"
 ; Offset_0x1E9994:
-Palette_AIZ2:		binclude	"Levels\AIZ\Palettes/Act 2 - Normal.bin"
+Palette_AIZ2:
+		binclude	"Levels\AIZ\Palettes/Act 2 - Normal.bin"
 ; Offset_0x1E99F4:
-Palette_AIZ2Ship:	binclude	"Levels\AIZ\Palettes/Act 2 - Airship.bin"
+Palette_AIZ2Ship:
+		binclude	"Levels\AIZ\Palettes/Act 2 - Airship.bin"
 ; Offset_0x1E9AD4:
-Palette_AIZ1Water:	binclude	"Levels\AIZ\Palettes/Act 1 - Underwater.bin"
+Palette_AIZ1Water:
+		binclude	"Levels\AIZ\Palettes/Act 1 - Underwater.bin"
 ; Offset_0x1E9A54:
-Palette_AIZ2Water:	binclude	"Levels\AIZ\Palettes/Act 2 - Underwater.bin"
+Palette_AIZ2Water:
+		binclude	"Levels\AIZ\Palettes/Act 2 - Underwater.bin"
 ; Offset_0x1E9B54:
-Palette_HCZ1:		binclude	"Levels/HCZ/Palettes/Act 1 - Normal.bin"
+Palette_HCZ1:
+		binclude	"Levels/HCZ/Palettes/Act 1 - Normal.bin"
 ; Offset_0x1E9BB4:
-Palette_HCZ2:		binclude	"Levels/HCZ/Palettes/Act 2 - Normal.bin"
+Palette_HCZ2:
+		binclude	"Levels/HCZ/Palettes/Act 2 - Normal.bin"
 ; Offset_0x1E9C14:
-Palette_HCZ1Water:	binclude	"Levels/HCZ/Palettes/Act 1 - Underwater.bin"
+Palette_HCZ1Water:
+		binclude	"Levels/HCZ/Palettes/Act 1 - Underwater.bin"
 ; Offset_0x1E9C94:
-Palette_HCZ2Water:	binclude	"Levels/HCZ/Palettes/Act 2 - Underwater.bin"
+Palette_HCZ2Water:
+		binclude	"Levels/HCZ/Palettes/Act 2 - Underwater.bin"
 ; Offset_0x1E9D14:
-Palette_MGZ:		binclude	"Levels/MGZ/Palettes/Normal.bin"
+Palette_MGZ:
+		binclude	"Levels/MGZ/Palettes/Normal.bin"
 ; Offset_0x1E9D74:
-Palette_CNZ:		binclude	"Levels/CNZ/Palettes/Normal.bin"
-
+Palette_CNZ:
+		binclude	"Levels/CNZ/Palettes/Normal.bin"
 Pal_Flying_Battery_Act_1:									   ; Offset_0x1E9DD4
 Pal_Flying_Battery_Act_2:									   ; Offset_0x1E9DD4
 		binclude	"data\fbz\fbz.pal"
-
 ; Offset_0x1E9E34: See "Iz_1_Set_Indoor_Pal" as well
-Palette_ICZIndoors:	binclude	"Levels/ICZ/Palettes/Indoors.bin"
+Palette_ICZIndoors:
+		binclude	"Levels/ICZ/Palettes/Indoors.bin"
 ; Offset_0x1E9E94: See "Iz_1_Set_Intro_Pal" as well
-Palette_ICZOutdoors:	binclude	"Levels/ICZ/Palettes/Outdoors.bin"
-
+Palette_ICZOutdoors:
+		binclude	"Levels/ICZ/Palettes/Outdoors.bin"
 Pal_Launch_Base_Act_1:										   ; Offset_0x1E9EF4
 		binclude	"data\lbz\lbz_1.pal"
 Pal_Launch_Base_Act_1_Underwater:							   ; Offset_0x1E9F54
@@ -46881,7 +46891,8 @@ Left_Over_CGz_Map:											   ; Offset_0x1F1D58
 Left_Over_EMz_Map:											   ; Offset_0x1F1F9A
 		binclude	"data\emz\lo_map.dat"
 ; Offset_0x1F20EE:
-Left_Over_BS_GM_Map:	binclude	"Levels/Bonus Stages/Level Layout - Gumball Machine (Earlier).bin"
+Left_Over_BS_GM_Map:
+		binclude	"Levels/Bonus Stages/Level Layout - Gumball Machine (Earlier).bin"
 ; ---------------------------------------------------------------------------
 Left_Over_PalPointers:										   ; Offset_0x1F21CE
 		dc.l	Left_Over_Pal_S2_Sega_Bg			   ; Offset_0x1F25AE
@@ -47647,8 +47658,8 @@ Left_Over_Pal_Pal_Desert_Palace:							   ; Offset_0x1F5B8A
 Left_Over_Pal_Chrome_Gadget:								   ; Offset_0x1F5BEA
 		binclude	"data\cgz\cgz_lo.pal"
 ; Offset_0x1F5C4A:
-LO_Pal_Angel_Island_Act_1_Before_Knuckles_2:	binclude	"Levels\AIZ\Palettes/Act 1 - Unused Introduction (Earlier).bin"
-
+LO_Pal_Angel_Island_Act_1_Before_Knuckles_2:
+		binclude	"Levels\AIZ\Palettes/Act 1 - Unused Introduction (Earlier).bin"
 Left_Over_Pal_Bonus_Stage_Gumball_Machine_2:				   ; Offset_0x1F5CAA
 		binclude	"data\bs_gm\bs_gm.pal"
 Left_Over_LRz_Rocks_Layout_2:								   ; Offset_0x1F5D0A
