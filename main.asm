@@ -36848,116 +36848,116 @@ PLCptr_Main1:		dc.w PLC_Default-ArtLoadCues
 PLCptr_Main2:		dc.w PLC_Default_Sonic-ArtLoadCues
 PLCptr_Main3:		dc.w PLC_Default_Flickies-ArtLoadCues
 PLCptr_GameOver:	dc.w PLC_Game_Over_Time_Over-ArtLoadCues
-		dc.w	PLC_Act_1_Clear-ArtLoadCues			   ; Offset_0x04AD46 ; $04
-		dc.w	PLC_Default_2P-ArtLoadCues			   ; Offset_0x04AD4E ; $05
-		dc.w	PLC_Default_2P-ArtLoadCues			   ; Offset_0x04AD4E ; $06
-		dc.w	PLC_Art_Scaled_Test-ArtLoadCues		   ; Offset_0x04AD62 ; $07
-		dc.w	PLC_Art_Scaled_Test-ArtLoadCues		   ; Offset_0x04AD62 ; $08
-		dc.w	PLC_Art_Scaled_Test-ArtLoadCues		   ; Offset_0x04AD62 ; $09
-		dc.w	PLC_AIz_1-ArtLoadCues				   ; Offset_0x04AD6A ; $0A
-		dc.w	PLC_AIz_2-ArtLoadCues				   ; Offset_0x04AD7E ; $0B
-		dc.w	PLC_AIz_3-ArtLoadCues				   ; Offset_0x04AD9E ; $0C
-		dc.w	PLC_AIz_3-ArtLoadCues				   ; Offset_0x04AD9E ; $0D
-		dc.w	PLC_Hz_1-ArtLoadCues				   ; Offset_0x04ADBE ; $0E
-		dc.w	PLC_Hz_2-ArtLoadCues				   ; Offset_0x04ADEA ; $0F
-		dc.w	PLC_Hz_3-ArtLoadCues				   ; Offset_0x04ADF2 ; $10
-		dc.w	PLC_Hz_4-ArtLoadCues				   ; Offset_0x04AE1E ; $11
-		dc.w	PLC_MGz_1-ArtLoadCues				   ; Offset_0x04AE32 ; $12
-		dc.w	PLC_MGz_1-ArtLoadCues				   ; Offset_0x04AE32 ; $13
-		dc.w	PLC_MGz_2-ArtLoadCues				   ; Offset_0x04AE4C ; $14
-		dc.w	PLC_MGz_2-ArtLoadCues				   ; Offset_0x04AE4C ; $15
-		dc.w	PLC_CNz-ArtLoadCues					   ; Offset_0x04AE66 ; $16
-		dc.w	PLC_CNz-ArtLoadCues					   ; Offset_0x04AE66 ; $17
-		dc.w	PLC_CNz-ArtLoadCues					   ; Offset_0x04AE66 ; $18
-		dc.w	PLC_CNz-ArtLoadCues					   ; Offset_0x04AE66 ; $19
-		dc.w	PLC_FBz-ArtLoadCues					   ; Offset_0x04AE7A ; $1A
-		dc.w	PLC_FBz-ArtLoadCues					   ; Offset_0x04AE7A ; $1B
-		dc.w	PLC_FBz-ArtLoadCues					   ; Offset_0x04AE7A ; $1C
-		dc.w	PLC_FBz-ArtLoadCues					   ; Offset_0x04AE7A ; $1D
-		dc.w	PLC_Iz_1-ArtLoadCues				   ; Offset_0x04AE82 ; $1E
-		dc.w	PLC_Iz_1-ArtLoadCues				   ; Offset_0x04AE82 ; $1F
-		dc.w	PLC_Iz_2-ArtLoadCues				   ; Offset_0x04AE9C ; $20
-		dc.w	PLC_Iz_2-ArtLoadCues				   ; Offset_0x04AE9C ; $21
-		dc.w	PLC_LBz_1-ArtLoadCues				   ; Offset_0x04AEB6 ; $22
-		dc.w	PLC_LBz_1-ArtLoadCues				   ; Offset_0x04AEB6 ; $23
-		dc.w	PLC_LBz_2-ArtLoadCues				   ; Offset_0x04AEC4 ; $24
-		dc.w	PLC_LBz_3-ArtLoadCues				   ; Offset_0x04AED2 ; $25
-		dc.w	PLC_MVz-ArtLoadCues					   ; Offset_0x04AEDA ; $26
-		dc.w	PLC_MVz-ArtLoadCues					   ; Offset_0x04AEDA ; $27
-		dc.w	PLC_MVz-ArtLoadCues					   ; Offset_0x04AEDA ; $28
-		dc.w	PLC_MVz-ArtLoadCues					   ; Offset_0x04AEDA ; $29
-		dc.w	PLC_2A_To_2D-ArtLoadCues			   ; Offset_0x04AEDA ; $2A
-		dc.w	PLC_2A_To_2D-ArtLoadCues			   ; Offset_0x04AEDA ; $2B
-		dc.w	PLC_2A_To_2D-ArtLoadCues			   ; Offset_0x04AEDA ; $2C
-		dc.w	PLC_2A_To_2D-ArtLoadCues			   ; Offset_0x04AEDA ; $2D
-		dc.w	PLC_LRz_1-ArtLoadCues				   ; Offset_0x04AEE8 ; $2E
-		dc.w	PLC_LRz_1-ArtLoadCues				   ; Offset_0x04AEE8 ; $2F
-		dc.w	PLC_LRz_2-ArtLoadCues				   ; Offset_0x04AEFC ; $30
-		dc.w	PLC_LRz_2-ArtLoadCues				   ; Offset_0x04AEFC ; $31
-		dc.w	PLC_32_To_41-ArtLoadCues			   ; Offset_0x04AEFC ; $32
-		dc.w	PLC_32_To_41-ArtLoadCues			   ; Offset_0x04AEFC ; $33
-		dc.w	PLC_32_To_41-ArtLoadCues			   ; Offset_0x04AEFC ; $34
-		dc.w	PLC_32_To_41-ArtLoadCues			   ; Offset_0x04AEFC ; $35
-		dc.w	PLC_32_To_41-ArtLoadCues			   ; Offset_0x04AEFC ; $36
-		dc.w	PLC_32_To_41-ArtLoadCues			   ; Offset_0x04AEFC ; $37
-		dc.w	PLC_32_To_41-ArtLoadCues			   ; Offset_0x04AEFC ; $38
-		dc.w	PLC_32_To_41-ArtLoadCues			   ; Offset_0x04AEFC ; $39
-		dc.w	PLC_32_To_41-ArtLoadCues			   ; Offset_0x04AEFC ; $3A
-		dc.w	PLC_32_To_41-ArtLoadCues			   ; Offset_0x04AEFC ; $3B
-		dc.w	PLC_32_To_41-ArtLoadCues			   ; Offset_0x04AEFC ; $3C
-		dc.w	PLC_32_To_41-ArtLoadCues			   ; Offset_0x04AEFC ; $3D
-		dc.w	PLC_32_To_41-ArtLoadCues			   ; Offset_0x04AEFC ; $3E
-		dc.w	PLC_32_To_41-ArtLoadCues			   ; Offset_0x04AEFC ; $3F
-		dc.w	PLC_32_To_41-ArtLoadCues			   ; Offset_0x04AEFC ; $40
-		dc.w	PLC_32_To_41-ArtLoadCues			   ; Offset_0x04AEFC ; $41
-		dc.w	PLC_ALz-ArtLoadCues					   ; Offset_0x04AF0A ; $42
-		dc.w	PLC_BPz-ArtLoadCues					   ; Offset_0x04AF3C ; $43
-		dc.w	PLC_DPz-ArtLoadCues					   ; Offset_0x04AF74 ; $44
-		dc.w	PLC_CGz-ArtLoadCues					   ; Offset_0x04AFAC ; $45
-		dc.w	PLC_EMz-ArtLoadCues					   ; Offset_0x04AFE4 ; $46
-		dc.w	PLC_Bonus_Stage-ArtLoadCues			   ; Offset_0x04B01C ; $47
-		dc.w	PLC_48_To_59-ArtLoadCues			   ; Offset_0x04B030 ; $48
-		dc.w	PLC_48_To_59-ArtLoadCues			   ; Offset_0x04B030 ; $49
-		dc.w	PLC_48_To_59-ArtLoadCues			   ; Offset_0x04B030 ; $4A
-		dc.w	PLC_48_To_59-ArtLoadCues			   ; Offset_0x04B030 ; $4B
-		dc.w	PLC_48_To_59-ArtLoadCues			   ; Offset_0x04B030 ; $4C
-		dc.w	PLC_48_To_59-ArtLoadCues			   ; Offset_0x04B030 ; $4D
-		dc.w	PLC_48_To_59-ArtLoadCues			   ; Offset_0x04B030 ; $4E
-		dc.w	PLC_48_To_59-ArtLoadCues			   ; Offset_0x04B030 ; $4F
-		dc.w	PLC_48_To_59-ArtLoadCues			   ; Offset_0x04B030 ; $50
-		dc.w	PLC_48_To_59-ArtLoadCues			   ; Offset_0x04B030 ; $51
-		dc.w	PLC_48_To_59-ArtLoadCues			   ; Offset_0x04B030 ; $52
-		dc.w	PLC_48_To_59-ArtLoadCues			   ; Offset_0x04B030 ; $53
-		dc.w	PLC_48_To_59-ArtLoadCues			   ; Offset_0x04B030 ; $54
-		dc.w	PLC_48_To_59-ArtLoadCues			   ; Offset_0x04B030 ; $55
-		dc.w	PLC_48_To_59-ArtLoadCues			   ; Offset_0x04B030 ; $56
-		dc.w	PLC_48_To_59-ArtLoadCues			   ; Offset_0x04B030 ; $57
-		dc.w	PLC_48_To_59-ArtLoadCues			   ; Offset_0x04B030 ; $58
-		dc.w	PLC_48_To_59-ArtLoadCues			   ; Offset_0x04B030 ; $59
-		dc.w	PLC_AIz_Mini_Boss-ArtLoadCues		   ; Offset_0x04B030 ; $5A
-		dc.w	PLC_Hz_Mini_Boss-ArtLoadCues		   ; Offset_0x04B04A ; $5B
-		dc.w	PLC_5C-ArtLoadCues					   ; Offset_0x04B058 ; $5C
-		dc.w	PLC_CNz_Mini_Boss-ArtLoadCues		   ; Offset_0x04B058 ; $5D
-		dc.w	PLC_FBz_Mini_Boss-ArtLoadCues		   ; Offset_0x04B066 ; $5E
-		dc.w	PLC_Iz_Mini_Boss-ArtLoadCues		   ; Offset_0x04B086 ; $5F
-		dc.w	PLC_LBz_Mini_Boss-ArtLoadCues		   ; Offset_0x04B094 ; $60
-		dc.w	PLC_61_To_69-ArtLoadCues			   ; Offset_0x04B0AE ; $61
-		dc.w	PLC_61_To_69-ArtLoadCues			   ; Offset_0x04B0AE ; $62
-		dc.w	PLC_61_To_69-ArtLoadCues			   ; Offset_0x04B0AE ; $63
-		dc.w	PLC_61_To_69-ArtLoadCues			   ; Offset_0x04B0AE ; $64
-		dc.w	PLC_61_To_69-ArtLoadCues			   ; Offset_0x04B0AE ; $65
-		dc.w	PLC_61_To_69-ArtLoadCues			   ; Offset_0x04B0AE ; $66
-		dc.w	PLC_61_To_69-ArtLoadCues			   ; Offset_0x04B0AE ; $67
-		dc.w	PLC_61_To_69-ArtLoadCues			   ; Offset_0x04B0AE ; $68
-		dc.w	PLC_61_To_69-ArtLoadCues			   ; Offset_0x04B0AE ; $69
-		dc.w	PLC_FBz_Barrier_Eggman-ArtLoadCues	   ; Offset_0x04B0AE ; $6A
-		dc.w	PLC_AIz_Final_Boss-ArtLoadCues		   ; Offset_0x04B0C8 ; $6B
-		dc.w	PLC_Hz_Final_Boss-ArtLoadCues		   ; Offset_0x04B0DC ; $6C
-		dc.w	PLC_MGz_Final_Boss-ArtLoadCues		   ; Offset_0x04B102 ; $6D
-		dc.w	PLC_CNz_Final_Boss-ArtLoadCues		   ; Offset_0x04B11C ; $6E
-		dc.w	PLC_FBz_Final_Boss-ArtLoadCues		   ; Offset_0x04B136 ; $6F
-		dc.w	PLC_Iz_Final_Boss-ArtLoadCues		   ; Offset_0x04B15C ; $70
-		dc.w	PLC_LBz_Final_Boss-ArtLoadCues		   ; Offset_0x04B176 ; $71
+		dc.w	PLC_Act_1_Clear-ArtLoadCues		; Offset_0x04AD46 ; $04
+		dc.w	PLC_Default_2P-ArtLoadCues		; Offset_0x04AD4E ; $05
+		dc.w	PLC_Default_2P-ArtLoadCues		; Offset_0x04AD4E ; $06
+		dc.w	PLC_Art_Scaled_Test-ArtLoadCues		; Offset_0x04AD62 ; $07
+		dc.w	PLC_Art_Scaled_Test-ArtLoadCues		; Offset_0x04AD62 ; $08
+		dc.w	PLC_Art_Scaled_Test-ArtLoadCues		; Offset_0x04AD62 ; $09
+		dc.w	PLC_AIz_1-ArtLoadCues			; Offset_0x04AD6A ; $0A
+		dc.w	PLC_AIz_2-ArtLoadCues			; Offset_0x04AD7E ; $0B
+		dc.w	PLC_AIz_3-ArtLoadCues			; Offset_0x04AD9E ; $0C
+		dc.w	PLC_AIz_3-ArtLoadCues			; Offset_0x04AD9E ; $0D
+		dc.w	PLC_Hz_1-ArtLoadCues			; Offset_0x04ADBE ; $0E
+		dc.w	PLC_Hz_2-ArtLoadCues			; Offset_0x04ADEA ; $0F
+		dc.w	PLC_Hz_3-ArtLoadCues			; Offset_0x04ADF2 ; $10
+		dc.w	PLC_Hz_4-ArtLoadCues			; Offset_0x04AE1E ; $11
+		dc.w	PLC_MGz_1-ArtLoadCues			; Offset_0x04AE32 ; $12
+		dc.w	PLC_MGz_1-ArtLoadCues			; Offset_0x04AE32 ; $13
+		dc.w	PLC_MGz_2-ArtLoadCues			; Offset_0x04AE4C ; $14
+		dc.w	PLC_MGz_2-ArtLoadCues			; Offset_0x04AE4C ; $15
+		dc.w	PLC_CNz-ArtLoadCues			; Offset_0x04AE66 ; $16
+		dc.w	PLC_CNz-ArtLoadCues			; Offset_0x04AE66 ; $17
+		dc.w	PLC_CNz-ArtLoadCues			; Offset_0x04AE66 ; $18
+		dc.w	PLC_CNz-ArtLoadCues			; Offset_0x04AE66 ; $19
+		dc.w	PLC_FBz-ArtLoadCues			; Offset_0x04AE7A ; $1A
+		dc.w	PLC_FBz-ArtLoadCues			; Offset_0x04AE7A ; $1B
+		dc.w	PLC_FBz-ArtLoadCues			; Offset_0x04AE7A ; $1C
+		dc.w	PLC_FBz-ArtLoadCues			; Offset_0x04AE7A ; $1D
+		dc.w	PLC_Iz_1-ArtLoadCues			; Offset_0x04AE82 ; $1E
+		dc.w	PLC_Iz_1-ArtLoadCues			; Offset_0x04AE82 ; $1F
+		dc.w	PLC_Iz_2-ArtLoadCues			; Offset_0x04AE9C ; $20
+		dc.w	PLC_Iz_2-ArtLoadCues			; Offset_0x04AE9C ; $21
+		dc.w	PLC_LBz_1-ArtLoadCues			; Offset_0x04AEB6 ; $22
+		dc.w	PLC_LBz_1-ArtLoadCues			; Offset_0x04AEB6 ; $23
+		dc.w	PLC_LBz_2-ArtLoadCues			; Offset_0x04AEC4 ; $24
+		dc.w	PLC_LBz_3-ArtLoadCues			; Offset_0x04AED2 ; $25
+		dc.w	PLC_MVz-ArtLoadCues			; Offset_0x04AEDA ; $26
+		dc.w	PLC_MVz-ArtLoadCues			; Offset_0x04AEDA ; $27
+		dc.w	PLC_MVz-ArtLoadCues			; Offset_0x04AEDA ; $28
+		dc.w	PLC_MVz-ArtLoadCues			; Offset_0x04AEDA ; $29
+		dc.w	PLC_2A_To_2D-ArtLoadCues		; Offset_0x04AEDA ; $2A
+		dc.w	PLC_2A_To_2D-ArtLoadCues		; Offset_0x04AEDA ; $2B
+		dc.w	PLC_2A_To_2D-ArtLoadCues		; Offset_0x04AEDA ; $2C
+		dc.w	PLC_2A_To_2D-ArtLoadCues		; Offset_0x04AEDA ; $2D
+		dc.w	PLC_LRz_1-ArtLoadCues			; Offset_0x04AEE8 ; $2E
+		dc.w	PLC_LRz_1-ArtLoadCues			; Offset_0x04AEE8 ; $2F
+		dc.w	PLC_LRz_2-ArtLoadCues			; Offset_0x04AEFC ; $30
+		dc.w	PLC_LRz_2-ArtLoadCues			; Offset_0x04AEFC ; $31
+		dc.w	PLC_32_To_41-ArtLoadCues		; Offset_0x04AEFC ; $32
+		dc.w	PLC_32_To_41-ArtLoadCues		; Offset_0x04AEFC ; $33
+		dc.w	PLC_32_To_41-ArtLoadCues		; Offset_0x04AEFC ; $34
+		dc.w	PLC_32_To_41-ArtLoadCues		; Offset_0x04AEFC ; $35
+		dc.w	PLC_32_To_41-ArtLoadCues		; Offset_0x04AEFC ; $36
+		dc.w	PLC_32_To_41-ArtLoadCues		; Offset_0x04AEFC ; $37
+		dc.w	PLC_32_To_41-ArtLoadCues		; Offset_0x04AEFC ; $38
+		dc.w	PLC_32_To_41-ArtLoadCues		; Offset_0x04AEFC ; $39
+		dc.w	PLC_32_To_41-ArtLoadCues		; Offset_0x04AEFC ; $3A
+		dc.w	PLC_32_To_41-ArtLoadCues		; Offset_0x04AEFC ; $3B
+		dc.w	PLC_32_To_41-ArtLoadCues		; Offset_0x04AEFC ; $3C
+		dc.w	PLC_32_To_41-ArtLoadCues		; Offset_0x04AEFC ; $3D
+		dc.w	PLC_32_To_41-ArtLoadCues		; Offset_0x04AEFC ; $3E
+		dc.w	PLC_32_To_41-ArtLoadCues		; Offset_0x04AEFC ; $3F
+		dc.w	PLC_32_To_41-ArtLoadCues		; Offset_0x04AEFC ; $40
+		dc.w	PLC_32_To_41-ArtLoadCues		; Offset_0x04AEFC ; $41
+		dc.w	PLC_ALz-ArtLoadCues			; Offset_0x04AF0A ; $42
+		dc.w	PLC_BPz-ArtLoadCues			; Offset_0x04AF3C ; $43
+		dc.w	PLC_DPz-ArtLoadCues			; Offset_0x04AF74 ; $44
+		dc.w	PLC_CGz-ArtLoadCues			; Offset_0x04AFAC ; $45
+		dc.w	PLC_EMz-ArtLoadCues			; Offset_0x04AFE4 ; $46
+		dc.w	PLC_Bonus_Stage-ArtLoadCues		; Offset_0x04B01C ; $47
+		dc.w	PLC_48_To_59-ArtLoadCues		; Offset_0x04B030 ; $48
+		dc.w	PLC_48_To_59-ArtLoadCues		; Offset_0x04B030 ; $49
+		dc.w	PLC_48_To_59-ArtLoadCues		; Offset_0x04B030 ; $4A
+		dc.w	PLC_48_To_59-ArtLoadCues		; Offset_0x04B030 ; $4B
+		dc.w	PLC_48_To_59-ArtLoadCues		; Offset_0x04B030 ; $4C
+		dc.w	PLC_48_To_59-ArtLoadCues		; Offset_0x04B030 ; $4D
+		dc.w	PLC_48_To_59-ArtLoadCues		; Offset_0x04B030 ; $4E
+		dc.w	PLC_48_To_59-ArtLoadCues		; Offset_0x04B030 ; $4F
+		dc.w	PLC_48_To_59-ArtLoadCues		; Offset_0x04B030 ; $50
+		dc.w	PLC_48_To_59-ArtLoadCues		; Offset_0x04B030 ; $51
+		dc.w	PLC_48_To_59-ArtLoadCues		; Offset_0x04B030 ; $52
+		dc.w	PLC_48_To_59-ArtLoadCues		; Offset_0x04B030 ; $53
+		dc.w	PLC_48_To_59-ArtLoadCues		; Offset_0x04B030 ; $54
+		dc.w	PLC_48_To_59-ArtLoadCues		; Offset_0x04B030 ; $55
+		dc.w	PLC_48_To_59-ArtLoadCues		; Offset_0x04B030 ; $56
+		dc.w	PLC_48_To_59-ArtLoadCues		; Offset_0x04B030 ; $57
+		dc.w	PLC_48_To_59-ArtLoadCues		; Offset_0x04B030 ; $58
+		dc.w	PLC_48_To_59-ArtLoadCues		; Offset_0x04B030 ; $59
+		dc.w	PLC_AIz_Mini_Boss-ArtLoadCues		; Offset_0x04B030 ; $5A
+		dc.w	PLC_Hz_Mini_Boss-ArtLoadCues		; Offset_0x04B04A ; $5B
+		dc.w	PLC_5C-ArtLoadCues			; Offset_0x04B058 ; $5C
+		dc.w	PLC_CNz_Mini_Boss-ArtLoadCues		; Offset_0x04B058 ; $5D
+		dc.w	PLC_FBz_Mini_Boss-ArtLoadCues		; Offset_0x04B066 ; $5E
+		dc.w	PLC_Iz_Mini_Boss-ArtLoadCues		; Offset_0x04B086 ; $5F
+		dc.w	PLC_LBz_Mini_Boss-ArtLoadCues		; Offset_0x04B094 ; $60
+		dc.w	PLC_61_To_69-ArtLoadCues		; Offset_0x04B0AE ; $61
+		dc.w	PLC_61_To_69-ArtLoadCues		; Offset_0x04B0AE ; $62
+		dc.w	PLC_61_To_69-ArtLoadCues		; Offset_0x04B0AE ; $63
+		dc.w	PLC_61_To_69-ArtLoadCues		; Offset_0x04B0AE ; $64
+		dc.w	PLC_61_To_69-ArtLoadCues		; Offset_0x04B0AE ; $65
+		dc.w	PLC_61_To_69-ArtLoadCues		; Offset_0x04B0AE ; $66
+		dc.w	PLC_61_To_69-ArtLoadCues		; Offset_0x04B0AE ; $67
+		dc.w	PLC_61_To_69-ArtLoadCues		; Offset_0x04B0AE ; $68
+		dc.w	PLC_61_To_69-ArtLoadCues		; Offset_0x04B0AE ; $69
+		dc.w	PLC_FBz_Barrier_Eggman-ArtLoadCues	; Offset_0x04B0AE ; $6A
+		dc.w	PLC_AIz_Final_Boss-ArtLoadCues		; Offset_0x04B0C8 ; $6B
+		dc.w	PLC_Hz_Final_Boss-ArtLoadCues		; Offset_0x04B0DC ; $6C
+		dc.w	PLC_MGz_Final_Boss-ArtLoadCues		; Offset_0x04B102 ; $6D
+		dc.w	PLC_CNz_Final_Boss-ArtLoadCues		; Offset_0x04B11C ; $6E
+		dc.w	PLC_FBz_Final_Boss-ArtLoadCues		; Offset_0x04B136 ; $6F
+		dc.w	PLC_Iz_Final_Boss-ArtLoadCues		; Offset_0x04B15C ; $70
+		dc.w	PLC_LBz_Final_Boss-ArtLoadCues		; Offset_0x04B176 ; $71
 		dc.w	Offset_0x04B18A-ArtLoadCues
 		dc.w	Offset_0x04B18A-ArtLoadCues
 		dc.w	Offset_0x04B18A-ArtLoadCues
@@ -37020,19 +37020,17 @@ PLC_Default_Flickies:	plcheader
 PLC_Default_Flickies_End:
 
 ; ---------------------------------------------------------------------------
-PLC_Game_Over_Time_Over:					; Offset_0x04AD3E
-		dc.w	(((PLC_03_End-PLC_03)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
-PLC_03:
-		dc.l	Art_Game_Over_Time_Over			; Offset_0x108396
-		dc.w	$F380
-PLC_03_End:
+
+PLC_Game_Over_Time_Over:	plcheader
+		plc	$79C,Art_Game_Over_Time_Over
+PLC_Game_Over_Time_Over_End:
+
 ; ---------------------------------------------------------------------------
-PLC_Act_1_Clear:						; Offset_0x04AD46
-		dc.w	(((PLC_04_End-PLC_04)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
-PLC_04:
-		dc.l	Art_End_Panel				; Offset_0x107956
-		dc.w	$A000
-PLC_04_End:
+
+PLC_Act_1_Clear:	plcheader
+		plc	$500,Art_End_Panel
+PLC_Act_1_Clear_End:
+
 ; ---------------------------------------------------------------------------
 PLC_Default_2P:							; Offset_0x04AD4E
 		dc.w	(((PLC_05_End-PLC_05)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
