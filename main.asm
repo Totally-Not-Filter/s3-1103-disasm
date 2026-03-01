@@ -25933,24 +25933,24 @@ Offset_0x0308E8:
 		jmp	Plain_Deformation(PC)				   ; Offset_0x02FD42
 ; ---------------------------------------------------------------------------
 AIz_1_Fire_Refresh:											   ; Offset_0x0308F0
-		jsr	AIz_1_Fire_Rise(PC)					   ; Offset_0x030B78
+		jsr	AIz_1_Fire_Rise(pc)					   ; Offset_0x030B78
 Offset_0x0308F4:
 		lea	(Fg_Mem_Index_Address).w,a3					; $FFFF8008
 		move.w	#$C000,d7
 		move.w	#$180,d1
 		moveq	#0,d2
-		jsr	Draw_Plane_Vertical_Bottom_Up(PC)	   ; Offset_0x02FCC6
+		jsr	Draw_Plane_Vertical_Bottom_Up(pc)	   ; Offset_0x02FCC6
 		bpl.s	Offset_0x030914
 		addq.w	#2,a3
 		move.w	#$E000,d7
 		addq.w	#4,(Level_Events_Routine_2).w				; $FFFFEEC2
 		bra.s	Offset_0x030920
 Offset_0x030914:
-		jsr	AIz_Transition_Wavy_Flame(PC)		   ; Offset_0x030B98
-		jmp	Plain_Deformation(PC)				   ; Offset_0x02FD42
+		jsr	AIz_Transition_Wavy_Flame(pc)		   ; Offset_0x030B98
+		jmp	Plain_Deformation(pc)				   ; Offset_0x02FD42
 ; ---------------------------------------------------------------------------
 AIz_1_Finish:												   ; Offset_0x03091C
-		jsr	AIz_1_Fire_Rise(PC)					   ; Offset_0x030B78
+		jsr	AIz_1_Fire_Rise(pc)					   ; Offset_0x030B78
 Offset_0x030920:
 		tst.b	(Kos_modules_left).w					; $FFFFFF60
 		bne.w	Offset_0x0309F0
@@ -25963,44 +25963,44 @@ Offset_0x030920:
 		clr.b	(Boss_Flag).w								 ; $FFFFF7AA
 		clr.l	(Animate_Counters).w						 ; $FFFFF7F0
 		clr.w	(Animate_Counters+4).w					 ; $FFFFF7F4
-		movem.l	D7-A0/A2-A3,-(sp)
+		movem.l	d7-a0/a2-a3,-(sp)
 		jsr	(LoadLevelLayout).l					   ; Offset_0x01247C
 		jsr	(LoadCollisionIndex).l				   ; Offset_0x0049B2
 		jsr	(Level_InitWaterLevels).l					 ; Offset_0x005056
 		moveq	#$B,d0
 		jsr	(PalLoad_Now).l								; Offset_0x002FBA
-		movem.l	(sp)+,d7-A0/A2-A3
+		movem.l	(sp)+,d7-a0/a2-a3
 		lea	(Palette_Row_3_Offset+2).w,a1				; $FFFFED62
-		move.l	#$004E006E,(A1)+
-		move.l	#$00AE00CE,(A1)+
-		move.l	#$02EE0AEE,(A1)
+		move.l	#$004E006E,(a1)+
+		move.l	#$00AE00CE,(a1)+
+		move.l	#$02EE0AEE,(a1)
 		move.w	#$2F00,d0
 		move.w	#$80,d1
-		sub.w	D0,(Obj_Player_One+x_pos).w					; $FFFFB010
-		sub.w	D1,(Obj_Player_One+y_pos).w					; $FFFFB014
-		sub.w	D0,(Obj_Player_Two+x_pos).w					; $FFFFB05A
-		sub.w	D1,(Obj_Player_Two+y_pos).w					; $FFFFB05E
-		sub.w	D0,(Camera_X).w								; $FFFFEE78
-		sub.w	D1,(Camera_Y).w								; $FFFFEE7C
-		sub.w	D0,(Screen_Pos_Buffer_X).w					; $FFFFEE80
-		sub.w	D1,(Screen_Pos_Buffer_Y).w					; $FFFFEE84
+		sub.w	d0,(Obj_Player_One+x_pos).w					; $FFFFB010
+		sub.w	d1,(Obj_Player_One+y_pos).w					; $FFFFB014
+		sub.w	d0,(Obj_Player_Two+x_pos).w					; $FFFFB05A
+		sub.w	d1,(Obj_Player_Two+y_pos).w					; $FFFFB05E
+		sub.w	d0,(Camera_X).w								; $FFFFEE78
+		sub.w	d1,(Camera_Y).w								; $FFFFEE7C
+		sub.w	d0,(Screen_Pos_Buffer_X).w					; $FFFFEE80
+		sub.w	d1,(Screen_Pos_Buffer_Y).w					; $FFFFEE84
 		move.l	#$100010,d0
 		move.l	#$260,d1
-		move.l	D0,(Sonic_Level_Limits_Min_X).w				; $FFFFEE14
-		move.l	D0,(Level_Limits_Min_X).w					; $FFFFEE0C
-		move.l	D1,(Sonic_Level_Limits_Min_Y).w				; $FFFFEE18
-		move.l	D1,(Level_Limits_Min_Y).w					; $FFFFEE10
+		move.l	d0,(Sonic_Level_Limits_Min_X).w				; $FFFFEE14
+		move.l	d0,(Level_Limits_Min_X).w					; $FFFFEE0C
+		move.l	d1,(Sonic_Level_Limits_Min_Y).w				; $FFFFEE18
+		move.l	d1,(Level_Limits_Min_Y).w					; $FFFFEE10
 		move.w	(Screen_Pos_Buffer_X).w,(Level_Events_Buffer_0).w ; $FFFFEE80, $FFFFEEB4
 		move.w	(Screen_Pos_Buffer_X).w,(Level_Events_Buffer_1).w ; $FFFFEE80, $FFFFEEB6
 		jsr	Reset_Tile_Offset_Position_Actual(PC)  ; Offset_0x02FEF2
 		addi.w	#$E0,d0
 		and.w	(Level_Layout_Wrap_Y).w,d0					; $FFFFEEAC
-		move.w	D0,(Draw_Delayed_Position).w				; $FFFFEEC8
+		move.w	d0,(Draw_Delayed_Position).w				; $FFFFEEC8
 		move.w	#$F,(Draw_Delayed_Position_Rowcount).w	; $FFFFEECA
 		clr.w	(Level_Events_Routine_2).w					 ; $FFFFEEC2
 Offset_0x0309F0:
-		jsr	AIz_Transition_Wavy_Flame(PC)		   ; Offset_0x030B98
-		jmp	Plain_Deformation(PC)				   ; Offset_0x02FD42
+		jsr	AIz_Transition_Wavy_Flame(pc)		   ; Offset_0x030B98
+		jmp	Plain_Deformation(pc)				   ; Offset_0x02FD42
 ; ---------------------------------------------------------------------------
 AIz_Intro_Deform:											   ; Offset_0x0309F8
 		move.w	(Screen_Pos_Buffer_Y).w,(Screen_Pos_Buffer_Y_2).w ; $FFFFEE84, $FFFFEE90
@@ -26014,103 +26014,103 @@ Offset_0x030A08:
 		blt.s	Offset_0x030A1E
 		moveq	#$24,d1
 Offset_0x030A16:
-		move.w	D0,(A1)+
-		dbf	D1,Offset_0x030A16
+		move.w	d0,(a1)+
+		dbf	d1,Offset_0x030A16
 		bra.s	Offset_0x030A3E
 Offset_0x030A1E:
-		move.w	D0,(A1)+
+		move.w	d0,(a1)+
 		subi.w	#$580,d0
-		swap	D0
-		clr.w	D0
-		move.l	D0,d1
+		swap	d0
+		clr.w	d0
+		move.l	d0,d1
 		asr.l	#5,d1
 		moveq	#$23,d2
 Offset_0x030A2E:
-		add.l	D1,d0
-		move.l	D0,d3
+		add.l	d1,d0
+		move.l	d0,d3
 		swap	D3
 		addi.w	#$580,d3
-		move.w	D3,(A1)+
-		dbf	D2,Offset_0x030A2E
+		move.w	d3,(a1)+
+		dbf	d2,Offset_0x030A2E
 Offset_0x030A3E:
 		lea	(Horizontal_Scroll_Table+$28).w,a1		; $FFFFA828
 		lea	(Horizontal_Scroll_Table).w,a5				; $FFFFA800
-		move.w	(A1)+,d0
+		move.w	(a1)+,d0
 		bpl.s	Offset_0x030A4C
 		moveq	#0,d0
 Offset_0x030A4C:
-		move.w	D0,(A5)
+		move.w	d0,(a5)
 		addq.w	#4,a5
 		moveq	#8,d0
 Offset_0x030A52:
-		move.w	(A1),d1
+		move.w	(a1),d1
 		bpl.s	Offset_0x030A58
 		moveq	#0,d1
 Offset_0x030A58:
-		move.w	D1,(A5)
+		move.w	d1,(a5)
 		addq.w	#8,a1
 		addq.w	#4,a5
-		dbf	D0,Offset_0x030A52
+		dbf	d0,Offset_0x030A52
 		rts
 ; ---------------------------------------------------------------------------
 AIz_1_Deform:												   ; Offset_0x030A64
 		move.w	(Screen_Pos_Buffer_Y).w,d0					; $FFFFEE84
 		asr.w	#1,d0
-		move.w	D0,(Screen_Pos_Buffer_Y_2).w				; $FFFFEE90
+		move.w	d0,(Screen_Pos_Buffer_Y_2).w				; $FFFFEE90
 		move.w	(Screen_Pos_Buffer_X).w,d0					; $FFFFEE80
 		subi.w	#$1300,d0
-		swap	D0
-		clr.w	D0
+		swap	d0
+		clr.w	d0
 		asr.l	#5,d0
-		move.l	D0,d2
-		add.l	D0,d0
-		move.l	D0,d1
+		move.l	d0,d2
+		add.l	d0,d0
+		move.l	d0,d1
 		lsl.l	#3,d0
-		sub.l	D1,d0
+		sub.l	d1,d0
 		lea	(Horizontal_Scroll_Table+$30).w,a1		; $FFFFA830
-		swap	D0
-		move.w	D0,(A1)
-		swap	D0
-		add.l	D1,d0
-		swap	D0
-		move.w	D0,-$2C(A1)
-		move.w	D0,2(A1)
-		move.w	D0,$A(A1)
-		swap	D0
-		add.l	D1,d0
-		swap	D0
-		move.w	D0,4(A1)
-		move.w	D0,8(A1)
-		swap	D0
-		add.l	D1,d0
-		swap	D0
-		move.w	D0,6(A1)
+		swap	d0
+		move.w	d0,(a1)
+		swap	d0
+		add.l	d1,d0
+		swap	d0
+		move.w	d0,-$2C(a1)
+		move.w	d0,2(a1)
+		move.w	d0,$A(a1)
+		swap	d0
+		add.l	d1,d0
+		swap	d0
+		move.w	d0,4(a1)
+		move.w	d0,8(a1)
+		swap	d0
+		add.l	d1,d0
+		swap	d0
+		move.w	d0,6(a1)
 		lea	(Horizontal_Scroll_Table+$16).w,a1		; $FFFFA816
-		move.l	D2,d0
-		swap	D0
-		move.w	D0,-(A1)
-		swap	D0
+		move.l	d2,d0
+		swap	d0
+		move.w	d0,-(a1)
+		swap	d0
 		move.l	(Horizontal_Scroll_Table+$3C).w,d3		; $FFFFA83C
 		addi.l	#$2000,(Horizontal_Scroll_Table+$3C).w ; $FFFFA83C
 		asr.l	#1,d0
 		moveq	#5,d1
 Offset_0x030AD4:
-		add.l	D3,d0
-		swap	D0
-		move.w	D0,-(A1)
-		swap	D0
-		add.l	D2,d0
-		dbf	D1,Offset_0x030AD4
+		add.l	d3,d0
+		swap	d0
+		move.w	d0,-(a1)
+		swap	d0
+		add.l	d2,d0
+		dbf	d1,Offset_0x030AD4
 		lea	(Horizontal_Scroll_Table+$16).w,a1		; $FFFFA816
-		move.l	D2,d0
+		move.l	d2,d0
 		asr.l	#3,d2
 		moveq	#$C,d1
 Offset_0x030AEC:
-		add.l	D2,d0
-		swap	D0
-		move.w	D0,(A1)+
-		swap	D0
-		dbf	D1,Offset_0x030AEC
+		add.l	d2,d0
+		swap	d0
+		move.w	d0,(a1)+
+		swap	d0
+		dbf	d1,Offset_0x030AEC
 		rts
 ; ---------------------------------------------------------------------------
 AIz_Apply_Deform_Water:										   ; Offset_0x030AFA
