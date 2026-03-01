@@ -37020,589 +37020,591 @@ PLC_Default_Flickies:	plcheader
 PLC_Default_Flickies_End:
 
 ; ---------------------------------------------------------------------------
-PLC_Game_Over_Time_Over:									   ; Offset_0x04AD3E
+PLC_Game_Over_Time_Over:					; Offset_0x04AD3E
 		dc.w	(((PLC_03_End-PLC_03)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_03:
-		dc.l	Art_Game_Over_Time_Over				   ; Offset_0x108396
+		dc.l	Art_Game_Over_Time_Over			; Offset_0x108396
 		dc.w	$F380
 PLC_03_End:
 ; ---------------------------------------------------------------------------
-PLC_Act_1_Clear:											   ; Offset_0x04AD46
+PLC_Act_1_Clear:						; Offset_0x04AD46
 		dc.w	(((PLC_04_End-PLC_04)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_04:
-		dc.l	Art_End_Panel						   ; Offset_0x107956
+		dc.l	Art_End_Panel				; Offset_0x107956
 		dc.w	$A000
 PLC_04_End:
 ; ---------------------------------------------------------------------------
-PLC_Default_2P:												   ; Offset_0x04AD4E
+PLC_Default_2P:							; Offset_0x04AD4E
 		dc.w	(((PLC_05_End-PLC_05)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_05:
-		dc.l	Art_V_Springs_Spikes_2P				   ; Offset_0x136848
+		dc.l	Art_V_Springs_Spikes_2P			; Offset_0x136848
 		dc.w	$7220
-		dc.l	Art_H_Springs_Switch_2P				   ; Offset_0x1366D4
+		dc.l	Art_H_Springs_Switch_2P			; Offset_0x1366D4
 		dc.w	$75A0
-		dc.l	Art_Items_2P						   ; Offset_0x136A3A
+		dc.l	Art_Items_2P				; Offset_0x136A3A
 		dc.w	$78C0
 PLC_05_End:
 ; ---------------------------------------------------------------------------
-PLC_Art_Scaled_Test:										   ; Offset_0x04AD62
+PLC_Art_Scaled_Test:						; Offset_0x04AD62
 		dc.w	(((PLC_07_End-PLC_07)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_07:
-		dc.l	Art_Scaled_Spheres					   ; Offset_0x10B68E
+		dc.l	Art_Scaled_Spheres			; Offset_0x10B68E
 		dc.w	$9C00
 PLC_07_End:
 ; ---------------------------------------------------------------------------
-PLC_AIz_1:													   ; Offset_0x04AD6A
+PLC_AIz_1:							; Offset_0x04AD6A
 		dc.w	(((PLC_0A_End-PLC_0A)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_0A:
-		dc.l	Art_Intro_Water_Waves				   ; Offset_0x1035F8
+		dc.l	Art_Intro_Water_Waves			; Offset_0x1035F8
 		dc.w	$7A20
-		dc.l	Art_Intro_Small_Water_Waves			   ; Offset_0x103B38
+		dc.l	Art_Intro_Small_Water_Waves		; Offset_0x103B38
 		dc.w	$A520
-		dc.l	Art_Surfboard						   ; Offset_0x103DD0
+		dc.l	Art_Surfboard				; Offset_0x103DD0
 		dc.w	$B0A0
 PLC_0A_End:
 ; ---------------------------------------------------------------------------
-PLC_AIz_2:													   ; Offset_0x04AD7E
+PLC_AIz_2:							; Offset_0x04AD7E
 		dc.w	(((PLC_0B_End-PLC_0B)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_0B:
-		dc.l	Art_AIz_Swinging_Vine				   ; Offset_0x12C9AA
+		dc.l	Art_AIz_Swinging_Vine			; Offset_0x12C9AA
 		dc.w	$8440
-		dc.l	Art_AIz_Slide_Rope					   ; Offset_0x12CB10
+		dc.l	Art_AIz_Slide_Rope			; Offset_0x12CB10
 		dc.w	$6480
-		dc.l	Art_AIz_Rocks_And_Tree				   ; Offset_0x12CD7E
+		dc.l	Art_AIz_Rocks_And_Tree			; Offset_0x12CD7E
 		dc.w	$6660
-		dc.l	Art_AIz_Cork_Floor					   ; Offset_0x12D5C6
+		dc.l	Art_AIz_Cork_Floor			; Offset_0x12D5C6
 		dc.w	$79E0
-		dc.l	Art_Oxygen_Bubbles					   ; Offset_0x1080F8
+		dc.l	Art_Oxygen_Bubbles			; Offset_0x1080F8
 		dc.w	$8B80
 PLC_0B_End:
 ; ---------------------------------------------------------------------------
-PLC_AIz_3:													   ; Offset_0x04AD9E
+PLC_AIz_3:							; Offset_0x04AD9E
 		dc.w	(((PLC_0C_End-PLC_0C)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_0C:
-		dc.l	Art_AIz_Miscellaneous				   ; Offset_0x12D84E
+		dc.l	Art_AIz_Miscellaneous			; Offset_0x12D84E
 		dc.w	$5E00
-		dc.l	Art_AIz_Swinging_Vine				   ; Offset_0x12C9AA
+		dc.l	Art_AIz_Swinging_Vine			; Offset_0x12C9AA
 		dc.w	$8440
-		dc.l	Art_AIz_Background_Tree				   ; Offset_0x12CC34
+		dc.l	Art_AIz_Background_Tree			; Offset_0x12CC34
 		dc.w	$87E0
-		dc.l	Art_Oxygen_Bubbles					   ; Offset_0x1080F8
+		dc.l	Art_Oxygen_Bubbles			; Offset_0x1080F8
 		dc.w	$8B80
-		dc.l	Art_Switch							   ; Offset_0x1067F6
+		dc.l	Art_Switch				; Offset_0x1067F6
 		dc.w	$8AC0
 PLC_0C_End:
 ; ---------------------------------------------------------------------------
-PLC_Hz_1:													   ; Offset_0x04ADBE
+PLC_Hz_1:							; Offset_0x04ADBE
 		dc.w	(((PLC_0E_End-PLC_0E)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_0E:
-		dc.l	Art_Diagonal_Spring					   ; Offset_0x106AC8
+		dc.l	Art_Diagonal_Spring			; Offset_0x106AC8
 		dc.w	$8740
-		dc.l	Art_Oxygen_Bubbles					   ; Offset_0x1080F8
+		dc.l	Art_Oxygen_Bubbles			; Offset_0x1080F8
 		dc.w	$8B80
-		dc.l	Art_Hz_Miscellaneous				   ; Offset_0x12EE76
+		dc.l	Art_Hz_Miscellaneous			; Offset_0x12EE76
 		dc.w	$7940
-		dc.l	Art_Hz_Switch						   ; Offset_0x12EDC2
+		dc.l	Art_Hz_Switch				; Offset_0x12EDC2
 		dc.w	$84C0
-		dc.l	Art_Hz_Water_Rush					   ; Offset_0x12F436
+		dc.l	Art_Hz_Water_Rush			; Offset_0x12F436
 		dc.w	$6F40
-		dc.l	Art_Hz_Water_Surface				   ; Offset_0x12ECA2
+		dc.l	Art_Hz_Water_Surface			; Offset_0x12ECA2
 		dc.w	$85C0
-		dc.l	Art_Hz_Spiked_Ball					   ; Offset_0x12EBDA
+		dc.l	Art_Hz_Spiked_Ball			; Offset_0x12EBDA
 		dc.w	$87C0
 PLC_0E_End:
 ; ---------------------------------------------------------------------------
-PLC_Hz_2:													   ; Offset_0x04ADEA
+PLC_Hz_2:							; Offset_0x04ADEA
 		dc.w	(((PLC_0F_End-PLC_0F)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_0F:
-		dc.l	Art_Buggernaut						   ; Offset_0x11667C
+		dc.l	Art_Buggernaut				; Offset_0x11667C
 		dc.w	$8A60
 PLC_0F_End:
 ; ---------------------------------------------------------------------------
-PLC_Hz_3:													   ; Offset_0x04ADF2
+PLC_Hz_3:							; Offset_0x04ADF2
 		dc.w	(((PLC_10_End-PLC_10)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_10:
-		dc.l	Art_Diagonal_Spring					   ; Offset_0x106AC8
+		dc.l	Art_Diagonal_Spring			; Offset_0x106AC8
 		dc.w	$8740
-		dc.l	Art_Oxygen_Bubbles					   ; Offset_0x1080F8
+		dc.l	Art_Oxygen_Bubbles			; Offset_0x1080F8
 		dc.w	$8B80
-		dc.l	Art_Hz_Miscellaneous				   ; Offset_0x12EE76
+		dc.l	Art_Hz_Miscellaneous			; Offset_0x12EE76
 		dc.w	$7940
-		dc.l	Art_Hz_Switch						   ; Offset_0x12EDC2
+		dc.l	Art_Hz_Switch				; Offset_0x12EDC2
 		dc.w	$84C0
-		dc.l	Art_Hz_Water_Surface				   ; Offset_0x12ECA2
+		dc.l	Art_Hz_Water_Surface			; Offset_0x12ECA2
 		dc.w	$85C0
-		dc.l	Art_Hz_Spiked_Ball					   ; Offset_0x12EBDA
+		dc.l	Art_Hz_Spiked_Ball			; Offset_0x12EBDA
 		dc.w	$87C0
-		dc.l	Art_Hz_Sliding_Tube					   ; Offset_0x130C24
+		dc.l	Art_Hz_Sliding_Tube			; Offset_0x130C24
 		dc.w	$6B80
 PLC_10_End:
 ; ---------------------------------------------------------------------------
-PLC_Hz_4:													   ; Offset_0x04AE1E
+PLC_Hz_4:							; Offset_0x04AE1E
 		dc.w	(((PLC_11_End-PLC_11)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_11:
-		dc.l	Art_Hz_Block_Wall					   ; Offset_0x1330E4
+		dc.l	Art_Hz_Block_Wall			; Offset_0x1330E4
 		dc.w	$6A00
-		dc.l	Art_Hz_Bridge_And_Blocks			   ; Offset_0x13113A
+		dc.l	Art_Hz_Bridge_And_Blocks		; Offset_0x13113A
 		dc.w	$0500
-		dc.l	Art_Buggernaut						   ; Offset_0x11667C
+		dc.l	Art_Buggernaut				; Offset_0x11667C
 		dc.w	$8A60
 PLC_11_End:
 ; ---------------------------------------------------------------------------
-PLC_MGz_1:													   ; Offset_0x04AE32
+PLC_MGz_1:							; Offset_0x04AE32
 		dc.w	(((PLC_12_End-PLC_12)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_12:
-		dc.l	Art_MGz_Wheel_And_Miscellaneous		   ; Offset_0x1331FE
+		dc.l	Art_MGz_Wheel_And_Miscellaneous		; Offset_0x1331FE
 		dc.w	$6BE0
-		dc.l	Art_MGz_Spiked_Platform_And_Miscellaneous ; Offset_0x133C3C
+		dc.l	Art_MGz_Spiked_Platform_And_Miscellaneous	; Offset_0x133C3C
 		dc.w	$7FE0
-		dc.l	Art_MGz_Direction_Indicators		   ; Offset_0x13424C
+		dc.l	Art_MGz_Direction_Indicators		; Offset_0x13424C
 		dc.w	$8A20
-		dc.l	Art_Diagonal_Spring					   ; Offset_0x106AC8
+		dc.l	Art_Diagonal_Spring			; Offset_0x106AC8
 		dc.w	$8F00
 PLC_12_End:
 ; ---------------------------------------------------------------------------
-PLC_MGz_2:													   ; Offset_0x04AE4C
+PLC_MGz_2:							; Offset_0x04AE4C
 		dc.w	(((PLC_14_End-PLC_14)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_14:
-		dc.l	Art_MGz_Wheel_And_Miscellaneous		   ; Offset_0x1331FE
+		dc.l	Art_MGz_Wheel_And_Miscellaneous		; Offset_0x1331FE
 		dc.w	$6BE0
-		dc.l	Art_MGz_Spiked_Platform_And_Miscellaneous ; Offset_0x133C3C
+		dc.l	Art_MGz_Spiked_Platform_And_Miscellaneous	; Offset_0x133C3C
 		dc.w	$7FE0
-		dc.l	Art_MGz_Direction_Indicators		   ; Offset_0x13424C
+		dc.l	Art_MGz_Direction_Indicators		; Offset_0x13424C
 		dc.w	$8A20
-		dc.l	Art_Diagonal_Spring					   ; Offset_0x106AC8
+		dc.l	Art_Diagonal_Spring			; Offset_0x106AC8
 		dc.w	$8F00
 PLC_14_End:
 ; ---------------------------------------------------------------------------
-PLC_CNz:													   ; Offset_0x04AE66
+PLC_CNz:							; Offset_0x04AE66
 		dc.w	(((PLC_16_End-PLC_16)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_16:
-		dc.l	Art_CNz_Balloons_Bumpers_And_Miscellaneous ; Offset_0x134486
+		dc.l	Art_CNz_Balloons_Bumpers_And_Miscellaneous	; Offset_0x134486
 		dc.w	$6A20
-		dc.l	Art_Oxygen_Bubbles					   ; Offset_0x1080F8
+		dc.l	Art_Oxygen_Bubbles			; Offset_0x1080F8
 		dc.w	$8B80
-		dc.l	Art_CNz_Platform					   ; Offset_0x135244
+		dc.l	Art_CNz_Platform			; Offset_0x135244
 		dc.w	$8600
 PLC_16_End:
 ; ---------------------------------------------------------------------------
-PLC_FBz:													   ; Offset_0x04AE7A
+PLC_FBz:							; Offset_0x04AE7A
 		dc.w	(((PLC_1A_End-PLC_1A)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_1A:
-		dc.l	Art_Diagonal_Spring					   ; Offset_0x106AC8
+		dc.l	Art_Diagonal_Spring			; Offset_0x106AC8
 		dc.w	$8740
 PLC_1A_End:
 ; ---------------------------------------------------------------------------
-PLC_Iz_1:													   ; Offset_0x04AE82
+PLC_Iz_1:							; Offset_0x04AE82
 		dc.w	(((PLC_1E_End-PLC_1E)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_1E:
-		dc.l	Art_Diagonal_Spring					   ; Offset_0x106AC8
+		dc.l	Art_Diagonal_Spring			; Offset_0x106AC8
 		dc.w	$8740
-		dc.l	Art_Switch							   ; Offset_0x1067F6
+		dc.l	Art_Switch				; Offset_0x1067F6
 		dc.w	$8AC0
-		dc.l	Art_Iz_Ice_Platform_And_Miscellaneous  ; Offset_0x11DD52
+		dc.l	Art_Iz_Ice_Platform_And_Miscellaneous	; Offset_0x11DD52
 		dc.w	$76C0
-		dc.l	Art_Iz_Ice_Rock_And_Miscellaneous	   ; Offset_0x11E976
+		dc.l	Art_Iz_Ice_Rock_And_Miscellaneous	; Offset_0x11E976
 		dc.w	$68E0
 PLC_1E_End:
 ; ---------------------------------------------------------------------------
-PLC_Iz_2:													   ; Offset_0x04AE9C
+PLC_Iz_2:							; Offset_0x04AE9C
 		dc.w	(((PLC_20_End-PLC_20)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_20:
-		dc.l	Art_Diagonal_Spring					   ; Offset_0x106AC8
+		dc.l	Art_Diagonal_Spring			; Offset_0x106AC8
 		dc.w	$8740
-		dc.l	Art_Switch							   ; Offset_0x1067F6
+		dc.l	Art_Switch				; Offset_0x1067F6
 		dc.w	$8AC0
-		dc.l	Art_Iz_Ice_Platform_And_Miscellaneous  ; Offset_0x11DD52
+		dc.l	Art_Iz_Ice_Platform_And_Miscellaneous	; Offset_0x11DD52
 		dc.w	$76C0
-		dc.l	Art_Iz_SnowSlip_And_Miscellaneous	   ; Offset_0x11EDF8
+		dc.l	Art_Iz_SnowSlip_And_Miscellaneous	; Offset_0x11EDF8
 		dc.w	$6FA0
 PLC_20_End:
 ; ---------------------------------------------------------------------------
-PLC_LBz_1:													   ; Offset_0x04AEB6
+PLC_LBz_1:							; Offset_0x04AEB6
 		dc.w	(((PLC_22_End-PLC_22)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_22:
-		dc.l	Art_LBz_Miscellaneous				   ; Offset_0x1353AE
+		dc.l	Art_LBz_Miscellaneous			; Offset_0x1353AE
 		dc.w	$7860
-		dc.l	Art_LBz_Tube_Elevator				   ; Offset_0x135ECC
+		dc.l	Art_LBz_Tube_Elevator			; Offset_0x135ECC
 		dc.w	$8AA0
 PLC_22_End:
 ; ---------------------------------------------------------------------------
-PLC_LBz_2:													   ; Offset_0x04AEC4
+PLC_LBz_2:							; Offset_0x04AEC4
 		dc.w	(((PLC_24_End-PLC_24)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_24:
-		dc.l	Art_LBz_Miscellaneous				   ; Offset_0x1353AE
+		dc.l	Art_LBz_Miscellaneous			; Offset_0x1353AE
 		dc.w	$7860
-		dc.l	Art_Oxygen_Bubbles					   ; Offset_0x1080F8
+		dc.l	Art_Oxygen_Bubbles			; Offset_0x1080F8
 		dc.w	$8B80
 PLC_24_End:
 ; ---------------------------------------------------------------------------
-PLC_LBz_3:													   ; Offset_0x04AED2
+PLC_LBz_3:							; Offset_0x04AED2
 		dc.w	(((PLC_25_End-PLC_25)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_25:
-		dc.l	Art_LBz_Spin_Launcher_And_Miscellaneous ; Offset_0x136150
+		dc.l	Art_LBz_Spin_Launcher_And_Miscellaneous	; Offset_0x136150
 		dc.w	$5D40
 PLC_25_End:
 ; ---------------------------------------------------------------------------
-PLC_2A_To_2D:												   ; Offset_0x04AEDA
+PLC_2A_To_2D:
 ; ---------------------------------------------------------------------------
-PLC_MVz:													   ; Offset_0x04AEDA
+PLC_MVz:							; Offset_0x04AEDA
 		dc.w	(((PLC_26_End-PLC_26)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_26:
-		dc.l	Art_Diagonal_Spring					   ; Offset_0x106AC8
+		dc.l	Art_Diagonal_Spring			; Offset_0x106AC8
 		dc.w	$8740
-		dc.l	Art_Spikes_Springs					   ; Offset_0x108E64
+		dc.l	Art_Spikes_Springs			; Offset_0x108E64
 		dc.w	$9280
 PLC_26_End:
 ; ---------------------------------------------------------------------------
-PLC_LRz_1:													   ; Offset_0x04AEE8
+PLC_LRz_1:							; Offset_0x04AEE8
 		dc.w	(((PLC_2E_End-PLC_2E)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_2E:
-		dc.l	Art_LRz_Rocks						   ; Offset_0x13658C
+		dc.l	Art_LRz_Rocks				; Offset_0x13658C
 		dc.w	$8000
-		dc.l	Art_Diagonal_Spring					   ; Offset_0x106AC8
+		dc.l	Art_Diagonal_Spring			; Offset_0x106AC8
 		dc.w	$8740
-		dc.l	Art_Spikes_Springs					   ; Offset_0x108E64
+		dc.l	Art_Spikes_Springs			; Offset_0x108E64
 		dc.w	$9280
 PLC_2E_End:
 ; ---------------------------------------------------------------------------
 PLC_32_To_41:
 ; ---------------------------------------------------------------------------
-PLC_LRz_2:													   ; Offset_0x04AEFC
+PLC_LRz_2:							; Offset_0x04AEFC
 		dc.w	(((PLC_30_End-PLC_30)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_30:
-		dc.l	Art_Diagonal_Spring					   ; Offset_0x106AC8
+		dc.l	Art_Diagonal_Spring			; Offset_0x106AC8
 		dc.w	$8740
-		dc.l	Art_Spikes_Springs					   ; Offset_0x108E64
+		dc.l	Art_Spikes_Springs			; Offset_0x108E64
 		dc.w	$9280
 PLC_30_End:
 ; ---------------------------------------------------------------------------
-PLC_ALz:													   ; Offset_0x04AF0A
+PLC_ALz:							; Offset_0x04AF0A
 		dc.w	(((PLC_42_End-PLC_42)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_42:
-		dc.l	Art_Dust_2P							   ; Offset_0x0858E0
+		dc.l	Art_Dust_2P				; Offset_0x0858E0
 		dc.w	$FC00
-		dc.l	Art_Goal_Marker_2P					   ; Offset_0x136F1E
+		dc.l	Art_Goal_Marker_2P			; Offset_0x136F1E
 		dc.w	$D780
-		dc.l	Art_Head_up_display_Sprites_2P		   ; Offset_0x137096
+		dc.l	Art_Head_up_display_Sprites_2P		; Offset_0x137096
 		dc.w	$C000
-		dc.l	Art_Lap_Numbers_2P					   ; Offset_0x1376F0
+		dc.l	Art_Lap_Numbers_2P			; Offset_0x1376F0
 		dc.w	$E000
-		dc.l	Art_Point_And_Arrows_2P				   ; Offset_0x137BB0
+		dc.l	Art_Point_And_Arrows_2P			; Offset_0x137BB0
 		dc.w	$EBC0
-		dc.l	Art_V_Springs_Spikes_2P				   ; Offset_0x136848
+		dc.l	Art_V_Springs_Spikes_2P			; Offset_0x136848
 		dc.w	$7220
-		dc.l	Art_H_Springs_Switch_2P				   ; Offset_0x1366D4
+		dc.l	Art_H_Springs_Switch_2P			; Offset_0x1366D4
 		dc.w	$75A0
-		dc.l	Art_Items_2P						   ; Offset_0x136A3A
+		dc.l	Art_Items_2P				; Offset_0x136A3A
 		dc.w	$78C0
 PLC_42_End:
 ; ---------------------------------------------------------------------------
-PLC_BPz:													   ; Offset_0x04AF3C
+PLC_BPz:							; Offset_0x04AF3C
 		dc.w	(((PLC_43_End-PLC_43)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_43:
-		dc.l	Art_BPz_Ballons_And_Miscellaneous	   ; Offset_0x137C4A
+		dc.l	Art_BPz_Ballons_And_Miscellaneous	; Offset_0x137C4A
 		dc.w	$6000
-		dc.l	Art_Dust_2P							   ; Offset_0x0858E0
+		dc.l	Art_Dust_2P				; Offset_0x0858E0
 		dc.w	$FC00
-		dc.l	Art_Goal_Marker_2P					   ; Offset_0x136F1E
+		dc.l	Art_Goal_Marker_2P			; Offset_0x136F1E
 		dc.w	$D780
-		dc.l	Art_Head_up_display_Sprites_2P		   ; Offset_0x137096
+		dc.l	Art_Head_up_display_Sprites_2P		; Offset_0x137096
 		dc.w	$C000
-		dc.l	Art_Lap_Numbers_2P					   ; Offset_0x1376F0
+		dc.l	Art_Lap_Numbers_2P			; Offset_0x1376F0
 		dc.w	$E000
-		dc.l	Art_Point_And_Arrows_2P				   ; Offset_0x137BB0
+		dc.l	Art_Point_And_Arrows_2P			; Offset_0x137BB0
 		dc.w	$EBC0
-		dc.l	Art_V_Springs_Spikes_2P				   ; Offset_0x136848
+		dc.l	Art_V_Springs_Spikes_2P			; Offset_0x136848
 		dc.w	$7220
-		dc.l	Art_H_Springs_Switch_2P				   ; Offset_0x1366D4
+		dc.l	Art_H_Springs_Switch_2P			; Offset_0x1366D4
 		dc.w	$75A0
-		dc.l	Art_Items_2P						   ; Offset_0x136A3A
+		dc.l	Art_Items_2P				; Offset_0x136A3A
 		dc.w	$78C0
 PLC_43_End:
 ; ---------------------------------------------------------------------------
-PLC_DPz:													   ; Offset_0x04AF74
+PLC_DPz:							; Offset_0x04AF74
 		dc.w	(((PLC_44_End-PLC_44)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_44:
-		dc.l	Art_DPz_Sand_And_Miscellaneous		   ; Offset_0x138494
+		dc.l	Art_DPz_Sand_And_Miscellaneous		; Offset_0x138494
 		dc.w	$5000
-		dc.l	Art_Dust_2P							   ; Offset_0x0858E0
+		dc.l	Art_Dust_2P				; Offset_0x0858E0
 		dc.w	$FC00
-		dc.l	Art_Goal_Marker_2P					   ; Offset_0x136F1E
+		dc.l	Art_Goal_Marker_2P			; Offset_0x136F1E
 		dc.w	$D780
-		dc.l	Art_Head_up_display_Sprites_2P		   ; Offset_0x137096
+		dc.l	Art_Head_up_display_Sprites_2P		; Offset_0x137096
 		dc.w	$C000
-		dc.l	Art_Lap_Numbers_2P					   ; Offset_0x1376F0
+		dc.l	Art_Lap_Numbers_2P			; Offset_0x1376F0
 		dc.w	$E000
-		dc.l	Art_Point_And_Arrows_2P				   ; Offset_0x137BB0
+		dc.l	Art_Point_And_Arrows_2P			; Offset_0x137BB0
 		dc.w	$EBC0
-		dc.l	Art_V_Springs_Spikes_2P				   ; Offset_0x136848
+		dc.l	Art_V_Springs_Spikes_2P			; Offset_0x136848
 		dc.w	$7220
-		dc.l	Art_H_Springs_Switch_2P				   ; Offset_0x1366D4
+		dc.l	Art_H_Springs_Switch_2P			; Offset_0x1366D4
 		dc.w	$75A0
-		dc.l	Art_Items_2P						   ; Offset_0x136A3A
+		dc.l	Art_Items_2P				; Offset_0x136A3A
 		dc.w	$78C0
 PLC_44_End:
 ; ---------------------------------------------------------------------------
-PLC_CGz:													   ; Offset_0x04AFAC
+PLC_CGz:							; Offset_0x04AFAC
 		dc.w	(((PLC_45_End-PLC_45)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_45:
-		dc.l	Art_CGz_Platform_And_Miscellaneous	   ; Offset_0x1391AA
+		dc.l	Art_CGz_Platform_And_Miscellaneous	; Offset_0x1391AA
 		dc.w	$6000
-		dc.l	Art_Dust_2P							   ; Offset_0x0858E0
+		dc.l	Art_Dust_2P				; Offset_0x0858E0
 		dc.w	$FC00
-		dc.l	Art_Goal_Marker_2P					   ; Offset_0x136F1E
+		dc.l	Art_Goal_Marker_2P			; Offset_0x136F1E
 		dc.w	$D780
-		dc.l	Art_Head_up_display_Sprites_2P		   ; Offset_0x137096
+		dc.l	Art_Head_up_display_Sprites_2P		; Offset_0x137096
 		dc.w	$C000
-		dc.l	Art_Lap_Numbers_2P					   ; Offset_0x1376F0
+		dc.l	Art_Lap_Numbers_2P			; Offset_0x1376F0
 		dc.w	$E000
-		dc.l	Art_Point_And_Arrows_2P				   ; Offset_0x137BB0
+		dc.l	Art_Point_And_Arrows_2P			; Offset_0x137BB0
 		dc.w	$EBC0
-		dc.l	Art_V_Springs_Spikes_2P				   ; Offset_0x136848
+		dc.l	Art_V_Springs_Spikes_2P			; Offset_0x136848
 		dc.w	$7220
-		dc.l	Art_H_Springs_Switch_2P				   ; Offset_0x1366D4
+		dc.l	Art_H_Springs_Switch_2P			; Offset_0x1366D4
 		dc.w	$75A0
-		dc.l	Art_Items_2P						   ; Offset_0x136A3A
+		dc.l	Art_Items_2P				; Offset_0x136A3A
 		dc.w	$78C0
 PLC_45_End:
 ; ---------------------------------------------------------------------------
-PLC_EMz:													   ; Offset_0x04AFE4
+PLC_EMz:							; Offset_0x04AFE4
 		dc.w	(((PLC_46_End-PLC_46)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_46:
-		dc.l	Art_EMz_Rock_And_Miscellaneous		   ; Offset_0x13951E
+		dc.l	Art_EMz_Rock_And_Miscellaneous		; Offset_0x13951E
 		dc.w	$6000
-		dc.l	Art_Dust_2P							   ; Offset_0x0858E0
+		dc.l	Art_Dust_2P				; Offset_0x0858E0
 		dc.w	$FC00
-		dc.l	Art_Goal_Marker_2P					   ; Offset_0x136F1E
+		dc.l	Art_Goal_Marker_2P			; Offset_0x136F1E
 		dc.w	$D780
-		dc.l	Art_Head_up_display_Sprites_2P		   ; Offset_0x137096
+		dc.l	Art_Head_up_display_Sprites_2P		; Offset_0x137096
 		dc.w	$C000
-		dc.l	Art_Lap_Numbers_2P					   ; Offset_0x1376F0
+		dc.l	Art_Lap_Numbers_2P			; Offset_0x1376F0
 		dc.w	$E000
-		dc.l	Art_Point_And_Arrows_2P				   ; Offset_0x137BB0
+		dc.l	Art_Point_And_Arrows_2P			; Offset_0x137BB0
 		dc.w	$EBC0
-		dc.l	Art_V_Springs_Spikes_2P				   ; Offset_0x136848
+		dc.l	Art_V_Springs_Spikes_2P			; Offset_0x136848
 		dc.w	$7220
-		dc.l	Art_H_Springs_Switch_2P				   ; Offset_0x1366D4
+		dc.l	Art_H_Springs_Switch_2P			; Offset_0x1366D4
 		dc.w	$75A0
-		dc.l	Art_Items_2P						   ; Offset_0x136A3A
+		dc.l	Art_Items_2P				; Offset_0x136A3A
 		dc.w	$78C0
 PLC_46_End:
 ; ---------------------------------------------------------------------------
-PLC_Bonus_Stage:											   ; Offset_0x04B01C
+PLC_Bonus_Stage:						; Offset_0x04B01C
 		dc.w	(((PLC_47_End-PLC_47)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_47:
-		dc.l	Art_V_Springs_Spikes_2P				   ; Offset_0x136848
+		dc.l	Art_V_Springs_Spikes_2P			; Offset_0x136848
 		dc.w	$7220
-		dc.l	Art_H_Springs_Switch_2P				   ; Offset_0x1366D4
+		dc.l	Art_H_Springs_Switch_2P			; Offset_0x1366D4
 		dc.w	$75A0
-		dc.l	Art_Items_2P						   ; Offset_0x136A3A
+		dc.l	Art_Items_2P				; Offset_0x136A3A
 		dc.w	$78C0
 PLC_47_End:
 ; ---------------------------------------------------------------------------
-PLC_48_To_59:												   ; Offset_0x04B030
+PLC_48_To_59:
 ; ---------------------------------------------------------------------------
-PLC_AIz_Mini_Boss:											   ; Offset_0x04B030
+PLC_AIz_Mini_Boss:						; Offset_0x04B030
 		dc.w	(((PLC_5A_End-PLC_5A)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_5A:
-		dc.l	Art_Fire_Breath						   ; Offset_0x110E8E
+		dc.l	Art_Fire_Breath				; Offset_0x110E8E
 		dc.w	$7E20
-		dc.l	Art_Fire_Breath_Small				   ; Offset_0x11343E
+		dc.l	Art_Fire_Breath_Small			; Offset_0x11343E
 		dc.w	$8960
-		dc.l	Art_Fire_Breath_Flames				   ; Offset_0x124854
+		dc.l	Art_Fire_Breath_Flames			; Offset_0x124854
 		dc.w	$8B20
-		dc.l	Art_Boss_Explosion					   ; Offset_0x124504
+		dc.l	Art_Boss_Explosion			; Offset_0x124504
 		dc.w	$9520
 PLC_5A_End:
 ; ---------------------------------------------------------------------------
-PLC_Hz_Mini_Boss:											   ; Offset_0x04B04A
+PLC_Hz_Mini_Boss:						; Offset_0x04B04A
 		dc.w	(((PLC_5B_End-PLC_5B)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_5B:
-		dc.l	Art_Big_Shaker						   ; Offset_0x11469C
+		dc.l	Art_Big_Shaker				; Offset_0x11469C
 		dc.w	$6080
-		dc.l	Art_Boss_Explosion					   ; Offset_0x124504
+		dc.l	Art_Boss_Explosion			; Offset_0x124504
 		dc.w	$9520
 PLC_5B_End:
 ; ---------------------------------------------------------------------------
-PLC_5C:														   ; Offset_0x04B058
+PLC_5C:
 ; ---------------------------------------------------------------------------
-PLC_CNz_Mini_Boss:
+PLC_CNz_Mini_Boss:						; Offset_0x04B058
 		dc.w	(((PLC_5D_End-PLC_5D)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_5D:
-		dc.l	Art_Bowling_Spin					   ; Offset_0x11A78C
+		dc.l	Art_Bowling_Spin			; Offset_0x11A78C
 		dc.w	$A0E0
-		dc.l	Art_Boss_Explosion					   ; Offset_0x124504
+		dc.l	Art_Boss_Explosion			; Offset_0x124504
 		dc.w	$9520
 PLC_5D_End:
 ; ---------------------------------------------------------------------------
-PLC_FBz_Mini_Boss:											   ; Offset_0x04B066
+PLC_FBz_Mini_Boss:						; Offset_0x04B066
 		dc.w	(((PLC_5E_End-PLC_5E)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_5E:
-		dc.l	Art_Gapsule							   ; Offset_0x11C8F4
+		dc.l	Art_Gapsule				; Offset_0x11C8F4
 		dc.w	$A5C0
-		dc.l	Art_Egg_Prison						   ; Offset_0x126E84
+		dc.l	Art_Egg_Prison				; Offset_0x126E84
 		dc.w	$89C0
-		dc.l	Art_Boss_Explosion					   ; Offset_0x124504
+		dc.l	Art_Boss_Explosion			; Offset_0x124504
 		dc.w	$9520
-		dc.l	Art_Squirrel						   ; Offset_0x10B3DC
+		dc.l	Art_Squirrel				; Offset_0x10B3DC
 		dc.w	$85C0
-		dc.l	Art_Blue_Bird						   ; Offset_0x10B00A
+		dc.l	Art_Blue_Bird				; Offset_0x10B00A
 		dc.w	$8800
 PLC_5E_End:
 ; ---------------------------------------------------------------------------
-PLC_Iz_Mini_Boss:											   ; Offset_0x04B086
+PLC_Iz_Mini_Boss:						; Offset_0x04B086
 		dc.w	(((PLC_5F_End-PLC_5F)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_5F:
-		dc.l	Art_Big_Icedus						   ; Offset_0x11FF66
+		dc.l	Art_Big_Icedus				; Offset_0x11FF66
 		dc.w	$9AE0
-		dc.l	Art_Boss_Explosion					   ; Offset_0x124504
+		dc.l	Art_Boss_Explosion			; Offset_0x124504
 		dc.w	$9520
 PLC_5F_End:
 ; ---------------------------------------------------------------------------
-PLC_LBz_Mini_Boss:											   ; Offset_0x04B094
+PLC_LBz_Mini_Boss:						; Offset_0x04B094
 		dc.w	(((PLC_60_End-PLC_60)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_60:
-		dc.l	Art_Robotnik_In_Egg_Mobile			   ; Offset_0x125122
+		dc.l	Art_Robotnik_In_Egg_Mobile		; Offset_0x125122
 		dc.w	$A5C0
-		dc.l	Art_Twin_Hammer_Box					   ; Offset_0x124066
+		dc.l	Art_Twin_Hammer_Box			; Offset_0x124066
 		dc.w	$88C0
-		dc.l	Art_Twin_Hammer						   ; Offset_0x1215F2
+		dc.l	Art_Twin_Hammer				; Offset_0x1215F2
 		dc.w	$8380
-		dc.l	Art_LBz_Knuckles_Bomb				   ; Offset_0x1244C6
+		dc.l	Art_LBz_Knuckles_Bomb			; Offset_0x1244C6
 		dc.w	$94A0
 PLC_60_End:
 ; ---------------------------------------------------------------------------
-PLC_61_To_69:												   ; Offset_0x04B0AE
+PLC_61_To_69:
 ; ---------------------------------------------------------------------------
-PLC_FBz_Barrier_Eggman:										   ; Offset_0x04B0AE
+PLC_FBz_Barrier_Eggman:						; Offset_0x04B0AE
 		dc.w	(((PLC_6A_End-PLC_6A)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_6A:
-		dc.l	Art_Laser_Beam						   ; Offset_0x11CEBA
+		dc.l	Art_Laser_Beam				; Offset_0x11CEBA
 		dc.w	$A5C0
-		dc.l	Art_FBz_Robotnik_Stand				   ; Offset_0x1258F0
+		dc.l	Art_FBz_Robotnik_Stand			; Offset_0x1258F0
 		dc.w	$8CC0
-		dc.l	Art_FBz_Robotnik					   ; Offset_0x125D06
+		dc.l	Art_FBz_Robotnik			; Offset_0x125D06
 		dc.w	$9AE0
-		dc.l	Art_Boss_Explosion					   ; Offset_0x124504
+		dc.l	Art_Boss_Explosion			; Offset_0x124504
 		dc.w	$9520
 PLC_6A_End:
 ; ---------------------------------------------------------------------------
-PLC_AIz_Final_Boss:											   ; Offset_0x04B0C8
+PLC_AIz_Final_Boss:						; Offset_0x04B0C8
 		dc.w	(((PLC_6B_End-PLC_6B)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_6B:
-		dc.l	Art_Robotnik_In_Egg_Mobile			   ; Offset_0x125122
+		dc.l	Art_Robotnik_In_Egg_Mobile		; Offset_0x125122
 		dc.w	$A5C0
-		dc.l	Art_Boss_Explosion					   ; Offset_0x124504
+		dc.l	Art_Boss_Explosion			; Offset_0x124504
 		dc.w	$9520
-		dc.l	Art_Egg_Prison						   ; Offset_0x126E84
+		dc.l	Art_Egg_Prison				; Offset_0x126E84
 		dc.w	$9AE0
 PLC_6B_End:
 ; ---------------------------------------------------------------------------
-PLC_Hz_Final_Boss:											   ; Offset_0x04B0DC
+PLC_Hz_Final_Boss:						; Offset_0x04B0DC
 		dc.w	(((PLC_6C_End-PLC_6C)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_6C:
-		dc.l	Art_Screw_Mobile					   ; Offset_0x11553A
+		dc.l	Art_Screw_Mobile			; Offset_0x11553A
 		dc.w	$6D60
-		dc.l	Art_Robotnik_In_Egg_Mobile			   ; Offset_0x125122
+		dc.l	Art_Robotnik_In_Egg_Mobile		; Offset_0x125122
 		dc.w	$A5C0
-		dc.l	Art_Boss_Explosion					   ; Offset_0x124504
+		dc.l	Art_Boss_Explosion			; Offset_0x124504
 		dc.w	$9520
-		dc.l	Art_Explosion						   ; Offset_0x108528
+		dc.l	Art_Explosion				; Offset_0x108528
 		dc.w	$B400
-		dc.l	Art_Oxygen_Bubbles					   ; Offset_0x1080F8
+		dc.l	Art_Oxygen_Bubbles			; Offset_0x1080F8
 		dc.w	$8B80
-		dc.l	Art_Egg_Prison						   ; Offset_0x126E84
+		dc.l	Art_Egg_Prison				; Offset_0x126E84
 		dc.w	$9AE0
 PLC_6C_End:
 ; ---------------------------------------------------------------------------
-PLC_MGz_Final_Boss:											   ; Offset_0x04B102
+PLC_MGz_Final_Boss:						; Offset_0x04B102
 		dc.w	(((PLC_6D_End-PLC_6D)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_6D:
-		dc.l	Art_Drill_Mobile					   ; Offset_0x11753E
+		dc.l	Art_Drill_Mobile			; Offset_0x11753E
 		dc.w	$5A00
-		dc.l	Art_Robotnik_In_Egg_Mobile			   ; Offset_0x125122
+		dc.l	Art_Robotnik_In_Egg_Mobile		; Offset_0x125122
 		dc.w	$A5C0
-		dc.l	Art_Boss_Explosion					   ; Offset_0x124504
+		dc.l	Art_Boss_Explosion			; Offset_0x124504
 		dc.w	$9520
-		dc.l	Art_Egg_Prison						   ; Offset_0x126E84
+		dc.l	Art_Egg_Prison				; Offset_0x126E84
 		dc.w	$9AE0
 PLC_6D_End:
 ; ---------------------------------------------------------------------------
-PLC_CNz_Final_Boss:											   ; Offset_0x04B11C
+PLC_CNz_Final_Boss:						; Offset_0x04B11C
 		dc.w	(((PLC_6E_End-PLC_6E)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_6E:
-		dc.l	Art_Graviton_Mobile					   ; Offset_0x11AC48
+		dc.l	Art_Graviton_Mobile			; Offset_0x11AC48
 		dc.w	$8600
-		dc.l	Art_Robotnik_In_Egg_Mobile			   ; Offset_0x125122
+		dc.l	Art_Robotnik_In_Egg_Mobile		; Offset_0x125122
 		dc.w	$A5C0
-		dc.l	Art_Boss_Explosion					   ; Offset_0x124504
+		dc.l	Art_Boss_Explosion			; Offset_0x124504
 		dc.w	$9520
-		dc.l	Art_Egg_Prison						   ; Offset_0x126E84
+		dc.l	Art_Egg_Prison				; Offset_0x126E84
 		dc.w	$9AE0
 PLC_6E_End:
 ; ---------------------------------------------------------------------------
-PLC_FBz_Final_Boss:											   ; Offset_0x04B136
+PLC_FBz_Final_Boss:						; Offset_0x04B136
 		dc.w	(((PLC_6F_End-PLC_6F)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_6F:
-		dc.l	Art_Hang_Mobile						   ; Offset_0x11D3BC
+		dc.l	Art_Hang_Mobile				; Offset_0x11D3BC
 		dc.w	$7C00
-		dc.l	Art_FBz_Robotnik_Faces				   ; Offset_0x12567E
+		dc.l	Art_FBz_Robotnik_Faces			; Offset_0x12567E
 		dc.w	$8200
-		dc.l	Art_FBz_Boss_Flames					   ; Offset_0x124DA6
+		dc.l	Art_FBz_Boss_Flames			; Offset_0x124DA6
 		dc.w	$8A80
-		dc.l	Art_Robotnik_In_Egg_Mobile			   ; Offset_0x125122
+		dc.l	Art_Robotnik_In_Egg_Mobile		; Offset_0x125122
 		dc.w	$A5C0
-		dc.l	Art_Boss_Explosion					   ; Offset_0x124504
+		dc.l	Art_Boss_Explosion			; Offset_0x124504
 		dc.w	$9520
-		dc.l	Art_Egg_Prison						   ; Offset_0x126E84
+		dc.l	Art_Egg_Prison				; Offset_0x126E84
 		dc.w	$9AE0
 PLC_6F_End:
 ; ---------------------------------------------------------------------------
-PLC_Iz_Final_Boss:											   ; Offset_0x04B15C
+PLC_Iz_Final_Boss:						; Offset_0x04B15C
 		dc.w	(((PLC_70_End-PLC_70)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_70:
-		dc.l	Art_Freezer_Mobile					   ; Offset_0x11F1B8
+		dc.l	Art_Freezer_Mobile			; Offset_0x11F1B8
 		dc.w	$54C0
-		dc.l	Art_Robotnik_In_Egg_Mobile			   ; Offset_0x125122
+		dc.l	Art_Robotnik_In_Egg_Mobile		; Offset_0x125122
 		dc.w	$A5C0
-		dc.l	Art_Boss_Explosion					   ; Offset_0x124504
+		dc.l	Art_Boss_Explosion			; Offset_0x124504
 		dc.w	$9520
-		dc.l	Art_Egg_Prison						   ; Offset_0x126E84
+		dc.l	Art_Egg_Prison				; Offset_0x126E84
 		dc.w	$9AE0
 PLC_70_End:
 ; ---------------------------------------------------------------------------
-PLC_LBz_Final_Boss:											   ; Offset_0x04B176
+PLC_LBz_Final_Boss:						; Offset_0x04B176
 		dc.w	(((PLC_71_End-PLC_71)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_71:
-		dc.l	Art_Beam_Rocket						   ; Offset_0x121946
+		dc.l	Art_Beam_Rocket				; Offset_0x121946
 		dc.w	$7540
-		dc.l	Art_Robotnik_In_Egg_Mobile			   ; Offset_0x125122
+		dc.l	Art_Robotnik_In_Egg_Mobile		; Offset_0x125122
 		dc.w	$A5C0
-		dc.l	Art_Boss_Explosion					   ; Offset_0x124504
+		dc.l	Art_Boss_Explosion			; Offset_0x124504
 		dc.w	$9520
 PLC_71_End:
 ; ---------------------------------------------------------------------------
 Offset_0x04B18A:
 		dc.w	(((PLC_72_End-PLC_72)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_72:
-		dc.l	Art_Robotnik_In_Egg_Mobile			   ; Offset_0x125122
+		dc.l	Art_Robotnik_In_Egg_Mobile		; Offset_0x125122
 		dc.w	$A5C0
-		dc.l	Art_FBz_Robotnik					   ; Offset_0x125D06
+		dc.l	Art_FBz_Robotnik			; Offset_0x125D06
 		dc.w	$9AE0
-		dc.l	Art_Boss_Explosion					   ; Offset_0x124504
+		dc.l	Art_Boss_Explosion			; Offset_0x124504
 		dc.w	$9520
 PLC_72_End:
 ; ---------------------------------------------------------------------------
 Offset_0x04B19E:
 		dc.w	(((PLC_78_End-PLC_78)/6)-1) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
 PLC_78:
-		dc.l	Art_Twin_Hammer_Box					   ; Offset_0x124066
+		dc.l	Art_Twin_Hammer_Box			; Offset_0x124066
 		dc.w	$88C0
-		dc.l	Art_Robotnik_In_Egg_Mobile			   ; Offset_0x125122
+		dc.l	Art_Robotnik_In_Egg_Mobile		; Offset_0x125122
 		dc.w	$A5C0
 PLC_78_End:
-		dc.l	Art_Boss_Explosion					   ; Offset_0x124504
+; ---------------------------------------------------------------------------
+; Unused/Leftover PLC entry
+		dc.l	Art_Boss_Explosion			; Offset_0x124504
 		dc.w	$9520
 ;===============================================================================
 ; Rotina usada para depurar o jogo
@@ -37903,1730 +37905,1730 @@ DebugList_AIZ1_End:
 ; ---------------------------------------------------------------------------
 Debug_AIz_2:												   ; Offset_0x04B5B0
 		dc.w	((DOL_01_End-DOL_01)/$0A) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
-DOL_01: ; DOL - Debug Object List
-		dc.l	Obj00_Rings							; Offset_0x0109A4
-		dc.l	Rings_Mappings						   ; Offset_0x010DE2
+DOL_01:		; DOL - Debug Object List
+		dc.l	Obj00_Rings				; Offset_0x0109A4
+		dc.l	Rings_Mappings				; Offset_0x010DE2
 		dc.w	$A6BC
-		dc.l	Obj01_Monitors						; Offset_0x012F44
-		dc.l	($08<<$18)|Monitors_Mappings		   ; Offset_0x0134A2
+		dc.l	Obj01_Monitors				; Offset_0x012F44
+		dc.l	($08<<$18)|Monitors_Mappings		; Offset_0x0134A2
 		dc.w	$04C4
 		dc.l	($01<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($09<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($09<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$26BC
 		dc.l	($05<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($0D<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($0D<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$26BC
-		dc.l	Obj07_Springs						; Offset_0x01921A
-		dc.l	($81<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	Obj07_Springs				; Offset_0x01921A
+		dc.l	($81<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04A4
-		dc.l	($03<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($90<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($03<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($90<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04B4
-		dc.l	($06<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($A0<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($06<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($A0<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04A4
-		dc.l	Obj_0x08_Spikes						   ; Offset_0x01A442
-		dc.l	Spikes_Mappings						   ; Offset_0x01A88C
+		dc.l	Obj_0x08_Spikes				; Offset_0x01A442
+		dc.l	Spikes_Mappings				; Offset_0x01A88C
 		dc.w	$049C
-		dc.l	Obj05_Rock							; Offset_0x0150FC
-		dc.l	($04<<$18)|AIz_2_Rock_Mappings		   ; Offset_0x015776
+		dc.l	Obj05_Rock				; Offset_0x0150FC
+		dc.l	($04<<$18)|AIz_2_Rock_Mappings		; Offset_0x015776
 		dc.w	$42F0
-		dc.l	($01<<$18)|Obj05_Rock				; Offset_0x0150FC
-		dc.l	($13<<$18)|AIz_2_Rock_Mappings		   ; Offset_0x015776
+		dc.l	($01<<$18)|Obj05_Rock			; Offset_0x0150FC
+		dc.l	($13<<$18)|AIz_2_Rock_Mappings		; Offset_0x015776
 		dc.w	$42F0
-		dc.l	($02<<$18)|Obj05_Rock				; Offset_0x0150FC
-		dc.l	($23<<$18)|AIz_2_Rock_Mappings		   ; Offset_0x015776
+		dc.l	($02<<$18)|Obj05_Rock			; Offset_0x0150FC
+		dc.l	($23<<$18)|AIz_2_Rock_Mappings		; Offset_0x015776
 		dc.w	$42F0
-		dc.l	Obj_0x04_Collapsing_Platform		   ; Offset_0x01582E
-		dc.l	AIz_2_Collapsing_Platform_Mappings	   ; Offset_0x0160F8
+		dc.l	Obj_0x04_Collapsing_Platform		; Offset_0x01582E
+		dc.l	AIz_2_Collapsing_Platform_Mappings	; Offset_0x0160F8
 		dc.w	$4001
-		dc.l	Obj_0x0D_Breakable_Wall				   ; Offset_0x0170CA
-		dc.l	Breakable_Wall_Mappings				   ; Offset_0x017732
+		dc.l	Obj_0x0D_Breakable_Wall			; Offset_0x0170CA
+		dc.l	Breakable_Wall_Mappings			; Offset_0x017732
 		dc.w	$4001
-		dc.l	($05<<$18)|Obj_0x29_AIz_Disappearing_Platform ; Offset_0x020EE0
-		dc.l	($07<<$18)|AIz_Disappearing_Platform_Mappings ; Offset_0x021050
+		dc.l	($05<<$18)|Obj_0x29_AIz_Disappearing_Platform	; Offset_0x020EE0
+		dc.l	($07<<$18)|AIz_Disappearing_Platform_Mappings	; Offset_0x021050
 		dc.w	$4001
-		dc.l	Obj_0x2A_Breakable_Floor			   ; Offset_0x0211D6
-		dc.l	AIz_2_Breakable_Floor_Mappings		   ; Offset_0x021770
+		dc.l	Obj_0x2A_Breakable_Floor		; Offset_0x0211D6
+		dc.l	AIz_2_Breakable_Floor_Mappings		; Offset_0x021770
 		dc.w	$4001
-		dc.l	($05<<$18)|Obj_0x2B_AIz_Flipping_Bridge ; Offset_0x021B1C
-		dc.l	($50<<$18)|Flipping_Bridge_Mappings	   ; Offset_0x021E78
+		dc.l	($05<<$18)|Obj_0x2B_AIz_Flipping_Bridge	; Offset_0x021B1C
+		dc.l	($50<<$18)|Flipping_Bridge_Mappings	; Offset_0x021E78
 		dc.w	$42F0
-		dc.l	Obj_0x2C_AIz_Collapsing_Bridge		   ; Offset_0x021F0C
-		dc.l	($08<<$18)|Collapsing_Bridge_Mappings  ; Offset_0x0222A2
+		dc.l	Obj_0x2C_AIz_Collapsing_Bridge		; Offset_0x021F0C
+		dc.l	($08<<$18)|Collapsing_Bridge_Mappings	; Offset_0x0222A2
 		dc.w	$42F0
-		dc.l	Obj_0x2D_AIz_Falling_Log			   ; Offset_0x0227AC
-		dc.l	($07<<$18)|AIz_2_Falling_Log_Mappings  ; Offset_0x02297E
+		dc.l	Obj_0x2D_AIz_Falling_Log		; Offset_0x0227AC
+		dc.l	($07<<$18)|AIz_2_Falling_Log_Mappings	; Offset_0x02297E
 		dc.w	$42F0
-		dc.l	($08<<$18)|Obj_0x2E_AIz_Spiked_Rotating_Log ; Offset_0x022A7E
-		dc.l	Spiked_Rotating_Log_Mappings		   ; Offset_0x022C4E
+		dc.l	($08<<$18)|Obj_0x2E_AIz_Spiked_Rotating_Log	; Offset_0x022A7E
+		dc.l	Spiked_Rotating_Log_Mappings			; Offset_0x022C4E
 		dc.w	$42F0
-		dc.l	Obj2F_StaticDecoration					; Offset_0x022E38
-		dc.l	Still_Sprite_Mappings				   ; Offset_0x022F02
+		dc.l	Obj2F_StaticDecoration			; Offset_0x022E38
+		dc.l	Still_Sprite_Mappings			; Offset_0x022F02
 		dc.w	$42F0
-		dc.l	($01<<$18)|Obj2F_StaticDecoration		; Offset_0x022E38
-		dc.l	($01<<$18)|Still_Sprite_Mappings	   ; Offset_0x022F02
+		dc.l	($01<<$18)|Obj2F_StaticDecoration	; Offset_0x022E38
+		dc.l	($01<<$18)|Still_Sprite_Mappings	; Offset_0x022F02
 		dc.w	$42F0
-		dc.l	($02<<$18)|Obj2F_StaticDecoration		; Offset_0x022E38
-		dc.l	($02<<$18)|Still_Sprite_Mappings	   ; Offset_0x022F02
+		dc.l	($02<<$18)|Obj2F_StaticDecoration	; Offset_0x022E38
+		dc.l	($02<<$18)|Still_Sprite_Mappings	; Offset_0x022F02
 		dc.w	$42F0
-		dc.l	($03<<$18)|Obj2F_StaticDecoration		; Offset_0x022E38
-		dc.l	($03<<$18)|Still_Sprite_Mappings	   ; Offset_0x022F02
+		dc.l	($03<<$18)|Obj2F_StaticDecoration	; Offset_0x022E38
+		dc.l	($03<<$18)|Still_Sprite_Mappings	; Offset_0x022F02
 		dc.w	$4001
-		dc.l	($04<<$18)|Obj2F_StaticDecoration		; Offset_0x022E38
-		dc.l	($04<<$18)|Still_Sprite_Mappings	   ; Offset_0x022F02
+		dc.l	($04<<$18)|Obj2F_StaticDecoration	; Offset_0x022E38
+		dc.l	($04<<$18)|Still_Sprite_Mappings	; Offset_0x022F02
 		dc.w	$6001
-		dc.l	Obj30_AnimatedDecoration		 ; Offset_0x0231C0
-		dc.l	Animated_Still_Sprite_Mappings		   ; Offset_0x02322A
+		dc.l	Obj30_AnimatedDecoration		; Offset_0x0231C0
+		dc.l	Animated_Still_Sprite_Mappings		; Offset_0x02322A
 		dc.w	$62F0
-		dc.l	($05<<$18)|Obj30_AnimatedDecoration ; Offset_0x0231C0
-		dc.l	($01<<$18)|Animated_Still_Sprite_Mappings ; Offset_0x02322A
+		dc.l	($05<<$18)|Obj30_AnimatedDecoration		; Offset_0x0231C0
+		dc.l	($01<<$18)|Animated_Still_Sprite_Mappings	; Offset_0x02322A
 		dc.w	$62F0
-		dc.l	($21<<$18)|Obj_0x06_Ride_Vine		   ; Offset_0x017A8E
-		dc.l	($88<<$18)|Ride_Vine_Mappings		   ; Offset_0x018482
+		dc.l	($21<<$18)|Obj_0x06_Ride_Vine		; Offset_0x017A8E
+		dc.l	($88<<$18)|Ride_Vine_Mappings		; Offset_0x018482
 		dc.w	$0422
-		dc.l	($21<<$18)|Obj_0x0C_Swing_Ride_Vine	   ; Offset_0x0180FE
-		dc.l	($0F<<$18)|Ride_Vine_Mappings		   ; Offset_0x018482
+		dc.l	($21<<$18)|Obj_0x0C_Swing_Ride_Vine	; Offset_0x0180FE
+		dc.l	($0F<<$18)|Ride_Vine_Mappings		; Offset_0x018482
 		dc.w	$0422
-		dc.l	($01<<$18)|Obj_0x32_AIz_Draw_Bridge	   ; Offset_0x02235C
-		dc.l	Draw_Bridge_Mappings				   ; Offset_0x02277E
+		dc.l	($01<<$18)|Obj_0x32_AIz_Draw_Bridge	; Offset_0x02235C
+		dc.l	Draw_Bridge_Mappings			; Offset_0x02277E
 		dc.w	$42F0
-		dc.l	($02<<$18)|Obj_0x33_Switch			   ; Offset_0x023662
-		dc.l	($10<<$18)|Switch_Mappings			   ; Offset_0x023832
+		dc.l	($02<<$18)|Obj_0x33_Switch		; Offset_0x023662
+		dc.l	($10<<$18)|Switch_Mappings		; Offset_0x023832
 		dc.w	$0456
-		dc.l	Obj_0x82_AIz_Rhinobot				   ; Offset_0x043C2A
-		dc.l	Rhinobot_Mappings					   ; Offset_0x10E548
+		dc.l	Obj_0x82_AIz_Rhinobot			; Offset_0x043C2A
+		dc.l	Rhinobot_Mappings			; Offset_0x10E548
 		dc.w	$2500
-		dc.l	Obj_0x81_AIz_Bloominator			   ; Offset_0x043B3E
-		dc.l	Bloominator_Mappings				   ; Offset_0x10E660
+		dc.l	Obj_0x81_AIz_Bloominator		; Offset_0x043B3E
+		dc.l	Bloominator_Mappings			; Offset_0x10E660
 		dc.w	$252A
-		dc.l	Obj_0x83_AIz_Monkey_Dude			   ; Offset_0x043F1C
-		dc.l	Monkey_Dude_Mappings				   ; Offset_0x10E716
+		dc.l	Obj_0x83_AIz_Monkey_Dude		; Offset_0x043F1C
+		dc.l	Monkey_Dude_Mappings			; Offset_0x10E716
 		dc.w	$2548
-		dc.l	Obj_0x9F_AIz_Catakiller_Jr			   ; Offset_0x044490
-		dc.l	Catakiller_Jr_Mappings				   ; Offset_0x10E9BE
+		dc.l	Obj_0x9F_AIz_Catakiller_Jr		; Offset_0x044490
+		dc.l	Catakiller_Jr_Mappings			; Offset_0x10E9BE
 		dc.w	$255F
-		dc.l	Obj_0x34_Star_Post					   ; Offset_0x023F76
-		dc.l	($01<<$18)|Star_Post_Mappings		   ; Offset_0x024282
+		dc.l	Obj_0x34_Star_Post			; Offset_0x023F76
+		dc.l	($01<<$18)|Star_Post_Mappings		; Offset_0x024282
 		dc.w	$05EC
-		dc.l	($13<<$18)|Obj_0x54_Oxygen_Bubbles	   ; Offset_0x025500
-		dc.l	($81<<$18)|Sonic_Underwater_Mappings   ; Offset_0x025872
+		dc.l	($13<<$18)|Obj_0x54_Oxygen_Bubbles	; Offset_0x025500
+		dc.l	($81<<$18)|Sonic_Underwater_Mappings	; Offset_0x025872
 		dc.w	$845C
-		dc.l	Obj_AIz_Tree						   ; Offset_0x0234AA
-		dc.l	Tree_Mappings						   ; Offset_0x0234F0
+		dc.l	Obj_AIz_Tree				; Offset_0x0234AA
+		dc.l	Tree_Mappings				; Offset_0x0234F0
 		dc.w	$443F
 DOL_01_End:
 ; ---------------------------------------------------------------------------
-Debug_Hz:													   ; Offset_0x04B724
+Debug_Hz:							; Offset_0x04B724
 		dc.w	((DOL_02_End-DOL_02)/$0A) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
-DOL_02: ; DOL - Debug Object List
-		dc.l	Obj00_Rings							; Offset_0x0109A4
-		dc.l	Rings_Mappings						   ; Offset_0x010DE2
+DOL_02:		; DOL - Debug Object List
+		dc.l	Obj00_Rings				; Offset_0x0109A4
+		dc.l	Rings_Mappings				; Offset_0x010DE2
 		dc.w	$A6BC
-		dc.l	Obj01_Monitors						; Offset_0x012F44
-		dc.l	($09<<$18)|Monitors_Mappings		   ; Offset_0x0134A2
+		dc.l	Obj01_Monitors				; Offset_0x012F44
+		dc.l	($09<<$18)|Monitors_Mappings		; Offset_0x0134A2
 		dc.w	$04C4
 		dc.l	($01<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($09<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($09<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$26BC
 		dc.l	($05<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($0D<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($0D<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$26BC
-		dc.l	Obj07_Springs						; Offset_0x01921A
-		dc.l	($81<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	Obj07_Springs				; Offset_0x01921A
+		dc.l	($81<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04A4
-		dc.l	($03<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($90<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($03<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($90<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04B4
-		dc.l	($06<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($A0<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($06<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($A0<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04A4
-		dc.l	Obj_0x08_Spikes						   ; Offset_0x01A442
-		dc.l	Spikes_Mappings						   ; Offset_0x01A88C
+		dc.l	Obj_0x08_Spikes				; Offset_0x01A442
+		dc.l	Spikes_Mappings				; Offset_0x01A88C
 		dc.w	$049C
-		dc.l	Obj_0x9A_Hz_Blastoid				   ; Offset_0x0446D0
-		dc.l	Blastoid_Mappings					   ; Offset_0x10DD6A
+		dc.l	Obj_0x9A_Hz_Blastoid			; Offset_0x0446D0
+		dc.l	Blastoid_Mappings			; Offset_0x10DD6A
 		dc.w	$2539
-		dc.l	Obj_0x9E_Hz_Pointdexter				   ; Offset_0x044F90
-		dc.l	($20<<$18)|Pointdexter_Mappings		   ; Offset_0x10DE0C
+		dc.l	Obj_0x9E_Hz_Pointdexter			; Offset_0x044F90
+		dc.l	($20<<$18)|Pointdexter_Mappings		; Offset_0x10DE0C
 		dc.w	$2559
-		dc.l	Obj_0x9B_Hz_Buggernaut				   ; Offset_0x0447A6
-		dc.l	Buggernaut_Mappings					   ; Offset_0x10DE4E
+		dc.l	Obj_0x9B_Hz_Buggernaut			; Offset_0x0447A6
+		dc.l	Buggernaut_Mappings			; Offset_0x10DE4E
 		dc.w	$2453
-		dc.l	Obj_0x9D_Hz_Mega_Chopper			   ; Offset_0x044CC8
-		dc.l	Mega_Chopper_Mappings				   ; Offset_0x10DEBA
+		dc.l	Obj_0x9D_Hz_Mega_Chopper		; Offset_0x044CC8
+		dc.l	Mega_Chopper_Mappings			; Offset_0x10DEBA
 		dc.w	$254D
-		dc.l	Obj_0x9C_Hz_Turbo_Spiker			   ; Offset_0x044946
-		dc.l	Turbo_Spiker_Mappings				   ; Offset_0x10E1AC
+		dc.l	Obj_0x9C_Hz_Turbo_Spiker		; Offset_0x044946
+		dc.l	Turbo_Spiker_Mappings			; Offset_0x10E1AC
 		dc.w	$2500
-		dc.l	Obj_0x99_Hz_Jawz					   ; Offset_0x04465C
-		dc.l	Jawz_Mappings						   ; Offset_0x10E304
+		dc.l	Obj_0x99_Hz_Jawz			; Offset_0x04465C
+		dc.l	Jawz_Mappings				; Offset_0x10E304
 		dc.w	$2539
-		dc.l	($02<<$18)|Obj_0x33_Switch			   ; Offset_0x023662
-		dc.l	($20<<$18)|Hz_Switch_Mappings		   ; Offset_0x02385C
+		dc.l	($02<<$18)|Obj_0x33_Switch		; Offset_0x023662
+		dc.l	($20<<$18)|Hz_Switch_Mappings		; Offset_0x02385C
 		dc.w	$2426
-		dc.l	Obj_0x36_Hz_Breakable_Bar			   ; Offset_0x0143B2
-		dc.l	Hz_Breakable_Bar_Mappings			   ; Offset_0x01488E
+		dc.l	Obj_0x36_Hz_Breakable_Bar		; Offset_0x0143B2
+		dc.l	Hz_Breakable_Bar_Mappings		; Offset_0x01488E
 		dc.w	$43CA
-		dc.l	($04<<$18)|Obj_0x36_Hz_Breakable_Bar   ; Offset_0x0143B2
-		dc.l	($80<<$18)|Hz_Breakable_Bar_Mappings   ; Offset_0x01488E
+		dc.l	($04<<$18)|Obj_0x36_Hz_Breakable_Bar	; Offset_0x0143B2
+		dc.l	($80<<$18)|Hz_Breakable_Bar_Mappings	; Offset_0x01488E
 		dc.w	$43CA
-		dc.l	Obj_0x38_Hz_Fan						   ; Offset_0x026408
-		dc.l	($16<<$18)|Fan_Mappings				   ; Offset_0x0267EE
+		dc.l	Obj_0x38_Hz_Fan				; Offset_0x026408
+		dc.l	($16<<$18)|Fan_Mappings			; Offset_0x0267EE
 		dc.w	$240B
-		dc.l	($01<<$18)|Obj_0x38_Hz_Fan			   ; Offset_0x026408
-		dc.l	($4C<<$18)|Fan_Mappings				   ; Offset_0x0267EE
+		dc.l	($01<<$18)|Obj_0x38_Hz_Fan		; Offset_0x026408
+		dc.l	($4C<<$18)|Fan_Mappings			; Offset_0x0267EE
 		dc.w	$240B
-		dc.l	Obj_0x39_Hz_Large_Fan				   ; Offset_0x026736
-		dc.l	Large_Fan_Mappings					   ; Offset_0x02685C
+		dc.l	Obj_0x39_Hz_Large_Fan			; Offset_0x026736
+		dc.l	Large_Fan_Mappings			; Offset_0x02685C
 		dc.w	$2500
-		dc.l	Obj_0x3A_Hz_Hand_Launcher			   ; Offset_0x026A80
-		dc.l	Hand_Launcher_Mappings				   ; Offset_0x026DB8
+		dc.l	Obj_0x3A_Hz_Hand_Launcher		; Offset_0x026A80
+		dc.l	Hand_Launcher_Mappings			; Offset_0x026DB8
 		dc.w	$23E4
-		dc.l	Obj_0x3B_Hz_Water_Wall				   ; Offset_0x025C30
-		dc.l	Water_Wall_Mappings					   ; Offset_0x0262BA
+		dc.l	Obj_0x3B_Hz_Water_Wall			; Offset_0x025C30
+		dc.l	Water_Wall_Mappings			; Offset_0x0262BA
 		dc.w	$4500
-		dc.l	($01<<$18)|Obj_0x3B_Hz_Water_Wall	   ; Offset_0x025C30
-		dc.l	($01<<$18)|Water_Wall_Mappings		   ; Offset_0x0262BA
+		dc.l	($01<<$18)|Obj_0x3B_Hz_Water_Wall	; Offset_0x025C30
+		dc.l	($01<<$18)|Water_Wall_Mappings		; Offset_0x0262BA
 		dc.w	$4500
-		dc.l	($01<<$18)|Obj_0x38_Hz_Fan			   ; Offset_0x026408
-		dc.l	($FC<<$18)|Fan_Mappings				   ; Offset_0x0267EE
+		dc.l	($01<<$18)|Obj_0x38_Hz_Fan		; Offset_0x026408
+		dc.l	($FC<<$18)|Fan_Mappings			; Offset_0x0267EE
 		dc.w	$240B
-		dc.l	Obj_0x3C_Automatic_Door				   ; Offset_0x026ED0
-		dc.l	Automatic_Door_Mappings				   ; Offset_0x027002
+		dc.l	Obj_0x3C_Automatic_Door			; Offset_0x026ED0
+		dc.l	Automatic_Door_Mappings			; Offset_0x027002
 		dc.w	$43D4
-		dc.l	Obj_0x3F_Hz_Spikes_On_Conveyor_Belt	   ; Offset_0x027346
-		dc.l	Spikes_On_Conveyor_Belt_Mappings	   ; Offset_0x027548
+		dc.l	Obj_0x3F_Hz_Spikes_On_Conveyor_Belt	; Offset_0x027346
+		dc.l	Spikes_On_Conveyor_Belt_Mappings	; Offset_0x027548
 		dc.w	$243E
-		dc.l	Obj_0x40_Hz_Block					   ; Offset_0x014AB6
-		dc.l	Hz_Block_Mappings					   ; Offset_0x014B0E
+		dc.l	Obj_0x40_Hz_Block			; Offset_0x014AB6
+		dc.l	Hz_Block_Mappings			; Offset_0x014B0E
 		dc.w	$43D4
-		dc.l	Obj_0x0F_Collapsing_Platform		   ; Offset_0x01595E
-		dc.l	($08<<$18)|Hz_Collapsing_Platform_Mappings ; Offset_0x016366
+		dc.l	Obj_0x0F_Collapsing_Platform			; Offset_0x01595E
+		dc.l	($08<<$18)|Hz_Collapsing_Platform_Mappings	; Offset_0x016366
 		dc.w	$C001
-		dc.l	($03<<$18)|Obj_0x0F_Collapsing_Platform ; Offset_0x01595E
-		dc.l	($18<<$18)|Hz_Collapsing_Platform_Mappings ; Offset_0x016366
+		dc.l	($03<<$18)|Obj_0x0F_Collapsing_Platform		; Offset_0x01595E
+		dc.l	($18<<$18)|Hz_Collapsing_Platform_Mappings	; Offset_0x016366
 		dc.w	$C001
-		dc.l	($06<<$18)|Obj_0x0F_Collapsing_Platform ; Offset_0x01595E
-		dc.l	($28<<$18)|Hz_Collapsing_Platform_Mappings ; Offset_0x016366
+		dc.l	($06<<$18)|Obj_0x0F_Collapsing_Platform		; Offset_0x01595E
+		dc.l	($28<<$18)|Hz_Collapsing_Platform_Mappings	; Offset_0x016366
 		dc.w	$C001
-		dc.l	($09<<$18)|Obj_0x0F_Collapsing_Platform ; Offset_0x01595E
-		dc.l	($38<<$18)|Hz_Collapsing_Platform_Mappings ; Offset_0x016366
+		dc.l	($09<<$18)|Obj_0x0F_Collapsing_Platform		; Offset_0x01595E
+		dc.l	($38<<$18)|Hz_Collapsing_Platform_Mappings	; Offset_0x016366
 		dc.w	$C001
-		dc.l	($06<<$18)|Obj2F_StaticDecoration		; Offset_0x022E38
-		dc.l	($06<<$18)|Still_Sprite_Mappings	   ; Offset_0x022F02
+		dc.l	($06<<$18)|Obj2F_StaticDecoration	; Offset_0x022E38
+		dc.l	($06<<$18)|Still_Sprite_Mappings	; Offset_0x022F02
 		dc.w	$C001
-		dc.l	($07<<$18)|Obj2F_StaticDecoration		; Offset_0x022E38
-		dc.l	($07<<$18)|Still_Sprite_Mappings	   ; Offset_0x022F02
+		dc.l	($07<<$18)|Obj2F_StaticDecoration	; Offset_0x022E38
+		dc.l	($07<<$18)|Still_Sprite_Mappings	; Offset_0x022F02
 		dc.w	$C001
-		dc.l	($08<<$18)|Obj2F_StaticDecoration		; Offset_0x022E38
-		dc.l	($08<<$18)|Still_Sprite_Mappings	   ; Offset_0x022F02
+		dc.l	($08<<$18)|Obj2F_StaticDecoration	; Offset_0x022E38
+		dc.l	($08<<$18)|Still_Sprite_Mappings	; Offset_0x022F02
 		dc.w	$4001
-		dc.l	($09<<$18)|Obj2F_StaticDecoration		; Offset_0x022E38
-		dc.l	($09<<$18)|Still_Sprite_Mappings	   ; Offset_0x022F02
+		dc.l	($09<<$18)|Obj2F_StaticDecoration	; Offset_0x022E38
+		dc.l	($09<<$18)|Still_Sprite_Mappings	; Offset_0x022F02
 		dc.w	$C001
-		dc.l	($0A<<$18)|Obj2F_StaticDecoration		; Offset_0x022E38
-		dc.l	($0A<<$18)|Still_Sprite_Mappings	   ; Offset_0x022F02
+		dc.l	($0A<<$18)|Obj2F_StaticDecoration	; Offset_0x022E38
+		dc.l	($0A<<$18)|Still_Sprite_Mappings	; Offset_0x022F02
 		dc.w	$C001
-		dc.l	($13<<$18)|Obj_0x54_Oxygen_Bubbles	   ; Offset_0x025500
-		dc.l	($81<<$18)|Sonic_Underwater_Mappings   ; Offset_0x025872
+		dc.l	($13<<$18)|Obj_0x54_Oxygen_Bubbles	; Offset_0x025500
+		dc.l	($81<<$18)|Sonic_Underwater_Mappings	; Offset_0x025872
 		dc.w	$845C
-		dc.l	Obj_0x51_Floating_Platform			   ; Offset_0x01C3C2
-		dc.l	($14<<$18)|Hz_Floating_Platform_Mappings ; Offset_0x01C518
+		dc.l	Obj_0x51_Floating_Platform			; Offset_0x01C3C2
+		dc.l	($14<<$18)|Hz_Floating_Platform_Mappings	; Offset_0x01C518
 		dc.w	$441D
-		dc.l	($01<<$18)|Obj_0x67_Hz_Snake_Platform  ; Offset_0x01C532
-		dc.l	Hz_Floating_Platform_Mappings		   ; Offset_0x01C518
+		dc.l	($01<<$18)|Obj_0x67_Hz_Snake_Platform	; Offset_0x01C532
+		dc.l	Hz_Floating_Platform_Mappings		; Offset_0x01C518
 		dc.w	$0028
-		dc.l	Obj_0x51_Floating_Platform			   ; Offset_0x01C3C2
-		dc.l	($17<<$18)|Hz_Floating_Platform_Mappings ; Offset_0x01C518
+		dc.l	Obj_0x51_Floating_Platform			; Offset_0x01C3C2
+		dc.l	($17<<$18)|Hz_Floating_Platform_Mappings	; Offset_0x01C518
 		dc.w	$441D
-		dc.l	Obj_0x68_Hz_Spinning_Column			   ; Offset_0x0289B8
-		dc.l	($01<<$18)|Spinning_Column_Mappings	   ; Offset_0x028BFC
+		dc.l	Obj_0x68_Hz_Spinning_Column		; Offset_0x0289B8
+		dc.l	($01<<$18)|Spinning_Column_Mappings	; Offset_0x028BFC
 		dc.w	$4040
-		dc.l	Obj_0x68_Hz_Spinning_Column			   ; Offset_0x0289B8
-		dc.l	($02<<$18)|Spinning_Column_Mappings	   ; Offset_0x028BFC
+		dc.l	Obj_0x68_Hz_Spinning_Column		; Offset_0x0289B8
+		dc.l	($02<<$18)|Spinning_Column_Mappings	; Offset_0x028BFC
 		dc.w	$4040
-		dc.l	($0F<<$18)|Obj2F_StaticDecoration		; Offset_0x022E38
-		dc.l	($0F<<$18)|Still_Sprite_Mappings	   ; Offset_0x022F02
+		dc.l	($0F<<$18)|Obj2F_StaticDecoration	; Offset_0x022E38
+		dc.l	($0F<<$18)|Still_Sprite_Mappings	; Offset_0x022F02
 		dc.w	$C368
-		dc.l	($10<<$18)|Obj2F_StaticDecoration		; Offset_0x022E38
-		dc.l	($10<<$18)|Still_Sprite_Mappings	   ; Offset_0x022F02
+		dc.l	($10<<$18)|Obj2F_StaticDecoration	; Offset_0x022E38
+		dc.l	($10<<$18)|Still_Sprite_Mappings	; Offset_0x022F02
 		dc.w	$C379
-		dc.l	($11<<$18)|Obj2F_StaticDecoration		; Offset_0x022E38
-		dc.l	($11<<$18)|Still_Sprite_Mappings	   ; Offset_0x022F02
+		dc.l	($11<<$18)|Obj2F_StaticDecoration	; Offset_0x022E38
+		dc.l	($11<<$18)|Still_Sprite_Mappings	; Offset_0x022F02
 		dc.w	$C399
-		dc.l	($12<<$18)|Obj2F_StaticDecoration		; Offset_0x022E38
-		dc.l	($12<<$18)|Still_Sprite_Mappings	   ; Offset_0x022F02
+		dc.l	($12<<$18)|Obj2F_StaticDecoration	; Offset_0x022E38
+		dc.l	($12<<$18)|Still_Sprite_Mappings	; Offset_0x022F02
 		dc.w	$C3A4
-		dc.l	Obj_0x6E_Hz_Waterfall				   ; Offset_0x02E0A8
-		dc.l	($40<<$18)|Waterfall_Mappings		   ; Offset_0x02E1E8
+		dc.l	Obj_0x6E_Hz_Waterfall			; Offset_0x02E0A8
+		dc.l	($40<<$18)|Waterfall_Mappings		; Offset_0x02E1E8
 		dc.w	$235C
-		dc.l	Obj_0x6D_Hz_Water_Splash			   ; Offset_0x02E22E
-		dc.l	Water_Splash_Mappings				   ; Offset_0x02E4D0
+		dc.l	Obj_0x6D_Hz_Water_Splash		; Offset_0x02E22E
+		dc.l	Water_Splash_Mappings			; Offset_0x02E4D0
 		dc.w	$43B2
-		dc.l	($13<<$18)|Obj2F_StaticDecoration		; Offset_0x022E38
-		dc.l	($13<<$18)|Still_Sprite_Mappings	   ; Offset_0x022F02
+		dc.l	($13<<$18)|Obj2F_StaticDecoration	; Offset_0x022E38
+		dc.l	($13<<$18)|Still_Sprite_Mappings	; Offset_0x022F02
 		dc.w	$4038
-		dc.l	Obj_0x6C_Bridge						   ; Offset_0x02E504
-		dc.l	($90<<$18)|Bridge_Mappings			   ; Offset_0x02EE60
+		dc.l	Obj_0x6C_Bridge				; Offset_0x02E504
+		dc.l	($90<<$18)|Bridge_Mappings		; Offset_0x02EE60
 		dc.w	$4038
-		dc.l	Obj_0x6A_Hz_Horizontal_Spikes		   ; Offset_0x014B5A
-		dc.l	Invisible_Block_Mappings			   ; Offset_0x014352
+		dc.l	Obj_0x6A_Hz_Horizontal_Spikes		; Offset_0x014B5A
+		dc.l	Invisible_Block_Mappings		; Offset_0x014352
 		dc.w	$86BC
-		dc.l	Obj_0x6B_Hz_Vertical_Spikes			   ; Offset_0x014CE8
-		dc.l	Invisible_Block_Mappings			   ; Offset_0x014352
+		dc.l	Obj_0x6B_Hz_Vertical_Spikes		; Offset_0x014CE8
+		dc.l	Invisible_Block_Mappings		; Offset_0x014352
 		dc.w	$86BC
-		dc.l	Obj_0x0D_Breakable_Wall				   ; Offset_0x0170CA
-		dc.l	Hz_Breakable_Wall_Mappings			   ; Offset_0x0179B8
+		dc.l	Obj_0x0D_Breakable_Wall			; Offset_0x0170CA
+		dc.l	Hz_Breakable_Wall_Mappings		; Offset_0x0179B8
 		dc.w	$6001
-		dc.l	($02<<$18)|Obj_0x0D_Breakable_Wall	   ; Offset_0x0170CA
-		dc.l	($02<<$18)|Hz_Breakable_Wall_Mappings  ; Offset_0x0179B8
+		dc.l	($02<<$18)|Obj_0x0D_Breakable_Wall	; Offset_0x0170CA
+		dc.l	($02<<$18)|Hz_Breakable_Wall_Mappings	; Offset_0x0179B8
 		dc.w	$4350
 DOL_02_End:
 ; ---------------------------------------------------------------------------
-Debug_MGz:													   ; Offset_0x04B942
+Debug_MGz:							; Offset_0x04B942
 		dc.w	((DOL_03_End-DOL_03)/$0A) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
-DOL_03: ; DOL - Debug Object List
-		dc.l	Obj00_Rings							; Offset_0x0109A4
-		dc.l	Rings_Mappings						   ; Offset_0x010DE2
+DOL_03:		; DOL - Debug Object List
+		dc.l	Obj00_Rings				; Offset_0x0109A4
+		dc.l	Rings_Mappings				; Offset_0x010DE2
 		dc.w	$A6BC
-		dc.l	Obj01_Monitors						; Offset_0x012F44
-		dc.l	($08<<$18)|Monitors_Mappings		   ; Offset_0x0134A2
+		dc.l	Obj01_Monitors				; Offset_0x012F44
+		dc.l	($08<<$18)|Monitors_Mappings		; Offset_0x0134A2
 		dc.w	$04C4
 		dc.l	($01<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($09<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($09<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$26BC
 		dc.l	($05<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($0D<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($0D<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$26BC
-		dc.l	Obj07_Springs						; Offset_0x01921A
-		dc.l	($80<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	Obj07_Springs				; Offset_0x01921A
+		dc.l	($80<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04A4
-		dc.l	($03<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($90<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($03<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($90<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04B4
-		dc.l	($06<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($A0<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($06<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($A0<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04A4
-		dc.l	($07<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($30<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($07<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($30<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$0478
-		dc.l	($0A<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($40<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($0A<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($40<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$0478
-		dc.l	Obj_0x08_Spikes						   ; Offset_0x01A442
-		dc.l	Spikes_Mappings						   ; Offset_0x01A88C
+		dc.l	Obj_0x08_Spikes				; Offset_0x01A442
+		dc.l	Spikes_Mappings				; Offset_0x01A88C
 		dc.w	$049C
-		dc.l	($04<<$18)|Obj_0x08_Spikes			   ; Offset_0x01A442
-		dc.l	($40<<$18)|Spikes_Mappings			   ; Offset_0x01A88C
+		dc.l	($04<<$18)|Obj_0x08_Spikes		; Offset_0x01A442
+		dc.l	($40<<$18)|Spikes_Mappings		; Offset_0x01A88C
 		dc.w	$0494
-		dc.l	Obj_0xA4_MGz_Tunnelbot				   ; Offset_0x04515C
-		dc.l	Tunnelbot_Mappings					   ; Offset_0x10E918
+		dc.l	Obj_0xA4_MGz_Tunnelbot			; Offset_0x04515C
+		dc.l	Tunnelbot_Mappings			; Offset_0x10E918
 		dc.w	$254F
-		dc.l	Obj_0xA3_MGz_Bubbles				   ; Offset_0x04504A
-		dc.l	Bubbles_Mappings					   ; Offset_0x10EC1A
+		dc.l	Obj_0xA3_MGz_Bubbles			; Offset_0x04504A
+		dc.l	Bubbles_Mappings			; Offset_0x10EC1A
 		dc.w	$2500
-		dc.l	Obj_0xA5_MGz_Spiker					   ; Offset_0x045864
-		dc.l	Spiker_Mappings						   ; Offset_0x10EC6A
+		dc.l	Obj_0xA5_MGz_Spiker			; Offset_0x045864
+		dc.l	Spiker_Mappings				; Offset_0x10EC6A
 		dc.w	$2530
-		dc.l	Obj_0xA6_MGz_Mantis					   ; Offset_0x045B26
-		dc.l	Mantis_Mappings						   ; Offset_0x10ECDE
+		dc.l	Obj_0xA6_MGz_Mantis			; Offset_0x045B26
+		dc.l	Mantis_Mappings				; Offset_0x10ECDE
 		dc.w	$254F
-		dc.l	($0B<<$18)|Obj2F_StaticDecoration		; Offset_0x022E38
-		dc.l	($0B<<$18)|Still_Sprite_Mappings	   ; Offset_0x022F02
+		dc.l	($0B<<$18)|Obj2F_StaticDecoration	; Offset_0x022E38
+		dc.l	($0B<<$18)|Still_Sprite_Mappings	; Offset_0x022F02
 		dc.w	$4451
-		dc.l	($0C<<$18)|Obj2F_StaticDecoration		; Offset_0x022E38
-		dc.l	($0C<<$18)|Still_Sprite_Mappings	   ; Offset_0x022F02
+		dc.l	($0C<<$18)|Obj2F_StaticDecoration	; Offset_0x022E38
+		dc.l	($0C<<$18)|Still_Sprite_Mappings	; Offset_0x022F02
 		dc.w	$4451
-		dc.l	($0D<<$18)|Obj2F_StaticDecoration		; Offset_0x022E38
-		dc.l	($0D<<$18)|Still_Sprite_Mappings	   ; Offset_0x022F02
+		dc.l	($0D<<$18)|Obj2F_StaticDecoration	; Offset_0x022E38
+		dc.l	($0D<<$18)|Still_Sprite_Mappings	; Offset_0x022F02
 		dc.w	$4451
-		dc.l	($0E<<$18)|Obj2F_StaticDecoration		; Offset_0x022E38
-		dc.l	($0E<<$18)|Still_Sprite_Mappings	   ; Offset_0x022F02
+		dc.l	($0E<<$18)|Obj2F_StaticDecoration	; Offset_0x022E38
+		dc.l	($0E<<$18)|Still_Sprite_Mappings	; Offset_0x022F02
 		dc.w	$4451
-		dc.l	Obj_0x0F_Collapsing_Platform		   ; Offset_0x01595E
-		dc.l	($08<<$18)|MGz_Collapsing_Platform_Mappings ; Offset_0x0167B4
+		dc.l	Obj_0x0F_Collapsing_Platform			; Offset_0x01595E
+		dc.l	($08<<$18)|MGz_Collapsing_Platform_Mappings	; Offset_0x0167B4
 		dc.w	$4001
-		dc.l	($03<<$18)|Obj_0x0F_Collapsing_Platform ; Offset_0x01595E
-		dc.l	($18<<$18)|MGz_Collapsing_Platform_Mappings ; Offset_0x0167B4
+		dc.l	($03<<$18)|Obj_0x0F_Collapsing_Platform		; Offset_0x01595E
+		dc.l	($18<<$18)|MGz_Collapsing_Platform_Mappings	; Offset_0x0167B4
 		dc.w	$4001
-		dc.l	($06<<$18)|Obj_0x0F_Collapsing_Platform ; Offset_0x01595E
-		dc.l	($28<<$18)|MGz_Collapsing_Platform_Mappings ; Offset_0x0167B4
+		dc.l	($06<<$18)|Obj_0x0F_Collapsing_Platform		; Offset_0x01595E
+		dc.l	($28<<$18)|MGz_Collapsing_Platform_Mappings	; Offset_0x0167B4
 		dc.w	$4001
-		dc.l	Obj_0x0D_Breakable_Wall				   ; Offset_0x0170CA
-		dc.l	MGz_Breakable_Wall_Mappings			   ; Offset_0x0178F8
+		dc.l	Obj_0x0D_Breakable_Wall			; Offset_0x0170CA
+		dc.l	MGz_Breakable_Wall_Mappings		; Offset_0x0178F8
 		dc.w	$4001
-		dc.l	Obj_0x51_Floating_Platform			   ; Offset_0x01C3C2
-		dc.l	($04<<$18)|MGz_Floating_Platform_Mappings ; Offset_0x01C4E4
+		dc.l	Obj_0x51_Floating_Platform			; Offset_0x01C3C2
+		dc.l	($04<<$18)|MGz_Floating_Platform_Mappings	; Offset_0x01C4E4
 		dc.w	$4001
-		dc.l	Obj_0x20_Smashing_Pillar_Spikes		   ; Offset_0x01FDB6
-		dc.l	($0A<<$18)|Smashing_Pillar_Mappings	   ; Offset_0x01FEE8
+		dc.l	Obj_0x20_Smashing_Pillar_Spikes		; Offset_0x01FDB6
+		dc.l	($0A<<$18)|Smashing_Pillar_Mappings	; Offset_0x01FEE8
 		dc.w	$4001
-		dc.l	($01<<$18)|Obj_0x53_MGz_Swinging_Platform ; Offset_0x02A224
-		dc.l	Swinging_Platform_Mappings			   ; Offset_0x02A36C
+		dc.l	($01<<$18)|Obj_0x53_MGz_Swinging_Platform	; Offset_0x02A224
+		dc.l	Swinging_Platform_Mappings			; Offset_0x02A36C
 		dc.w	$435F
-		dc.l	($01<<$18)|Obj_0x58_MGz_Swinging_Spiked_Ball ; Offset_0x02A390
-		dc.l	Swinging_Spiked_Ball_Mappings		   ; Offset_0x02A582
+		dc.l	($01<<$18)|Obj_0x58_MGz_Swinging_Spiked_Ball	; Offset_0x02A390
+		dc.l	Swinging_Spiked_Ball_Mappings			; Offset_0x02A582
 		dc.w	$235F
-		dc.l	($02<<$18)|Obj_0x58_MGz_Swinging_Spiked_Ball ; Offset_0x02A390
-		dc.l	($01<<$18)|Swinging_Spiked_Ball_Mappings ; Offset_0x02A582
+		dc.l	($02<<$18)|Obj_0x58_MGz_Swinging_Spiked_Ball	; Offset_0x02A390
+		dc.l	($01<<$18)|Swinging_Spiked_Ball_Mappings	; Offset_0x02A582
 		dc.w	$235F
-		dc.l	($06<<$18)|Obj_0x55_MGz_Head_Trigger   ; Offset_0x02A5BC
-		dc.l	Head_Trigger_Mappings				   ; Offset_0x02A822
+		dc.l	($06<<$18)|Obj_0x55_MGz_Head_Trigger	; Offset_0x02A5BC
+		dc.l	Head_Trigger_Mappings			; Offset_0x02A822
 		dc.w	$A3FF
-		dc.l	Obj_0x56_MGz_Moving_Spike_Platform	   ; Offset_0x02AA8A
-		dc.l	Moving_Spike_Platform_Mappings		   ; Offset_0x02ABA8
+		dc.l	Obj_0x56_MGz_Moving_Spike_Platform	; Offset_0x02AA8A
+		dc.l	Moving_Spike_Platform_Mappings		; Offset_0x02ABA8
 		dc.w	$4001
-		dc.l	($01<<$18)|Obj_0x57_MGz_Trigger_Platform ; Offset_0x02A884
-		dc.l	($11<<$18)|Trigger_Platform_Mappings   ; Offset_0x02A9C2
+		dc.l	($01<<$18)|Obj_0x57_MGz_Trigger_Platform	; Offset_0x02A884
+		dc.l	($11<<$18)|Trigger_Platform_Mappings		; Offset_0x02A9C2
 		dc.w	$4001
-		dc.l	Obj_0x59_MGz_Dash_Trigger			   ; Offset_0x01C930
-		dc.l	($01<<$18)|Dash_Trigger_Mappings	   ; Offset_0x01CB06
+		dc.l	Obj_0x59_MGz_Dash_Trigger		; Offset_0x01C930
+		dc.l	($01<<$18)|Dash_Trigger_Mappings	; Offset_0x01CB06
 		dc.w	$235F
-		dc.l	Obj_0x5A_MGz_Pulley					   ; Offset_0x02ACD8
-		dc.l	($20<<$18)|Pulley_Mappings			   ; Offset_0x02B0CA
+		dc.l	Obj_0x5A_MGz_Pulley			; Offset_0x02ACD8
+		dc.l	($20<<$18)|Pulley_Mappings		; Offset_0x02B0CA
 		dc.w	$235F
-		dc.l	Obj_0x5B_MGz_Blue_Spinning_Platform	   ; Offset_0x02B19A
-		dc.l	Blue_Spinning_Platform_Mappings		   ; Offset_0x02BEA8
+		dc.l	Obj_0x5B_MGz_Blue_Spinning_Platform	; Offset_0x02B19A
+		dc.l	Blue_Spinning_Platform_Mappings		; Offset_0x02BEA8
 		dc.w	$235F
-		dc.l	($02<<$18)|Obj_0x5C_MGz_Blue_Platform_Launcher ; Offset_0x02BED2
-		dc.l	Blue_Spinning_Platform_Mappings		   ; Offset_0x02BEA8
+		dc.l	($02<<$18)|Obj_0x5C_MGz_Blue_Platform_Launcher	; Offset_0x02BED2
+		dc.l	Blue_Spinning_Platform_Mappings			; Offset_0x02BEA8
 		dc.w	$43FF
 DOL_03_End:
 ; ---------------------------------------------------------------------------
-Debug_CNz:													   ; Offset_0x04BAA2
+Debug_CNz:							; Offset_0x04BAA2
 		dc.w	((DOL_04_End-DOL_04)/$0A) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
-DOL_04: ; DOL - Debug Object List
-		dc.l	Obj00_Rings							; Offset_0x0109A4
-		dc.l	Rings_Mappings						   ; Offset_0x010DE2
+DOL_04:		; DOL - Debug Object List
+		dc.l	Obj00_Rings				; Offset_0x0109A4
+		dc.l	Rings_Mappings				; Offset_0x010DE2
 		dc.w	$A6BC
-		dc.l	Obj01_Monitors						; Offset_0x012F44
-		dc.l	($08<<$18)|Monitors_Mappings		   ; Offset_0x0134A2
+		dc.l	Obj01_Monitors				; Offset_0x012F44
+		dc.l	($08<<$18)|Monitors_Mappings		; Offset_0x0134A2
 		dc.w	$04C4
 		dc.l	($01<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($09<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($09<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$26BC
 		dc.l	($05<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($0D<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($0D<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$26BC
-		dc.l	Obj07_Springs						; Offset_0x01921A
-		dc.l	($81<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	Obj07_Springs				; Offset_0x01921A
+		dc.l	($81<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04A4
-		dc.l	($03<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($90<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($03<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($90<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04B4
-		dc.l	($06<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($A0<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($06<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($A0<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04A4
-		dc.l	Obj_0x08_Spikes						   ; Offset_0x01A442
-		dc.l	Spikes_Mappings						   ; Offset_0x01A88C
+		dc.l	Obj_0x08_Spikes				; Offset_0x01A442
+		dc.l	Spikes_Mappings				; Offset_0x01A88C
 		dc.w	$049C
-		dc.l	($04<<$18)|Obj_0x08_Spikes			   ; Offset_0x01A442
-		dc.l	($40<<$18)|Spikes_Mappings			   ; Offset_0x01A88C
+		dc.l	($04<<$18)|Obj_0x08_Spikes		; Offset_0x01A442
+		dc.l	($40<<$18)|Spikes_Mappings		; Offset_0x01A88C
 		dc.w	$0494
-		dc.l	Obj_0xA0_CNz_Clamer					   ; Offset_0x045C7A
-		dc.l	Clamer_Mappings						   ; Offset_0x10EA62
+		dc.l	Obj_0xA0_CNz_Clamer			; Offset_0x045C7A
+		dc.l	Clamer_Mappings				; Offset_0x10EA62
 		dc.w	$2500
-		dc.l	Obj_0xA1_CNz_Sparkle				   ; Offset_0x045E4A
-		dc.l	Sparkle_Mappings					   ; Offset_0x10EAE0
+		dc.l	Obj_0xA1_CNz_Sparkle			; Offset_0x045E4A
+		dc.l	Sparkle_Mappings			; Offset_0x10EAE0
 		dc.w	$2524
-		dc.l	Obj_0xA2_CNz_Batbot					   ; Offset_0x046004
-		dc.l	Batbot_Mappings						   ; Offset_0x10EB82
+		dc.l	Obj_0xA2_CNz_Batbot			; Offset_0x046004
+		dc.l	Batbot_Mappings				; Offset_0x10EB82
 		dc.w	$2552
-		dc.l	($01<<$18)|Obj_0x3C_Automatic_Door	   ; Offset_0x026ED0
-		dc.l	($01<<$18)|Automatic_Door_Mappings	   ; Offset_0x027002
+		dc.l	($01<<$18)|Obj_0x3C_Automatic_Door	; Offset_0x026ED0
+		dc.l	($01<<$18)|Automatic_Door_Mappings	; Offset_0x027002
 		dc.w	$4416
-		dc.l	Obj_0x4A_Bumper						   ; Offset_0x029188
-		dc.l	Bumper_Mappings						   ; Offset_0x0293D4
+		dc.l	Obj_0x4A_Bumper				; Offset_0x029188
+		dc.l	Bumper_Mappings				; Offset_0x0293D4
 		dc.w	$4364
-		dc.l	($09<<$18)|Obj_0x42_CNz_Cannon		   ; Offset_0x02794E
-		dc.l	Cannon_Mappings						   ; Offset_0x027C10
+		dc.l	($09<<$18)|Obj_0x42_CNz_Cannon		; Offset_0x02794E
+		dc.l	Cannon_Mappings				; Offset_0x027C10
 		dc.w	$4374
-		dc.l	Obj_0x43_CNz_Platform				   ; Offset_0x027DBA
-		dc.l	CNz_Platform_Mappings				   ; Offset_0x027EBA
+		dc.l	Obj_0x43_CNz_Platform			; Offset_0x027DBA
+		dc.l	CNz_Platform_Mappings			; Offset_0x027EBA
 		dc.w	$43BE
-		dc.l	Obj_0x44_CNz_Trapdoor				   ; Offset_0x027F0E
-		dc.l	Trapdoor_Mappings					   ; Offset_0x027FAA
+		dc.l	Obj_0x44_CNz_Trapdoor			; Offset_0x027F0E
+		dc.l	Trapdoor_Mappings			; Offset_0x027FAA
 		dc.w	$43F0
-		dc.l	Obj_0x45_CNz_Light_Bulb				   ; Offset_0x027FDA
-		dc.l	Light_Bulb_Mappings					   ; Offset_0x028030
+		dc.l	Obj_0x45_CNz_Light_Bulb			; Offset_0x027FDA
+		dc.l	Light_Bulb_Mappings			; Offset_0x028030
 		dc.w	$4404
-		dc.l	Obj_0x46_CNz_Fan					   ; Offset_0x02805C
-		dc.l	($80<<$18)|CNz_Fan_Mappings			   ; Offset_0x0281E8
+		dc.l	Obj_0x46_CNz_Fan			; Offset_0x02805C
+		dc.l	($80<<$18)|CNz_Fan_Mappings		; Offset_0x0281E8
 		dc.w	$43E8
-		dc.l	Obj_0x47_CNz_Barrel					   ; Offset_0x028430
-		dc.l	Barrel_Mappings						   ; Offset_0x0288E8
+		dc.l	Obj_0x47_CNz_Barrel			; Offset_0x028430
+		dc.l	Barrel_Mappings				; Offset_0x0288E8
 		dc.w	$438E
-		dc.l	Obj_0x3C_Automatic_Door				   ; Offset_0x026ED0
-		dc.l	($80<<$18)|Automatic_Door_Horizontal_Mappings ; Offset_0x027168
+		dc.l	Obj_0x3C_Automatic_Door				; Offset_0x026ED0
+		dc.l	($80<<$18)|Automatic_Door_Horizontal_Mappings	; Offset_0x027168
 		dc.w	$4416
-		dc.l	Obj_0x4A_Bumper						   ; Offset_0x029188
-		dc.l	($80<<$18)|Bumper_Mappings			   ; Offset_0x0293D4
+		dc.l	Obj_0x4A_Bumper				; Offset_0x029188
+		dc.l	($80<<$18)|Bumper_Mappings		; Offset_0x0293D4
 		dc.w	$4364
-		dc.l	Obj_0x4A_Bumper						   ; Offset_0x029188
-		dc.l	($2B<<$18)|Bumper_Mappings			   ; Offset_0x0293D4
+		dc.l	Obj_0x4A_Bumper				; Offset_0x029188
+		dc.l	($2B<<$18)|Bumper_Mappings		; Offset_0x0293D4
 		dc.w	$4364
-		dc.l	Obj_0x4A_Bumper						   ; Offset_0x029188
-		dc.l	($D5<<$18)|Bumper_Mappings			   ; Offset_0x0293D4
+		dc.l	Obj_0x4A_Bumper				; Offset_0x029188
+		dc.l	($D5<<$18)|Bumper_Mappings		; Offset_0x0293D4
 		dc.w	$4364
-		dc.l	Obj_0x41_CNz_Balloon				   ; Offset_0x027552
-		dc.l	Balloon_Mappings					   ; Offset_0x0276EC
+		dc.l	Obj_0x41_CNz_Balloon			; Offset_0x027552
+		dc.l	Balloon_Mappings			; Offset_0x0276EC
 		dc.w	$0351
-		dc.l	($05<<$18)|Obj_0x41_CNz_Balloon		   ; Offset_0x027552
-		dc.l	($01<<$18)|Balloon_Mappings			   ; Offset_0x0276EC
+		dc.l	($05<<$18)|Obj_0x41_CNz_Balloon		; Offset_0x027552
+		dc.l	($01<<$18)|Balloon_Mappings		; Offset_0x0276EC
 		dc.w	$0351
-		dc.l	($0A<<$18)|Obj_0x41_CNz_Balloon		   ; Offset_0x027552
-		dc.l	($02<<$18)|Balloon_Mappings			   ; Offset_0x0276EC
+		dc.l	($0A<<$18)|Obj_0x41_CNz_Balloon		; Offset_0x027552
+		dc.l	($02<<$18)|Balloon_Mappings		; Offset_0x0276EC
 		dc.w	$0351
-		dc.l	($0F<<$18)|Obj_0x41_CNz_Balloon		   ; Offset_0x027552
-		dc.l	($03<<$18)|Balloon_Mappings			   ; Offset_0x0276EC
+		dc.l	($0F<<$18)|Obj_0x41_CNz_Balloon		; Offset_0x027552
+		dc.l	($03<<$18)|Balloon_Mappings		; Offset_0x0276EC
 		dc.w	$0351
-		dc.l	($14<<$18)|Obj_0x41_CNz_Balloon		   ; Offset_0x027552
-		dc.l	($04<<$18)|Balloon_Mappings			   ; Offset_0x0276EC
+		dc.l	($14<<$18)|Obj_0x41_CNz_Balloon		; Offset_0x027552
+		dc.l	($04<<$18)|Balloon_Mappings		; Offset_0x0276EC
 		dc.w	$0351
-		dc.l	($02<<$18)|Obj_0x33_Switch			   ; Offset_0x023662
-		dc.l	CNz_Switch_Mappings					   ; Offset_0x02388C
+		dc.l	($02<<$18)|Obj_0x33_Switch		; Offset_0x023662
+		dc.l	CNz_Switch_Mappings			; Offset_0x02388C
 		dc.w	$441A
-		dc.l	Obj_0x0D_Breakable_Wall				   ; Offset_0x0170CA
-		dc.l	CNz_Breakable_Wall_Mappings			   ; Offset_0x017858
+		dc.l	Obj_0x0D_Breakable_Wall			; Offset_0x0170CA
+		dc.l	CNz_Breakable_Wall_Mappings		; Offset_0x017858
 		dc.w	$4420
-		dc.l	($02<<$18)|Obj_0x0D_Breakable_Wall	   ; Offset_0x0170CA
-		dc.l	($02<<$18)|CNz_Breakable_Wall_Mappings ; Offset_0x017858
+		dc.l	($02<<$18)|Obj_0x0D_Breakable_Wall	; Offset_0x0170CA
+		dc.l	($02<<$18)|CNz_Breakable_Wall_Mappings	; Offset_0x017858
 		dc.w	$4420
-		dc.l	Obj_0x4D_CNz_Barber_Pole			   ; Offset_0x0296A0
-		dc.l	Rings_Mappings						   ; Offset_0x010DE2
+		dc.l	Obj_0x4D_CNz_Barber_Pole		; Offset_0x0296A0
+		dc.l	Rings_Mappings				; Offset_0x010DE2
 		dc.w	$86BC
-		dc.l	($13<<$18)|Obj_0x54_Oxygen_Bubbles	   ; Offset_0x025500
-		dc.l	($81<<$18)|Sonic_Underwater_Mappings   ; Offset_0x025872
+		dc.l	($13<<$18)|Obj_0x54_Oxygen_Bubbles	; Offset_0x025500
+		dc.l	($81<<$18)|Sonic_Underwater_Mappings	; Offset_0x025872
 		dc.w	$845C
-		dc.l	Obj_0x2A_Breakable_Floor			   ; Offset_0x0211D6
-		dc.l	($01<<$18)|CNz_Breakable_Floor_Mappings ; Offset_0x0217E4
+		dc.l	Obj_0x2A_Breakable_Floor		; Offset_0x0211D6
+		dc.l	($01<<$18)|CNz_Breakable_Floor_Mappings	; Offset_0x0217E4
 		dc.w	$4430
-		dc.l	Obj_0x47_CNz_Barrel					   ; Offset_0x028430
-		dc.l	($49<<$18)|Barrel_Mappings			   ; Offset_0x0288E8
+		dc.l	Obj_0x47_CNz_Barrel			; Offset_0x028430
+		dc.l	($49<<$18)|Barrel_Mappings		; Offset_0x0288E8
 		dc.w	$438E
 DOL_04_End:
 ; ---------------------------------------------------------------------------
-Debug_FBz:													   ; Offset_0x04BC0C
+Debug_FBz:							; Offset_0x04BC0C
 		dc.w	((DOL_05_End-DOL_05)/$0A) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
-DOL_05: ; DOL - Debug Object List
-		dc.l	Obj00_Rings							; Offset_0x0109A4
-		dc.l	Rings_Mappings						   ; Offset_0x010DE2
+DOL_05:		; DOL - Debug Object List
+		dc.l	Obj00_Rings				; Offset_0x0109A4
+		dc.l	Rings_Mappings				; Offset_0x010DE2
 		dc.w	$A6BC
-		dc.l	Obj01_Monitors						; Offset_0x012F44
-		dc.l	($08<<$18)|Monitors_Mappings		   ; Offset_0x0134A2
+		dc.l	Obj01_Monitors				; Offset_0x012F44
+		dc.l	($08<<$18)|Monitors_Mappings		; Offset_0x0134A2
 		dc.w	$04C4
 		dc.l	($01<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($09<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($09<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$26BC
 		dc.l	($05<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($0D<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($0D<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$26BC
-		dc.l	Obj07_Springs						; Offset_0x01921A
-		dc.l	($81<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	Obj07_Springs				; Offset_0x01921A
+		dc.l	($81<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04A4
-		dc.l	($03<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($90<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($03<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($90<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04B4
-		dc.l	($06<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($A0<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($06<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($A0<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04A4
-		dc.l	Obj_0x08_Spikes						   ; Offset_0x01A442
-		dc.l	Spikes_Mappings						   ; Offset_0x01A88C
+		dc.l	Obj_0x08_Spikes				; Offset_0x01A442
+		dc.l	Spikes_Mappings				; Offset_0x01A88C
 		dc.w	$049C
-		dc.l	Obj_0xA7_FBz_Blaster				   ; Offset_0x04611C
-		dc.l	($80<<$18)|Blaster_Mappings			   ; Offset_0x10ED62
+		dc.l	Obj_0xA7_FBz_Blaster			; Offset_0x04611C
+		dc.l	($80<<$18)|Blaster_Mappings		; Offset_0x10ED62
 		dc.w	$2500
-		dc.l	Obj_0xA8_FBz_Techno_Squeek			   ; Offset_0x046392
-		dc.l	Techno_Squeek_Mappings				   ; Offset_0x10EF02
+		dc.l	Obj_0xA8_FBz_Techno_Squeek		; Offset_0x046392
+		dc.l	Techno_Squeek_Mappings			; Offset_0x10EF02
 		dc.w	$2528
-		dc.l	Obj_0xA8_FBz_Techno_Squeek			   ; Offset_0x046392
-		dc.l	($02<<$18)|Techno_Squeek_Mappings	   ; Offset_0x10EF02
+		dc.l	Obj_0xA8_FBz_Techno_Squeek		; Offset_0x046392
+		dc.l	($02<<$18)|Techno_Squeek_Mappings	; Offset_0x10EF02
 		dc.w	$2528
-		dc.l	Obj_0xA8_FBz_Techno_Squeek			   ; Offset_0x046392
-		dc.l	($04<<$18)|Techno_Squeek_Mappings	   ; Offset_0x10EF02
+		dc.l	Obj_0xA8_FBz_Techno_Squeek		; Offset_0x046392
+		dc.l	($04<<$18)|Techno_Squeek_Mappings	; Offset_0x10EF02
 		dc.w	$2528
 DOL_05_End:
 ; ---------------------------------------------------------------------------
-Debug_Iz_1:													   ; Offset_0x04BC86
+Debug_Iz_1:							; Offset_0x04BC86
 		dc.w	((DOL_06_End-DOL_06)/$0A) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
-DOL_06: ; DOL - Debug Object List
-		dc.l	Obj00_Rings							; Offset_0x0109A4
-		dc.l	Rings_Mappings						   ; Offset_0x010DE2
+DOL_06:		; DOL - Debug Object List
+		dc.l	Obj00_Rings				; Offset_0x0109A4
+		dc.l	Rings_Mappings				; Offset_0x010DE2
 		dc.w	$A6BC
-		dc.l	Obj01_Monitors						; Offset_0x012F44
-		dc.l	($05<<$18)|Monitors_Mappings		   ; Offset_0x0134A2
+		dc.l	Obj01_Monitors				; Offset_0x012F44
+		dc.l	($05<<$18)|Monitors_Mappings		; Offset_0x0134A2
 		dc.w	$04C4
 		dc.l	($01<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($09<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($09<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$26BC
 		dc.l	($05<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($0D<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($0D<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$26BC
-		dc.l	Obj07_Springs						; Offset_0x01921A
-		dc.l	($81<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	Obj07_Springs				; Offset_0x01921A
+		dc.l	($81<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04A4
-		dc.l	($03<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($90<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($03<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($90<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04B4
-		dc.l	($06<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($A0<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($06<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($A0<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04A4
-		dc.l	Obj_0x08_Spikes						   ; Offset_0x01A442
-		dc.l	Spikes_Mappings						   ; Offset_0x01A88C
+		dc.l	Obj_0x08_Spikes				; Offset_0x01A442
+		dc.l	Spikes_Mappings				; Offset_0x01A88C
 		dc.w	$049C
-		dc.l	Obj_0xAA_Iz_Penguinator				   ; Offset_0x047F8A
-		dc.l	($20<<$18)|Penguinator_Mappings		   ; Offset_0x10EE48
+		dc.l	Obj_0xAA_Iz_Penguinator			; Offset_0x047F8A
+		dc.l	($20<<$18)|Penguinator_Mappings		; Offset_0x10EE48
 		dc.w	$2500
-		dc.l	Obj_0xAB_Iz_Star_Pointer			   ; Offset_0x0482D2
-		dc.l	Star_Pointer_Mappings				   ; Offset_0x10EF66
+		dc.l	Obj_0xAB_Iz_Star_Pointer		; Offset_0x0482D2
+		dc.l	Star_Pointer_Mappings			; Offset_0x10EF66
 		dc.w	$2548
-		dc.l	Obj_0xB9_Iz_Platform				   ; Offset_0x04663E
-		dc.l	Iz_Platform_Mappings				   ; Offset_0x110BBC
+		dc.l	Obj_0xB9_Iz_Platform			; Offset_0x04663E
+		dc.l	Iz_Platform_Mappings			; Offset_0x110BBC
 		dc.w	$43B6
-		dc.l	Obj_0xB9_Iz_Platform				   ; Offset_0x04663E
-		dc.l	($02<<$18)|Iz_Platform_Mappings		   ; Offset_0x110BBC
+		dc.l	Obj_0xB9_Iz_Platform			; Offset_0x04663E
+		dc.l	($02<<$18)|Iz_Platform_Mappings		; Offset_0x110BBC
 		dc.w	$43B6
-		dc.l	($06<<$18)|Obj_0xBA_Iz_Breakable_Wall  ; Offset_0x04694C
-		dc.l	Crushing_Column_Mappings			   ; Offset_0x110938
+		dc.l	($06<<$18)|Obj_0xBA_Iz_Breakable_Wall	; Offset_0x04694C
+		dc.l	Crushing_Column_Mappings		; Offset_0x110938
 		dc.w	$4001
-		dc.l	($02<<$18)|Obj_0xB8_Iz_Crushing_Column ; Offset_0x046B0E
-		dc.l	($01<<$18)|Crushing_Column_Mappings	   ; Offset_0x110938
+		dc.l	($02<<$18)|Obj_0xB8_Iz_Crushing_Column	; Offset_0x046B0E
+		dc.l	($01<<$18)|Crushing_Column_Mappings	; Offset_0x110938
 		dc.w	$4001
-		dc.l	($02<<$18)|Obj_0xB8_Iz_Crushing_Column ; Offset_0x046B0E
-		dc.l	($02<<$18)|Crushing_Column_Mappings	   ; Offset_0x110938
+		dc.l	($02<<$18)|Obj_0xB8_Iz_Crushing_Column	; Offset_0x046B0E
+		dc.l	($02<<$18)|Crushing_Column_Mappings	; Offset_0x110938
 		dc.w	$4001
-		dc.l	($02<<$18)|Obj_0xB8_Iz_Crushing_Column ; Offset_0x046B0E
-		dc.l	($03<<$18)|Crushing_Column_Mappings	   ; Offset_0x110938
+		dc.l	($02<<$18)|Obj_0xB8_Iz_Crushing_Column	; Offset_0x046B0E
+		dc.l	($03<<$18)|Crushing_Column_Mappings	; Offset_0x110938
 		dc.w	$4001
-		dc.l	($02<<$18)|Obj_0xB8_Iz_Crushing_Column ; Offset_0x046B0E
-		dc.l	($04<<$18)|Crushing_Column_Mappings	   ; Offset_0x110938
+		dc.l	($02<<$18)|Obj_0xB8_Iz_Crushing_Column	; Offset_0x046B0E
+		dc.l	($04<<$18)|Crushing_Column_Mappings	; Offset_0x110938
 		dc.w	$4001
-		dc.l	($06<<$18)|Obj_0xBB_Iz_Freezer		   ; Offset_0x046CF2
-		dc.l	Iz_Platform_Mappings				   ; Offset_0x110BBC
+		dc.l	($06<<$18)|Obj_0xBB_Iz_Freezer		; Offset_0x046CF2
+		dc.l	Iz_Platform_Mappings			; Offset_0x110BBC
 		dc.w	$23B6
-		dc.l	($0A<<$18)|Obj_0xBC_Iz_Segmented_Column ; Offset_0x04719E
-		dc.l	Crushing_Column_Mappings			   ; Offset_0x110938
+		dc.l	($0A<<$18)|Obj_0xBC_Iz_Segmented_Column	; Offset_0x04719E
+		dc.l	Crushing_Column_Mappings		; Offset_0x110938
 		dc.w	$4001
-		dc.l	($0A<<$18)|Obj_0xBC_Iz_Segmented_Column ; Offset_0x04719E
-		dc.l	($02<<$18)|Crushing_Column_Mappings	   ; Offset_0x110938
+		dc.l	($0A<<$18)|Obj_0xBC_Iz_Segmented_Column	; Offset_0x04719E
+		dc.l	($02<<$18)|Crushing_Column_Mappings	; Offset_0x110938
 		dc.w	$4001
-		dc.l	($07<<$18)|Obj_0xBD_Iz_Swinging_Platform ; Offset_0x047336
-		dc.l	Iz_Platform_Mappings				   ; Offset_0x110BBC
+		dc.l	($07<<$18)|Obj_0xBD_Iz_Swinging_Platform	; Offset_0x047336
+		dc.l	Iz_Platform_Mappings				; Offset_0x110BBC
 		dc.w	$23B6
-		dc.l	($07<<$18)|Obj_0xBD_Iz_Swinging_Platform ; Offset_0x047336
-		dc.l	($02<<$18)|Iz_Platform_Mappings		   ; Offset_0x110BBC
+		dc.l	($07<<$18)|Obj_0xBD_Iz_Swinging_Platform	; Offset_0x047336
+		dc.l	($02<<$18)|Iz_Platform_Mappings			; Offset_0x110BBC
 		dc.w	$23B6
-		dc.l	($07<<$18)|Obj_0xBE_Iz_Stalactite	   ; Offset_0x0477C6
-		dc.l	Crushing_Column_Mappings			   ; Offset_0x110938
+		dc.l	($07<<$18)|Obj_0xBE_Iz_Stalactite	; Offset_0x0477C6
+		dc.l	Crushing_Column_Mappings		; Offset_0x110938
 		dc.w	$4001
-		dc.l	($05<<$18)|Obj_0xC0_Iz_Ice_Spikes	   ; Offset_0x0478D2
-		dc.l	Crushing_Column_Mappings			   ; Offset_0x110938
+		dc.l	($05<<$18)|Obj_0xC0_Iz_Ice_Spikes	; Offset_0x0478D2
+		dc.l	Crushing_Column_Mappings		; Offset_0x110938
 		dc.w	$4001
-		dc.l	($05<<$18)|Obj_0xC0_Iz_Ice_Spikes	   ; Offset_0x0478D2
-		dc.l	($02<<$18)|Crushing_Column_Mappings	   ; Offset_0x110938
+		dc.l	($05<<$18)|Obj_0xC0_Iz_Ice_Spikes	; Offset_0x0478D2
+		dc.l	($02<<$18)|Crushing_Column_Mappings	; Offset_0x110938
 		dc.w	$4001
-		dc.l	($03<<$18)|Obj_0xBF_Iz_Ice_Cube		   ; Offset_0x04798A
-		dc.l	Iz_Platform_Mappings				   ; Offset_0x110BBC
+		dc.l	($03<<$18)|Obj_0xBF_Iz_Ice_Cube		; Offset_0x04798A
+		dc.l	Iz_Platform_Mappings			; Offset_0x110BBC
 		dc.w	$43B6
-		dc.l	($05<<$18)|Obj_0xC1_Iz_Ice_Spiked_Ball ; Offset_0x047AD0
-		dc.l	Iz_Platform_Mappings				   ; Offset_0x110BBC
+		dc.l	($05<<$18)|Obj_0xC1_Iz_Ice_Spiked_Ball	; Offset_0x047AD0
+		dc.l	Iz_Platform_Mappings			; Offset_0x110BBC
 		dc.w	$43B6
-		dc.l	($04<<$18)|Obj_0xC1_Iz_Ice_Spiked_Ball ; Offset_0x047AD0
-		dc.l	($02<<$18)|Iz_Platform_Mappings		   ; Offset_0x110BBC
+		dc.l	($04<<$18)|Obj_0xC1_Iz_Ice_Spiked_Ball	; Offset_0x047AD0
+		dc.l	($02<<$18)|Iz_Platform_Mappings		; Offset_0x110BBC
 		dc.w	$43B6
-		dc.l	Obj_0x04_Collapsing_Platform		   ; Offset_0x01582E
-		dc.l	Iz_Collapsing_Platform_Mappings		   ; Offset_0x016D00
+		dc.l	Obj_0x04_Collapsing_Platform		; Offset_0x01582E
+		dc.l	Iz_Collapsing_Platform_Mappings		; Offset_0x016D00
 		dc.w	$4001
-		dc.l	($03<<$18)|Obj_0x0F_Collapsing_Platform ; Offset_0x01595E
-		dc.l	($80<<$18)|Iz_Collapsing_Platform_Mappings ; Offset_0x016D00
+		dc.l	($03<<$18)|Obj_0x0F_Collapsing_Platform		; Offset_0x01595E
+		dc.l	($80<<$18)|Iz_Collapsing_Platform_Mappings	; Offset_0x016D00
 		dc.w	$4001
-		dc.l	Obj_0x2A_Breakable_Floor			   ; Offset_0x0211D6
-		dc.l	Iz_Breakable_Floor_Mappings			   ; Offset_0x02187C
+		dc.l	Obj_0x2A_Breakable_Floor		; Offset_0x0211D6
+		dc.l	Iz_Breakable_Floor_Mappings		; Offset_0x02187C
 		dc.w	$4001
-		dc.l	($0A<<$18)|Obj_0x2A_Breakable_Floor	   ; Offset_0x0211D6
-		dc.l	($1A<<$18)|Iz_Breakable_Floor_Mappings ; Offset_0x02187C
+		dc.l	($0A<<$18)|Obj_0x2A_Breakable_Floor	; Offset_0x0211D6
+		dc.l	($1A<<$18)|Iz_Breakable_Floor_Mappings	; Offset_0x02187C
 		dc.w	$43B6
-		dc.l	Obj_0x6C_Bridge						   ; Offset_0x02E504
-		dc.l	($10<<$18)|Iz_Bridge_Mappings		   ; Offset_0x02EE28
+		dc.l	Obj_0x6C_Bridge				; Offset_0x02E504
+		dc.l	($10<<$18)|Iz_Bridge_Mappings		; Offset_0x02EE28
 		dc.w	$43B6
-		dc.l	($02<<$18)|Obj_0x33_Switch			   ; Offset_0x023662
-		dc.l	($10<<$18)|Switch_Mappings			   ; Offset_0x023832
+		dc.l	($02<<$18)|Obj_0x33_Switch		; Offset_0x023662
+		dc.l	($10<<$18)|Switch_Mappings		; Offset_0x023832
 		dc.w	$0456
 DOL_06_End:
 ; ---------------------------------------------------------------------------
-Debug_Iz_2:													   ; Offset_0x04BDDC
+Debug_Iz_2:							; Offset_0x04BDDC
 		dc.w	((DOL_07_End-DOL_07)/$0A) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
-DOL_07: ; DOL - Debug Object List
-		dc.l	Obj00_Rings							; Offset_0x0109A4
-		dc.l	Rings_Mappings						   ; Offset_0x010DE2
+DOL_07:		; DOL - Debug Object List
+		dc.l	Obj00_Rings				; Offset_0x0109A4
+		dc.l	Rings_Mappings				; Offset_0x010DE2
 		dc.w	$A6BC
-		dc.l	Obj01_Monitors						; Offset_0x012F44
-		dc.l	($05<<$18)|Monitors_Mappings		   ; Offset_0x0134A2
+		dc.l	Obj01_Monitors				; Offset_0x012F44
+		dc.l	($05<<$18)|Monitors_Mappings		; Offset_0x0134A2
 		dc.w	$04C4
 		dc.l	($01<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($09<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($09<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$26BC
 		dc.l	($05<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($0D<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($0D<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$26BC
-		dc.l	Obj07_Springs						; Offset_0x01921A
-		dc.l	($81<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	Obj07_Springs				; Offset_0x01921A
+		dc.l	($81<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04A4
-		dc.l	($03<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($90<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($03<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($90<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04B4
-		dc.l	($06<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($A0<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($06<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($A0<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04A4
-		dc.l	Obj_0x08_Spikes						   ; Offset_0x01A442
-		dc.l	Spikes_Mappings						   ; Offset_0x01A88C
+		dc.l	Obj_0x08_Spikes				; Offset_0x01A442
+		dc.l	Spikes_Mappings				; Offset_0x01A88C
 		dc.w	$049C
-		dc.l	Obj_0xAA_Iz_Penguinator				   ; Offset_0x047F8A
-		dc.l	($20<<$18)|Penguinator_Mappings		   ; Offset_0x10EE48
+		dc.l	Obj_0xAA_Iz_Penguinator			; Offset_0x047F8A
+		dc.l	($20<<$18)|Penguinator_Mappings		; Offset_0x10EE48
 		dc.w	$2500
-		dc.l	Obj_0xAB_Iz_Star_Pointer			   ; Offset_0x0482D2
-		dc.l	Star_Pointer_Mappings				   ; Offset_0x10EF66
+		dc.l	Obj_0xAB_Iz_Star_Pointer		; Offset_0x0482D2
+		dc.l	Star_Pointer_Mappings			; Offset_0x10EF66
 		dc.w	$2548
-		dc.l	Obj_0xB9_Iz_Platform				   ; Offset_0x04663E
-		dc.l	($04<<$18)|Iz_Platform_Mappings		   ; Offset_0x110BBC
+		dc.l	Obj_0xB9_Iz_Platform			; Offset_0x04663E
+		dc.l	($04<<$18)|Iz_Platform_Mappings		; Offset_0x110BBC
 		dc.w	$43B6
-		dc.l	Obj_0xB9_Iz_Platform				   ; Offset_0x04663E
-		dc.l	($06<<$18)|Iz_Platform_Mappings		   ; Offset_0x110BBC
+		dc.l	Obj_0xB9_Iz_Platform			; Offset_0x04663E
+		dc.l	($06<<$18)|Iz_Platform_Mappings		; Offset_0x110BBC
 		dc.w	$43B6
-		dc.l	($02<<$18)|Obj_0xB8_Iz_Crushing_Column ; Offset_0x046B0E
-		dc.l	($01<<$18)|Crushing_Column_Mappings	   ; Offset_0x110938
+		dc.l	($02<<$18)|Obj_0xB8_Iz_Crushing_Column	; Offset_0x046B0E
+		dc.l	($01<<$18)|Crushing_Column_Mappings	; Offset_0x110938
 		dc.w	$4001
-		dc.l	($02<<$18)|Obj_0xB8_Iz_Crushing_Column ; Offset_0x046B0E
-		dc.l	($02<<$18)|Crushing_Column_Mappings	   ; Offset_0x110938
+		dc.l	($02<<$18)|Obj_0xB8_Iz_Crushing_Column	; Offset_0x046B0E
+		dc.l	($02<<$18)|Crushing_Column_Mappings	; Offset_0x110938
 		dc.w	$4001
-		dc.l	($02<<$18)|Obj_0xB8_Iz_Crushing_Column ; Offset_0x046B0E
-		dc.l	($03<<$18)|Crushing_Column_Mappings	   ; Offset_0x110938
+		dc.l	($02<<$18)|Obj_0xB8_Iz_Crushing_Column	; Offset_0x046B0E
+		dc.l	($03<<$18)|Crushing_Column_Mappings	; Offset_0x110938
 		dc.w	$4001
-		dc.l	($02<<$18)|Obj_0xB8_Iz_Crushing_Column ; Offset_0x046B0E
-		dc.l	($04<<$18)|Crushing_Column_Mappings	   ; Offset_0x110938
+		dc.l	($02<<$18)|Obj_0xB8_Iz_Crushing_Column	; Offset_0x046B0E
+		dc.l	($04<<$18)|Crushing_Column_Mappings	; Offset_0x110938
 		dc.w	$4001
-		dc.l	($06<<$18)|Obj_0xBB_Iz_Freezer		   ; Offset_0x046CF2
-		dc.l	Iz_Platform_Mappings				   ; Offset_0x110BBC
+		dc.l	($06<<$18)|Obj_0xBB_Iz_Freezer		; Offset_0x046CF2
+		dc.l	Iz_Platform_Mappings			; Offset_0x110BBC
 		dc.w	$23B6
-		dc.l	($0A<<$18)|Obj_0xBC_Iz_Segmented_Column ; Offset_0x04719E
-		dc.l	Crushing_Column_Mappings			   ; Offset_0x110938
+		dc.l	($0A<<$18)|Obj_0xBC_Iz_Segmented_Column	; Offset_0x04719E
+		dc.l	Crushing_Column_Mappings		; Offset_0x110938
 		dc.w	$4001
-		dc.l	($0A<<$18)|Obj_0xBC_Iz_Segmented_Column ; Offset_0x04719E
-		dc.l	($02<<$18)|Crushing_Column_Mappings	   ; Offset_0x110938
+		dc.l	($0A<<$18)|Obj_0xBC_Iz_Segmented_Column	; Offset_0x04719E
+		dc.l	($02<<$18)|Crushing_Column_Mappings	; Offset_0x110938
 		dc.w	$4001
-		dc.l	($07<<$18)|Obj_0xBD_Iz_Swinging_Platform ; Offset_0x047336
-		dc.l	Iz_Platform_Mappings				   ; Offset_0x110BBC
+		dc.l	($07<<$18)|Obj_0xBD_Iz_Swinging_Platform	; Offset_0x047336
+		dc.l	Iz_Platform_Mappings				; Offset_0x110BBC
 		dc.w	$23B6
-		dc.l	($07<<$18)|Obj_0xBD_Iz_Swinging_Platform ; Offset_0x047336
-		dc.l	($02<<$18)|Iz_Platform_Mappings		   ; Offset_0x110BBC
+		dc.l	($07<<$18)|Obj_0xBD_Iz_Swinging_Platform	; Offset_0x047336
+		dc.l	($02<<$18)|Iz_Platform_Mappings			; Offset_0x110BBC
 		dc.w	$23B6
-		dc.l	($05<<$18)|Obj_0xC0_Iz_Ice_Spikes	   ; Offset_0x0478D2
-		dc.l	Crushing_Column_Mappings			   ; Offset_0x110938
+		dc.l	($05<<$18)|Obj_0xC0_Iz_Ice_Spikes	; Offset_0x0478D2
+		dc.l	Crushing_Column_Mappings		; Offset_0x110938
 		dc.w	$4001
-		dc.l	($05<<$18)|Obj_0xC0_Iz_Ice_Spikes	   ; Offset_0x0478D2
-		dc.l	($02<<$18)|Crushing_Column_Mappings	   ; Offset_0x110938
+		dc.l	($05<<$18)|Obj_0xC0_Iz_Ice_Spikes	; Offset_0x0478D2
+		dc.l	($02<<$18)|Crushing_Column_Mappings	; Offset_0x110938
 		dc.w	$4001
-		dc.l	($03<<$18)|Obj_0xBF_Iz_Ice_Cube		   ; Offset_0x04798A
-		dc.l	Iz_Platform_Mappings				   ; Offset_0x110BBC
+		dc.l	($03<<$18)|Obj_0xBF_Iz_Ice_Cube		; Offset_0x04798A
+		dc.l	Iz_Platform_Mappings			; Offset_0x110BBC
 		dc.w	$43B6
-		dc.l	($05<<$18)|Obj_0xC1_Iz_Ice_Spiked_Ball ; Offset_0x047AD0
-		dc.l	($02<<$18)|Iz_Platform_Mappings		   ; Offset_0x110BBC
+		dc.l	($05<<$18)|Obj_0xC1_Iz_Ice_Spiked_Ball	; Offset_0x047AD0
+		dc.l	($02<<$18)|Iz_Platform_Mappings		; Offset_0x110BBC
 		dc.w	$43B6
-		dc.l	($04<<$18)|Obj_0xC1_Iz_Ice_Spiked_Ball ; Offset_0x047AD0
-		dc.l	Iz_Platform_Mappings				   ; Offset_0x110BBC
+		dc.l	($04<<$18)|Obj_0xC1_Iz_Ice_Spiked_Ball	; Offset_0x047AD0
+		dc.l	Iz_Platform_Mappings			; Offset_0x110BBC
 		dc.w	$43B6
-		dc.l	($20<<$18)|Obj_0xC2_Iz_Snow_Pile	   ; Offset_0x047B4E
-		dc.l	Iz_Platform_Mappings				   ; Offset_0x110BBC
+		dc.l	($20<<$18)|Obj_0xC2_Iz_Snow_Pile	; Offset_0x047B4E
+		dc.l	Iz_Platform_Mappings			; Offset_0x110BBC
 		dc.w	$437D
-		dc.l	($1F<<$18)|Obj_0xC3_Iz_Trampoline	   ; Offset_0x047D46
-		dc.l	Iz_Platform_Mappings				   ; Offset_0x110BBC
+		dc.l	($1F<<$18)|Obj_0xC3_Iz_Trampoline	; Offset_0x047D46
+		dc.l	Iz_Platform_Mappings			; Offset_0x110BBC
 		dc.w	$437D
-		dc.l	Obj_0x04_Collapsing_Platform		   ; Offset_0x01582E
-		dc.l	Iz_Collapsing_Platform_Mappings		   ; Offset_0x016D00
+		dc.l	Obj_0x04_Collapsing_Platform		; Offset_0x01582E
+		dc.l	Iz_Collapsing_Platform_Mappings		; Offset_0x016D00
 		dc.w	$4001
-		dc.l	($03<<$18)|Obj_0x0F_Collapsing_Platform ; Offset_0x01595E
-		dc.l	($80<<$18)|Iz_Collapsing_Platform_Mappings ; Offset_0x016D00
+		dc.l	($03<<$18)|Obj_0x0F_Collapsing_Platform		; Offset_0x01595E
+		dc.l	($80<<$18)|Iz_Collapsing_Platform_Mappings	; Offset_0x016D00
 		dc.w	$4001
-		dc.l	Obj_0x2A_Breakable_Floor			   ; Offset_0x0211D6
-		dc.l	Iz_Breakable_Floor_Mappings			   ; Offset_0x02187C
+		dc.l	Obj_0x2A_Breakable_Floor		; Offset_0x0211D6
+		dc.l	Iz_Breakable_Floor_Mappings		; Offset_0x02187C
 		dc.w	$4001
-		dc.l	($0A<<$18)|Obj_0x2A_Breakable_Floor	   ; Offset_0x0211D6
-		dc.l	($1A<<$18)|Iz_Breakable_Floor_Mappings ; Offset_0x02187C
+		dc.l	($0A<<$18)|Obj_0x2A_Breakable_Floor	; Offset_0x0211D6
+		dc.l	($1A<<$18)|Iz_Breakable_Floor_Mappings	; Offset_0x02187C
 		dc.w	$43B6
-		dc.l	Obj_0x6C_Bridge						   ; Offset_0x02E504
-		dc.l	($8C<<$18)|Iz_Bridge_Mappings		   ; Offset_0x02EE28
+		dc.l	Obj_0x6C_Bridge				; Offset_0x02E504
+		dc.l	($8C<<$18)|Iz_Bridge_Mappings		; Offset_0x02EE28
 		dc.w	$43B6
-		dc.l	($02<<$18)|Obj_0x33_Switch			   ; Offset_0x023662
-		dc.l	($10<<$18)|Switch_Mappings			   ; Offset_0x023832
+		dc.l	($02<<$18)|Obj_0x33_Switch		; Offset_0x023662
+		dc.l	($10<<$18)|Switch_Mappings		; Offset_0x023832
 		dc.w	$0456
 DOL_07_End:
 ; ---------------------------------------------------------------------------
-Debug_LBz_1:												   ; Offset_0x04BF32
+Debug_LBz_1:							; Offset_0x04BF32
 		dc.w	((DOL_08_End-DOL_08)/$0A) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
-DOL_08: ; DOL - Debug Object List
-		dc.l	Obj00_Rings							; Offset_0x0109A4
-		dc.l	Rings_Mappings						   ; Offset_0x010DE2
+DOL_08:		; DOL - Debug Object List
+		dc.l	Obj00_Rings				; Offset_0x0109A4
+		dc.l	Rings_Mappings				; Offset_0x010DE2
 		dc.w	$A6BC
-		dc.l	Obj01_Monitors						; Offset_0x012F44
-		dc.l	($08<<$18)|Monitors_Mappings		   ; Offset_0x0134A2
+		dc.l	Obj01_Monitors				; Offset_0x012F44
+		dc.l	($08<<$18)|Monitors_Mappings		; Offset_0x0134A2
 		dc.w	$04C4
 		dc.l	($01<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($09<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($09<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$26BC
 		dc.l	($05<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($0D<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($0D<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$26BC
-		dc.l	Obj07_Springs						; Offset_0x01921A
-		dc.l	($81<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	Obj07_Springs				; Offset_0x01921A
+		dc.l	($81<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04A4
-		dc.l	($03<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($90<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($03<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($90<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04B4
-		dc.l	($06<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($A0<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($06<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($A0<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04A4
-		dc.l	Obj_0x08_Spikes						   ; Offset_0x01A442
-		dc.l	Spikes_Mappings						   ; Offset_0x01A88C
+		dc.l	Obj_0x08_Spikes				; Offset_0x01A442
+		dc.l	Spikes_Mappings				; Offset_0x01A88C
 		dc.w	$049C
-		dc.l	Obj_0x0F_Collapsing_Platform		   ; Offset_0x01595E
-		dc.l	($80<<$18)|LBz_Collapsing_Platforms_Mappings ; Offset_0x0161E2
+		dc.l	Obj_0x0F_Collapsing_Platform			; Offset_0x01595E
+		dc.l	($80<<$18)|LBz_Collapsing_Platforms_Mappings	; Offset_0x0161E2
 		dc.w	$4001
-		dc.l	Obj_0x0F_Collapsing_Platform		   ; Offset_0x01595E
-		dc.l	($40<<$18)|LBz_Collapsing_Platforms_Mappings_2 ; Offset_0x0162DE
+		dc.l	Obj_0x0F_Collapsing_Platform			; Offset_0x01595E
+		dc.l	($40<<$18)|LBz_Collapsing_Platforms_Mappings_2	; Offset_0x0162DE
 		dc.w	$4001
-		dc.l	Obj_0x2A_Breakable_Floor			   ; Offset_0x0211D6
-		dc.l	LBz_Breakable_Floor_Mappings		   ; Offset_0x021A84
+		dc.l	Obj_0x2A_Breakable_Floor		; Offset_0x0211D6
+		dc.l	LBz_Breakable_Floor_Mappings		; Offset_0x021A84
 		dc.w	$4001
-		dc.l	Obj_0x11_LBz_Platform				   ; Offset_0x01BCFC
-		dc.l	($05<<$18)|LBz_Platform_Mappings	   ; Offset_0x01C1F8
+		dc.l	Obj_0x11_LBz_Platform			; Offset_0x01BCFC
+		dc.l	($05<<$18)|LBz_Platform_Mappings	; Offset_0x01C1F8
 		dc.w	$43C3
-		dc.l	($01<<$18)|Obj_0x11_LBz_Platform	   ; Offset_0x01BCFC
-		dc.l	($11<<$18)|LBz_Platform_Mappings	   ; Offset_0x01C1F8
+		dc.l	($01<<$18)|Obj_0x11_LBz_Platform	; Offset_0x01BCFC
+		dc.l	($11<<$18)|LBz_Platform_Mappings	; Offset_0x01C1F8
 		dc.w	$43C3
-		dc.l	Obj_0x13_LBz_Exploding_Trigger		   ; Offset_0x01C890
-		dc.l	LBz_Exploding_Trigger_Mappings		   ; Offset_0x01C926
+		dc.l	Obj_0x13_LBz_Exploding_Trigger		; Offset_0x01C890
+		dc.l	LBz_Exploding_Trigger_Mappings		; Offset_0x01C926
 		dc.w	$4433
-		dc.l	Obj_0x14_LBz_Trigger_Bridge			   ; Offset_0x01CBA2
-		dc.l	Trigger_Bridge_Mappings				   ; Offset_0x01CD64
+		dc.l	Obj_0x14_LBz_Trigger_Bridge		; Offset_0x01CBA2
+		dc.l	Trigger_Bridge_Mappings			; Offset_0x01CD64
 		dc.w	$43C3
-		dc.l	Obj_0x15_LBz_Player_Launcher		   ; Offset_0x01D050
-		dc.l	Player_Launcher_Mappings			   ; Offset_0x01D2CA
+		dc.l	Obj_0x15_LBz_Player_Launcher		; Offset_0x01D050
+		dc.l	Player_Launcher_Mappings		; Offset_0x01D2CA
 		dc.w	$43C3
-		dc.l	Obj_0x16_LBz_Flame_Thrower			   ; Offset_0x01D312
-		dc.l	Flame_Thrower_Mappings				   ; Offset_0x01D3C6
+		dc.l	Obj_0x16_LBz_Flame_Thrower		; Offset_0x01D312
+		dc.l	Flame_Thrower_Mappings			; Offset_0x01D3C6
 		dc.w	$43AC
-		dc.l	Obj_0x17_LBz_Hooked_Ride			   ; Offset_0x01D4FC
-		dc.l	Hooked_Ride_Mappings				   ; Offset_0x01D8F8
+		dc.l	Obj_0x17_LBz_Hooked_Ride		; Offset_0x01D4FC
+		dc.l	Hooked_Ride_Mappings			; Offset_0x01D8F8
 		dc.w	$2433
-		dc.l	Obj_0x18_LBz_Cup_Elevator			   ; Offset_0x01D916
-		dc.l	Cup_Elevator_Mappings				   ; Offset_0x01DF66
+		dc.l	Obj_0x18_LBz_Cup_Elevator		; Offset_0x01D916
+		dc.l	Cup_Elevator_Mappings			; Offset_0x01DF66
 		dc.w	$440D
-		dc.l	($03<<$18)|Obj_0x19_LBz_Cup_Elevator_Pole ; Offset_0x01DF10
-		dc.l	($06<<$18)|Cup_Elevator_Mappings	   ; Offset_0x01DF66
+		dc.l	($03<<$18)|Obj_0x19_LBz_Cup_Elevator_Pole	; Offset_0x01DF10
+		dc.l	($06<<$18)|Cup_Elevator_Mappings		; Offset_0x01DF66
 		dc.w	$440D
-		dc.l	Obj_0x20_Smashing_Pillar_Spikes		   ; Offset_0x01FDB6
-		dc.l	($10<<$18)|Smashing_Spike_Mappins	   ; Offset_0x01FED8
+		dc.l	Obj_0x20_Smashing_Pillar_Spikes		; Offset_0x01FDB6
+		dc.l	($10<<$18)|Smashing_Spike_Mappins	; Offset_0x01FED8
 		dc.w	$4455
-		dc.l	Obj_0x87_LBz_Snale_Blaster			   ; Offset_0x048436
-		dc.l	Snale_Blaster_Mappings				   ; Offset_0x10D3C8
+		dc.l	Obj_0x87_LBz_Snale_Blaster		; Offset_0x048436
+		dc.l	Snale_Blaster_Mappings			; Offset_0x10D3C8
 		dc.w	$2524
-		dc.l	Obj_0x89_LBz_Orbinaut				   ; Offset_0x048A94
-		dc.l	Orbinaut_Mappings					   ; Offset_0x10D472
+		dc.l	Obj_0x89_LBz_Orbinaut			; Offset_0x048A94
+		dc.l	Orbinaut_Mappings			; Offset_0x10D472
 		dc.w	$256E
-		dc.l	Obj_0x89_LBz_Orbinaut				   ; Offset_0x048A94
-		dc.l	($02<<$18)|Orbinaut_Mappings		   ; Offset_0x10D472
+		dc.l	Obj_0x89_LBz_Orbinaut			; Offset_0x048A94
+		dc.l	($02<<$18)|Orbinaut_Mappings		; Offset_0x10D472
 		dc.w	$256E
-		dc.l	Obj_0x89_LBz_Orbinaut				   ; Offset_0x048A94
-		dc.l	($04<<$18)|Orbinaut_Mappings		   ; Offset_0x10D472
+		dc.l	Obj_0x89_LBz_Orbinaut			; Offset_0x048A94
+		dc.l	($04<<$18)|Orbinaut_Mappings		; Offset_0x10D472
 		dc.w	$256E
-		dc.l	Obj_0x88_LBz_Ribot					   ; Offset_0x048756
-		dc.l	Ribot_Mappings						   ; Offset_0x10D486
+		dc.l	Obj_0x88_LBz_Ribot			; Offset_0x048756
+		dc.l	Ribot_Mappings				; Offset_0x10D486
 		dc.w	$2547
-		dc.l	Obj_0x88_LBz_Ribot					   ; Offset_0x048756
-		dc.l	($02<<$18)|Ribot_Mappings			   ; Offset_0x10D486
+		dc.l	Obj_0x88_LBz_Ribot			; Offset_0x048756
+		dc.l	($02<<$18)|Ribot_Mappings		; Offset_0x10D486
 		dc.w	$2547
-		dc.l	Obj_0x88_LBz_Ribot					   ; Offset_0x048756
-		dc.l	($04<<$18)|Ribot_Mappings			   ; Offset_0x10D486
+		dc.l	Obj_0x88_LBz_Ribot			; Offset_0x048756
+		dc.l	($04<<$18)|Ribot_Mappings		; Offset_0x10D486
 		dc.w	$2547
-		dc.l	Obj_0x8A_LBz_Corkey					   ; Offset_0x048BCE
-		dc.l	($20<<$18)|Corkey_Mappings			   ; Offset_0x10D590
+		dc.l	Obj_0x8A_LBz_Corkey			; Offset_0x048BCE
+		dc.l	($20<<$18)|Corkey_Mappings		; Offset_0x10D590
 		dc.w	$2558
-		dc.l	Obj_0x8B_LBz_Flybot_767				   ; Offset_0x048DF8
-		dc.l	Flybot_767_Mappings					   ; Offset_0x10D62E
+		dc.l	Obj_0x8B_LBz_Flybot_767			; Offset_0x048DF8
+		dc.l	Flybot_767_Mappings			; Offset_0x10D62E
 		dc.w	$2500
-		dc.l	Obj_0x34_Star_Post					   ; Offset_0x023F76
-		dc.l	($01<<$18)|Star_Post_Mappings		   ; Offset_0x024282
+		dc.l	Obj_0x34_Star_Post			; Offset_0x023F76
+		dc.l	($01<<$18)|Star_Post_Mappings		; Offset_0x024282
 		dc.w	$05EC
-		dc.l	Obj_0x11_LBz_Platform				   ; Offset_0x01BCFC
-		dc.l	($0D<<$18)|LBz_Platform_Mappings	   ; Offset_0x01C1F8
+		dc.l	Obj_0x11_LBz_Platform			; Offset_0x01BCFC
+		dc.l	($0D<<$18)|LBz_Platform_Mappings	; Offset_0x01C1F8
 		dc.w	$43C3
-		dc.l	($02<<$18)|Obj_0x10_LBz_Tube_Elevator  ; Offset_0x020856
-		dc.l	Tube_Elevator_Mappings				   ; Offset_0x020D4E
+		dc.l	($02<<$18)|Obj_0x10_LBz_Tube_Elevator	; Offset_0x020856
+		dc.l	Tube_Elevator_Mappings			; Offset_0x020D4E
 		dc.w	$2455
-		dc.l	($14<<$18)|Obj2F_StaticDecoration		; Offset_0x022E38
-		dc.l	($14<<$18)|Still_Sprite_Mappings	   ; Offset_0x022F02
+		dc.l	($14<<$18)|Obj2F_StaticDecoration	; Offset_0x022E38
+		dc.l	($14<<$18)|Still_Sprite_Mappings	; Offset_0x022F02
 		dc.w	$440D
-		dc.l	($15<<$18)|Obj2F_StaticDecoration		; Offset_0x022E38
-		dc.l	($15<<$18)|Still_Sprite_Mappings	   ; Offset_0x022F02
+		dc.l	($15<<$18)|Obj2F_StaticDecoration	; Offset_0x022E38
+		dc.l	($15<<$18)|Still_Sprite_Mappings	; Offset_0x022F02
 		dc.w	$2433
-		dc.l	($16<<$18)|Obj2F_StaticDecoration		; Offset_0x022E38
-		dc.l	($16<<$18)|Still_Sprite_Mappings	   ; Offset_0x022F02
+		dc.l	($16<<$18)|Obj2F_StaticDecoration	; Offset_0x022E38
+		dc.l	($16<<$18)|Still_Sprite_Mappings	; Offset_0x022F02
 		dc.w	$2433
 DOL_08_End:
 ; ---------------------------------------------------------------------------
-Debug_LBz_2:												   ; Offset_0x04C09C
+Debug_LBz_2:							; Offset_0x04C09C
 		dc.w	((DOL_09_End-DOL_09)/$0A) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
-DOL_09: ; DOL - Debug Object List
-		dc.l	Obj00_Rings							; Offset_0x0109A4
-		dc.l	Rings_Mappings						   ; Offset_0x010DE2
+DOL_09:		; DOL - Debug Object List
+		dc.l	Obj00_Rings				; Offset_0x0109A4
+		dc.l	Rings_Mappings				; Offset_0x010DE2
 		dc.w	$A6BC
-		dc.l	Obj01_Monitors						; Offset_0x012F44
-		dc.l	($08<<$18)|Monitors_Mappings		   ; Offset_0x0134A2
+		dc.l	Obj01_Monitors				; Offset_0x012F44
+		dc.l	($08<<$18)|Monitors_Mappings		; Offset_0x0134A2
 		dc.w	$04C4
 		dc.l	($01<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($09<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($09<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$26BC
 		dc.l	($05<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($0D<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($0D<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$26BC
-		dc.l	Obj07_Springs						; Offset_0x01921A
-		dc.l	($81<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	Obj07_Springs				; Offset_0x01921A
+		dc.l	($81<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04A4
-		dc.l	($03<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($90<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($03<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($90<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04B4
-		dc.l	($06<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($A0<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($06<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($A0<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04A4
-		dc.l	Obj_0x08_Spikes						   ; Offset_0x01A442
-		dc.l	Spikes_Mappings						   ; Offset_0x01A88C
+		dc.l	Obj_0x08_Spikes				; Offset_0x01A442
+		dc.l	Spikes_Mappings				; Offset_0x01A88C
 		dc.w	$049C
-		dc.l	Obj_0x0F_Collapsing_Platform		   ; Offset_0x01595E
-		dc.l	($80<<$18)|LBz_Collapsing_Platforms_Mappings ; Offset_0x0161E2
+		dc.l	Obj_0x0F_Collapsing_Platform			; Offset_0x01595E
+		dc.l	($80<<$18)|LBz_Collapsing_Platforms_Mappings	; Offset_0x0161E2
 		dc.w	$4001
-		dc.l	Obj_0x0F_Collapsing_Platform		   ; Offset_0x01595E
-		dc.l	($40<<$18)|LBz_Collapsing_Platforms_Mappings_2 ; Offset_0x0162DE
+		dc.l	Obj_0x0F_Collapsing_Platform			; Offset_0x01595E
+		dc.l	($40<<$18)|LBz_Collapsing_Platforms_Mappings_2	; Offset_0x0162DE
 		dc.w	$4001
-		dc.l	Obj_0x2A_Breakable_Floor			   ; Offset_0x0211D6
-		dc.l	LBz_Breakable_Floor_Mappings		   ; Offset_0x021A84
+		dc.l	Obj_0x2A_Breakable_Floor		; Offset_0x0211D6
+		dc.l	LBz_Breakable_Floor_Mappings		; Offset_0x021A84
 		dc.w	$4001
-		dc.l	Obj_0x11_LBz_Platform				   ; Offset_0x01BCFC
-		dc.l	($05<<$18)|LBz_Platform_Mappings	   ; Offset_0x01C1F8
+		dc.l	Obj_0x11_LBz_Platform			; Offset_0x01BCFC
+		dc.l	($05<<$18)|LBz_Platform_Mappings	; Offset_0x01C1F8
 		dc.w	$43C3
-		dc.l	($01<<$18)|Obj_0x11_LBz_Platform	   ; Offset_0x01BCFC
-		dc.l	($11<<$18)|LBz_Platform_Mappings	   ; Offset_0x01C1F8
+		dc.l	($01<<$18)|Obj_0x11_LBz_Platform	; Offset_0x01BCFC
+		dc.l	($11<<$18)|LBz_Platform_Mappings	; Offset_0x01C1F8
 		dc.w	$43C3
-		dc.l	Obj_0x13_LBz_Exploding_Trigger		   ; Offset_0x01C890
-		dc.l	LBz_Exploding_Trigger_Mappings		   ; Offset_0x01C926
+		dc.l	Obj_0x13_LBz_Exploding_Trigger		; Offset_0x01C890
+		dc.l	LBz_Exploding_Trigger_Mappings		; Offset_0x01C926
 		dc.w	$4433
-		dc.l	Obj_0x14_LBz_Trigger_Bridge			   ; Offset_0x01CBA2
-		dc.l	Trigger_Bridge_Mappings				   ; Offset_0x01CD64
+		dc.l	Obj_0x14_LBz_Trigger_Bridge		; Offset_0x01CBA2
+		dc.l	Trigger_Bridge_Mappings			; Offset_0x01CD64
 		dc.w	$43C3
-		dc.l	Obj_0x15_LBz_Player_Launcher		   ; Offset_0x01D050
-		dc.l	Player_Launcher_Mappings			   ; Offset_0x01D2CA
+		dc.l	Obj_0x15_LBz_Player_Launcher		; Offset_0x01D050
+		dc.l	Player_Launcher_Mappings		; Offset_0x01D2CA
 		dc.w	$43C3
-		dc.l	Obj_0x16_LBz_Flame_Thrower			   ; Offset_0x01D312
-		dc.l	Flame_Thrower_Mappings				   ; Offset_0x01D3C6
+		dc.l	Obj_0x16_LBz_Flame_Thrower		; Offset_0x01D312
+		dc.l	Flame_Thrower_Mappings			; Offset_0x01D3C6
 		dc.w	$43AC
-		dc.l	Obj_0x17_LBz_Hooked_Ride			   ; Offset_0x01D4FC
-		dc.l	Hooked_Ride_Mappings				   ; Offset_0x01D8F8
+		dc.l	Obj_0x17_LBz_Hooked_Ride		; Offset_0x01D4FC
+		dc.l	Hooked_Ride_Mappings			; Offset_0x01D8F8
 		dc.w	$2433
-		dc.l	($07<<$18)|Obj_0x1B_LBz_Pipe_Plug	   ; Offset_0x01E2C6
-		dc.l	LBz_Pipe_Plug_Mappings				   ; Offset_0x01E61C
+		dc.l	($07<<$18)|Obj_0x1B_LBz_Pipe_Plug	; Offset_0x01E2C6
+		dc.l	LBz_Pipe_Plug_Mappings			; Offset_0x01E61C
 		dc.w	$42E6
-		dc.l	Obj_0x1E_LBz_Spin_Launcher			   ; Offset_0x01F5FC
-		dc.l	Spin_Launcher_Mappings				   ; Offset_0x01F864
+		dc.l	Obj_0x1E_LBz_Spin_Launcher		; Offset_0x01F5FC
+		dc.l	Spin_Launcher_Mappings			; Offset_0x01F864
 		dc.w	$42EA
-		dc.l	Obj_0x1F_LBz_Hook					   ; Offset_0x01F892
-		dc.l	($1A<<$18)|Hook_Mappings			   ; Offset_0x01FA5E
+		dc.l	Obj_0x1F_LBz_Hook			; Offset_0x01F892
+		dc.l	($1A<<$18)|Hook_Mappings		; Offset_0x01FA5E
 		dc.w	$42EA
-		dc.l	Obj_0x21_LBz_Gate_Laser				   ; Offset_0x01FF28
-		dc.l	($0F<<$18)|Gate_Laser_Mappings		   ; Offset_0x020036
+		dc.l	Obj_0x21_LBz_Gate_Laser			; Offset_0x01FF28
+		dc.l	($0F<<$18)|Gate_Laser_Mappings		; Offset_0x020036
 		dc.w	$42EA
-		dc.l	Obj_0x87_LBz_Snale_Blaster			   ; Offset_0x048436
-		dc.l	Snale_Blaster_Mappings				   ; Offset_0x10D3C8
+		dc.l	Obj_0x87_LBz_Snale_Blaster		; Offset_0x048436
+		dc.l	Snale_Blaster_Mappings			; Offset_0x10D3C8
 		dc.w	$2524
-		dc.l	Obj_0x89_LBz_Orbinaut				   ; Offset_0x048A94
-		dc.l	Orbinaut_Mappings					   ; Offset_0x10D472
+		dc.l	Obj_0x89_LBz_Orbinaut			; Offset_0x048A94
+		dc.l	Orbinaut_Mappings			; Offset_0x10D472
 		dc.w	$256E
-		dc.l	Obj_0x89_LBz_Orbinaut				   ; Offset_0x048A94
-		dc.l	($02<<$18)|Orbinaut_Mappings		   ; Offset_0x10D472
+		dc.l	Obj_0x89_LBz_Orbinaut			; Offset_0x048A94
+		dc.l	($02<<$18)|Orbinaut_Mappings		; Offset_0x10D472
 		dc.w	$256E
-		dc.l	Obj_0x89_LBz_Orbinaut				   ; Offset_0x048A94
-		dc.l	($04<<$18)|Orbinaut_Mappings		   ; Offset_0x10D472
+		dc.l	Obj_0x89_LBz_Orbinaut			; Offset_0x048A94
+		dc.l	($04<<$18)|Orbinaut_Mappings		; Offset_0x10D472
 		dc.w	$256E
-		dc.l	Obj_0x88_LBz_Ribot					   ; Offset_0x048756
-		dc.l	Ribot_Mappings						   ; Offset_0x10D486
+		dc.l	Obj_0x88_LBz_Ribot			; Offset_0x048756
+		dc.l	Ribot_Mappings				; Offset_0x10D486
 		dc.w	$2547
-		dc.l	Obj_0x88_LBz_Ribot					   ; Offset_0x048756
-		dc.l	($02<<$18)|Ribot_Mappings			   ; Offset_0x10D486
+		dc.l	Obj_0x88_LBz_Ribot			; Offset_0x048756
+		dc.l	($02<<$18)|Ribot_Mappings		; Offset_0x10D486
 		dc.w	$2547
-		dc.l	Obj_0x88_LBz_Ribot					   ; Offset_0x048756
-		dc.l	($04<<$18)|Ribot_Mappings			   ; Offset_0x10D486
+		dc.l	Obj_0x88_LBz_Ribot			; Offset_0x048756
+		dc.l	($04<<$18)|Ribot_Mappings		; Offset_0x10D486
 		dc.w	$2547
-		dc.l	Obj_0x8A_LBz_Corkey					   ; Offset_0x048BCE
-		dc.l	($20<<$18)|Corkey_Mappings			   ; Offset_0x10D590
+		dc.l	Obj_0x8A_LBz_Corkey			; Offset_0x048BCE
+		dc.l	($20<<$18)|Corkey_Mappings		; Offset_0x10D590
 		dc.w	$2558
-		dc.l	Obj_0x8B_LBz_Flybot_767				   ; Offset_0x048DF8
-		dc.l	Flybot_767_Mappings					   ; Offset_0x10D62E
+		dc.l	Obj_0x8B_LBz_Flybot_767			; Offset_0x048DF8
+		dc.l	Flybot_767_Mappings			; Offset_0x10D62E
 		dc.w	$2500
-		dc.l	Obj_0x34_Star_Post					   ; Offset_0x023F76
-		dc.l	($01<<$18)|Star_Post_Mappings		   ; Offset_0x024282
+		dc.l	Obj_0x34_Star_Post			; Offset_0x023F76
+		dc.l	($01<<$18)|Star_Post_Mappings		; Offset_0x024282
 		dc.w	$05EC
-		dc.l	($13<<$18)|Obj_0x54_Oxygen_Bubbles	   ; Offset_0x025500
-		dc.l	($81<<$18)|Sonic_Underwater_Mappings   ; Offset_0x025872
+		dc.l	($13<<$18)|Obj_0x54_Oxygen_Bubbles	; Offset_0x025500
+		dc.l	($81<<$18)|Sonic_Underwater_Mappings	; Offset_0x025872
 		dc.w	$845C
-		dc.l	Obj_0x11_LBz_Platform				   ; Offset_0x01BCFC
-		dc.l	($0D<<$18)|LBz_Platform_Mappings	   ; Offset_0x01C1F8
+		dc.l	Obj_0x11_LBz_Platform			; Offset_0x01BCFC
+		dc.l	($0D<<$18)|LBz_Platform_Mappings	; Offset_0x01C1F8
 		dc.w	$43C3
-		dc.l	Obj_0x18_LBz_Cup_Elevator			   ; Offset_0x01D916
-		dc.l	Cup_Elevator_Mappings				   ; Offset_0x01DF66
+		dc.l	Obj_0x18_LBz_Cup_Elevator		; Offset_0x01D916
+		dc.l	Cup_Elevator_Mappings			; Offset_0x01DF66
 		dc.w	$440D
-		dc.l	($03<<$18)|Obj_0x19_LBz_Cup_Elevator_Pole ; Offset_0x01DF10
-		dc.l	($06<<$18)|Cup_Elevator_Mappings	   ; Offset_0x01DF66
+		dc.l	($03<<$18)|Obj_0x19_LBz_Cup_Elevator_Pole	; Offset_0x01DF10
+		dc.l	($06<<$18)|Cup_Elevator_Mappings		; Offset_0x01DF66
 		dc.w	$440D
-		dc.l	Obj_0x0D_Breakable_Wall				   ; Offset_0x0170CA
-		dc.l	LBz_Breakable_Wall_Mappings			   ; Offset_0x017A3E
+		dc.l	Obj_0x0D_Breakable_Wall			; Offset_0x0170CA
+		dc.l	LBz_Breakable_Wall_Mappings		; Offset_0x017A3E
 		dc.w	$22EA
-		dc.l	($14<<$18)|Obj2F_StaticDecoration		; Offset_0x022E38
-		dc.l	($14<<$18)|Still_Sprite_Mappings	   ; Offset_0x022F02
+		dc.l	($14<<$18)|Obj2F_StaticDecoration	; Offset_0x022E38
+		dc.l	($14<<$18)|Still_Sprite_Mappings	; Offset_0x022F02
 		dc.w	$440D
-		dc.l	($15<<$18)|Obj2F_StaticDecoration		; Offset_0x022E38
-		dc.l	($15<<$18)|Still_Sprite_Mappings	   ; Offset_0x022F02
+		dc.l	($15<<$18)|Obj2F_StaticDecoration	; Offset_0x022E38
+		dc.l	($15<<$18)|Still_Sprite_Mappings	; Offset_0x022F02
 		dc.w	$2433
-		dc.l	($16<<$18)|Obj2F_StaticDecoration		; Offset_0x022E38
-		dc.l	($16<<$18)|Still_Sprite_Mappings	   ; Offset_0x022F02
+		dc.l	($16<<$18)|Obj2F_StaticDecoration	; Offset_0x022E38
+		dc.l	($16<<$18)|Still_Sprite_Mappings	; Offset_0x022F02
 		dc.w	$2433
 DOL_09_End:
 ; ---------------------------------------------------------------------------
-Debug_MVz:													   ; Offset_0x04C22E
+Debug_MVz:							; Offset_0x04C22E
 		dc.w	((DOL_0A_End-DOL_0A)/$0A) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
-DOL_0A: ; DOL - Debug Object List
-		dc.l	Obj00_Rings							; Offset_0x0109A4
-		dc.l	Rings_Mappings						   ; Offset_0x010DE2
+DOL_0A:		; DOL - Debug Object List
+		dc.l	Obj00_Rings				; Offset_0x0109A4
+		dc.l	Rings_Mappings				; Offset_0x010DE2
 		dc.w	$A6BC
-		dc.l	Obj01_Monitors						; Offset_0x012F44
-		dc.l	($08<<$18)|Monitors_Mappings		   ; Offset_0x0134A2
+		dc.l	Obj01_Monitors				; Offset_0x012F44
+		dc.l	($08<<$18)|Monitors_Mappings		; Offset_0x0134A2
 		dc.w	$04C4
 		dc.l	($01<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($09<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($09<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$26BC
 		dc.l	($05<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($0D<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($0D<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$26BC
-		dc.l	Obj07_Springs						; Offset_0x01921A
-		dc.l	($81<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	Obj07_Springs				; Offset_0x01921A
+		dc.l	($81<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04A4
-		dc.l	($03<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($90<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($03<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($90<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04B4
-		dc.l	($06<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($A0<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($06<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($A0<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04A4
-		dc.l	($07<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($30<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($07<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($30<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$043A
-		dc.l	($0A<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($40<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($0A<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($40<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$043A
-		dc.l	Obj_0x08_Spikes						   ; Offset_0x01A442
-		dc.l	Spikes_Mappings						   ; Offset_0x01A88C
+		dc.l	Obj_0x08_Spikes				; Offset_0x01A442
+		dc.l	Spikes_Mappings				; Offset_0x01A88C
 		dc.w	$049C
-		dc.l	($04<<$18)|Obj_0x08_Spikes			   ; Offset_0x01A442
-		dc.l	($40<<$18)|Spikes_Mappings			   ; Offset_0x01A88C
+		dc.l	($04<<$18)|Obj_0x08_Spikes		; Offset_0x01A442
+		dc.l	($40<<$18)|Spikes_Mappings		; Offset_0x01A88C
 		dc.w	$0494
-		dc.l	Obj_0x95_MVz_Dragonfly				   ; Offset_0x049B24
-		dc.l	Dragonfly_Mappings					   ; Offset_0x10DEFA
+		dc.l	Obj_0x95_MVz_Dragonfly			; Offset_0x049B24
+		dc.l	Dragonfly_Mappings			; Offset_0x10DEFA
 		dc.w	$056D
-		dc.l	Obj_0x97_MVz_Cluckoid				   ; Offset_0x049E50
-		dc.l	Cluckoid_Mappings					   ; Offset_0x10E052
+		dc.l	Obj_0x97_MVz_Cluckoid			; Offset_0x049E50
+		dc.l	Cluckoid_Mappings			; Offset_0x10E052
 		dc.w	$0580
-		dc.l	Obj_0x96_MVz_Butterdroid			   ; Offset_0x049DCA
-		dc.l	Butterdroid_Mappings				   ; Offset_0x10E15C
+		dc.l	Obj_0x96_MVz_Butterdroid		; Offset_0x049DCA
+		dc.l	Butterdroid_Mappings			; Offset_0x10E15C
 		dc.w	$0512
-		dc.l	Obj_0x94_MVz_Mushmeanie				   ; Offset_0x0499BC
-		dc.l	Mushmeanie_Mappings					   ; Offset_0x10E330
+		dc.l	Obj_0x94_MVz_Mushmeanie			; Offset_0x0499BC
+		dc.l	Mushmeanie_Mappings			; Offset_0x10E330
 		dc.w	$055E
-		dc.l	Obj_0x93_MVz_Madmole				   ; Offset_0x0495CC
-		dc.l	Madmole_Mappings					   ; Offset_0x10E36A
+		dc.l	Obj_0x93_MVz_Madmole			; Offset_0x0495CC
+		dc.l	Madmole_Mappings			; Offset_0x10E36A
 		dc.w	$0536
-		dc.l	Obj_0x3D_Retracting_Spring			   ; Offset_0x019EA2
-		dc.l	($81<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	Obj_0x3D_Retracting_Spring		; Offset_0x019EA2
+		dc.l	($81<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04A4
-		dc.l	($03<<$18)|Obj_0x3D_Retracting_Spring  ; Offset_0x019EA2
-		dc.l	($90<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($03<<$18)|Obj_0x3D_Retracting_Spring	; Offset_0x019EA2
+		dc.l	($90<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04B4
-		dc.l	($06<<$18)|Obj_0x3D_Retracting_Spring  ; Offset_0x019EA2
-		dc.l	($A0<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($06<<$18)|Obj_0x3D_Retracting_Spring	; Offset_0x019EA2
+		dc.l	($A0<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04A4
-		dc.l	($07<<$18)|Obj_0x3D_Retracting_Spring  ; Offset_0x019EA2
-		dc.l	($30<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($07<<$18)|Obj_0x3D_Retracting_Spring	; Offset_0x019EA2
+		dc.l	($30<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$043A
-		dc.l	($0A<<$18)|Obj_0x3D_Retracting_Spring  ; Offset_0x019EA2
-		dc.l	($40<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($0A<<$18)|Obj_0x3D_Retracting_Spring	; Offset_0x019EA2
+		dc.l	($40<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$043A
 DOL_0A_End:
 ; ---------------------------------------------------------------------------
-Debug_Sz:													   ; Offset_0x04C302
+Debug_Sz:							; Offset_0x04C302
 		dc.w	((DOL_0B_End-DOL_0B)/$0A) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
-DOL_0B: ; DOL - Debug Object List
-		dc.l	Obj00_Rings							; Offset_0x0109A4
-		dc.l	Rings_Mappings						   ; Offset_0x010DE2
+DOL_0B:		; DOL - Debug Object List
+		dc.l	Obj00_Rings				; Offset_0x0109A4
+		dc.l	Rings_Mappings				; Offset_0x010DE2
 		dc.w	$A6BC
-		dc.l	Obj01_Monitors						; Offset_0x012F44
-		dc.l	($08<<$18)|Monitors_Mappings		   ; Offset_0x0134A2
+		dc.l	Obj01_Monitors				; Offset_0x012F44
+		dc.l	($08<<$18)|Monitors_Mappings		; Offset_0x0134A2
 		dc.w	$04C4
 		dc.l	($01<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($09<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($09<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$26BC
 		dc.l	($05<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($0D<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($0D<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$26BC
-		dc.l	Obj07_Springs						; Offset_0x01921A
-		dc.l	($81<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	Obj07_Springs				; Offset_0x01921A
+		dc.l	($81<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04A4
-		dc.l	($03<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($90<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($03<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($90<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04B4
-		dc.l	($06<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($A0<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($06<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($A0<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04A4
-		dc.l	Obj_0x08_Spikes						   ; Offset_0x01A442
-		dc.l	Spikes_Mappings						   ; Offset_0x01A88C
+		dc.l	Obj_0x08_Spikes				; Offset_0x01A442
+		dc.l	Spikes_Mappings				; Offset_0x01A88C
 		dc.w	$049C
 DOL_0B_End:
 ; ---------------------------------------------------------------------------
-Debug_LRz:													   ; Offset_0x04C354
+Debug_LRz:							; Offset_0x04C354
 		dc.w	((DOL_0C_End-DOL_0C)/$0A) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
-DOL_0C: ; DOL - Debug Object List
-		dc.l	Obj00_Rings							; Offset_0x0109A4
-		dc.l	Rings_Mappings						   ; Offset_0x010DE2
+DOL_0C:		; DOL - Debug Object List
+		dc.l	Obj00_Rings				; Offset_0x0109A4
+		dc.l	Rings_Mappings				; Offset_0x010DE2
 		dc.w	$A6BC
-		dc.l	Obj01_Monitors						; Offset_0x012F44
-		dc.l	($08<<$18)|Monitors_Mappings		   ; Offset_0x0134A2
+		dc.l	Obj01_Monitors				; Offset_0x012F44
+		dc.l	($08<<$18)|Monitors_Mappings		; Offset_0x0134A2
 		dc.w	$04C4
 		dc.l	($01<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($09<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($09<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$26BC
 		dc.l	($05<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($0D<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($0D<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$26BC
-		dc.l	Obj07_Springs						; Offset_0x01921A
-		dc.l	($81<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	Obj07_Springs				; Offset_0x01921A
+		dc.l	($81<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04A4
-		dc.l	($03<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($90<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($03<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($90<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04B4
-		dc.l	($06<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($A0<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($06<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($A0<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04A4
-		dc.l	Obj_0x08_Spikes						   ; Offset_0x01A442
-		dc.l	Spikes_Mappings						   ; Offset_0x01A88C
+		dc.l	Obj_0x08_Spikes				; Offset_0x01A442
+		dc.l	Spikes_Mappings				; Offset_0x01A88C
 		dc.w	$049C
 DOL_0C_End:
 ; ---------------------------------------------------------------------------
 ; Offset_0x04C3A6: ; Dados n�o linkados na lista de depura��o ; Left over ???
-		dc.l	Obj_0x92_LRz_Toxomister				   ; Offset_0x04A400
-		dc.l	Toxomister_Mappings					   ; Offset_0x10DDAA
+		dc.l	Obj_0x92_LRz_Toxomister			; Offset_0x04A400
+		dc.l	Toxomister_Mappings			; Offset_0x10DDAA
 		dc.w	$0568
-		dc.l	Obj90_Fireworm					; Offset_0x049FB6
-		dc.l	Fireworm_Mappings					   ; Offset_0x10E2DC
+		dc.l	Obj90_Fireworm				; Offset_0x049FB6
+		dc.l	Fireworm_Mappings			; Offset_0x10E2DC
 		dc.w	$0580
-		dc.l	Obj_0x91_LRz_Iwamodock				   ; Offset_0x04A29C
-		dc.l	Iwamodock_Mappings					   ; Offset_0x10E46E
+		dc.l	Obj_0x91_LRz_Iwamodock			; Offset_0x04A29C
+		dc.l	Iwamodock_Mappings			; Offset_0x10E46E
 		dc.w	$0536
 ; ---------------------------------------------------------------------------
-Debug_SSz:													   ; Offset_0x04C3C4
+Debug_SSz:							; Offset_0x04C3C4
 		dc.w	((DOL_0D_End-DOL_0D)/$0A) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
-DOL_0D: ; DOL - Debug Object List
-		dc.l	Obj00_Rings							; Offset_0x0109A4
-		dc.l	Rings_Mappings						   ; Offset_0x010DE2
+DOL_0D:		; DOL - Debug Object List
+		dc.l	Obj00_Rings				; Offset_0x0109A4
+		dc.l	Rings_Mappings				; Offset_0x010DE2
 		dc.w	$A6BC
-		dc.l	Obj01_Monitors						; Offset_0x012F44
-		dc.l	($08<<$18)|Monitors_Mappings		   ; Offset_0x0134A2
+		dc.l	Obj01_Monitors				; Offset_0x012F44
+		dc.l	($08<<$18)|Monitors_Mappings		; Offset_0x0134A2
 		dc.w	$04C4
 		dc.l	($01<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($09<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($09<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$26BC
 		dc.l	($05<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($0D<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($0D<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$26BC
-		dc.l	Obj07_Springs						; Offset_0x01921A
-		dc.l	($81<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	Obj07_Springs				; Offset_0x01921A
+		dc.l	($81<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04A4
-		dc.l	($03<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($90<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($03<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($90<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04B4
-		dc.l	($06<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($A0<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($06<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($A0<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04A4
-		dc.l	Obj_0x08_Spikes						   ; Offset_0x01A442
-		dc.l	Spikes_Mappings						   ; Offset_0x01A88C
+		dc.l	Obj_0x08_Spikes				; Offset_0x01A442
+		dc.l	Spikes_Mappings				; Offset_0x01A88C
 		dc.w	$049C
 DOL_0D_End:
 ; ---------------------------------------------------------------------------
-Debug_DEz:													   ; Offset_0x04C416
+Debug_DEz:							; Offset_0x04C416
 		dc.w	((DOL_0E_End-DOL_0E)/$0A) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
-DOL_0E: ; DOL - Debug Object List
-		dc.l	Obj00_Rings							; Offset_0x0109A4
-		dc.l	Rings_Mappings						   ; Offset_0x010DE2
+DOL_0E:		; DOL - Debug Object List
+		dc.l	Obj00_Rings				; Offset_0x0109A4
+		dc.l	Rings_Mappings				; Offset_0x010DE2
 		dc.w	$A6BC
-		dc.l	Obj01_Monitors						; Offset_0x012F44
-		dc.l	($08<<$18)|Monitors_Mappings		   ; Offset_0x0134A2
+		dc.l	Obj01_Monitors				; Offset_0x012F44
+		dc.l	($08<<$18)|Monitors_Mappings		; Offset_0x0134A2
 		dc.w	$04C4
 		dc.l	($01<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($09<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($09<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$26BC
 		dc.l	($05<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($0D<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($0D<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$26BC
-		dc.l	Obj07_Springs						; Offset_0x01921A
-		dc.l	($81<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	Obj07_Springs				; Offset_0x01921A
+		dc.l	($81<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04A4
-		dc.l	($03<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($90<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($03<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($90<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04B4
-		dc.l	($06<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($A0<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($06<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($A0<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04A4
-		dc.l	Obj_0x08_Spikes						   ; Offset_0x01A442
-		dc.l	Spikes_Mappings						   ; Offset_0x01A88C
+		dc.l	Obj_0x08_Spikes				; Offset_0x01A442
+		dc.l	Spikes_Mappings				; Offset_0x01A88C
 		dc.w	$049C
 DOL_0E_End:
 ; ---------------------------------------------------------------------------
-Debug_TDz:													   ; Offset_0x04C468
+Debug_TDz:							; Offset_0x04C468
 		dc.w	((DOL_0F_End-DOL_0F)/$0A) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
-DOL_0F: ; DOL - Debug Object List
-		dc.l	Obj00_Rings							; Offset_0x0109A4
-		dc.l	Rings_Mappings						   ; Offset_0x010DE2
+DOL_0F:		; DOL - Debug Object List
+		dc.l	Obj00_Rings				; Offset_0x0109A4
+		dc.l	Rings_Mappings				; Offset_0x010DE2
 		dc.w	$A6BC
-		dc.l	Obj01_Monitors						; Offset_0x012F44
-		dc.l	($08<<$18)|Monitors_Mappings		   ; Offset_0x0134A2
+		dc.l	Obj01_Monitors				; Offset_0x012F44
+		dc.l	($08<<$18)|Monitors_Mappings		; Offset_0x0134A2
 		dc.w	$04C4
 		dc.l	($01<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($09<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($09<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$26BC
 		dc.l	($05<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($0D<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($0D<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$26BC
-		dc.l	Obj07_Springs						; Offset_0x01921A
-		dc.l	($81<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	Obj07_Springs				; Offset_0x01921A
+		dc.l	($81<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04A4
-		dc.l	($03<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($90<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($03<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($90<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04B4
-		dc.l	($06<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($A0<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($06<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($A0<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04A4
-		dc.l	Obj_0x08_Spikes						   ; Offset_0x01A442
-		dc.l	Spikes_Mappings						   ; Offset_0x01A88C
+		dc.l	Obj_0x08_Spikes				; Offset_0x01A442
+		dc.l	Spikes_Mappings				; Offset_0x01A88C
 		dc.w	$049C
 DOL_0F_End:
 ; ---------------------------------------------------------------------------
-Debug_HPz:													   ; Offset_0x04C4BA
+Debug_HPz:							; Offset_0x04C4BA
 		dc.w	((DOL_10_End-DOL_10)/$0A) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
-DOL_10: ; DOL - Debug Object List
-		dc.l	Obj00_Rings							; Offset_0x0109A4
-		dc.l	Rings_Mappings						   ; Offset_0x010DE2
+DOL_10:		; DOL - Debug Object List
+		dc.l	Obj00_Rings				; Offset_0x0109A4
+		dc.l	Rings_Mappings				; Offset_0x010DE2
 		dc.w	$A6BC
-		dc.l	Obj01_Monitors						; Offset_0x012F44
-		dc.l	($08<<$18)|Monitors_Mappings		   ; Offset_0x0134A2
+		dc.l	Obj01_Monitors				; Offset_0x012F44
+		dc.l	($08<<$18)|Monitors_Mappings		; Offset_0x0134A2
 		dc.w	$04C4
 		dc.l	($01<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($09<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($09<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$26BC
 		dc.l	($05<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($0D<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($0D<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$26BC
-		dc.l	Obj07_Springs						; Offset_0x01921A
-		dc.l	($81<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	Obj07_Springs				; Offset_0x01921A
+		dc.l	($81<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04A4
-		dc.l	($03<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($90<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($03<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($90<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04B4
-		dc.l	($06<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($A0<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($06<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($A0<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04A4
-		dc.l	Obj_0x08_Spikes						   ; Offset_0x01A442
-		dc.l	Spikes_Mappings						   ; Offset_0x01A88C
+		dc.l	Obj_0x08_Spikes				; Offset_0x01A442
+		dc.l	Spikes_Mappings				; Offset_0x01A88C
 		dc.w	$049C
 DOL_10_End:
 ; ---------------------------------------------------------------------------
-Debug_ALz:													   ; Offset_0x04C50C
+Debug_ALz:							; Offset_0x04C50C
 		dc.w	((DOL_11_End-DOL_11)/$0A) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
-DOL_11: ; DOL - Debug Object List
-		dc.l	Obj00_Rings							; Offset_0x0109A4
-		dc.l	Rings_Mappings						   ; Offset_0x010DE2
+DOL_11:		; DOL - Debug Object List
+		dc.l	Obj00_Rings				; Offset_0x0109A4
+		dc.l	Rings_Mappings				; Offset_0x010DE2
 		dc.w	$E3D2
-		dc.l	Obj_0x64_Bubble_Container			   ; Offset_0x02C8A8
-		dc.l	Bubble_Container_Mappings			   ; Offset_0x02CFEA
+		dc.l	Obj_0x64_Bubble_Container		; Offset_0x02C8A8
+		dc.l	Bubble_Container_Mappings		; Offset_0x02CFEA
 		dc.w	$03C6
 		dc.l	($01<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($09<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($09<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$63D2
 		dc.l	($05<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($0D<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($0D<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$63D2
-		dc.l	Obj07_Springs						; Offset_0x01921A
-		dc.l	($81<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	Obj07_Springs				; Offset_0x01921A
+		dc.l	($81<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$0391
-		dc.l	($03<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($90<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	($03<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($90<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$03AD
-		dc.l	($06<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($A0<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	($06<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($A0<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$0391
-		dc.l	Obj_0x08_Spikes						   ; Offset_0x01A442
-		dc.l	Spikes_Mappings_2P					   ; Offset_0x01A99C
+		dc.l	Obj_0x08_Spikes				; Offset_0x01A442
+		dc.l	Spikes_Mappings_2P			; Offset_0x01A99C
 		dc.w	$0391
-		dc.l	Obj_0x5F_Retracting_Spring			   ; Offset_0x019FF6
-		dc.l	Springs_Mappings_2P					   ; Offset_0x019DC2
+		dc.l	Obj_0x5F_Retracting_Spring		; Offset_0x019FF6
+		dc.l	Springs_Mappings_2P			; Offset_0x019DC2
 		dc.w	$0391
-		dc.l	($03<<$18)|Obj_0x5F_Retracting_Spring  ; Offset_0x019FF6
-		dc.l	($10<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	($03<<$18)|Obj_0x5F_Retracting_Spring	; Offset_0x019FF6
+		dc.l	($10<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$03AD
-		dc.l	($06<<$18)|Obj_0x5F_Retracting_Spring  ; Offset_0x019FF6
-		dc.l	($20<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	($06<<$18)|Obj_0x5F_Retracting_Spring	; Offset_0x019FF6
+		dc.l	($20<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$0391
-		dc.l	($03<<$18)|Obj_0x5F_Retracting_Spring  ; Offset_0x019FF6
-		dc.l	($30<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	($03<<$18)|Obj_0x5F_Retracting_Spring	; Offset_0x019FF6
+		dc.l	($30<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$03AD
-		dc.l	Obj_0x5F_Retracting_Spring			   ; Offset_0x019FF6
-		dc.l	($40<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	Obj_0x5F_Retracting_Spring		; Offset_0x019FF6
+		dc.l	($40<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$0391
-		dc.l	($06<<$18)|Obj_0x5F_Retracting_Spring  ; Offset_0x019FF6
-		dc.l	($50<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	($06<<$18)|Obj_0x5F_Retracting_Spring	; Offset_0x019FF6
+		dc.l	($50<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$0391
-		dc.l	Obj_0x5F_Retracting_Spring			   ; Offset_0x019FF6
-		dc.l	($E0<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	Obj_0x5F_Retracting_Spring		; Offset_0x019FF6
+		dc.l	($E0<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$0391
-		dc.l	($06<<$18)|Obj_0x5F_Retracting_Spring  ; Offset_0x019FF6
-		dc.l	($F0<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	($06<<$18)|Obj_0x5F_Retracting_Spring	; Offset_0x019FF6
+		dc.l	($F0<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$0391
-		dc.l	($02<<$18)|Obj_0x33_Switch			   ; Offset_0x023662
-		dc.l	Switch_Mappings_2P					   ; Offset_0x0238BC
+		dc.l	($02<<$18)|Obj_0x33_Switch		; Offset_0x023662
+		dc.l	Switch_Mappings_2P			; Offset_0x0238BC
 		dc.w	$03AD
-		dc.l	Obj_0x65_Goal_Marker				   ; Offset_0x02D124
-		dc.l	Goal_Marker_Mappings				   ; Offset_0x02D468
+		dc.l	Obj_0x65_Goal_Marker			; Offset_0x02D124
+		dc.l	Goal_Marker_Mappings			; Offset_0x02D468
 		dc.w	$06BC
 DOL_11_End:
 ; ---------------------------------------------------------------------------
-Debug_BPz:													   ; Offset_0x04C5C2
+Debug_BPz:							; Offset_0x04C5C2
 		dc.w	((DOL_12_End-DOL_12)/$0A) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
-DOL_12: ; DOL - Debug Object List
-		dc.l	Obj00_Rings							; Offset_0x0109A4
-		dc.l	Rings_Mappings						   ; Offset_0x010DE2
+DOL_12:		; DOL - Debug Object List
+		dc.l	Obj00_Rings				; Offset_0x0109A4
+		dc.l	Rings_Mappings				; Offset_0x010DE2
 		dc.w	$E3D2
-		dc.l	Obj_0x64_Bubble_Container			   ; Offset_0x02C8A8
-		dc.l	Bubble_Container_Mappings			   ; Offset_0x02CFEA
+		dc.l	Obj_0x64_Bubble_Container		; Offset_0x02C8A8
+		dc.l	Bubble_Container_Mappings		; Offset_0x02CFEA
 		dc.w	$03C6
 		dc.l	($01<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($09<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($09<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$63D2
 		dc.l	($05<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($0D<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($0D<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$63D2
-		dc.l	Obj07_Springs						; Offset_0x01921A
-		dc.l	($81<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	Obj07_Springs				; Offset_0x01921A
+		dc.l	($81<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$0391
-		dc.l	($03<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($90<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	($03<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($90<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$03AD
-		dc.l	($06<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($A0<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	($06<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($A0<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$0391
-		dc.l	Obj_0x08_Spikes						   ; Offset_0x01A442
-		dc.l	Spikes_Mappings_2P					   ; Offset_0x01A99C
+		dc.l	Obj_0x08_Spikes				; Offset_0x01A442
+		dc.l	Spikes_Mappings_2P			; Offset_0x01A99C
 		dc.w	$0391
-		dc.l	Obj_0x5F_Retracting_Spring			   ; Offset_0x019FF6
-		dc.l	Springs_Mappings_2P					   ; Offset_0x019DC2
+		dc.l	Obj_0x5F_Retracting_Spring		; Offset_0x019FF6
+		dc.l	Springs_Mappings_2P			; Offset_0x019DC2
 		dc.w	$0391
-		dc.l	($03<<$18)|Obj_0x5F_Retracting_Spring  ; Offset_0x019FF6
-		dc.l	($10<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	($03<<$18)|Obj_0x5F_Retracting_Spring	; Offset_0x019FF6
+		dc.l	($10<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$03AD
-		dc.l	($06<<$18)|Obj_0x5F_Retracting_Spring  ; Offset_0x019FF6
-		dc.l	($20<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	($06<<$18)|Obj_0x5F_Retracting_Spring	; Offset_0x019FF6
+		dc.l	($20<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$0391
-		dc.l	($03<<$18)|Obj_0x5F_Retracting_Spring  ; Offset_0x019FF6
-		dc.l	($30<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	($03<<$18)|Obj_0x5F_Retracting_Spring	; Offset_0x019FF6
+		dc.l	($30<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$03AD
-		dc.l	Obj_0x5F_Retracting_Spring			   ; Offset_0x019FF6
-		dc.l	($40<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	Obj_0x5F_Retracting_Spring		; Offset_0x019FF6
+		dc.l	($40<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$0391
-		dc.l	($06<<$18)|Obj_0x5F_Retracting_Spring  ; Offset_0x019FF6
-		dc.l	($50<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	($06<<$18)|Obj_0x5F_Retracting_Spring	; Offset_0x019FF6
+		dc.l	($50<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$0391
-		dc.l	Obj_0x5F_Retracting_Spring			   ; Offset_0x019FF6
-		dc.l	($E0<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	Obj_0x5F_Retracting_Spring		; Offset_0x019FF6
+		dc.l	($E0<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$0391
-		dc.l	($06<<$18)|Obj_0x5F_Retracting_Spring  ; Offset_0x019FF6
-		dc.l	($F0<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	($06<<$18)|Obj_0x5F_Retracting_Spring	; Offset_0x019FF6
+		dc.l	($F0<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$0391
-		dc.l	($02<<$18)|Obj_0x33_Switch			   ; Offset_0x023662
-		dc.l	Switch_Mappings_2P					   ; Offset_0x0238BC
+		dc.l	($02<<$18)|Obj_0x33_Switch		; Offset_0x023662
+		dc.l	Switch_Mappings_2P			; Offset_0x0238BC
 		dc.w	$03AD
-		dc.l	Obj_0x4A_Bumper						   ; Offset_0x029188
-		dc.l	Bumper_Mappings_2P					   ; Offset_0x0293F4
+		dc.l	Obj_0x4A_Bumper				; Offset_0x029188
+		dc.l	Bumper_Mappings_2P			; Offset_0x0293F4
 		dc.w	$2300
-		dc.l	Obj_0x60_BPz_Elephant_Block			   ; Offset_0x02C13C
-		dc.l	Elephant_Block_Mappings				   ; Offset_0x02C29E
+		dc.l	Obj_0x60_BPz_Elephant_Block		; Offset_0x02C13C
+		dc.l	Elephant_Block_Mappings			; Offset_0x02C29E
 		dc.w	$0300
-		dc.l	Obj_0x61_BPz_Balloon				   ; Offset_0x02C2C4
-		dc.l	BPz_Balloon_Mappings				   ; Offset_0x02C3DE
+		dc.l	Obj_0x61_BPz_Balloon			; Offset_0x02C2C4
+		dc.l	BPz_Balloon_Mappings			; Offset_0x02C3DE
 		dc.w	$6300
-		dc.l	Obj_0x65_Goal_Marker				   ; Offset_0x02D124
-		dc.l	Goal_Marker_Mappings				   ; Offset_0x02D468
+		dc.l	Obj_0x65_Goal_Marker			; Offset_0x02D124
+		dc.l	Goal_Marker_Mappings			; Offset_0x02D468
 		dc.w	$06BC
 DOL_12_End:
 ; ---------------------------------------------------------------------------
-Debug_DPz:													   ; Offset_0x04C696
+Debug_DPz:							; Offset_0x04C696
 		dc.w	((DOL_13_End-DOL_13)/$0A) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
-DOL_13: ; DOL - Debug Object List
-		dc.l	Obj00_Rings							; Offset_0x0109A4
-		dc.l	Rings_Mappings						   ; Offset_0x010DE2
+DOL_13:		; DOL - Debug Object List
+		dc.l	Obj00_Rings				; Offset_0x0109A4
+		dc.l	Rings_Mappings				; Offset_0x010DE2
 		dc.w	$E3D2
-		dc.l	Obj_0x64_Bubble_Container			   ; Offset_0x02C8A8
-		dc.l	Bubble_Container_Mappings			   ; Offset_0x02CFEA
+		dc.l	Obj_0x64_Bubble_Container		; Offset_0x02C8A8
+		dc.l	Bubble_Container_Mappings		; Offset_0x02CFEA
 		dc.w	$03C6
 		dc.l	($01<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($09<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($09<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$63D2
 		dc.l	($05<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($0D<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($0D<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$63D2
-		dc.l	Obj07_Springs						; Offset_0x01921A
-		dc.l	($81<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	Obj07_Springs				; Offset_0x01921A
+		dc.l	($81<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$0391
-		dc.l	($03<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($90<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	($03<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($90<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$03AD
-		dc.l	($06<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($A0<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	($06<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($A0<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$0391
-		dc.l	Obj_0x08_Spikes						   ; Offset_0x01A442
-		dc.l	Spikes_Mappings_2P					   ; Offset_0x01A99C
+		dc.l	Obj_0x08_Spikes				; Offset_0x01A442
+		dc.l	Spikes_Mappings_2P			; Offset_0x01A99C
 		dc.w	$0391
-		dc.l	Obj_0x5F_Retracting_Spring			   ; Offset_0x019FF6
-		dc.l	Springs_Mappings_2P					   ; Offset_0x019DC2
+		dc.l	Obj_0x5F_Retracting_Spring		; Offset_0x019FF6
+		dc.l	Springs_Mappings_2P			; Offset_0x019DC2
 		dc.w	$0391
-		dc.l	($03<<$18)|Obj_0x5F_Retracting_Spring  ; Offset_0x019FF6
-		dc.l	($10<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	($03<<$18)|Obj_0x5F_Retracting_Spring	; Offset_0x019FF6
+		dc.l	($10<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$03AD
-		dc.l	($06<<$18)|Obj_0x5F_Retracting_Spring  ; Offset_0x019FF6
-		dc.l	($20<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	($06<<$18)|Obj_0x5F_Retracting_Spring	; Offset_0x019FF6
+		dc.l	($20<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$0391
-		dc.l	($03<<$18)|Obj_0x5F_Retracting_Spring  ; Offset_0x019FF6
-		dc.l	($30<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	($03<<$18)|Obj_0x5F_Retracting_Spring	; Offset_0x019FF6
+		dc.l	($30<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$03AD
-		dc.l	Obj_0x5F_Retracting_Spring			   ; Offset_0x019FF6
-		dc.l	($40<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	Obj_0x5F_Retracting_Spring		; Offset_0x019FF6
+		dc.l	($40<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$0391
-		dc.l	($06<<$18)|Obj_0x5F_Retracting_Spring  ; Offset_0x019FF6
-		dc.l	($50<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	($06<<$18)|Obj_0x5F_Retracting_Spring	; Offset_0x019FF6
+		dc.l	($50<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$0391
-		dc.l	Obj_0x5F_Retracting_Spring			   ; Offset_0x019FF6
-		dc.l	($E0<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	Obj_0x5F_Retracting_Spring		; Offset_0x019FF6
+		dc.l	($E0<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$0391
-		dc.l	($06<<$18)|Obj_0x5F_Retracting_Spring  ; Offset_0x019FF6
-		dc.l	($F0<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	($06<<$18)|Obj_0x5F_Retracting_Spring	; Offset_0x019FF6
+		dc.l	($F0<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$0391
-		dc.l	($02<<$18)|Obj_0x33_Switch			   ; Offset_0x023662
-		dc.l	Switch_Mappings_2P					   ; Offset_0x0238BC
+		dc.l	($02<<$18)|Obj_0x33_Switch		; Offset_0x023662
+		dc.l	Switch_Mappings_2P			; Offset_0x0238BC
 		dc.w	$03AD
-		dc.l	Obj_0x62_DPz_Dissolving_Sand_Bar	   ; Offset_0x02C47E
-		dc.l	Dissolving_Sand_Bar_Mappings		   ; Offset_0x02C5DE
+		dc.l	Obj_0x62_DPz_Dissolving_Sand_Bar	; Offset_0x02C47E
+		dc.l	Dissolving_Sand_Bar_Mappings		; Offset_0x02C5DE
 		dc.w	$4280
-		dc.l	($1D<<$18)|Obj_0x62_DPz_Dissolving_Sand_Bar ; Offset_0x02C47E
-		dc.l	($01<<$18)|Dissolving_Sand_Bar_Mappings ; Offset_0x02C5DE
+		dc.l	($1D<<$18)|Obj_0x62_DPz_Dissolving_Sand_Bar	; Offset_0x02C47E
+		dc.l	($01<<$18)|Dissolving_Sand_Bar_Mappings		; Offset_0x02C5DE
 		dc.w	$4280
-		dc.l	Obj_0x63_DPz_Button					   ; Offset_0x02C7E6
-		dc.l	DPz_Button_Mappings					   ; Offset_0x02C894
+		dc.l	Obj_0x63_DPz_Button			; Offset_0x02C7E6
+		dc.l	DPz_Button_Mappings			; Offset_0x02C894
 		dc.w	$4280
-		dc.l	Obj_0x65_Goal_Marker				   ; Offset_0x02D124
-		dc.l	Goal_Marker_Mappings				   ; Offset_0x02D468
+		dc.l	Obj_0x65_Goal_Marker			; Offset_0x02D124
+		dc.l	Goal_Marker_Mappings			; Offset_0x02D468
 		dc.w	$06BC
 DOL_13_End:
 ; ---------------------------------------------------------------------------
-Debug_CGz:													   ; Offset_0x04C76A
+Debug_CGz:							; Offset_0x04C76A
 		dc.w	((DOL_14_End-DOL_14)/$0A) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
-DOL_14: ; DOL - Debug Object List
-		dc.l	Obj00_Rings							; Offset_0x0109A4
-		dc.l	Rings_Mappings						   ; Offset_0x010DE2
+DOL_14:		; DOL - Debug Object List
+		dc.l	Obj00_Rings				; Offset_0x0109A4
+		dc.l	Rings_Mappings				; Offset_0x010DE2
 		dc.w	$E3D2
-		dc.l	Obj_0x64_Bubble_Container			   ; Offset_0x02C8A8
-		dc.l	Bubble_Container_Mappings			   ; Offset_0x02CFEA
+		dc.l	Obj_0x64_Bubble_Container		; Offset_0x02C8A8
+		dc.l	Bubble_Container_Mappings		; Offset_0x02CFEA
 		dc.w	$03C6
 		dc.l	($01<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($09<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($09<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$63D2
 		dc.l	($05<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($0D<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($0D<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$63D2
-		dc.l	Obj07_Springs						; Offset_0x01921A
-		dc.l	($81<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	Obj07_Springs				; Offset_0x01921A
+		dc.l	($81<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$0391
-		dc.l	($03<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($90<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	($03<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($90<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$03AD
-		dc.l	($06<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($A0<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	($06<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($A0<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$0391
-		dc.l	Obj_0x08_Spikes						   ; Offset_0x01A442
-		dc.l	Spikes_Mappings_2P					   ; Offset_0x01A99C
+		dc.l	Obj_0x08_Spikes				; Offset_0x01A442
+		dc.l	Spikes_Mappings_2P			; Offset_0x01A99C
 		dc.w	$0391
-		dc.l	Obj_0x5F_Retracting_Spring			   ; Offset_0x019FF6
-		dc.l	Springs_Mappings_2P					   ; Offset_0x019DC2
+		dc.l	Obj_0x5F_Retracting_Spring		; Offset_0x019FF6
+		dc.l	Springs_Mappings_2P			; Offset_0x019DC2
 		dc.w	$0391
-		dc.l	($03<<$18)|Obj_0x5F_Retracting_Spring  ; Offset_0x019FF6
-		dc.l	($10<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	($03<<$18)|Obj_0x5F_Retracting_Spring	; Offset_0x019FF6
+		dc.l	($10<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$03AD
-		dc.l	($06<<$18)|Obj_0x5F_Retracting_Spring  ; Offset_0x019FF6
-		dc.l	($20<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	($06<<$18)|Obj_0x5F_Retracting_Spring	; Offset_0x019FF6
+		dc.l	($20<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$0391
-		dc.l	($03<<$18)|Obj_0x5F_Retracting_Spring  ; Offset_0x019FF6
-		dc.l	($30<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	($03<<$18)|Obj_0x5F_Retracting_Spring	; Offset_0x019FF6
+		dc.l	($30<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$03AD
-		dc.l	Obj_0x5F_Retracting_Spring			   ; Offset_0x019FF6
-		dc.l	($40<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	Obj_0x5F_Retracting_Spring		; Offset_0x019FF6
+		dc.l	($40<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$0391
-		dc.l	($06<<$18)|Obj_0x5F_Retracting_Spring  ; Offset_0x019FF6
-		dc.l	($50<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	($06<<$18)|Obj_0x5F_Retracting_Spring	; Offset_0x019FF6
+		dc.l	($50<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$0391
-		dc.l	Obj_0x5F_Retracting_Spring			   ; Offset_0x019FF6
-		dc.l	($E0<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	Obj_0x5F_Retracting_Spring		; Offset_0x019FF6
+		dc.l	($E0<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$0391
-		dc.l	($06<<$18)|Obj_0x5F_Retracting_Spring  ; Offset_0x019FF6
-		dc.l	($F0<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	($06<<$18)|Obj_0x5F_Retracting_Spring	; Offset_0x019FF6
+		dc.l	($F0<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$0391
-		dc.l	($02<<$18)|Obj_0x33_Switch			   ; Offset_0x023662
-		dc.l	Switch_Mappings_2P					   ; Offset_0x0238BC
+		dc.l	($02<<$18)|Obj_0x33_Switch		; Offset_0x023662
+		dc.l	Switch_Mappings_2P			; Offset_0x0238BC
 		dc.w	$03AD
-		dc.l	Obj_0x38_Hz_Fan						   ; Offset_0x026408
-		dc.l	Fan_Mappings_2P						   ; Offset_0x026A50
+		dc.l	Obj_0x38_Hz_Fan				; Offset_0x026408
+		dc.l	Fan_Mappings_2P				; Offset_0x026A50
 		dc.w	$6300
-		dc.l	Obj_0x5E_CGz_Blade_Platform			   ; Offset_0x02BFBE
-		dc.l	Blade_Platform_Mappings				   ; Offset_0x02C100
+		dc.l	Obj_0x5E_CGz_Blade_Platform		; Offset_0x02BFBE
+		dc.l	Blade_Platform_Mappings			; Offset_0x02C100
 		dc.w	$6300
-		dc.l	Obj_0x65_Goal_Marker				   ; Offset_0x02D124
-		dc.l	Goal_Marker_Mappings				   ; Offset_0x02D468
+		dc.l	Obj_0x65_Goal_Marker			; Offset_0x02D124
+		dc.l	Goal_Marker_Mappings			; Offset_0x02D468
 		dc.w	$06BC
 DOL_14_End:
 ; ---------------------------------------------------------------------------
-Debug_EMz:													   ; Offset_0x04C834
+Debug_EMz:							; Offset_0x04C834
 		dc.w	((DOL_15_End-DOL_15)/$0A) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
-DOL_15: ; DOL - Debug Object List
-		dc.l	Obj00_Rings							; Offset_0x0109A4
-		dc.l	Rings_Mappings						   ; Offset_0x010DE2
+DOL_15:		; DOL - Debug Object List
+		dc.l	Obj00_Rings				; Offset_0x0109A4
+		dc.l	Rings_Mappings				; Offset_0x010DE2
 		dc.w	$E3D2
-		dc.l	Obj_0x64_Bubble_Container			   ; Offset_0x02C8A8
-		dc.l	Bubble_Container_Mappings			   ; Offset_0x02CFEA
+		dc.l	Obj_0x64_Bubble_Container		; Offset_0x02C8A8
+		dc.l	Bubble_Container_Mappings		; Offset_0x02CFEA
 		dc.w	$03C6
 		dc.l	($01<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($09<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($09<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$63D2
 		dc.l	($05<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($0D<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($0D<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$63D2
-		dc.l	Obj07_Springs						; Offset_0x01921A
-		dc.l	($81<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	Obj07_Springs				; Offset_0x01921A
+		dc.l	($81<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$0391
-		dc.l	($03<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($90<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	($03<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($90<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$03AD
-		dc.l	($06<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($A0<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	($06<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($A0<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$0391
-		dc.l	Obj_0x08_Spikes						   ; Offset_0x01A442
-		dc.l	Spikes_Mappings_2P					   ; Offset_0x01A99C
+		dc.l	Obj_0x08_Spikes				; Offset_0x01A442
+		dc.l	Spikes_Mappings_2P			; Offset_0x01A99C
 		dc.w	$0391
-		dc.l	Obj_0x5F_Retracting_Spring			   ; Offset_0x019FF6
-		dc.l	Springs_Mappings_2P					   ; Offset_0x019DC2
+		dc.l	Obj_0x5F_Retracting_Spring		; Offset_0x019FF6
+		dc.l	Springs_Mappings_2P			; Offset_0x019DC2
 		dc.w	$0391
-		dc.l	($03<<$18)|Obj_0x5F_Retracting_Spring  ; Offset_0x019FF6
-		dc.l	($10<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	($03<<$18)|Obj_0x5F_Retracting_Spring	; Offset_0x019FF6
+		dc.l	($10<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$03AD
-		dc.l	($06<<$18)|Obj_0x5F_Retracting_Spring  ; Offset_0x019FF6
-		dc.l	($20<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	($06<<$18)|Obj_0x5F_Retracting_Spring	; Offset_0x019FF6
+		dc.l	($20<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$0391
-		dc.l	($03<<$18)|Obj_0x5F_Retracting_Spring  ; Offset_0x019FF6
-		dc.l	($30<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	($03<<$18)|Obj_0x5F_Retracting_Spring	; Offset_0x019FF6
+		dc.l	($30<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$03AD
-		dc.l	Obj_0x5F_Retracting_Spring			   ; Offset_0x019FF6
-		dc.l	($40<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	Obj_0x5F_Retracting_Spring		; Offset_0x019FF6
+		dc.l	($40<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$0391
-		dc.l	($06<<$18)|Obj_0x5F_Retracting_Spring  ; Offset_0x019FF6
-		dc.l	($50<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	($06<<$18)|Obj_0x5F_Retracting_Spring	; Offset_0x019FF6
+		dc.l	($50<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$0391
-		dc.l	Obj_0x5F_Retracting_Spring			   ; Offset_0x019FF6
-		dc.l	($E0<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	Obj_0x5F_Retracting_Spring		; Offset_0x019FF6
+		dc.l	($E0<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$0391
-		dc.l	($06<<$18)|Obj_0x5F_Retracting_Spring  ; Offset_0x019FF6
-		dc.l	($F0<<$18)|Springs_Mappings_2P		   ; Offset_0x019DC2
+		dc.l	($06<<$18)|Obj_0x5F_Retracting_Spring	; Offset_0x019FF6
+		dc.l	($F0<<$18)|Springs_Mappings_2P		; Offset_0x019DC2
 		dc.w	$0391
-		dc.l	($02<<$18)|Obj_0x33_Switch			   ; Offset_0x023662
-		dc.l	Switch_Mappings_2P					   ; Offset_0x0238BC
+		dc.l	($02<<$18)|Obj_0x33_Switch		; Offset_0x023662
+		dc.l	Switch_Mappings_2P			; Offset_0x0238BC
 		dc.w	$03AD
-		dc.l	Obj_0x65_Goal_Marker				   ; Offset_0x02D124
-		dc.l	Goal_Marker_Mappings				   ; Offset_0x02D468
+		dc.l	Obj_0x65_Goal_Marker			; Offset_0x02D124
+		dc.l	Goal_Marker_Mappings			; Offset_0x02D468
 		dc.w	$06BC
-		dc.l	Obj_0x66_EMz_Dripper				   ; Offset_0x02DF26
-		dc.l	Dripper_Mappings					   ; Offset_0x02E080
+		dc.l	Obj_0x66_EMz_Dripper			; Offset_0x02DF26
+		dc.l	Dripper_Mappings			; Offset_0x02E080
 		dc.w	$6300
-		dc.l	($03<<$18)|Obj_0x66_EMz_Dripper		   ; Offset_0x02DF26
-		dc.l	Dripper_Mappings					   ; Offset_0x02E080
+		dc.l	($03<<$18)|Obj_0x66_EMz_Dripper		; Offset_0x02DF26
+		dc.l	Dripper_Mappings			; Offset_0x02E080
 		dc.w	$C300
-		dc.l	Obj05_Rock							; Offset_0x0150FC
-		dc.l	($34<<$18)|EMz_Rock_Mappings		   ; Offset_0x0157FE
+		dc.l	Obj05_Rock				; Offset_0x0150FC
+		dc.l	($34<<$18)|EMz_Rock_Mappings		; Offset_0x0157FE
 		dc.w	$6300
-		dc.l	Obj05_Rock							; Offset_0x0150FC
-		dc.l	($33<<$18)|EMz_Rock_Mappings		   ; Offset_0x0157FE
+		dc.l	Obj05_Rock				; Offset_0x0150FC
+		dc.l	($33<<$18)|EMz_Rock_Mappings		; Offset_0x0157FE
 		dc.w	$6300
 DOL_15_End:
 ; ---------------------------------------------------------------------------
-Debug_Default:												   ; Offset_0x04C912
+Debug_Default:							; Offset_0x04C912
 		dc.w	((DOL_16_End-DOL_16)/$0A) ; Auto Detec��o do n�mero de itens na lista por Esrael Neto
-DOL_16: ; DOL - Debug Object List
-		dc.l	Obj00_Rings							; Offset_0x0109A4
-		dc.l	Rings_Mappings						   ; Offset_0x010DE2
+DOL_16:		; DOL - Debug Object List
+		dc.l	Obj00_Rings				; Offset_0x0109A4
+		dc.l	Rings_Mappings				; Offset_0x010DE2
 		dc.w	$A6BC
-		dc.l	Obj01_Monitors						; Offset_0x012F44
-		dc.l	($08<<$18)|Monitors_Mappings		   ; Offset_0x0134A2
+		dc.l	Obj01_Monitors				; Offset_0x012F44
+		dc.l	($08<<$18)|Monitors_Mappings		; Offset_0x0134A2
 		dc.w	$04C4
 		dc.l	($01<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($09<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($09<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$26BC
 		dc.l	($05<<$18)|Obj02_Pathswappers		; Offset_0x012AE8
-		dc.l	($0D<<$18)|Layer_Switch_Mappings	   ; Offset_0x012E98
+		dc.l	($0D<<$18)|Layer_Switch_Mappings	; Offset_0x012E98
 		dc.w	$26BC
-		dc.l	Obj07_Springs						; Offset_0x01921A
-		dc.l	($81<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	Obj07_Springs				; Offset_0x01921A
+		dc.l	($81<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04A4
-		dc.l	($03<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($90<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($03<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($90<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04B4
-		dc.l	($06<<$18)|Obj07_Springs			; Offset_0x01921A
-		dc.l	($A0<<$18)|Springs_Mappings			   ; Offset_0x019C1A
+		dc.l	($06<<$18)|Obj07_Springs		; Offset_0x01921A
+		dc.l	($A0<<$18)|Springs_Mappings		; Offset_0x019C1A
 		dc.w	$04A4
-		dc.l	Obj_0x08_Spikes						   ; Offset_0x01A442
-		dc.l	Spikes_Mappings						   ; Offset_0x01A88C
+		dc.l	Obj_0x08_Spikes				; Offset_0x01A442
+		dc.l	Spikes_Mappings				; Offset_0x01A88C
 		dc.w	$049C
 DOL_16_End:
 ;===============================================================================
 ; Lista de objetos das fases
 ;===============================================================================
-Object_List:												   ; Offset_0x04C964
+Object_List:							; Offset_0x04C964
 		dc.l	Obj00_Rings
 		dc.l	Obj01_Monitors
 		dc.l	Obj02_Pathswappers
-		dc.l	Obj_0x03_AIz_Hollow_Tree			   ; Offset_0x014E88
-		dc.l	Obj_0x04_Collapsing_Platform		   ; Offset_0x01582E
+		dc.l	Obj_0x03_AIz_Hollow_Tree		; Offset_0x014E88
+		dc.l	Obj_0x04_Collapsing_Platform		; Offset_0x01582E
 		dc.l	Obj05_Rock
-		dc.l	Obj_0x06_Ride_Vine					   ; Offset_0x017A8E
+		dc.l	Obj_0x06_Ride_Vine			; Offset_0x017A8E
 		dc.l	Obj07_Springs
-		dc.l	Obj_0x08_Spikes						   ; Offset_0x01A442
+		dc.l	Obj_0x08_Spikes				; Offset_0x01A442
 		dc.l	Obj09_AIZTree
 		dc.l	Obj0A_ZiplinePeg
-		dc.l	Obj_0x0B_Sphere_Test				   ; Offset_0x01B338
-		dc.l	Obj_0x0C_Swing_Ride_Vine			   ; Offset_0x0180FE
-		dc.l	Obj_0x0D_Breakable_Wall				   ; Offset_0x0170CA
-		dc.l	Obj_0x0E_Spiral_Ramp_Attributes		   ; Offset_0x01BC3A
-		dc.l	Obj_0x0F_Collapsing_Platform		   ; Offset_0x01595E
-		dc.l	Obj_0x10_LBz_Tube_Elevator			   ; Offset_0x020856 ; $10
-		dc.l	Obj_0x11_LBz_Platform				   ; Offset_0x01BCFC
-		dc.l	Obj_0x12_LBz_Elevator				   ; Offset_0x01C6A0
-		dc.l	Obj_0x13_LBz_Exploding_Trigger		   ; Offset_0x01C890
-		dc.l	Obj_0x14_LBz_Trigger_Bridge			   ; Offset_0x01CBA2
-		dc.l	Obj_0x15_LBz_Player_Launcher		   ; Offset_0x01D050
-		dc.l	Obj_0x16_LBz_Flame_Thrower			   ; Offset_0x01D312
-		dc.l	Obj_0x17_LBz_Hooked_Ride			   ; Offset_0x01D4FC
-		dc.l	Obj_0x18_LBz_Cup_Elevator			   ; Offset_0x01D916 ; $18
-		dc.l	Obj_0x19_LBz_Cup_Elevator_Pole		   ; Offset_0x01DF10
-		dc.l	Obj_0x1A_Unknow_Controled_By_P2		   ; Offset_0x01DFCE
-		dc.l	Obj_0x1B_LBz_Pipe_Plug				   ; Offset_0x01E2C6
-		dc.l	Obj_0x1C_LBz_Unknow					   ; Offset_0x01E6C6
-		dc.l	Obj_0x1D_LBz_Platform				   ; Offset_0x01C228
-		dc.l	Obj_0x1E_LBz_Spin_Launcher			   ; Offset_0x01F5FC
-		dc.l	Obj_0x1F_LBz_Hook					   ; Offset_0x01F892
-		dc.l	Obj_0x20_Smashing_Pillar_Spikes		   ; Offset_0x01FDB6 ; $20
-		dc.l	Obj_0x21_LBz_Gate_Laser				   ; Offset_0x01FF28
-		dc.l	Obj_0x22_LBz_Buzzer					   ; Offset_0x02005A
-		dc.l	Obj_0x23							   ; Offset_0x02010E
-		dc.l	Obj_0x24_Automatic_Tunnel			   ; Offset_0x0201C6
+		dc.l	Obj_0x0B_Sphere_Test			; Offset_0x01B338
+		dc.l	Obj_0x0C_Swing_Ride_Vine		; Offset_0x0180FE
+		dc.l	Obj_0x0D_Breakable_Wall			; Offset_0x0170CA
+		dc.l	Obj_0x0E_Spiral_Ramp_Attributes		; Offset_0x01BC3A
+		dc.l	Obj_0x0F_Collapsing_Platform		; Offset_0x01595E
+		dc.l	Obj_0x10_LBz_Tube_Elevator		; Offset_0x020856 ; $10
+		dc.l	Obj_0x11_LBz_Platform			; Offset_0x01BCFC
+		dc.l	Obj_0x12_LBz_Elevator			; Offset_0x01C6A0
+		dc.l	Obj_0x13_LBz_Exploding_Trigger		; Offset_0x01C890
+		dc.l	Obj_0x14_LBz_Trigger_Bridge		; Offset_0x01CBA2
+		dc.l	Obj_0x15_LBz_Player_Launcher		; Offset_0x01D050
+		dc.l	Obj_0x16_LBz_Flame_Thrower		; Offset_0x01D312
+		dc.l	Obj_0x17_LBz_Hooked_Ride		; Offset_0x01D4FC
+		dc.l	Obj_0x18_LBz_Cup_Elevator		; Offset_0x01D916 ; $18
+		dc.l	Obj_0x19_LBz_Cup_Elevator_Pole		; Offset_0x01DF10
+		dc.l	Obj_0x1A_Unknow_Controled_By_P2		; Offset_0x01DFCE
+		dc.l	Obj_0x1B_LBz_Pipe_Plug			; Offset_0x01E2C6
+		dc.l	Obj_0x1C_LBz_Unknow			; Offset_0x01E6C6
+		dc.l	Obj_0x1D_LBz_Platform			; Offset_0x01C228
+		dc.l	Obj_0x1E_LBz_Spin_Launcher		; Offset_0x01F5FC
+		dc.l	Obj_0x1F_LBz_Hook			; Offset_0x01F892
+		dc.l	Obj_0x20_Smashing_Pillar_Spikes		; Offset_0x01FDB6 ; $20
+		dc.l	Obj_0x21_LBz_Gate_Laser			; Offset_0x01FF28
+		dc.l	Obj_0x22_LBz_Buzzer			; Offset_0x02005A
+		dc.l	Obj_0x23				; Offset_0x02010E
+		dc.l	Obj_0x24_Automatic_Tunnel		; Offset_0x0201C6
 		dc.l	Obj00_Rings
-		dc.l	Obj_0x26_Auto_Spin					   ; Offset_0x013FA8
-		dc.l	Obj_0x27_Lava_Attributes			   ; Offset_0x0141F2
-		dc.l	Obj_0x28_Invisible_Block			   ; Offset_0x0142D4 ; $28
-		dc.l	Obj_0x29_AIz_Disappearing_Platform	   ; Offset_0x020EE0
-		dc.l	Obj_0x2A_Breakable_Floor			   ; Offset_0x0211D6
-		dc.l	Obj_0x2B_AIz_Flipping_Bridge		   ; Offset_0x021B1C
-		dc.l	Obj_0x2C_AIz_Collapsing_Bridge		   ; Offset_0x021F0C
-		dc.l	Obj_0x2D_AIz_Falling_Log			   ; Offset_0x0227AC
-		dc.l	Obj_0x2E_AIz_Spiked_Rotating_Log	   ; Offset_0x022A7E
-		dc.l	Obj2F_StaticDecoration					; Offset_0x022E38
+		dc.l	Obj_0x26_Auto_Spin			; Offset_0x013FA8
+		dc.l	Obj_0x27_Lava_Attributes		; Offset_0x0141F2
+		dc.l	Obj_0x28_Invisible_Block		; Offset_0x0142D4 ; $28
+		dc.l	Obj_0x29_AIz_Disappearing_Platform	; Offset_0x020EE0
+		dc.l	Obj_0x2A_Breakable_Floor		; Offset_0x0211D6
+		dc.l	Obj_0x2B_AIz_Flipping_Bridge		; Offset_0x021B1C
+		dc.l	Obj_0x2C_AIz_Collapsing_Bridge		; Offset_0x021F0C
+		dc.l	Obj_0x2D_AIz_Falling_Log		; Offset_0x0227AC
+		dc.l	Obj_0x2E_AIz_Spiked_Rotating_Log	; Offset_0x022A7E
+		dc.l	Obj2F_StaticDecoration			; Offset_0x022E38
 		dc.l	Obj30_AnimatedDecoration
-		dc.l	Obj_0x31_LBz_Rotating_Cylinders		   ; Offset_0x02350C
-		dc.l	Obj_0x32_AIz_Draw_Bridge			   ; Offset_0x02235C
-		dc.l	Obj_0x33_Switch						   ; Offset_0x023662
-		dc.l	Obj_0x34_Star_Post					   ; Offset_0x023F76
+		dc.l	Obj_0x31_LBz_Rotating_Cylinders		; Offset_0x02350C
+		dc.l	Obj_0x32_AIz_Draw_Bridge		; Offset_0x02235C
+		dc.l	Obj_0x33_Switch				; Offset_0x023662
+		dc.l	Obj_0x34_Star_Post			; Offset_0x023F76
 		dc.l	Obj35_AIZPlants
-		dc.l	Obj_0x36_Hz_Breakable_Bar			   ; Offset_0x0143B2
-		dc.l	Obj_0x37_Hz_Vertical_Water_Stream	   ; Offset_0x025964
-		dc.l	Obj_0x38_Hz_Fan						   ; Offset_0x026408 ; $38
-		dc.l	Obj_0x39_Hz_Large_Fan				   ; Offset_0x026736
-		dc.l	Obj_0x3A_Hz_Hand_Launcher			   ; Offset_0x026A80
-		dc.l	Obj_0x3B_Hz_Water_Wall				   ; Offset_0x025C30
-		dc.l	Obj_0x3C_Automatic_Door				   ; Offset_0x026ED0
-		dc.l	Obj_0x3D_Retracting_Spring			   ; Offset_0x019EA2
-		dc.l	Obj_0x3E_Conveyor_Belt_Attributes	   ; Offset_0x0271C4
-		dc.l	Obj_0x3F_Hz_Spikes_On_Conveyor_Belt	   ; Offset_0x027346
-		dc.l	Obj_0x40_Hz_Block					   ; Offset_0x014AB6 ; $40
-		dc.l	Obj_0x41_CNz_Balloon				   ; Offset_0x027552
-		dc.l	Obj_0x42_CNz_Cannon					   ; Offset_0x02794E
-		dc.l	Obj_0x43_CNz_Platform				   ; Offset_0x027DBA
-		dc.l	Obj_0x44_CNz_Trapdoor				   ; Offset_0x027F0E
-		dc.l	Obj_0x45_CNz_Light_Bulb				   ; Offset_0x027FDA
-		dc.l	Obj_0x46_CNz_Fan					   ; Offset_0x02805C
-		dc.l	Obj_0x47_CNz_Barrel					   ; Offset_0x028430
-		dc.l	Obj_0x48_CNz_Vacuum_Tubes			   ; Offset_0x028278 ; $48
-		dc.l	Obj_0x49_CNz_Wheel					   ; Offset_0x028C62
-		dc.l	Obj_0x4A_Bumper						   ; Offset_0x029188
-		dc.l	Obj_0x4B_Triangular_Springs			   ; Offset_0x028D2E
-		dc.l	Obj_0x4C_Corkscrew					   ; Offset_0x029408
-		dc.l	Obj_0x4D_CNz_Barber_Pole			   ; Offset_0x0296A0
-		dc.l	Obj_0x4E_CNz_Rotating_Mesh			   ; Offset_0x029B5E
-		dc.l	Obj_0x4F_Mud_Quicksand_Attributes	   ; Offset_0x028E12
-		dc.l	Obj_0x50_MGz_Vertical_Pole			   ; Offset_0x029F86 ; $50
-		dc.l	Obj_0x51_Floating_Platform			   ; Offset_0x01C3C2
-		dc.l	Obj_0x20_Smashing_Pillar_Spikes		   ; Offset_0x01FDB6
-		dc.l	Obj_0x53_MGz_Swinging_Platform		   ; Offset_0x02A224
-		dc.l	Obj_0x54_Oxygen_Bubbles				   ; Offset_0x025500
-		dc.l	Obj_0x55_MGz_Head_Trigger			   ; Offset_0x02A5BC
-		dc.l	Obj_0x56_MGz_Moving_Spike_Platform	   ; Offset_0x02AA8A
-		dc.l	Obj_0x57_MGz_Trigger_Platform		   ; Offset_0x02A884
-		dc.l	Obj_0x58_MGz_Swinging_Spiked_Ball	   ; Offset_0x02A390 ; $58
-		dc.l	Obj_0x59_MGz_Dash_Trigger			   ; Offset_0x01C930
-		dc.l	Obj_0x5A_MGz_Pulley					   ; Offset_0x02ACD8
-		dc.l	Obj_0x5B_MGz_Blue_Spinning_Platform	   ; Offset_0x02B19A
-		dc.l	Obj_0x5C_MGz_Blue_Platform_Launcher	   ; Offset_0x02BED2
-		dc.l	Obj_0x5D_CGz_Triangular_Springs		   ; Offset_0x029004
-		dc.l	Obj_0x5E_CGz_Blade_Platform			   ; Offset_0x02BFBE
-		dc.l	Obj_0x5F_Retracting_Spring			   ; Offset_0x019FF6
-		dc.l	Obj_0x60_BPz_Elephant_Block			   ; Offset_0x02C13C ; $60
-		dc.l	Obj_0x61_BPz_Balloon				   ; Offset_0x02C2C4
-		dc.l	Obj_0x62_DPz_Dissolving_Sand_Bar	   ; Offset_0x02C47E
-		dc.l	Obj_0x63_DPz_Button					   ; Offset_0x02C7E6
-		dc.l	Obj_0x64_Bubble_Container			   ; Offset_0x02C8A8
-		dc.l	Obj_0x65_Goal_Marker				   ; Offset_0x02D124
-		dc.l	Obj_0x66_EMz_Dripper				   ; Offset_0x02DF26
-		dc.l	Obj_0x67_Hz_Snake_Platform			   ; Offset_0x01C532
-		dc.l	Obj_0x68_Hz_Spinning_Column			   ; Offset_0x0289B8 ; $68
-		dc.l	Obj_0x69_Hz_Curved_Twisting_Pipe	   ; Offset_0x02EEEA
-		dc.l	Obj_0x6A_Hz_Horizontal_Spikes		   ; Offset_0x014B5A
-		dc.l	Obj_0x6B_Hz_Vertical_Spikes			   ; Offset_0x014CE8
-		dc.l	Obj_0x6C_Bridge						   ; Offset_0x02E504
-		dc.l	Obj_0x6D_Hz_Water_Splash			   ; Offset_0x02E22E
-		dc.l	Obj_0x6E_Hz_Waterfall				   ; Offset_0x02E0A8
+		dc.l	Obj_0x36_Hz_Breakable_Bar		; Offset_0x0143B2
+		dc.l	Obj_0x37_Hz_Vertical_Water_Stream	; Offset_0x025964
+		dc.l	Obj_0x38_Hz_Fan				; Offset_0x026408 ; $38
+		dc.l	Obj_0x39_Hz_Large_Fan			; Offset_0x026736
+		dc.l	Obj_0x3A_Hz_Hand_Launcher		; Offset_0x026A80
+		dc.l	Obj_0x3B_Hz_Water_Wall			; Offset_0x025C30
+		dc.l	Obj_0x3C_Automatic_Door			; Offset_0x026ED0
+		dc.l	Obj_0x3D_Retracting_Spring		; Offset_0x019EA2
+		dc.l	Obj_0x3E_Conveyor_Belt_Attributes	; Offset_0x0271C4
+		dc.l	Obj_0x3F_Hz_Spikes_On_Conveyor_Belt	; Offset_0x027346
+		dc.l	Obj_0x40_Hz_Block			; Offset_0x014AB6 ; $40
+		dc.l	Obj_0x41_CNz_Balloon			; Offset_0x027552
+		dc.l	Obj_0x42_CNz_Cannon			; Offset_0x02794E
+		dc.l	Obj_0x43_CNz_Platform			; Offset_0x027DBA
+		dc.l	Obj_0x44_CNz_Trapdoor			; Offset_0x027F0E
+		dc.l	Obj_0x45_CNz_Light_Bulb			; Offset_0x027FDA
+		dc.l	Obj_0x46_CNz_Fan			; Offset_0x02805C
+		dc.l	Obj_0x47_CNz_Barrel			; Offset_0x028430
+		dc.l	Obj_0x48_CNz_Vacuum_Tubes		; Offset_0x028278 ; $48
+		dc.l	Obj_0x49_CNz_Wheel			; Offset_0x028C62
+		dc.l	Obj_0x4A_Bumper				; Offset_0x029188
+		dc.l	Obj_0x4B_Triangular_Springs		; Offset_0x028D2E
+		dc.l	Obj_0x4C_Corkscrew			; Offset_0x029408
+		dc.l	Obj_0x4D_CNz_Barber_Pole		; Offset_0x0296A0
+		dc.l	Obj_0x4E_CNz_Rotating_Mesh		; Offset_0x029B5E
+		dc.l	Obj_0x4F_Mud_Quicksand_Attributes	; Offset_0x028E12
+		dc.l	Obj_0x50_MGz_Vertical_Pole		; Offset_0x029F86 ; $50
+		dc.l	Obj_0x51_Floating_Platform		; Offset_0x01C3C2
+		dc.l	Obj_0x20_Smashing_Pillar_Spikes		; Offset_0x01FDB6
+		dc.l	Obj_0x53_MGz_Swinging_Platform		; Offset_0x02A224
+		dc.l	Obj_0x54_Oxygen_Bubbles			; Offset_0x025500
+		dc.l	Obj_0x55_MGz_Head_Trigger		; Offset_0x02A5BC
+		dc.l	Obj_0x56_MGz_Moving_Spike_Platform	; Offset_0x02AA8A
+		dc.l	Obj_0x57_MGz_Trigger_Platform		; Offset_0x02A884
+		dc.l	Obj_0x58_MGz_Swinging_Spiked_Ball	; Offset_0x02A390 ; $58
+		dc.l	Obj_0x59_MGz_Dash_Trigger		; Offset_0x01C930
+		dc.l	Obj_0x5A_MGz_Pulley			; Offset_0x02ACD8
+		dc.l	Obj_0x5B_MGz_Blue_Spinning_Platform	; Offset_0x02B19A
+		dc.l	Obj_0x5C_MGz_Blue_Platform_Launcher	; Offset_0x02BED2
+		dc.l	Obj_0x5D_CGz_Triangular_Springs		; Offset_0x029004
+		dc.l	Obj_0x5E_CGz_Blade_Platform		; Offset_0x02BFBE
+		dc.l	Obj_0x5F_Retracting_Spring		; Offset_0x019FF6
+		dc.l	Obj_0x60_BPz_Elephant_Block		; Offset_0x02C13C ; $60
+		dc.l	Obj_0x61_BPz_Balloon			; Offset_0x02C2C4
+		dc.l	Obj_0x62_DPz_Dissolving_Sand_Bar	; Offset_0x02C47E
+		dc.l	Obj_0x63_DPz_Button			; Offset_0x02C7E6
+		dc.l	Obj_0x64_Bubble_Container		; Offset_0x02C8A8
+		dc.l	Obj_0x65_Goal_Marker			; Offset_0x02D124
+		dc.l	Obj_0x66_EMz_Dripper			; Offset_0x02DF26
+		dc.l	Obj_0x67_Hz_Snake_Platform		; Offset_0x01C532
+		dc.l	Obj_0x68_Hz_Spinning_Column		; Offset_0x0289B8 ; $68
+		dc.l	Obj_0x69_Hz_Curved_Twisting_Pipe	; Offset_0x02EEEA
+		dc.l	Obj_0x6A_Hz_Horizontal_Spikes		; Offset_0x014B5A
+		dc.l	Obj_0x6B_Hz_Vertical_Spikes		; Offset_0x014CE8
+		dc.l	Obj_0x6C_Bridge				; Offset_0x02E504
+		dc.l	Obj_0x6D_Hz_Water_Splash		; Offset_0x02E22E
+		dc.l	Obj_0x6E_Hz_Waterfall			; Offset_0x02E0A8
 		dc.l	Obj00_Rings
 		dc.l	Obj00_Rings
 		dc.l	Obj00_Rings
@@ -39644,122 +39646,124 @@ Object_List:												   ; Offset_0x04C964
 		dc.l	Obj00_Rings
 		dc.l	Obj00_Rings
 		dc.l	Obj00_Rings
-		dc.l	Obj_0x80_AIz_Fire_Breath			   ; Offset_0x0365AA
-		dc.l	Obj_0x81_AIz_Bloominator			   ; Offset_0x043B3E
-		dc.l	Obj_0x82_AIz_Rhinobot				   ; Offset_0x043C2A
-		dc.l	Obj_0x83_AIz_Monkey_Dude			   ; Offset_0x043F1C
+		dc.l	Obj_0x80_AIz_Fire_Breath		; Offset_0x0365AA
+		dc.l	Obj_0x81_AIz_Bloominator		; Offset_0x043B3E
+		dc.l	Obj_0x82_AIz_Rhinobot			; Offset_0x043C2A
+		dc.l	Obj_0x83_AIz_Monkey_Dude		; Offset_0x043F1C
 		dc.l	Obj84_HeyHo
-		dc.l	Obj_0x85_LBz_Twin_Hammer			   ; Offset_0x03EC12
-		dc.l	Obj_0x86_LBz_Beam_Rocket			   ; Offset_0x03F11A
-		dc.l	Obj_0x87_LBz_Snale_Blaster			   ; Offset_0x048436
-		dc.l	Obj_0x88_LBz_Ribot					   ; Offset_0x048756 ; $88
-		dc.l	Obj_0x89_LBz_Orbinaut				   ; Offset_0x048A94
-		dc.l	Obj_0x8A_LBz_Corkey					   ; Offset_0x048BCE
-		dc.l	Obj_0x8B_LBz_Flybot_767				   ; Offset_0x048DF8
-		dc.l	Obj_0x8C_LBz_Ball_Shooter			   ; Offset_0x03FE88
-		dc.l	Obj_0x8D_CNz_Graviton_Mobile		   ; Offset_0x03B9A0
-		dc.l	Obj_0x8E_CNz_Bowling_Spin			   ; Offset_0x03B01A
-		dc.l	Obj_0x8F_FBz_Gapsule				   ; Offset_0x03C27C
+		dc.l	Obj_0x85_LBz_Twin_Hammer		; Offset_0x03EC12
+		dc.l	Obj_0x86_LBz_Beam_Rocket		; Offset_0x03F11A
+		dc.l	Obj_0x87_LBz_Snale_Blaster		; Offset_0x048436
+		dc.l	Obj_0x88_LBz_Ribot			; Offset_0x048756 ; $88
+		dc.l	Obj_0x89_LBz_Orbinaut			; Offset_0x048A94
+		dc.l	Obj_0x8A_LBz_Corkey			; Offset_0x048BCE
+		dc.l	Obj_0x8B_LBz_Flybot_767			; Offset_0x048DF8
+		dc.l	Obj_0x8C_LBz_Ball_Shooter		; Offset_0x03FE88
+		dc.l	Obj_0x8D_CNz_Graviton_Mobile		; Offset_0x03B9A0
+		dc.l	Obj_0x8E_CNz_Bowling_Spin		; Offset_0x03B01A
+		dc.l	Obj_0x8F_FBz_Gapsule			; Offset_0x03C27C
 		dc.l	Obj90_Fireworm
-		dc.l	Obj_0x91_LRz_Iwamodock				   ; Offset_0x04A29C
-		dc.l	Obj_0x92_LRz_Toxomister				   ; Offset_0x04A400
-		dc.l	Obj_0x93_MVz_Madmole				   ; Offset_0x0495CC
-		dc.l	Obj_0x94_MVz_Mushmeanie				   ; Offset_0x0499BC
-		dc.l	Obj_0x95_MVz_Dragonfly				   ; Offset_0x049B24
-		dc.l	Obj_0x96_MVz_Butterdroid			   ; Offset_0x049DCA
-		dc.l	Obj_0x97_MVz_Cluckoid				   ; Offset_0x049E50
-		dc.l	Obj_0x98_Sz_Guardian				   ; Offset_0x04107E ; $98
-		dc.l	Obj_0x99_Hz_Jawz					   ; Offset_0x04465C
-		dc.l	Obj_0x9A_Hz_Blastoid				   ; Offset_0x0446D0
-		dc.l	Obj_0x9B_Hz_Buggernaut				   ; Offset_0x0447A6
-		dc.l	Obj_0x9C_Hz_Turbo_Spiker			   ; Offset_0x044946
-		dc.l	Obj_0x9D_Hz_Mega_Chopper			   ; Offset_0x044CC8
-		dc.l	Obj_0x9E_Hz_Pointdexter				   ; Offset_0x044F90
-		dc.l	Obj_0x9F_AIz_Catakiller_Jr			   ; Offset_0x044490 ; $9F
-		dc.l	Obj_0xA0_CNz_Clamer					   ; Offset_0x045C7A
-		dc.l	Obj_0xA1_CNz_Sparkle				   ; Offset_0x045E4A
-		dc.l	Obj_0xA2_CNz_Batbot					   ; Offset_0x046004
-		dc.l	Obj_0xA3_MGz_Bubbles				   ; Offset_0x04504A
-		dc.l	Obj_0xA4_MGz_Tunnelbot				   ; Offset_0x04515C
-		dc.l	Obj_0xA5_MGz_Spiker					   ; Offset_0x045864
-		dc.l	Obj_0xA6_MGz_Mantis					   ; Offset_0x045B26
-		dc.l	Obj_0xA7_FBz_Blaster				   ; Offset_0x04611C
-		dc.l	Obj_0xA8_FBz_Techno_Squeek			   ; Offset_0x046392 ; $A8
-		dc.l	Obj_0xA9_AIz_Flame_Mobile			   ; Offset_0x0371FA
-		dc.l	Obj_0xAA_Iz_Penguinator				   ; Offset_0x047F8A
-		dc.l	Obj_0xAB_Iz_Star_Pointer			   ; Offset_0x0482D2
-		dc.l	Obj_0xAC_AIz_Fire_Breath			   ; Offset_0x036AB4
-		dc.l	Obj_0xAD_Hz_Big_Shaker				   ; Offset_0x037E2C
-		dc.l	Obj_0xAE_LBz_Robotnik				   ; Offset_0x048FAC
-		dc.l	Obj_0xAF_MGz_Drill_Mobile			   ; Offset_0x039920
-		dc.l	Obj_0xB0_MGz_Drill_Mobile			   ; Offset_0x039C7E ; $B0
-		dc.l	Obj_0xB1_MGz_Drill_Mobile			   ; Offset_0x039F9E
-		dc.l	Obj_0xB2_Iz_Freezer_Mobile			   ; Offset_0x03E48C
-		dc.l	Obj_0xB3_Iz_Big_Icedus				   ; Offset_0x03DCB0
-		dc.l	Obj_0xB4_FBz_Hang_Mobile			   ; Offset_0x03D4DE
+		dc.l	Obj_0x91_LRz_Iwamodock			; Offset_0x04A29C
+		dc.l	Obj_0x92_LRz_Toxomister			; Offset_0x04A400
+		dc.l	Obj_0x93_MVz_Madmole			; Offset_0x0495CC
+		dc.l	Obj_0x94_MVz_Mushmeanie			; Offset_0x0499BC
+		dc.l	Obj_0x95_MVz_Dragonfly			; Offset_0x049B24
+		dc.l	Obj_0x96_MVz_Butterdroid		; Offset_0x049DCA
+		dc.l	Obj_0x97_MVz_Cluckoid			; Offset_0x049E50
+		dc.l	Obj_0x98_Sz_Guardian			; Offset_0x04107E ; $98
+		dc.l	Obj_0x99_Hz_Jawz			; Offset_0x04465C
+		dc.l	Obj_0x9A_Hz_Blastoid			; Offset_0x0446D0
+		dc.l	Obj_0x9B_Hz_Buggernaut			; Offset_0x0447A6
+		dc.l	Obj_0x9C_Hz_Turbo_Spiker		; Offset_0x044946
+		dc.l	Obj_0x9D_Hz_Mega_Chopper		; Offset_0x044CC8
+		dc.l	Obj_0x9E_Hz_Pointdexter			; Offset_0x044F90
+		dc.l	Obj_0x9F_AIz_Catakiller_Jr		; Offset_0x044490 ; $9F
+		dc.l	Obj_0xA0_CNz_Clamer			; Offset_0x045C7A
+		dc.l	Obj_0xA1_CNz_Sparkle			; Offset_0x045E4A
+		dc.l	Obj_0xA2_CNz_Batbot			; Offset_0x046004
+		dc.l	Obj_0xA3_MGz_Bubbles			; Offset_0x04504A
+		dc.l	Obj_0xA4_MGz_Tunnelbot			; Offset_0x04515C
+		dc.l	Obj_0xA5_MGz_Spiker			; Offset_0x045864
+		dc.l	Obj_0xA6_MGz_Mantis			; Offset_0x045B26
+		dc.l	Obj_0xA7_FBz_Blaster			; Offset_0x04611C
+		dc.l	Obj_0xA8_FBz_Techno_Squeek		; Offset_0x046392 ; $A8
+		dc.l	Obj_0xA9_AIz_Flame_Mobile		; Offset_0x0371FA
+		dc.l	Obj_0xAA_Iz_Penguinator			; Offset_0x047F8A
+		dc.l	Obj_0xAB_Iz_Star_Pointer		; Offset_0x0482D2
+		dc.l	Obj_0xAC_AIz_Fire_Breath		; Offset_0x036AB4
+		dc.l	Obj_0xAD_Hz_Big_Shaker			; Offset_0x037E2C
+		dc.l	Obj_0xAE_LBz_Robotnik			; Offset_0x048FAC
+		dc.l	Obj_0xAF_MGz_Drill_Mobile		; Offset_0x039920
+		dc.l	Obj_0xB0_MGz_Drill_Mobile		; Offset_0x039C7E ; $B0
+		dc.l	Obj_0xB1_MGz_Drill_Mobile		; Offset_0x039F9E
+		dc.l	Obj_0xB2_Iz_Freezer_Mobile		; Offset_0x03E48C
+		dc.l	Obj_0xB3_Iz_Big_Icedus			; Offset_0x03DCB0
+		dc.l	Obj_0xB4_FBz_Hang_Mobile		; Offset_0x03D4DE
 		dc.l	ObjB5_ScrewMobile
-		dc.l	Obj_0xB6_Barrier_Eggman				   ; Offset_0x03CE96
-		dc.l	Obj_0xB7_LBz_Egg_Mobile				   ; Offset_0x0493CC
-		dc.l	Obj_0xB8_Iz_Crushing_Column			   ; Offset_0x046B0E ; $B8
-		dc.l	Obj_0xB9_Iz_Platform				   ; Offset_0x04663E
-		dc.l	Obj_0xBA_Iz_Breakable_Wall			   ; Offset_0x04694C
-		dc.l	Obj_0xBB_Iz_Freezer					   ; Offset_0x046CF2
-		dc.l	Obj_0xBC_Iz_Segmented_Column		   ; Offset_0x04719E
-		dc.l	Obj_0xBD_Iz_Swinging_Platform		   ; Offset_0x047336
-		dc.l	Obj_0xBE_Iz_Stalactite				   ; Offset_0x0477C6
-		dc.l	Obj_0xBF_Iz_Ice_Cube				   ; Offset_0x04798A
-		dc.l	Obj_0xC0_Iz_Ice_Spikes				   ; Offset_0x0478D2 ; $C0
-		dc.l	Obj_0xC1_Iz_Ice_Spiked_Ball			   ; Offset_0x047AD0
-		dc.l	Obj_0xC2_Iz_Snow_Pile				   ; Offset_0x047B4E
-		dc.l	Obj_0xC3_Iz_Trampoline				   ; Offset_0x047D46
-		dc.l	Obj_0xC4_MGz_Tunnelbot				   ; Offset_0x045262
+		dc.l	Obj_0xB6_Barrier_Eggman			; Offset_0x03CE96
+		dc.l	Obj_0xB7_LBz_Egg_Mobile			; Offset_0x0493CC
+		dc.l	Obj_0xB8_Iz_Crushing_Column		; Offset_0x046B0E ; $B8
+		dc.l	Obj_0xB9_Iz_Platform			; Offset_0x04663E
+		dc.l	Obj_0xBA_Iz_Breakable_Wall		; Offset_0x04694C
+		dc.l	Obj_0xBB_Iz_Freezer			; Offset_0x046CF2
+		dc.l	Obj_0xBC_Iz_Segmented_Column		; Offset_0x04719E
+		dc.l	Obj_0xBD_Iz_Swinging_Platform		; Offset_0x047336
+		dc.l	Obj_0xBE_Iz_Stalactite			; Offset_0x0477C6
+		dc.l	Obj_0xBF_Iz_Ice_Cube			; Offset_0x04798A
+		dc.l	Obj_0xC0_Iz_Ice_Spikes			; Offset_0x0478D2 ; $C0
+		dc.l	Obj_0xC1_Iz_Ice_Spiked_Ball		; Offset_0x047AD0
+		dc.l	Obj_0xC2_Iz_Snow_Pile			; Offset_0x047B4E
+		dc.l	Obj_0xC3_Iz_Trampoline			; Offset_0x047D46
+		dc.l	Obj_0xC4_MGz_Tunnelbot			; Offset_0x045262
 		dc.l	ObjC5_HiddenMonitor
-		dc.l	Obj_0xC6_Egg_Prison					   ; Offset_0x043490
+		dc.l	Obj_0xC6_Egg_Prison			; Offset_0x043490
 		dc.l	ObjC7_CutsceneKnuckles
-		dc.l	Obj_0xC8_Iz_Trampoline_Support		   ; Offset_0x046A00 ; $C8
-		dc.l	Obj_0xC9_Knuckles_Switch			   ; Offset_0x035484
+		dc.l	Obj_0xC8_Iz_Trampoline_Support		; Offset_0x046A00 ; $C8
+		dc.l	Obj_0xC9_Knuckles_Switch		; Offset_0x035484
 		dc.l	ObjCA_AIZPlaneIntro
 ; ---------------------------------------------------------------------------
 ; Left over - Parte de ponteiros de objetos de uma compila��o anterior
 ; ---------------------------------------------------------------------------
 Offset_0x04CC90:
-		dc.w	(Obj_0xAB_Iz_Star_Pointer+$7E)&$FFFF ; Offset_0x048350
-		dc.l	Obj_0xAC_AIz_Fire_Breath+$7E		   ; Offset_0x036B32
-		dc.l	Obj_0xAD_Hz_Big_Shaker+$7E		   ; Offset_0x037EAA
-		dc.l	Obj_0xAE_LBz_Robotnik+$7E			   ; Offset_0x04902A
-		dc.l	Obj_0xAF_MGz_Drill_Mobile+$7E		   ; Offset_0x03999E
-		dc.l	Obj_0xB0_MGz_Drill_Mobile+$7E		   ; Offset_0x039CFC
-		dc.l	Obj_0xB1_MGz_Drill_Mobile+$7E		   ; Offset_0x03A01C
-		dc.l	Obj_0xB2_Iz_Freezer_Mobile+$7E	   ; Offset_0x03E50A
-		dc.l	Obj_0xB3_Iz_Big_Icedus+$7E		   ; Offset_0x03DD2E
-		dc.l	Obj_0xB4_FBz_Hang_Mobile+$7E		   ; Offset_0x03D55C
+		dc.w	(Obj_0xAB_Iz_Star_Pointer+$7E)&$FFFF	; Offset_0x048350
+		dc.l	Obj_0xAC_AIz_Fire_Breath+$7E		; Offset_0x036B32
+		dc.l	Obj_0xAD_Hz_Big_Shaker+$7E		; Offset_0x037EAA
+		dc.l	Obj_0xAE_LBz_Robotnik+$7E		; Offset_0x04902A
+		dc.l	Obj_0xAF_MGz_Drill_Mobile+$7E		; Offset_0x03999E
+		dc.l	Obj_0xB0_MGz_Drill_Mobile+$7E		; Offset_0x039CFC
+		dc.l	Obj_0xB1_MGz_Drill_Mobile+$7E		; Offset_0x03A01C
+		dc.l	Obj_0xB2_Iz_Freezer_Mobile+$7E		; Offset_0x03E50A
+		dc.l	Obj_0xB3_Iz_Big_Icedus+$7E		; Offset_0x03DD2E
+		dc.l	Obj_0xB4_FBz_Hang_Mobile+$7E		; Offset_0x03D55C
 		dc.l	ObjB5_ScrewMobile+$7E
-		dc.l	Obj_0xB6_Barrier_Eggman+$7E		   ; Offset_0x03CF14
-		dc.l	Obj_0xB7_LBz_Egg_Mobile+$7E		   ; Offset_0x04944A
-		dc.l	Obj_0xB8_Iz_Crushing_Column+$7E	   ; Offset_0x046B8C
-		dc.l	Obj_0xB9_Iz_Platform+$7E			   ; Offset_0x0466BC
-		dc.l	Obj_0xBA_Iz_Breakable_Wall+$7E	   ; Offset_0x0469CA
-		dc.l	Obj_0xBB_Iz_Freezer+$7E			   ; Offset_0x046D70
-		dc.l	Obj_0xBC_Iz_Segmented_Column+$7E	   ; Offset_0x04721C
-		dc.l	Obj_0xBD_Iz_Swinging_Platform+$7E	   ; Offset_0x0473B4
-		dc.l	Obj_0xBE_Iz_Stalactite+$7E		   ; Offset_0x047844
-		dc.l	Obj_0xBF_Iz_Ice_Cube+$7E			   ; Offset_0x047A08
-		dc.l	Obj_0xC0_Iz_Ice_Spikes+$7E		   ; Offset_0x047950
-		dc.l	Obj_0xC1_Iz_Ice_Spiked_Ball+$7E	   ; Offset_0x047B4E
-		dc.l	Obj_0xC2_Iz_Snow_Pile+$7E			   ; Offset_0x047BCC
-		dc.l	Obj_0xC3_Iz_Trampoline+$7E		   ; Offset_0x047DC4
-		dc.l	Obj_0xC4_MGz_Tunnelbot+$7E		   ; Offset_0x0452E0
+		dc.l	Obj_0xB6_Barrier_Eggman+$7E		; Offset_0x03CF14
+		dc.l	Obj_0xB7_LBz_Egg_Mobile+$7E		; Offset_0x04944A
+		dc.l	Obj_0xB8_Iz_Crushing_Column+$7E		; Offset_0x046B8C
+		dc.l	Obj_0xB9_Iz_Platform+$7E		; Offset_0x0466BC
+		dc.l	Obj_0xBA_Iz_Breakable_Wall+$7E		; Offset_0x0469CA
+		dc.l	Obj_0xBB_Iz_Freezer+$7E			; Offset_0x046D70
+		dc.l	Obj_0xBC_Iz_Segmented_Column+$7E	; Offset_0x04721C
+		dc.l	Obj_0xBD_Iz_Swinging_Platform+$7E	; Offset_0x0473B4
+		dc.l	Obj_0xBE_Iz_Stalactite+$7E		; Offset_0x047844
+		dc.l	Obj_0xBF_Iz_Ice_Cube+$7E		; Offset_0x047A08
+		dc.l	Obj_0xC0_Iz_Ice_Spikes+$7E		; Offset_0x047950
+		dc.l	Obj_0xC1_Iz_Ice_Spiked_Ball+$7E		; Offset_0x047B4E
+		dc.l	Obj_0xC2_Iz_Snow_Pile+$7E		; Offset_0x047BCC
+		dc.l	Obj_0xC3_Iz_Trampoline+$7E		; Offset_0x047DC4
+		dc.l	Obj_0xC4_MGz_Tunnelbot+$7E		; Offset_0x0452E0
 		dc.l	ObjC5_HiddenMonitor+$7E
-		dc.l	Obj_0xC6_Egg_Prison+$7E			   ; Offset_0x04350E
+		dc.l	Obj_0xC6_Egg_Prison+$7E			; Offset_0x04350E
 		dc.l	ObjC7_CutsceneKnuckles+$7E
-		dc.l	Obj_0xC8_Iz_Trampoline_Support+$7E   ; Offset_0x046A7E
-		dc.l	Obj_0xC9_Knuckles_Switch+$7E		   ; Offset_0x035502
+		dc.l	Obj_0xC8_Iz_Trampoline_Support+$7E	; Offset_0x046A7E
+		dc.l	Obj_0xC9_Knuckles_Switch+$7E		; Offset_0x035502
 		dc.l	ObjCA_AIZPlaneIntro+$7E
 ; ---------------------------------------------------------------------------
+; An even earlier version of the above. This time, only the last 3 entries!
+; ---------------------------------------------------------------------------
 Offset_0x04CD0E:
-		dc.w	(Obj_0xC8_Iz_Trampoline_Support+$88)&$FFFF ; Offset_0x046A88
-		dc.l	Obj_0xC9_Knuckles_Switch+$88		   ; Offset_0x03550C
-		dc.l	ObjCA_AIZPlaneIntro+$88	; Offset_0x035B5A
+		dc.w	(Obj_0xC8_Iz_Trampoline_Support+$88)&$FFFF	; Offset_0x046A88
+		dc.l	Obj_0xC9_Knuckles_Switch+$88		; Offset_0x03550C
+		dc.l	ObjCA_AIZPlaneIntro+$88			; Offset_0x035B5A
 		binclude	"data\star trek\part1.bin"
 Art_Sonic:
 		binclude	"data\art\sonic.dat"
